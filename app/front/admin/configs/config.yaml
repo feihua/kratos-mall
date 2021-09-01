@@ -1,0 +1,15 @@
+server:
+  http:
+    addr: 0.0.0.0:8888
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9006
+    timeout: 1s
+data:
+  database:
+    driver: mysql
+    source: root:123456@tcp(127.0.0.1:3306)/kratos-mall
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s

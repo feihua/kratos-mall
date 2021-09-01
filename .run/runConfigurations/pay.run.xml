@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="pay" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="kratos-mall" />
+    <working_directory value="$PROJECT_DIR$" />
+    <kind value="PACKAGE" />
+    <package value="kratos-mall/app/pay/cmd/pay" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/app/pay/cmd/pay/main.go" />
+    <method v="2" />
+  </configuration>
+</component>

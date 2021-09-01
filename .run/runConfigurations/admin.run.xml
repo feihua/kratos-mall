@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="admin" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <module name="kratos-mall" />
+    <working_directory value="$PROJECT_DIR$" />
+    <kind value="PACKAGE" />
+    <package value="kratos-mall/app/front/admin/cmd/admin" />
+    <directory value="$PROJECT_DIR$" />
+    <filePath value="$PROJECT_DIR$/app/front/admin/cmd/admin/main.go" />
+    <method v="2" />
+  </configuration>
+</component>
