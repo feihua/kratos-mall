@@ -5,17 +5,17 @@
 package main
 
 import (
-	"sms/internal/biz"
-	"sms/internal/conf"
-	"sms/internal/data"
-	"sms/internal/server"
-	"sms/internal/service"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
+	"kratos-mall/app/sms/internal/biz"
+	"kratos-mall/app/sms/internal/conf"
+	"kratos-mall/app/sms/internal/data"
+	"kratos-mall/app/sms/internal/server"
+	"kratos-mall/app/sms/internal/service"
 )
 
 // initApp init kratos application.
-func initApp(*conf.Server, *conf.Data, log.Logger) (*kratos.App, func(), error) {
+func initApp(*conf.Server, *conf.Registry, *conf.Data, log.Logger) (*kratos.App, func(), error) {
 	panic(wire.Build(server.ProviderSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet, newApp))
 }
