@@ -1,0 +1,53 @@
+create table sys_user
+(
+    id               bigint auto_increment comment '编号'
+        primary key,
+    name             varchar(50)                         not null comment '用户名',
+    nick_name        varchar(150)                        null comment '昵称',
+    avatar           varchar(150)                        null comment '头像',
+    password         varchar(100)                        null comment '密码',
+    salt             varchar(40)                         null comment '加密盐',
+    email            varchar(100)                        null comment '邮箱',
+    mobile           varchar(100)                        null comment '手机号',
+    status           tinyint                             null comment '状态  0：禁用   1：正常',
+    dept_id          bigint                              null comment '机构ID',
+    create_by        varchar(50)                         null comment '创建人',
+    create_time      timestamp default CURRENT_TIMESTAMP  comment '创建时间',
+    last_update_by   varchar(50)                         null comment '更新人',
+    last_update_time datetime  DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP   comment '更新时间',
+    del_flag         tinyint   default 0                 null comment '是否删除  -1：已删除  0：正常',
+    job_id           int                                 null comment '岗位Id',
+    constraint name
+        unique (name)
+)
+    comment '用户管理';
+
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (1, 'admin', '超级管理员', '', '123456', '', 'admin@qq.com', '13612345678', 1, 1, 'admin', '2018-08-14 11:11:11', 'admin', '2021-07-25 21:55:46', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (22, 'liubei', '刘备', '', '', '', 'test@qq.com', '13889700023', 1, 10, 'admin', '2018-09-23 19:43:00', 'admin', '2021-08-09 10:50:11', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (23, 'zhaoyun', '赵云', '', '', '', 'test@qq.com', '13889700023', 0, 7, 'admin', '2018-09-23 19:43:44', 'admin', '2021-08-05 09:53:56', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (24, 'zhugeliang', '诸葛亮', '', '', '', 'test@qq.com', '13889700023', 7, 11, 'admin', '2018-09-23 19:44:23', 'admin', '2021-08-10 00:01:54', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (25, 'caocao', '曹操', '', '', '', 'test@qq.com', '13889700023', 1, 12, 'admin', '2018-09-23 19:45:32', 'admin', '2021-08-09 10:49:38', 0, 2);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (26, 'dianwei', '典韦', '', '', '', 'test1@qq.com', '13889700023', 1, 10, 'admin', '2018-09-23 19:45:48', 'admin', '2021-08-07 17:47:31', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (27, 'xiahoudun', '夏侯惇', '', '', '', 'test@qq.com', '13889700023', 1, 8, 'admin', '2018-09-23 19:46:09', 'admin', '2021-08-12 00:55:57', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (28, 'xunyu', '荀彧', '', '', '', 'test@qq.com', '13889700023', 1, 10, 'admin', '2018-09-23 19:46:38', 'admin', '2021-08-12 02:46:30', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (29, 'sunquan', '孙权', '', '', '', 'test@qq.com', '13889700023', 1, 10, 'admin', '2018-09-23 19:46:54', 'admin', '2021-08-12 00:55:33', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (30, 'zhouyu', '周瑜', '', '', '', 'test@qq.com', '13889700023', 0, 1, 'admin', '2018-09-23 19:47:28', 'admin', '2021-07-25 21:56:52', 0, 2);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (31, 'luxunq', '陆逊w', '', '', '', 'test@qq.comq', '13889700023w', 0, 8, 'admin', '2018-09-23 19:47:44', 'admin', '2021-07-25 21:56:00', 0, 2);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (32, 'huanggai', '黄盖', '', '', '', 'test@qq.com', '13889700023', 1, 11, '', '2018-09-23 19:48:38', 'admin', '2021-08-06 17:34:49', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (33, '1222', '1', '', '', '', '1', '1', 1, 2, 'admin', '2021-04-26 17:57:50', 'admin', '2021-08-07 17:48:21', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (35, '12', '1', '', '', '', '1', '1', 1, 2, 'admin', '2021-04-26 18:01:53', 'admin', '2021-08-16 00:10:30', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (36, '12313', '12', '', '', '', '1', '1', 1, 2, 'admin', '2021-04-26 18:03:07', 'admin', '2021-08-18 16:35:52', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (37, '324', '1', '', '', '', '1', '1', 1, 3, 'admin', '2021-04-26 18:07:31', 'admin', '2021-08-20 18:28:16', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (38, 'aa', 'aa', '', '123456', '123456', 'a', 'a', 1, 7, 'admin', '2021-04-27 11:24:14', 'admin', '2021-04-27 11:24:14', 0, 4);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (39, '133', '133', '', '', '', '1121', '1', 1, 2, 'admin', '2021-04-27 12:30:15', 'admin', '2021-04-27 13:53:40', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (40, 'liu', 'liu', '', '123456', '123456', '1002219331@qq.com', '18613030352', 1, 8, 'admin', '2021-04-27 13:47:42', 'admin', '2021-04-27 13:47:42', 0, 4);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (41, '111111', '111111', '', '123456', '123456', '111111', '111111', 1, 7, 'admin', '2021-05-02 23:56:19', 'admin', '2021-05-02 23:56:19', 0, 2);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (42, '123', '123', '', '123456', '123456', '123', '123', 1, 7, 'admin', '2021-05-13 15:14:16', 'admin', '2021-05-13 15:14:16', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (43, 'qqq', 'qqq', '', '123456', '123456', 'qq@163.com', '13889700023', 1, 20, 'admin', '2021-06-07 12:25:55', 'admin', '2021-06-07 12:25:56', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (44, '曹备', '曹备3457', '', '', '', '21312@qq.com', '12345671234', 1, 7, 'admin', '2021-06-22 10:19:30', 'admin', '2021-08-12 09:15:04', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (48, 'aaa', 'aaa', '', '', '', '1111', 'aaa', 1, 23, 'admin', '2021-08-07 17:49:22', 'admin', '2021-08-07 18:26:47', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (49, 'zxc123', '111', '', '', '', '1111@qq.com', '18899999999', 1, 1, 'admin', '2021-08-11 23:47:56', 'admin', '2021-08-11 23:48:29', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (50, 'asdasdasd', 'asdasd', '', '123456', '123456', 'asdasdsa ', 'asdasdas', 1, 23, 'admin', '2021-08-12 01:05:31', 'admin', '2021-08-12 01:05:31', 0, 4);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (51, 'test3', 'test3n', '', '123456', '123456', 'test3@qq.com', '13701010101', 1, 5, 'admin', '2021-08-13 23:35:28', 'admin', '2021-08-13 23:35:28', 0, 1);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (52, 'test2', 'test2n', '', '123456', '123456', 'test2@qq.com', '13801010101', 1, 7, 'admin', '2021-08-13 23:36:09', 'admin', '2021-08-13 23:36:09', 0, 2);
+INSERT INTO sys_user (id, name, nick_name, avatar, password, salt, email, mobile, status, dept_id, create_by, create_time, last_update_by, last_update_time, del_flag, job_id) VALUES (53, '潘大奖', '潘大奖', '', '123456', '123456', '8924892374', '18965623', 1, 1, 'admin', '2021-08-18 15:33:41', 'admin', '2021-08-18 15:33:41', 0, 1);
