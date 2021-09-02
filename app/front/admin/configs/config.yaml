@@ -8,7 +8,7 @@ server:
 data:
   database:
     driver: mysql
-    source: root:123456@tcp(127.0.0.1:3306)/kratos-mall
+    source: root:123456@tcp(127.0.0.1:3306)/kratos-mall?charset=utf8&parseTime=True&loc=Local
   redis:
     addr: 127.0.0.1:6379
     read_timeout: 0.2s
