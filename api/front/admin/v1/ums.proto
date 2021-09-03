@@ -1,0 +1,1058 @@
+syntax = "proto3";
+
+package front.admin.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/front/admin/v1;v1";
+
+message MemberAddReq {
+  int64       MemberLevelId = 2;
+  string      Username = 3;
+  string      Password = 4;
+  string      Nickname = 5;
+  string      Phone = 6;
+  int64       Status = 7;
+  string      CreateTime = 8;
+  string      Icon = 9;
+  int64       Gender = 10;
+  string      Birthday = 11;
+  string      City = 12;
+  string      Job = 13;
+  string      PersonalizedSignature = 14;
+  int64       SourceType = 15;
+  int64       Integration = 16;
+  int64       Growth = 17;
+  int64       LuckeyCount = 18;
+  int64       HistoryIntegration = 19;
+}
+
+message MemberAddResp {
+  string pong = 1;
+}
+
+message MemberListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberListData{
+  int64       Id = 1;
+  int64       MemberLevelId = 2;
+  string      Username = 3;
+  string      Password = 4;
+  string      Nickname = 5;
+  string      Phone = 6;
+  int64       Status = 7;
+  string      CreateTime = 8;
+  string      Icon = 9;
+  int64       Gender = 10;
+  string      Birthday = 11;
+  string      City = 12;
+  string      Job = 13;
+  string      PersonalizedSignature = 14;
+  int64       SourceType = 15;
+  int64       Integration = 16;
+  int64       Growth = 17;
+  int64       LuckeyCount = 18;
+  int64       HistoryIntegration = 19;
+}
+
+message MemberListResp {
+  int64 total = 1;
+  repeated  MemberListData list = 2;
+}
+
+message MemberUpdateReq {
+  int64       Id = 1;
+  int64       MemberLevelId = 2;
+  string      Username = 3;
+  string      Password = 4;
+  string      Nickname = 5;
+  string      Phone = 6;
+  int64       Status = 7;
+  string      CreateTime = 8;
+  string      Icon = 9;
+  int64       Gender = 10;
+  string      Birthday = 11;
+  string      City = 12;
+  string      Job = 13;
+  string      PersonalizedSignature = 14;
+  int64       SourceType = 15;
+  int64       Integration = 16;
+  int64       Growth = 17;
+  int64       LuckeyCount = 18;
+  int64       HistoryIntegration = 19;
+}
+
+message MemberUpdateResp {
+  string pong = 1;
+}
+
+message MemberDeleteReq {
+  int64 id = 1;
+}
+
+message MemberDeleteResp {
+  string pong = 1;
+}
+
+
+message GrowthChangeHistoryAddReq {
+  int64      MemberId = 2;
+  string      CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message GrowthChangeHistoryAddResp {
+  string pong = 1;
+}
+
+message GrowthChangeHistoryListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message GrowthChangeHistoryListData{
+  int64      Id = 1;
+  int64      MemberId = 2;
+  string      CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message GrowthChangeHistoryListResp {
+  int64 total = 1;
+  repeated  GrowthChangeHistoryListData list = 2;
+}
+
+message GrowthChangeHistoryUpdateReq {
+  int64      Id = 1;
+  int64      MemberId = 2;
+  string      CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message GrowthChangeHistoryUpdateResp {
+  string pong = 1;
+}
+
+message GrowthChangeHistoryDeleteReq {
+  int64 id = 1;
+}
+
+message GrowthChangeHistoryDeleteResp {
+  string pong = 1;
+}
+
+message IntegrationChangeHistoryAddReq {
+  int64      MemberId = 2;
+  string  CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message IntegrationChangeHistoryAddResp {
+  string pong = 1;
+}
+
+message IntegrationChangeHistoryListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message IntegrationChangeHistoryListData{
+  int64      Id = 1;
+  int64      MemberId = 2;
+  string  CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message IntegrationChangeHistoryListResp {
+  int64 total = 1;
+  repeated  IntegrationChangeHistoryListData list = 2;
+}
+
+message IntegrationChangeHistoryUpdateReq {
+  int64      Id = 1;
+  int64      MemberId = 2;
+  string  CreateTime = 3;
+  int64      ChangeType = 4;
+  int64      ChangeCount = 5;
+  string      OperateMan = 6;
+  string      OperateNote = 7;
+  int64      SourceType = 8;
+}
+
+message IntegrationChangeHistoryUpdateResp {
+  string pong = 1;
+}
+
+message IntegrationChangeHistoryDeleteReq {
+  int64 id = 1;
+}
+
+message IntegrationChangeHistoryDeleteResp {
+  string pong = 1;
+}
+
+message IntegrationConsumeSettingAddReq {
+  int64 	DeductionPerAmount = 2;
+  int64 	MaxPercentPerOrder = 3;
+  int64 	UseUnit           = 4;
+  int64 	CouponStatus     = 5;
+}
+
+message IntegrationConsumeSettingAddResp {
+  string pong = 1;
+}
+
+message IntegrationConsumeSettingListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message IntegrationConsumeSettingListData{
+  int64 	Id = 1;
+  int64 	DeductionPerAmount = 2;
+  int64 	MaxPercentPerOrder = 3;
+  int64 	UseUnit           = 4;
+  int64 	CouponStatus     = 5;
+}
+
+message IntegrationConsumeSettingListResp {
+  int64 total = 1;
+  repeated  IntegrationConsumeSettingListData list = 2;
+}
+
+message IntegrationConsumeSettingUpdateReq {
+  int64 	Id = 1;
+  int64 	DeductionPerAmount = 2;
+  int64 	MaxPercentPerOrder = 3;
+  int64 	UseUnit           = 4;
+  int64 	CouponStatus     = 5;
+}
+
+message IntegrationConsumeSettingUpdateResp {
+  string pong = 1;
+}
+
+message IntegrationConsumeSettingDeleteReq {
+  int64 id = 1;
+}
+
+message IntegrationConsumeSettingDeleteResp {
+  string pong = 1;
+}
+
+message MemberLevelAddReq {
+  string  	Name   = 2;
+  int64   	GrowthPoint  = 3;
+  int64   	DefaultStatus  = 4;
+  int64 	FreeFreightPoint = 5;
+  int64   	CommentGrowthPoint  = 6;
+  int64   	PriviledgeFreeFreight = 7;
+  int64   	PriviledgeSignIn    = 8;
+  int64   	PriviledgeComment    = 9;
+  int64   	PriviledgePromotion  = 10;
+  int64   	PriviledgeMemberPrice = 11;
+  int64   	PriviledgeBirthday   = 12;
+  string  	Note           = 13;
+}
+
+message MemberLevelAddResp {
+  string pong = 1;
+}
+
+message MemberLevelListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberLevelListData{
+  int64   	Id   = 1;
+  string  	Name   = 2;
+  int64   	GrowthPoint  = 3;
+  int64   	DefaultStatus  = 4;
+  int64 	FreeFreightPoint = 5;
+  int64   	CommentGrowthPoint  = 6;
+  int64   	PriviledgeFreeFreight = 7;
+  int64   	PriviledgeSignIn    = 8;
+  int64   	PriviledgeComment    = 9;
+  int64   	PriviledgePromotion  = 10;
+  int64   	PriviledgeMemberPrice = 11;
+  int64   	PriviledgeBirthday   = 12;
+  string  	Note           = 13;
+}
+
+message MemberLevelListResp {
+  int64 total = 1;
+  repeated  MemberLevelListData list = 2;
+}
+
+message MemberLevelUpdateReq {
+  int64   	Id   = 1;
+  string  	Name   = 2;
+  int64   	GrowthPoint  = 3;
+  int64   	DefaultStatus  = 4;
+  int64 	FreeFreightPoint = 5;
+  int64   	CommentGrowthPoint  = 6;
+  int64   	PriviledgeFreeFreight = 7;
+  int64   	PriviledgeSignIn    = 8;
+  int64   	PriviledgeComment    = 9;
+  int64   	PriviledgePromotion  = 10;
+  int64   	PriviledgeMemberPrice = 11;
+  int64   	PriviledgeBirthday   = 12;
+  string  	Note           = 13;
+}
+
+message MemberLevelUpdateResp {
+  string pong = 1;
+}
+
+message MemberLevelDeleteReq {
+  int64 id = 1;
+}
+
+message MemberLevelDeleteResp {
+  string pong = 1;
+}
+
+message MemberLoginLogAddReq {
+  int64     	MemberId  = 2;
+  string 	CreateTime = 3;
+  string    	Ip        = 4;
+  string    	City    = 5;
+  int64     	LoginType  = 6;
+  string    	Province   = 7;
+}
+
+message MemberLoginLogAddResp {
+  string pong = 1;
+}
+
+message MemberLoginLogListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberLoginLogListData{
+  int64     	Id   = 1;
+  int64     	MemberId  = 2;
+  string 	CreateTime = 3;
+  string    	Ip        = 4;
+  string    	City    = 5;
+  int64     	LoginType  = 6;
+  string    	Province   = 7;
+}
+
+message MemberLoginLogListResp {
+  int64 total = 1;
+  repeated  MemberLoginLogListData list = 2;
+}
+
+message MemberLoginLogUpdateReq {
+  int64     	Id   = 1;
+  int64     	MemberId  = 2;
+  string 	CreateTime = 3;
+  string    	Ip        = 4;
+  string    	City    = 5;
+  int64     	LoginType  = 6;
+  string    	Province   = 7;
+}
+
+message MemberLoginLogUpdateResp {
+  string pong = 1;
+}
+
+message MemberLoginLogDeleteReq {
+  int64 id = 1;
+}
+
+message MemberLoginLogDeleteResp {
+  string pong = 1;
+}
+
+message MemberMemberTagRelationAddReq {
+  int64 	MemberId = 2;
+  int64 	TagId   = 3;
+}
+
+message MemberMemberTagRelationAddResp {
+  string pong = 1;
+}
+
+message MemberMemberTagRelationListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberMemberTagRelationListData{
+  int64 	Id  = 1;
+  int64 	MemberId = 2;
+  int64 	TagId   = 3;
+}
+
+message MemberMemberTagRelationListResp {
+  int64 total = 1;
+  repeated  MemberMemberTagRelationListData list = 2;
+}
+
+message MemberMemberTagRelationUpdateReq {
+  int64 	Id  = 1;
+  int64 	MemberId = 2;
+  int64 	TagId   = 3;
+}
+
+message MemberMemberTagRelationUpdateResp {
+  string pong = 1;
+}
+
+message MemberMemberTagRelationDeleteReq {
+  int64 id = 1;
+}
+
+message MemberMemberTagRelationDeleteResp {
+  string pong = 1;
+}
+
+message MemberProductCategoryRelationAddReq {
+  int64	MemberId     = 2;
+  int64	ProductCategoryId = 3;
+}
+
+message MemberProductCategoryRelationAddResp {
+  string pong = 1;
+}
+
+message MemberProductCategoryRelationListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberProductCategoryRelationListData{
+  int64	Id           = 1;
+  int64	MemberId     = 2;
+  int64	ProductCategoryId = 3;
+}
+
+message MemberProductCategoryRelationListResp {
+  int64 total = 1;
+  repeated  MemberProductCategoryRelationListData list = 2;
+}
+
+message MemberProductCategoryRelationUpdateReq {
+  int64	Id           = 1;
+  int64	MemberId     = 2;
+  int64	ProductCategoryId = 3;
+}
+
+message MemberProductCategoryRelationUpdateResp {
+  string pong = 1;
+}
+
+message MemberProductCategoryRelationDeleteReq {
+  int64 id = 1;
+}
+
+message MemberProductCategoryRelationDeleteResp {
+  string pong = 1;
+}
+
+
+message MemberReceiveAddressAddReq {
+  int64  	MemberId     = 2;
+  string 	Name         = 3;
+  string 	PhoneNumber   = 4;
+  int64  	DefaultStatus = 5;
+  string 	PostCode      = 6;
+  string 	Province      = 7;
+  string 	City          = 8;
+  string 	Region        = 9;
+  string 	DetailAddress = 10;
+}
+
+message MemberReceiveAddressAddResp {
+  string pong = 1;
+}
+
+message MemberReceiveAddressListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberReceiveAddressListData{
+  int64  	Id            = 1;
+  int64  	MemberId     = 2;
+  string 	Name         = 3;
+  string 	PhoneNumber   = 4;
+  int64  	DefaultStatus = 5;
+  string 	PostCode      = 6;
+  string 	Province      = 7;
+  string 	City          = 8;
+  string 	Region        = 9;
+  string 	DetailAddress = 10;
+}
+
+message MemberReceiveAddressListResp {
+  int64 total = 1;
+  repeated  MemberReceiveAddressListData list = 2;
+}
+
+message MemberReceiveAddressUpdateReq {
+  int64  	Id            = 1;
+  int64  	MemberId     = 2;
+  string 	Name         = 3;
+  string 	PhoneNumber   = 4;
+  int64  	DefaultStatus = 5;
+  string 	PostCode      = 6;
+  string 	Province      = 7;
+  string 	City          = 8;
+  string 	Region        = 9;
+  string 	DetailAddress = 10;
+}
+
+message MemberReceiveAddressUpdateResp {
+  string pong = 1;
+}
+
+message MemberReceiveAddressDeleteReq {
+  int64 id = 1;
+}
+
+message MemberReceiveAddressDeleteResp {
+  string pong = 1;
+}
+
+
+message MemberRuleSettingAddReq {
+  int64  	ContinueSignDay   = 2;
+  int64  	ContinueSignPoint  = 3;
+  int64	ConsumePerPoint    = 4;
+  int64	LowOrderAmount     = 5;
+  int64  	MaxPointPerOrder   = 6;
+  int64  	Type         = 7;
+}
+
+message MemberRuleSettingAddResp {
+  string pong = 1;
+}
+
+message MemberRuleSettingListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberRuleSettingListData{
+  int64  	Id           = 1;
+  int64  	ContinueSignDay   = 2;
+  int64  	ContinueSignPoint  = 3;
+  int64	ConsumePerPoint    = 4;
+  int64	LowOrderAmount     = 5;
+  int64  	MaxPointPerOrder   = 6;
+  int64  	Type         = 7;
+}
+
+message MemberRuleSettingListResp {
+  int64 total = 1;
+  repeated  MemberRuleSettingListData list = 2;
+}
+
+message MemberRuleSettingUpdateReq {
+  int64  	Id           = 1;
+  int64  	ContinueSignDay   = 2;
+  int64  	ContinueSignPoint  = 3;
+  int64	ConsumePerPoint    = 4;
+  int64	LowOrderAmount     = 5;
+  int64  	MaxPointPerOrder   = 6;
+  int64  	Type         = 7;
+}
+
+message MemberRuleSettingUpdateResp {
+  string pong = 1;
+}
+
+message MemberRuleSettingDeleteReq {
+  int64 id = 1;
+}
+
+message MemberRuleSettingDeleteResp {
+  string pong = 1;
+}
+
+message MemberStatisticsInfoAddReq {
+  int64     	MemberId   = 2;
+  int64   	ConsumeAmount    = 3;
+  int64     	OrderCount    = 4;
+  int64     	CouponCount   = 5;
+  int64     	CommentCount     = 6;
+  int64     	ReturnOrderCount  = 7;
+  int64     	LoginCount         = 8;
+  int64     	AttendCount         = 9;
+  int64     	FansCount           = 10;
+  int64     	CollectProductCount = 11;
+  int64     	CollectSubjectCount = 12;
+  int64     	CollectTopicCount   = 13;
+  int64     	CollectCommentCount = 14;
+  int64     	InviteFriendCount   = 15;
+  string 	RecentOrderTime     = 16;
+}
+
+message MemberStatisticsInfoAddResp {
+  string pong = 1;
+}
+
+message MemberStatisticsInfoListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberStatisticsInfoListData{
+  int64     	Id    = 1;
+  int64     	MemberId   = 2;
+  int64   	ConsumeAmount    = 3;
+  int64     	OrderCount    = 4;
+  int64     	CouponCount   = 5;
+  int64     	CommentCount     = 6;
+  int64     	ReturnOrderCount  = 7;
+  int64     	LoginCount         = 8;
+  int64     	AttendCount         = 9;
+  int64     	FansCount           = 10;
+  int64     	CollectProductCount = 11;
+  int64     	CollectSubjectCount = 12;
+  int64     	CollectTopicCount   = 13;
+  int64     	CollectCommentCount = 14;
+  int64     	InviteFriendCount   = 15;
+  string 	RecentOrderTime     = 16;
+}
+
+message MemberStatisticsInfoListResp {
+  int64 total = 1;
+  repeated  MemberStatisticsInfoListData list = 2;
+}
+
+message MemberStatisticsInfoUpdateReq {
+  int64     	Id    = 1;
+  int64     	MemberId   = 2;
+  int64   	ConsumeAmount    = 3;
+  int64     	OrderCount    = 4;
+  int64     	CouponCount   = 5;
+  int64     	CommentCount     = 6;
+  int64     	ReturnOrderCount  = 7;
+  int64     	LoginCount         = 8;
+  int64     	AttendCount         = 9;
+  int64     	FansCount           = 10;
+  int64     	CollectProductCount = 11;
+  int64     	CollectSubjectCount = 12;
+  int64     	CollectTopicCount   = 13;
+  int64     	CollectCommentCount = 14;
+  int64     	InviteFriendCount   = 15;
+  string 	RecentOrderTime     = 16;
+}
+
+message MemberStatisticsInfoUpdateResp {
+  string pong = 1;
+}
+
+message MemberStatisticsInfoDeleteReq {
+  int64 id = 1;
+}
+
+message MemberStatisticsInfoDeleteResp {
+  string pong = 1;
+}
+
+
+message MemberTagAddReq {
+  string  	Name    = 2;
+  int64   	FinishOrderCount = 3;
+  int64 	FinishOrderAmount= 4;
+}
+
+message MemberTagAddResp {
+  string pong = 1;
+}
+
+message MemberTagListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberTagListData{
+  int64   	Id      = 1;
+  string  	Name    = 2;
+  int64   	FinishOrderCount = 3;
+  int64 	FinishOrderAmount= 4;
+}
+
+message MemberTagListResp {
+  int64 total = 1;
+  repeated  MemberTagListData list = 2;
+}
+
+message MemberTagUpdateReq {
+  int64   	Id      = 1;
+  string  	Name    = 2;
+  int64   	FinishOrderCount = 3;
+  int64 	FinishOrderAmount= 4;
+}
+
+message MemberTagUpdateResp {
+  string pong = 1;
+}
+
+message MemberTagDeleteReq {
+  int64 id = 1;
+}
+
+message MemberTagDeleteResp {
+  string pong = 1;
+}
+
+
+message MemberTaskAddReq {
+  string 	Name    = 2;
+  int64  	Growth     =3;
+  int64  	Intergration  = 4;
+  int64  	Type         = 5;
+}
+
+message MemberTaskAddResp {
+  string pong = 1;
+}
+
+message MemberTaskListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message MemberTaskListData{
+  int64  	Id    = 1;
+  string 	Name    = 2;
+  int64  	Growth     =3;
+  int64  	Intergration  = 4;
+  int64  	Type         = 5;
+}
+
+message MemberTaskListResp {
+  int64 total = 1;
+  repeated  MemberTaskListData list = 2;
+}
+
+message MemberTaskUpdateReq {
+  int64  	Id    = 1;
+  string 	Name    = 2;
+  int64  	Growth     =3;
+  int64  	Intergration  = 4;
+  int64  	Type         = 5;
+}
+
+message MemberTaskUpdateResp {
+  string pong = 1;
+}
+
+message MemberTaskDeleteReq {
+  int64 id = 1;
+}
+
+message MemberTaskDeleteResp {
+  string pong = 1;
+}
+
+service Ums {
+
+  rpc MemberAdd(MemberAddReq) returns(MemberAddResp){
+    option (google.api.http) = {
+      post: "/api/member/member/add"
+      body: "*"
+    };
+  }
+  rpc MemberList(MemberListReq) returns(MemberListResp){
+    option (google.api.http) = {
+      post: "/api/member/member/list"
+      body: "*"
+    };
+  }
+  rpc MemberUpdate(MemberUpdateReq) returns(MemberUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/member/update"
+      body: "*"
+    };
+  }
+  rpc MemberDelete(MemberDeleteReq) returns(MemberDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/member/delete"
+      body: "*"
+    };
+  }
+
+
+  rpc GrowthChangeHistoryAdd(GrowthChangeHistoryAddReq) returns(GrowthChangeHistoryAddResp){
+    option (google.api.http) = {
+      post: "/api/member/growthchangehistory/add"
+      body: "*"
+    };
+  }
+  rpc GrowthChangeHistoryList(GrowthChangeHistoryListReq) returns(GrowthChangeHistoryListResp){
+    option (google.api.http) = {
+      post: "/api/member/growthchangehistory/list"
+      body: "*"
+    };
+  }
+  rpc GrowthChangeHistoryUpdate(GrowthChangeHistoryUpdateReq) returns(GrowthChangeHistoryUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/growthchangehistory/update"
+      body: "*"
+    };
+  }
+  rpc GrowthChangeHistoryDelete(GrowthChangeHistoryDeleteReq) returns(GrowthChangeHistoryDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/growthchangehistory/delete"
+      body: "*"
+    };
+  }
+
+  rpc IntegrationChangeHistoryAdd(IntegrationChangeHistoryAddReq) returns(IntegrationChangeHistoryAddResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationchangehistory/add"
+      body: "*"
+    };
+  }
+  rpc IntegrationChangeHistoryList(IntegrationChangeHistoryListReq) returns(IntegrationChangeHistoryListResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationchangehistory/list"
+      body: "*"
+    };
+  }
+  rpc IntegrationChangeHistoryUpdate(IntegrationChangeHistoryUpdateReq) returns(IntegrationChangeHistoryUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationchangehistory/update"
+      body: "*"
+    };
+  }
+  rpc IntegrationChangeHistoryDelete(IntegrationChangeHistoryDeleteReq) returns(IntegrationChangeHistoryDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationchangehistory/delete"
+      body: "*"
+    };
+  }
+
+  rpc IntegrationConsumeSettingAdd(IntegrationConsumeSettingAddReq) returns(IntegrationConsumeSettingAddResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationconsumesetting/add"
+      body: "*"
+    };
+  }
+  rpc IntegrationConsumeSettingList(IntegrationConsumeSettingListReq) returns(IntegrationConsumeSettingListResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationconsumesetting/list"
+      body: "*"
+    };
+  }
+  rpc IntegrationConsumeSettingUpdate(IntegrationConsumeSettingUpdateReq) returns(IntegrationConsumeSettingUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationconsumesetting/update"
+      body: "*"
+    };
+  }
+  rpc IntegrationConsumeSettingDelete(IntegrationConsumeSettingDeleteReq) returns(IntegrationConsumeSettingDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/integrationconsumesetting/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberLevelAdd(MemberLevelAddReq) returns(MemberLevelAddResp){
+    option (google.api.http) = {
+      post: "/api/member/level/add"
+      body: "*"
+    };
+  }
+  rpc MemberLevelList(MemberLevelListReq) returns(MemberLevelListResp){
+    option (google.api.http) = {
+      post: "/api/member/level/list"
+      body: "*"
+    };
+  }
+  rpc MemberLevelUpdate(MemberLevelUpdateReq) returns(MemberLevelUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/level/update"
+      body: "*"
+    };
+  }
+  rpc MemberLevelDelete(MemberLevelDeleteReq) returns(MemberLevelDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/level/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberLoginLogAdd(MemberLoginLogAddReq) returns(MemberLoginLogAddResp){
+    option (google.api.http) = {
+      post: "/api/member/loginlog/add"
+      body: "*"
+    };
+  }
+  rpc MemberLoginLogList(MemberLoginLogListReq) returns(MemberLoginLogListResp){
+    option (google.api.http) = {
+      post: "/api/member/loginlog/list"
+      body: "*"
+    };
+  }
+  rpc MemberLoginLogUpdate(MemberLoginLogUpdateReq) returns(MemberLoginLogUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/loginlog/update"
+      body: "*"
+    };
+  }
+  rpc MemberLoginLogDelete(MemberLoginLogDeleteReq) returns(MemberLoginLogDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/loginlog/delete"
+      body: "*"
+    };
+  }
+
+
+  rpc MemberReceiveAddressAdd(MemberReceiveAddressAddReq) returns(MemberReceiveAddressAddResp){
+    option (google.api.http) = {
+      post: "/api/member/address/add"
+      body: "*"
+    };
+  }
+  rpc MemberReceiveAddressList(MemberReceiveAddressListReq) returns(MemberReceiveAddressListResp){
+    option (google.api.http) = {
+      post: "/api/member/address/list"
+      body: "*"
+    };
+  }
+  rpc MemberReceiveAddressUpdate(MemberReceiveAddressUpdateReq) returns(MemberReceiveAddressUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/address/update"
+      body: "*"
+    };
+  }
+  rpc MemberReceiveAddressDelete(MemberReceiveAddressDeleteReq) returns(MemberReceiveAddressDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/address/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberRuleSettingAdd(MemberRuleSettingAddReq) returns(MemberRuleSettingAddResp){
+    option (google.api.http) = {
+      post: "/api/member/rulesetting/add"
+      body: "*"
+    };
+  }
+  rpc MemberRuleSettingList(MemberRuleSettingListReq) returns(MemberRuleSettingListResp){
+    option (google.api.http) = {
+      post: "/api/member/rulesetting/list"
+      body: "*"
+    };
+  }
+  rpc MemberRuleSettingUpdate(MemberRuleSettingUpdateReq) returns(MemberRuleSettingUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/rulesetting/update"
+      body: "*"
+    };
+  }
+  rpc MemberRuleSettingDelete(MemberRuleSettingDeleteReq) returns(MemberRuleSettingDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/rulesetting/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberStatisticsInfoAdd(MemberStatisticsInfoAddReq) returns(MemberStatisticsInfoAddResp){
+    option (google.api.http) = {
+      post: "/api/member/statistics/add"
+      body: "*"
+    };
+  }
+  rpc MemberStatisticsInfoList(MemberStatisticsInfoListReq) returns(MemberStatisticsInfoListResp){
+    option (google.api.http) = {
+      post: "/api/member/statistics/list"
+      body: "*"
+    };
+  }
+  rpc MemberStatisticsInfoUpdate(MemberStatisticsInfoUpdateReq) returns(MemberStatisticsInfoUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/statistics/update"
+      body: "*"
+    };
+  }
+  rpc MemberStatisticsInfoDelete(MemberStatisticsInfoDeleteReq) returns(MemberStatisticsInfoDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/statistics/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberTagAdd(MemberTagAddReq) returns(MemberTagAddResp){
+    option (google.api.http) = {
+      post: "/api/member/tag/add"
+      body: "*"
+    };
+  }
+  rpc MemberTagList(MemberTagListReq) returns(MemberTagListResp){
+    option (google.api.http) = {
+      post: "/api/member/tag/list"
+      body: "*"
+    };
+  }
+  rpc MemberTagUpdate(MemberTagUpdateReq) returns(MemberTagUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/tag/update"
+      body: "*"
+    };
+  }
+  rpc MemberTagDelete(MemberTagDeleteReq) returns(MemberTagDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/tag/delete"
+      body: "*"
+    };
+  }
+
+  rpc MemberTaskAdd(MemberTaskAddReq) returns(MemberTaskAddResp){
+    option (google.api.http) = {
+      post: "/api/member/task/add"
+      body: "*"
+    };
+  }
+  rpc MemberTaskList(MemberTaskListReq) returns(MemberTaskListResp){
+    option (google.api.http) = {
+      post: "/api/member/task/list"
+      body: "*"
+    };
+  }
+  rpc MemberTaskUpdate(MemberTaskUpdateReq) returns(MemberTaskUpdateResp){
+    option (google.api.http) = {
+      post: "/api/member/task/update"
+      body: "*"
+    };
+  }
+  rpc MemberTaskDelete(MemberTaskDeleteReq) returns(MemberTaskDeleteResp){
+    option (google.api.http) = {
+      post: "/api/member/task/delete"
+      body: "*"
+    };
+  }
+}

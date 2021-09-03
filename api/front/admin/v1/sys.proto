@@ -1,0 +1,866 @@
+syntax = "proto3";
+
+package front.admin.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/front/admin/v1;v1";
+
+//user start---------------------
+message LoginReq {
+  string user_name = 1;
+  string password = 2;
+}
+
+message LoginResp {
+  string status = 1;
+  string currentAuthority = 2;
+  int64 id = 3;
+  string userName = 4;
+  string AccessToken = 5;
+  int64 AccessExpire = 6;
+  int64 RefreshAfter = 7;
+}
+
+message InfoReq {
+  int64 UserId = 1;
+}
+
+message InfoResp {
+  string avatar = 1;
+  string name = 2;
+  repeated MenuListTree menuListTree=3;
+  repeated string BackgroundUrls =4;
+}
+
+message UserAddReq {
+  string email = 1;
+  string mobile = 2;
+  string name = 3;
+  string nick_name = 4;
+  string avatar = 5;
+  int64 dept_id = 6;
+  string create_by = 7;
+  int64 role_id = 8;
+  int64 job_id = 9;
+}
+
+message UserAddResp {
+  string pong = 1;
+}
+
+message UserListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+  string name = 3;
+  string nick_name = 4;
+  string mobile = 5;
+  string email = 6;
+  int64 status = 7;
+  int64 dept_id = 8;
+}
+
+message UserListData{
+  int64 id = 1;
+  string name = 2;
+  string nick_name = 3;
+  string avatar = 4;
+  string password = 5;
+  string salt = 6;
+  string email = 7;
+  string mobile = 8;
+  int64 status = 9;
+  int64 dept_id = 10;
+  string create_by = 11;
+  string create_time = 12;
+  string last_update_by = 13;
+  string last_update_time = 14;
+  int64 del_flag = 15;
+  int64 job_id = 16;
+  int64 role_id = 17;
+  string role_name = 18;
+  string job_name = 19;
+  string dept_name = 20;
+}
+
+message UserListResp {
+  int64 total = 1;
+  repeated  UserListData list = 2;
+}
+
+message UserUpdateReq {
+  int64 id = 1;
+  string email = 2;
+  string mobile = 3;
+  string name = 4;
+  string nick_name = 5;
+  string avatar = 6;
+  int64 dept_id = 7;
+  string last_update_by = 8;
+  int64 role_id = 9;
+  int64 status = 10;
+  int64 job_id = 11;
+}
+
+message UserUpdateResp {
+  string pong = 1;
+}
+
+message UserDeleteReq {
+  int64 id = 1;
+}
+
+message UserDeleteResp {
+  string pong = 1;
+}
+
+
+message ReSetPasswordReq {
+  int64 id = 1;
+  string last_update_by = 2;
+}
+
+message ReSetPasswordResp {
+  string pong = 1;
+}
+
+message UserStatusReq {
+  int64 id = 1;
+  int64 status = 2;
+  string last_update_by = 3;
+}
+
+message UserStatusResp {
+  string pong = 1;
+}
+//user start---------------------
+
+//role start---------------------
+message RoleAddReq {
+  string name = 1;
+  string remark = 2;
+  string create_by = 3;
+  int64 status = 5;
+}
+
+message RoleAddResp {
+  string pong = 1;
+}
+
+message RoleListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+  string name = 3;
+  int64 status = 4;
+}
+
+message RoleListData {
+  int64 id = 1;
+  string name = 2;
+  string remark = 3;
+  string create_by = 4;
+  string create_time = 5;
+  string last_update_by = 6;
+  string last_update_time = 7;
+  int64 del_flag = 8;
+  int64 status = 9;
+}
+
+message RoleListResp {
+  int64 total = 1;
+  repeated  RoleListData list = 2;
+}
+
+message RoleUpdateReq {
+  int64 id = 1;
+  string name = 2;
+  string remark = 3;
+  string last_update_by = 4;
+  int64 status = 5;
+}
+
+message RoleUpdateResp {
+  string pong = 1;
+}
+
+message RoleDeleteReq {
+  int64 id = 1;
+}
+
+message RoleDeleteResp {
+  string pong = 1;
+}
+
+message UpdateRoleRoleReq {
+  string id = 1;
+}
+
+message UpdateRoleRoleResp {
+  string pong = 1;
+}
+
+message QueryMenuByRoleIdReq {
+  int64 id = 1;
+}
+
+message QueryMenuByRoleIdResp {
+  repeated int64 ids = 1;
+}
+
+//role end---------------------
+
+//menu start---------------------
+message MenuAddReq {
+  string name = 1;
+  int64 parent_id = 2;
+  string url = 3;
+  string perms = 4;
+  int64 type = 5;
+  string icon = 6;
+  int64 order_num = 7;
+  string create_by = 8;
+  string vuePath =9;
+  string vueComponent =10;
+  string vueIcon =11;
+  string vueRedirect =12;
+}
+
+message MenuAddResp {
+  string pong = 1;
+}
+
+message MenuListReq {
+  //  int64 current = 1;
+  //  int64 pageSize = 2;
+  string name = 1;
+  string url = 2;
+}
+
+message MenuListData {
+  int64 id = 1;
+  string name = 2;
+  int64 parent_id = 3;
+  string url = 4;
+  string perms = 5;
+  int64 type = 6;
+  string icon = 7;
+  int64 order_num = 8;
+  string create_by = 10;
+  string create_time = 11;
+  string last_update_by = 12;
+  string last_update_time = 13;
+  int64 del_flag = 14;
+  string vuePath =15;
+  string vueComponent =16;
+  string vueIcon =17;
+  string vueRedirect =18;
+}
+
+message MenuListTree {
+  int64 id = 1;
+  string name = 2;
+  string icon = 3;
+  int64 parent_id = 4;
+  string path = 5;
+  string vue_path = 6;
+  string vue_component = 7;
+  string vue_icon = 8;
+  string vue_redirect = 9;
+}
+
+message MenuListResp{
+  int64 total = 1;
+  repeated  MenuListData list = 2;
+}
+message MenuUpdateReq {
+  int64 id = 1;
+  string name = 2;
+  int64 parent_id = 3;
+  string url = 4;
+  string perms = 5;
+  int64 type = 6;
+  string icon = 7;
+  int64 order_num = 8;
+  string last_update_by = 9;
+  string vuePath =10;
+  string vueComponent =11;
+  string vueIcon =12;
+  string vueRedirect =13;
+}
+
+message MenuUpdateResp {
+  string pong = 1;
+}
+
+message MenuDeleteReq {
+  int64 id = 1;
+}
+
+message MenuDeleteResp {
+  string pong = 1;
+}
+
+message UpdateMenuRoleReq {
+  int64 roleId = 1;
+  repeated int64 menuIds = 2;
+}
+
+message UpdateMenuRoleResp {
+  string pong = 1;
+}
+//menu end---------------------
+
+//dict start---------------------
+message DictAddReq {
+  string value = 1;
+  string label = 2;
+  string type = 3;
+  string description = 4;
+  int64 sort = 5;
+  string remarks = 6;
+  string create_by = 7;
+}
+
+message DictAddResp {
+  string pong = 1;
+}
+
+message DictListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+  string value = 3;
+  string label = 4;
+  string type = 5;
+  int64 del_flag = 6;
+}
+
+message DictListData {
+  int64 id = 1;
+  string value = 2;
+  string label = 3;
+  string type = 4;
+  string description = 5;
+  int64 sort = 6;
+  string remarks = 7;
+  string create_by = 10;
+  string create_time = 11;
+  string last_update_by = 12;
+  string last_update_time = 13;
+  int64 del_flag = 14;
+}
+
+message DictListResp{
+  int64 total = 1;
+  repeated  DictListData list = 2;
+}
+
+message DictUpdateReq {
+  int64 id = 1;
+  string value = 2;
+  string label = 3;
+  string type = 4;
+  string description = 5;
+  int64 sort = 6;
+  string remarks = 7;
+  string last_update_by = 8;
+}
+
+message DictUpdateResp {
+  string pong = 1;
+}
+
+message DictDeleteReq {
+  int64 id = 1;
+}
+
+message DictDeleteResp {
+  string pong = 1;
+}
+//dict end---------------------
+
+//dept start---------------------
+message DeptAddReq {
+  string name = 1;
+  int64 parent_id = 2;
+  int64 order_num = 3;
+  string create_by = 4;
+}
+
+message DeptAddResp {
+  string pong = 1;
+}
+
+message DeptListReq {
+  //  int64 current = 1;
+  //  int64 pageSize = 2;
+  string name = 1;
+  string create_by = 2;
+}
+
+message DeptListData {
+  int64 id = 1;
+  string name = 2;
+  int64 parent_id = 3;
+  int64 order_num = 4;
+  string create_by = 5;
+  string create_time = 6;
+  string last_update_by = 7;
+  string last_update_time = 8;
+  int64 del_flag = 9;
+}
+
+message DeptListResp{
+  int64 total = 1;
+  repeated  DeptListData list = 2;
+}
+message DeptUpdateReq {
+  int64 id = 1;
+  string name = 2;
+  int64 parent_id = 3;
+  int64 order_num = 4;
+  string last_update_by = 7;
+}
+
+message DeptUpdateResp {
+  string pong = 1;
+}
+
+message DeptDeleteReq {
+  int64 id = 1;
+}
+
+message DeptDeleteResp {
+  string pong = 1;
+}
+//dept end---------------------
+
+//loginLog start---------------------
+message LoginLogAddReq {
+  string user_name = 1;
+  string status = 2;
+  string ip = 3;
+  string create_by = 4;
+}
+
+message LoginLogAddResp {
+  string pong = 1;
+}
+
+message LoginLogListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message LoginLogListData {
+  int64 id = 1;
+  string user_name = 2;
+  string status = 3;
+  string ip = 4;
+  string create_by = 5;
+  string create_time = 6;
+  string last_update_by = 7;
+  string last_update_time = 8;
+}
+
+message LoginLogListResp{
+  int64 total = 1;
+  repeated  LoginLogListData list = 2;
+}
+message LoginLogDeleteReq {
+  int64 id = 1;
+}
+
+message LoginLogDeleteResp {
+  string pong = 1;
+}
+//loginLog end---------------------
+
+//sysLog start---------------------
+message SysLogAddReq {
+  string user_name = 1;
+  string operation = 2;
+  string method = 3;
+  string params = 4;
+  int64 time = 5;
+  string ip = 6;
+  string create_by = 7;
+}
+
+message SysLogAddResp {
+  string pong = 1;
+}
+
+message SysLogListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message SysLogListData {
+  int64 id = 1;
+  string user_name = 2;
+  string operation = 3;
+  string method = 4;
+  string params = 5;
+  int64 time = 6;
+  string ip = 7;
+  string create_by = 8;
+  string create_time = 9;
+  string last_update_by = 10;
+  string last_update_time = 11;
+}
+
+message SysLogListResp{
+  int64 total = 1;
+  repeated  SysLogListData list = 2;
+}
+message SysLogDeleteReq {
+  int64 id = 1;
+}
+
+message SysLogDeleteResp {
+  string pong = 1;
+}
+//sysLog end---------------------
+
+//config start---------------------
+message ConfigAddReq {
+  string Value = 1;
+  string Label = 2;
+  string Type = 3;
+  string Description = 4;
+  int64 Sort = 5;
+  string Remarks = 6;
+  string create_by = 7;
+}
+
+message ConfigAddResp {
+  string pong = 1;
+}
+
+message ConfigListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+}
+
+message ConfigListData {
+  int64 id = 1;
+  string Value = 2;
+  string Label = 3;
+  string Type = 4;
+  string Description = 5;
+  int64 Sort = 6;
+  string Remarks = 7;
+  int64 DelFlag = 8;
+  string create_by = 9;
+  string create_time = 10;
+  string last_update_by = 11;
+  string last_update_time = 12;
+}
+
+message ConfigListResp{
+  int64 total = 1;
+  repeated  ConfigListData list = 2;
+}
+message ConfigUpdateReq {
+  int64 id = 1;
+  string Value = 2;
+  string Label = 3;
+  string Type = 4;
+  string Description = 5;
+  int64 Sort = 6;
+  string Remarks = 7;
+  string last_update_by = 8;
+}
+
+message ConfigUpdateResp {
+  string pong = 1;
+}
+
+message ConfigDeleteReq {
+  int64 id = 1;
+}
+
+message ConfigDeleteResp {
+  string pong = 1;
+}
+
+message UpdateConfigRoleReq {
+  string ping = 1;
+}
+
+message UpdateConfigRoleResp {
+  string pong = 1;
+}
+//config end---------------------
+
+//job start---------------------
+message JobAddReq {
+  string jobName = 1;
+  int64 orderNum = 2;
+  string create_by = 3;
+  string remarks = 4;
+}
+
+message JobAddResp {
+  string pong = 1;
+}
+
+message JobListReq {
+  int64 current = 1;
+  int64 pageSize = 2;
+  string jobName = 3;
+}
+
+message JobListData {
+  int64 id = 1;
+  string jobName = 2;
+  int64 orderNum = 3;
+  string createBy = 4;
+  string createTime = 5;
+  string lastUpdateBy = 6;
+  string lastUpdateTime = 7;
+  int64 delFlag = 8;
+  string remarks = 9;
+}
+
+message JobListResp{
+  int64 total = 1;
+  repeated  JobListData list = 2;
+}
+
+message JobUpdateReq {
+  int64 id = 1;
+  string jobName = 2;
+  int64 orderNum = 3;
+  string lastUpdateBy = 4;
+  string remarks = 5;
+}
+
+message JobUpdateResp {
+  string pong = 1;
+}
+
+message JobDeleteReq {
+  int64 id = 1;
+}
+
+message JobDeleteResp {
+  string pong = 1;
+}
+//job end---------------------
+
+service Sys {
+
+  rpc Login(LoginReq) returns(LoginResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/login"
+      body: "*"
+    };
+  }
+  rpc UserInfo(InfoReq) returns(InfoResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/currentUser"
+      body: "*"
+    };
+  }
+  rpc UserAdd(UserAddReq) returns(UserAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/add"
+      body: "*"
+    };
+  }
+  rpc UserList(UserListReq) returns(UserListResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/list"
+      body: "*"
+    };
+  }
+  rpc UserUpdate(UserUpdateReq) returns(UserUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/update"
+      body: "*"
+    };
+  }
+  rpc UserDelete(UserDeleteReq) returns(UserDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/delete"
+      body: "*"
+    };
+  }
+  rpc ReSetPassword(ReSetPasswordReq) returns(ReSetPasswordResp){
+    option (google.api.http) = {
+      post: "/api/sys/"
+      body: "*"
+    };
+  }
+  rpc UpdateUserStatus(UserStatusReq) returns(UserStatusResp){
+    option (google.api.http) = {
+      post: "/api/sys/"
+      body: "*"
+    };
+  }
+
+  rpc RoleAdd(RoleAddReq) returns(RoleAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/add"
+      body: "*"
+    };
+  }
+  rpc RoleList(RoleListReq) returns(RoleListResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/list"
+      body: "*"
+    };
+  }
+  rpc RoleUpdate(RoleUpdateReq) returns(RoleUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/update"
+      body: "*"
+    };
+  }
+  rpc RoleDelete(RoleDeleteReq) returns(RoleDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/delete"
+      body: "*"
+    };
+  }
+
+  rpc QueryMenuByRoleId(QueryMenuByRoleIdReq) returns(QueryMenuByRoleIdResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/queryMenuByRoleId"
+      body: "*"
+    };
+  }
+  rpc UpdateMenuRole(UpdateMenuRoleReq) returns(UpdateMenuRoleResp){
+    option (google.api.http) = {
+      post: "/api/sys/role/updateRoleMenu"
+      body: "*"
+    };
+  }
+
+  rpc MenuAdd(MenuAddReq) returns(MenuAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/menu/add"
+      body: "*"
+    };
+  }
+  rpc MenuList(MenuListReq) returns(MenuListResp){
+    option (google.api.http) = {
+      post: "/api/sys/menu/list"
+      body: "*"
+    };
+  }
+  rpc MenuUpdate(MenuUpdateReq) returns(MenuUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/menu/update"
+      body: "*"
+    };
+  }
+  rpc MenuDelete(MenuDeleteReq) returns(MenuDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/menu/delete"
+      body: "*"
+    };
+  }
+
+  rpc DictAdd(DictAddReq) returns(DictAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/dict/add"
+      body: "*"
+    };
+  }
+  rpc DictList(DictListReq) returns(DictListResp){
+    option (google.api.http) = {
+      post: "/api/sys/dict/list"
+      body: "*"
+    };
+  }
+  rpc DictUpdate(DictUpdateReq) returns(DictUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/dict/update"
+      body: "*"
+    };
+  }
+  rpc DictDelete(DictDeleteReq) returns(DictDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/dict/delete"
+      body: "*"
+    };
+  }
+
+  rpc DeptAdd(DeptAddReq) returns(DeptAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/dept/add"
+      body: "*"
+    };
+  }
+  rpc DeptList(DeptListReq) returns(DeptListResp){
+    option (google.api.http) = {
+      post: "/api/sys/dept/list"
+      body: "*"
+    };
+  }
+  rpc DeptUpdate(DeptUpdateReq) returns(DeptUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/dept/update"
+      body: "*"
+    };
+  }
+  rpc DeptDelete(DeptDeleteReq) returns(DeptDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/dept/delete"
+      body: "*"
+    };
+  }
+
+  rpc LoginLogList(LoginLogListReq) returns(LoginLogListResp){
+    option (google.api.http) = {
+      post: "/api/sys/loginLog/list"
+      body: "*"
+    };
+  }
+  rpc LoginLogDelete(LoginLogDeleteReq) returns(LoginLogDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/loginLog/delete"
+      body: "*"
+    };
+  }
+
+  rpc SysLogList(SysLogListReq) returns(SysLogListResp){
+    option (google.api.http) = {
+      post: "/api/sys/sysLog/list"
+      body: "*"
+    };
+  }
+  rpc SysLogDelete(SysLogDeleteReq) returns(SysLogDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/sysLog/delete"
+      body: "*"
+    };
+  }
+
+  rpc JobAdd(JobAddReq) returns(JobAddResp){
+    option (google.api.http) = {
+      post: "/api/sys/job/add"
+      body: "*"
+    };
+  }
+  rpc JobList(JobListReq) returns(JobListResp){
+    option (google.api.http) = {
+      post: "/api/sys/job/list"
+      body: "*"
+    };
+  }
+  rpc JobUpdate(JobUpdateReq) returns(JobUpdateResp){
+    option (google.api.http) = {
+      post: "/api/sys/job/update"
+      body: "*"
+    };
+  }
+  rpc JobDelete(JobDeleteReq) returns(JobDeleteResp){
+    option (google.api.http) = {
+      post: "/api/sys/job/delete"
+      body: "*"
+    };
+  }
+}

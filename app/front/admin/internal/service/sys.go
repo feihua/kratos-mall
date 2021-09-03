@@ -2,29 +2,35 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
-	"kratos-mall/app/sys/internal/biz"
+	"kratos-mall/app/front/admin/internal/biz"
 
-	pb "kratos-mall/api/sys/v1"
+	pb "kratos-mall/api/front/admin/v1"
 )
 
 type SysService struct {
 	pb.UnimplementedSysServer
-	uc  *biz.GreeterUsecase
+	uc  *biz.UserUseCase
 	log *log.Helper
 }
 
-func NewSysService(uc *biz.GreeterUsecase, logger log.Logger) *SysService {
+func NewSysService(uc *biz.UserUseCase, logger log.Logger) *SysService {
 	return &SysService{uc: uc, log: log.NewHelper(logger)}
 }
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {
+	fmt.Printf("%s", "hello")
+	login, _ := s.uc.Login(ctx, &biz.Login{
+		UserName: req.UserName,
+		Password: req.Password,
+	})
 	return &pb.LoginResp{
-		Status:           "0",
-		CurrentAuthority: "admin",
-		Id:               0,
-		UserName:         "koobe",
-		AccessToken:      "1234456",
+		Status:           login.Status,
+		CurrentAuthority: login.CurrentAuthority,
+		Id:               login.Id,
+		UserName:         login.UserName,
+		AccessToken:      login.AccessToken,
 		AccessExpire:     0,
 		RefreshAfter:     0,
 	}, nil
@@ -61,9 +67,6 @@ func (s *SysService) RoleUpdate(ctx context.Context, req *pb.RoleUpdateReq) (*pb
 }
 func (s *SysService) RoleDelete(ctx context.Context, req *pb.RoleDeleteReq) (*pb.RoleDeleteResp, error) {
 	return &pb.RoleDeleteResp{}, nil
-}
-func (s *SysService) UpdateRoleRole(ctx context.Context, req *pb.UpdateRoleRoleReq) (*pb.UpdateRoleRoleResp, error) {
-	return &pb.UpdateRoleRoleResp{}, nil
 }
 func (s *SysService) QueryMenuByRoleId(ctx context.Context, req *pb.QueryMenuByRoleIdReq) (*pb.QueryMenuByRoleIdResp, error) {
 	return &pb.QueryMenuByRoleIdResp{}, nil
@@ -107,38 +110,17 @@ func (s *SysService) DeptUpdate(ctx context.Context, req *pb.DeptUpdateReq) (*pb
 func (s *SysService) DeptDelete(ctx context.Context, req *pb.DeptDeleteReq) (*pb.DeptDeleteResp, error) {
 	return &pb.DeptDeleteResp{}, nil
 }
-func (s *SysService) LoginLogAdd(ctx context.Context, req *pb.LoginLogAddReq) (*pb.LoginLogAddResp, error) {
-	return &pb.LoginLogAddResp{}, nil
-}
 func (s *SysService) LoginLogList(ctx context.Context, req *pb.LoginLogListReq) (*pb.LoginLogListResp, error) {
 	return &pb.LoginLogListResp{}, nil
 }
 func (s *SysService) LoginLogDelete(ctx context.Context, req *pb.LoginLogDeleteReq) (*pb.LoginLogDeleteResp, error) {
 	return &pb.LoginLogDeleteResp{}, nil
 }
-func (s *SysService) SysLogAdd(ctx context.Context, req *pb.SysLogAddReq) (*pb.SysLogAddResp, error) {
-	return &pb.SysLogAddResp{}, nil
-}
 func (s *SysService) SysLogList(ctx context.Context, req *pb.SysLogListReq) (*pb.SysLogListResp, error) {
 	return &pb.SysLogListResp{}, nil
 }
 func (s *SysService) SysLogDelete(ctx context.Context, req *pb.SysLogDeleteReq) (*pb.SysLogDeleteResp, error) {
 	return &pb.SysLogDeleteResp{}, nil
-}
-func (s *SysService) ConfigAdd(ctx context.Context, req *pb.ConfigAddReq) (*pb.ConfigAddResp, error) {
-	return &pb.ConfigAddResp{}, nil
-}
-func (s *SysService) ConfigList(ctx context.Context, req *pb.ConfigListReq) (*pb.ConfigListResp, error) {
-	return &pb.ConfigListResp{}, nil
-}
-func (s *SysService) ConfigUpdate(ctx context.Context, req *pb.ConfigUpdateReq) (*pb.ConfigUpdateResp, error) {
-	return &pb.ConfigUpdateResp{}, nil
-}
-func (s *SysService) ConfigDelete(ctx context.Context, req *pb.ConfigDeleteReq) (*pb.ConfigDeleteResp, error) {
-	return &pb.ConfigDeleteResp{}, nil
-}
-func (s *SysService) UpdateConfigRole(ctx context.Context, req *pb.UpdateConfigRoleReq) (*pb.UpdateConfigRoleResp, error) {
-	return &pb.UpdateConfigRoleResp{}, nil
 }
 func (s *SysService) JobAdd(ctx context.Context, req *pb.JobAddReq) (*pb.JobAddResp, error) {
 	return &pb.JobAddResp{}, nil

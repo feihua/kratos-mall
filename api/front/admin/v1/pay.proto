@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package front.admin.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/front/admin/v1;v1";
+
+message UnifiedOrderReq {
+  string BusinessId = 1;
+  string Amount = 2;
+  string Remarks = 3;
+  string Code = 4;
+  string MerId = 5;
+  string PayType = 6;
+}
+
+message UnifiedOrderResp {
+  string AppId = 1;
+  string PartnerId = 2;
+  string prepayId = 3;
+  string PackageStr = 4;
+  string NonceStr = 5;
+  string Timestamp = 6;
+  string Sign = 7;
+  string MWebUrl = 8;
+}
+
+message H5UnifiedOrderResp {
+  string MWebUrl = 1;
+}
+
+message OrderQueryReq {
+  string BusinessId = 1;
+  string MerId = 2;
+  string PayType = 6;
+}
+
+message OrderQueryResp {
+  string PayMessage = 1;
+  string PayStatus = 2;
+}
+
+service Pay {
+  rpc AppUnifiedOrder(UnifiedOrderReq) returns(UnifiedOrderResp){
+    option (google.api.http) = {
+      post: "/api/pay/wx/appUnifiedOrder"
+      body: "*"
+    };
+  }
+  rpc H5UnifiedOrder(UnifiedOrderReq) returns(H5UnifiedOrderResp){
+    option (google.api.http) = {
+      post: "/api/pay/wx/h5UnifiedOrder"
+      body: "*"
+    };
+  }
+  rpc JsUnifiedOrder(UnifiedOrderReq) returns(UnifiedOrderResp){
+    option (google.api.http) = {
+      post: "/api/pay/wx/jsUnifiedOrder"
+      body: "*"
+    };
+  }
+
+  rpc OrderQuery(OrderQueryReq) returns(OrderQueryResp){
+    option (google.api.http) = {
+      post: "/api/pay/wx/orderQuery"
+      body: "*"
+    };
+  }
+}
