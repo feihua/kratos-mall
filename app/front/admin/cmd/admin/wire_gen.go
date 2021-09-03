@@ -20,8 +20,13 @@ import (
 // initApp init kratos application.
 func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Data, logger log.Logger) (*kratos.App, func(), error) {
 	discovery := data.NewDiscovery(registry)
-	greeterClient := data.NewGreeterServiceClient(discovery)
-	dataData, err := data.NewData(confData, logger, greeterClient)
+	umsClient := data.NewUmsServiceClient(discovery)
+	payClient := data.NewPayServiceClient(discovery)
+	pmsClient := data.NewPmsServiceClient(discovery)
+	smsClient := data.NewSmsServiceClient(discovery)
+	sysClient := data.NewSysServiceClient(discovery)
+	omsClient := data.NewOmsServiceClient(discovery)
+	dataData, err := data.NewData(logger, umsClient, payClient, pmsClient, smsClient, sysClient, omsClient)
 	if err != nil {
 		return nil, nil, err
 	}

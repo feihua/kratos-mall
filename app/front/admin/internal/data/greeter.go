@@ -2,9 +2,7 @@ package data
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
-	umsV1 "kratos-mall/api/ums/v1"
 	"kratos-mall/app/front/admin/internal/biz"
 )
 
@@ -22,13 +20,14 @@ func NewGreeterRepo(data *Data, logger log.Logger) biz.GreeterRepo {
 }
 
 func (r *greeterRepo) CreateGreeter(ctx context.Context, g *biz.Greeter) error {
-	hello, err := r.data.uc.SayHello(ctx, &umsV1.HelloRequest{
-		Name: g.Hello,
-	})
+	//hello, err := r.data.uc.SayHello(ctx, &umsV1.HelloRequest{
+	//	Name: g.Hello,
+	//})
 
-	fmt.Printf("test%s", hello)
+	//fmt.Printf("test%s", hello)
 
-	return err
+	//return err
+	return nil
 }
 
 func (r *greeterRepo) UpdateGreeter(ctx context.Context, g *biz.Greeter) error {
