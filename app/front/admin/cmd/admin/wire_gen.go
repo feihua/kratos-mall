@@ -19,7 +19,9 @@ import (
 
 // initApp init kratos application.
 func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Data, logger log.Logger) (*kratos.App, func(), error) {
-	dataData, cleanup, err := data.NewData(confData, logger)
+	discovery := data.NewDiscovery(registry)
+	greeterClient := data.NewGreeterServiceClient(discovery)
+	dataData, err := data.NewData(confData, logger, greeterClient)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -28,9 +30,8 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	greeterService := service.NewGreeterService(greeterUsecase, logger)
 	httpServer := server.NewHTTPServer(confServer, greeterService, logger)
 	grpcServer := server.NewGRPCServer(confServer, greeterService, logger)
-	registrar := server.NewRegistrar(registry)
+	registrar := data.NewRegistrar(registry)
 	app := newApp(logger, httpServer, grpcServer, registrar)
 	return app, func() {
-		cleanup()
 	}, nil
 }

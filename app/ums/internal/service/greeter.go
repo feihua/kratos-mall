@@ -4,8 +4,8 @@ import (
 	"context"
 	"kratos-mall/app/ums/internal/biz"
 
-	v1 "kratos-mall/api/ums/v1"
 	"github.com/go-kratos/kratos/v2/log"
+	v1 "kratos-mall/api/ums/v1"
 )
 
 // GreeterService is a greeter service.
@@ -25,6 +25,9 @@ func NewGreeterService(uc *biz.GreeterUsecase, logger log.Logger) *GreeterServic
 func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1.HelloReply, error) {
 	s.log.WithContext(ctx).Infof("SayHello Received: %v", in.GetName())
 
+	s.uc.Create(ctx, &biz.Greeter{
+		Hello: in.GetName(),
+	})
 	if in.GetName() == "error" {
 		return nil, v1.ErrorUserNotFound("user not found: %s", in.GetName())
 	}

@@ -1,10 +1,11 @@
 package server
 
 import (
-	v1 "kratos-mall/api/sms/v1"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
+	v1 "kratos-mall/api/sms/v1"
 	"kratos-mall/app/sms/internal/conf"
 	"kratos-mall/app/sms/internal/service"
 )
@@ -14,6 +15,7 @@ func NewGRPCServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 	var opts = []grpc.ServerOption{
 		grpc.Middleware(
 			recovery.Recovery(),
+			logging.Server(logger),
 		),
 	}
 	if c.Grpc.Network != "" {
