@@ -26,8 +26,8 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	}
 	greeterRepo := data.NewGreeterRepo(dataData, logger)
 	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
-	greeterService := service.NewGreeterService(greeterUsecase, logger)
-	grpcServer := server.NewGRPCServer(confServer, greeterService, logger)
+	sysService := service.NewSysService(greeterUsecase, logger)
+	grpcServer := server.NewGRPCServer(confServer, sysService, logger)
 	registrar := server.NewRegistrar(registry)
 	app := newApp(logger, grpcServer, registrar)
 	return app, func() {
