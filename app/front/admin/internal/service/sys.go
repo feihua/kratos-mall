@@ -2,7 +2,6 @@ package service
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/front/admin/internal/biz"
 
@@ -20,23 +19,47 @@ func NewSysService(uc *biz.UserUseCase, logger log.Logger) *SysService {
 }
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {
-	fmt.Printf("%s", "hello")
-	login, _ := s.uc.Login(ctx, &biz.Login{
+
+	loginResp, _ := s.uc.Login(ctx, &biz.LoginDTO{
 		UserName: req.UserName,
 		Password: req.Password,
 	})
+
 	return &pb.LoginResp{
-		Status:           login.Status,
-		CurrentAuthority: login.CurrentAuthority,
-		Id:               login.Id,
-		UserName:         login.UserName,
-		AccessToken:      login.AccessToken,
-		AccessExpire:     0,
-		RefreshAfter:     0,
+		Status:           loginResp.Status,
+		CurrentAuthority: loginResp.CurrentAuthority,
+		Id:               loginResp.Id,
+		UserName:         loginResp.UserName,
+		AccessToken:      loginResp.AccessToken,
+		AccessExpire:     loginResp.AccessExpire,
+		RefreshAfter:     loginResp.RefreshAfter,
+		Code:             "000000",
+		Message:          "登录成功",
 	}, nil
+
 }
 func (s *SysService) UserInfo(ctx context.Context, req *pb.InfoReq) (*pb.InfoResp, error) {
-	return &pb.InfoResp{}, nil
+
+	userInfo, _ := s.uc.UserInfo(ctx, req.UserId)
+
+	rv := make([]*pb.MenuListTree, 0)
+	for _, m := range userInfo.MenuListTree {
+		rv = append(rv, &pb.MenuListTree{
+			Id:       m.Id,
+			Path:     m.Url,
+			Name:     m.Name,
+			ParentId: m.ParentId,
+			Icon:     m.Icon,
+		})
+	}
+
+	return &pb.InfoResp{
+		Avatar:       userInfo.Avatar,
+		Name:         userInfo.Name,
+		MenuListTree: rv,
+		Code:         "000000",
+		Message:      "获取个人信息成功",
+	}, nil
 }
 func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserAddResp, error) {
 	return &pb.UserAddResp{}, nil

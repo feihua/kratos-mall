@@ -20,6 +20,8 @@ message LoginResp {
   string AccessToken = 5;
   int64 AccessExpire = 6;
   int64 RefreshAfter = 7;
+  string Code = 8;
+  string Message = 9;
 }
 
 message InfoReq {
@@ -30,7 +32,8 @@ message InfoResp {
   string avatar = 1;
   string name = 2;
   repeated MenuListTree menuListTree=3;
-  repeated string BackgroundUrls =4;
+  string Code = 4;
+  string Message = 5;
 }
 
 message UserAddReq {

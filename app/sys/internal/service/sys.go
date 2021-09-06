@@ -10,27 +10,52 @@ import (
 
 type SysService struct {
 	pb.UnimplementedSysServer
-	uc  *biz.GreeterUsecase
+	uc  *biz.UserUseCase
+	lc  *biz.LogUseCase
+	mc  *biz.MenuUseCase
 	log *log.Helper
 }
 
-func NewSysService(uc *biz.GreeterUsecase, logger log.Logger) *SysService {
-	return &SysService{uc: uc, log: log.NewHelper(logger)}
+func NewSysService(uc *biz.UserUseCase, lc *biz.LogUseCase, mc *biz.MenuUseCase, logger log.Logger) *SysService {
+	return &SysService{uc: uc, lc: lc, mc: mc, log: log.NewHelper(logger)}
 }
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {
+	tokenDTO, _ := s.uc.UserLogin(ctx, &biz.UserDTO{
+		UserName: req.UserName,
+		Password: req.Password,
+	})
 	return &pb.LoginResp{
-		Status:           "0",
-		CurrentAuthority: "admin",
-		Id:               0,
-		UserName:         "koobe",
-		AccessToken:      "1234456",
-		AccessExpire:     0,
-		RefreshAfter:     0,
+		Status:           tokenDTO.Status,
+		CurrentAuthority: tokenDTO.CurrentAuthority,
+		Id:               tokenDTO.Id,
+		UserName:         tokenDTO.UserName,
+		AccessToken:      tokenDTO.AccessToken,
+		AccessExpire:     tokenDTO.AccessExpire,
+		RefreshAfter:     tokenDTO.RefreshAfter,
 	}, nil
 }
 func (s *SysService) UserInfo(ctx context.Context, req *pb.InfoReq) (*pb.InfoResp, error) {
-	return &pb.InfoResp{}, nil
+
+	info := s.uc.UserInfo(ctx, req.UserId)
+
+	rv := make([]*pb.MenuListTree, 0)
+	for _, m := range info.MenuListTree {
+		rv = append(rv, &pb.MenuListTree{
+			Id:       m.Id,
+			Name:     m.Name,
+			ParentId: m.ParentId,
+			Icon:     m.Icon,
+			Path:     m.Url,
+		})
+	}
+
+	return &pb.InfoResp{
+		Avatar:         info.Avatar,
+		Name:           info.Name,
+		MenuListTree:   rv,
+		BackgroundUrls: nil,
+	}, nil
 }
 func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserAddResp, error) {
 	return &pb.UserAddResp{}, nil
@@ -75,7 +100,32 @@ func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuA
 	return &pb.MenuAddResp{}, nil
 }
 func (s *SysService) MenuList(ctx context.Context, req *pb.MenuListReq) (*pb.MenuListResp, error) {
-	return &pb.MenuListResp{}, nil
+
+	listMenu, _ := s.mc.ListMenu(ctx, 1, 1000)
+
+	rv := make([]*pb.MenuListData, 0)
+	for _, m := range listMenu {
+		rv = append(rv, &pb.MenuListData{
+			Id:             m.Id,
+			Name:           m.Name,
+			ParentId:       m.ParentId,
+			Url:            m.Url,
+			Perms:          m.Perms,
+			Type:           int64(m.Type),
+			Icon:           m.Icon,
+			OrderNum:       int64(m.OrderNum),
+			CreateBy:       m.CreateBy,
+			CreateTime:     m.CreateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateBy:   m.LastUpdateBy,
+			LastUpdateTime: m.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			DelFlag:        int64(m.DelFlag),
+		})
+	}
+
+	return &pb.MenuListResp{
+		Total: int64(len(rv)),
+		List:  rv,
+	}, nil
 }
 func (s *SysService) MenuUpdate(ctx context.Context, req *pb.MenuUpdateReq) (*pb.MenuUpdateResp, error) {
 	return &pb.MenuUpdateResp{}, nil
@@ -108,7 +158,17 @@ func (s *SysService) DeptDelete(ctx context.Context, req *pb.DeptDeleteReq) (*pb
 	return &pb.DeptDeleteResp{}, nil
 }
 func (s *SysService) LoginLogAdd(ctx context.Context, req *pb.LoginLogAddReq) (*pb.LoginLogAddResp, error) {
-	return &pb.LoginLogAddResp{}, nil
+
+	_ = s.lc.LoginLogAdd(ctx, &biz.LogDTO{
+		UserName: req.UserName,
+		Status:   req.Status,
+		Ip:       req.Ip,
+		CreateBy: req.CreateBy,
+	})
+
+	return &pb.LoginLogAddResp{
+		Pong: "",
+	}, nil
 }
 func (s *SysService) LoginLogList(ctx context.Context, req *pb.LoginLogListReq) (*pb.LoginLogListResp, error) {
 	return &pb.LoginLogListResp{}, nil

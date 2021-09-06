@@ -24,9 +24,13 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	if err != nil {
 		return nil, nil, err
 	}
-	greeterRepo := data.NewGreeterRepo(dataData, logger)
-	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
-	sysService := service.NewSysService(greeterUsecase, logger)
+	userRepo := data.NewUserRepo(dataData, logger)
+	menuRepo := data.NewMenuRepo(dataData, logger)
+	userUseCase := biz.NewUserUseCase(userRepo, menuRepo, logger)
+	logRepo := data.NewLogRepo(dataData, logger)
+	logUseCase := biz.NewLogUseCase(logRepo, logger)
+	menuUseCase := biz.NewMenuUseCase(menuRepo, logger)
+	sysService := service.NewSysService(userUseCase, logUseCase, menuUseCase, logger)
 	grpcServer := server.NewGRPCServer(confServer, sysService, logger)
 	registrar := server.NewRegistrar(registry)
 	app := newApp(logger, grpcServer, registrar)
