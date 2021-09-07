@@ -10,12 +10,42 @@ import (
 
 type PmsService struct {
 	pb.UnimplementedPmsServer
-	uc  *biz.GreeterUsecase
-	log *log.Helper
+	uc                    *biz.GreeterUsecase
+	brandUseCase          *biz.BrandUseCase
+	categoryUseCase       *biz.CategoryUseCase
+	commentUseCase        *biz.CommentUseCase
+	commentReplayUseCase  *biz.CommentReplayUseCase
+	feightTemplateUseCase *biz.FeightTemplateUseCase
+	memberPriceUseCase    *biz.MemberPriceUseCase
+	operateHistoryUseCase *biz.OperateHistoryUseCase
+	productUseCase        *biz.ProductUseCase
+	skuStockUseCase       *biz.SkuStockUseCase
+	vertifyRecordUseCase  *biz.VertifyRecordUseCase
+	log                   *log.Helper
 }
 
-func NewPmsService(uc *biz.GreeterUsecase, logger log.Logger) *PmsService {
-	return &PmsService{uc: uc, log: log.NewHelper(logger)}
+func NewPmsService(uc *biz.GreeterUsecase, logger log.Logger,
+	brandUseCase *biz.BrandUseCase,
+	categoryUseCase *biz.CategoryUseCase,
+	commentUseCase *biz.CommentUseCase,
+	commentReplayUseCase *biz.CommentReplayUseCase,
+	feightTemplateUseCase *biz.FeightTemplateUseCase,
+	memberPriceUseCase *biz.MemberPriceUseCase,
+	operateHistoryUseCase *biz.OperateHistoryUseCase,
+	productUseCase *biz.ProductUseCase,
+	skuStockUseCase *biz.SkuStockUseCase,
+	vertifyRecordUseCase *biz.VertifyRecordUseCase) *PmsService {
+	return &PmsService{uc: uc, log: log.NewHelper(logger),
+		brandUseCase:          brandUseCase,
+		categoryUseCase:       categoryUseCase,
+		commentUseCase:        commentUseCase,
+		commentReplayUseCase:  commentReplayUseCase,
+		feightTemplateUseCase: feightTemplateUseCase,
+		memberPriceUseCase:    memberPriceUseCase,
+		operateHistoryUseCase: operateHistoryUseCase,
+		productUseCase:        productUseCase,
+		skuStockUseCase:       skuStockUseCase,
+		vertifyRecordUseCase:  vertifyRecordUseCase}
 }
 
 func (s *PmsService) ProductAdd(ctx context.Context, req *pb.ProductAddReq) (*pb.ProductAddResp, error) {

@@ -32,7 +32,7 @@ func (u menuRepo) UpdateMenu(ctx context.Context, menu *biz.Menu) error {
 	panic("implement me")
 }
 
-func (m menuRepo) ListMenu(ctx context.Context, pageNum, pageSize int64) ([]*biz.Menu, error) {
+func (m menuRepo) ListMenu(ctx context.Context, req *biz.MenuListReq) ([]*biz.Menu, error) {
 
 	var memus []model.SysMenu
 	m.data.db.WithContext(ctx).Find(&memus)

@@ -9,7 +9,21 @@ import (
 	"kratos-mall/app/pms/internal/conf"
 )
 
-var ProviderSet = wire.NewSet(NewData, NewDB, NewGreeterRepo)
+var ProviderSet = wire.NewSet(
+	NewData,
+	NewDB,
+	NewGreeterRepo,
+	NewBrandRepo,
+	NewCategoryRepo,
+	NewCommentRepo,
+	NewCommentReplayRepo,
+	NewFeightTemplateRepo,
+	NewMemberPriceRepo,
+	NewOperateHistoryRepo,
+	NewProductRepo,
+	NewSkuStockRepo,
+	NewVertifyRecordRepo,
+)
 
 // Data .
 type Data struct {

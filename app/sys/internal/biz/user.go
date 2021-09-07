@@ -35,29 +35,41 @@ type Beer struct {
 	Count       int64
 }
 
-type User struct {
-	Id          int64
-	Username    string
-	Salt        string
-	Password    string
-	Mobile      string
-	Nickname    string
-	Avatar      string
-	Status      int
-	LastLoginAt *time.Time
-	CreatedAt   *time.Time
-	UpdatedAt   *time.Time
+type UserListReq struct {
+	Current  int64
+	PageSize int64
+	Name     string
+	NickName string
+	Mobile   string
+	Email    string
+	Status   int64
+	DeptId   int64
 }
 
-func (User) TableName() string {
-	return "sys_user"
+type User struct {
+	Id             int64     // 编号
+	Name           string    // 用户名
+	NickName       string    // 昵称
+	Avatar         string    // 头像
+	Password       string    // 密码
+	Salt           string    // 加密盐
+	Email          string    // 邮箱
+	Mobile         string    // 手机号
+	Status         int       // 状态  0：禁用   1：正常
+	DeptId         int64     // 机构ID
+	CreateBy       string    // 创建人
+	CreateTime     time.Time // 创建时间
+	LastUpdateBy   string    // 更新人
+	LastUpdateTime time.Time // 更新时间
+	DelFlag        int       // 是否删除  -1：已删除  0：正常
+	JobId          int       // 岗位Id
 }
 
 type UserRepo interface {
 	CreateUser(context.Context, *UserDTO) error
 	GetUser(ctx context.Context, id int64) *User
 	UpdateUser(context.Context, *UserDTO) error
-	ListUser(ctx context.Context, pageNum, pageSize int64) ([]*Beer, error)
+	ListUser(ctx context.Context, req *UserListReq) ([]*User, error)
 	DeleteUser(ctx context.Context, id int64) error
 	QueryUserByName(ctx context.Context, name string) *User
 }
@@ -80,7 +92,7 @@ func (u *UserUseCase) UserLogin(ctx context.Context, userDTO *UserDTO) (*TokenDT
 		Status:           "1",
 		CurrentAuthority: "admin",
 		Id:               user.Id,
-		UserName:         user.Username,
+		UserName:         user.Name,
 		AccessToken:      "test",
 		AccessExpire:     0,
 		RefreshAfter:     0,
@@ -92,11 +104,11 @@ func (u *UserUseCase) UserInfo(ctx context.Context, id int64) *UserInfoDTO {
 
 	user := u.userRepo.GetUser(ctx, id)
 
-	listMenu, _ := u.menuRepo.ListMenu(ctx, 1, 1000)
+	listMenu, _ := u.menuRepo.ListMenu(ctx, &MenuListReq{})
 
 	return &UserInfoDTO{
 		Avatar:         "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-		Name:           user.Username,
+		Name:           user.Name,
 		MenuListTree:   listMenu,
 		BackgroundUrls: nil,
 	}
@@ -114,8 +126,8 @@ func (u *UserUseCase) UpdateUser(ctx context.Context, user *UserDTO) error {
 	panic("implement me")
 }
 
-func (u *UserUseCase) ListUser(ctx context.Context, pageNum, pageSize int64) ([]*Beer, error) {
-	panic("implement me")
+func (u *UserUseCase) ListUser(ctx context.Context, req *UserListReq) ([]*User, error) {
+	return u.userRepo.ListUser(ctx, req)
 }
 
 func (u *UserUseCase) DeleteUser(ctx context.Context, id int64) error {

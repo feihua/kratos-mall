@@ -65,7 +65,43 @@ func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserA
 	return &pb.UserAddResp{}, nil
 }
 func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.UserListResp, error) {
-	return &pb.UserListResp{}, nil
+
+	userListResp, _ := s.uc.UserList(ctx, &biz.UserListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Name:     req.Name,
+		NickName: req.NickName,
+		Mobile:   req.Mobile,
+		Email:    req.Email,
+		Status:   req.Status,
+		DeptId:   req.DeptId,
+	})
+
+	list := make([]*pb.UserListData, 0)
+	for _, item := range userListResp.List {
+		list = append(list, &pb.UserListData{
+			Id:             item.Id,
+			Name:           item.Name,
+			NickName:       item.NickName,
+			Avatar:         item.Avatar,
+			Password:       item.Password,
+			Salt:           item.Salt,
+			Email:          item.Email,
+			Mobile:         item.Mobile,
+			Status:         int64(item.Status),
+			DeptId:         item.DeptId,
+			CreateBy:       item.CreateBy,
+			CreateTime:     item.CreateTime,
+			LastUpdateBy:   item.LastUpdateBy,
+			LastUpdateTime: item.LastUpdateTime,
+			DelFlag:        int64(item.DelFlag),
+			JobId:          int64(item.JobId),
+		})
+	}
+	return &pb.UserListResp{
+		Total: userListResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb.UserUpdateResp, error) {
 	return &pb.UserUpdateResp{}, nil

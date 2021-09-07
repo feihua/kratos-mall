@@ -42,7 +42,7 @@ func (u logRepo) UpdateLog(ctx context.Context, log *biz.LogDTO) error {
 	panic("implement me")
 }
 
-func (u logRepo) ListLog(ctx context.Context, pageNum, pageSize int64) ([]*biz.Beer, error) {
+func (u logRepo) ListLog(ctx context.Context, req *biz.LogListReq) ([]*biz.Log, error) {
 	panic("implement me")
 }
 

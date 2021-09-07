@@ -78,3 +78,45 @@ func (r *userRepo) UserInfo(ctx context.Context, id int64) (*biz.UserInfoDTO, er
 	}, nil
 
 }
+
+func (r *userRepo) UserList(ctx context.Context, req *biz.UserListReq) (*biz.UserListResp, error) {
+
+	userListResp, _ := r.data.sysClient.UserList(ctx, &sysV1.UserListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Name:     req.Name,
+		NickName: req.NickName,
+		Mobile:   req.Mobile,
+		Email:    req.Email,
+		Status:   req.Status,
+		DeptId:   req.DeptId,
+	})
+
+	list := make([]*biz.User, 0)
+	for _, item := range userListResp.List {
+		list = append(list, &biz.User{
+			Id:             item.Id,
+			Name:           item.Name,
+			NickName:       item.NickName,
+			Avatar:         item.Avatar,
+			Password:       item.Password,
+			Salt:           item.Salt,
+			Email:          item.Email,
+			Mobile:         item.Mobile,
+			Status:         int(item.Status),
+			DeptId:         item.DeptId,
+			CreateBy:       item.CreateBy,
+			CreateTime:     item.CreateTime,
+			LastUpdateBy:   item.LastUpdateBy,
+			LastUpdateTime: item.LastUpdateTime,
+			DelFlag:        int(item.DelFlag),
+			JobId:          int(item.JobId),
+		})
+	}
+
+	return &biz.UserListResp{
+		Total: userListResp.Total,
+		List:  list,
+	}, nil
+
+}

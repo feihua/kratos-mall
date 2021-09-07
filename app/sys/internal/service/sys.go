@@ -10,14 +10,32 @@ import (
 
 type SysService struct {
 	pb.UnimplementedSysServer
-	uc  *biz.UserUseCase
-	lc  *biz.LogUseCase
-	mc  *biz.MenuUseCase
-	log *log.Helper
+	uc          *biz.UserUseCase
+	lc          *biz.LogUseCase
+	mc          *biz.MenuUseCase
+	roleUseCase *biz.RoleUseCase
+	jobUseCase  *biz.JobUseCase
+	dictUseCase *biz.DictUseCase
+	deptUseCase *biz.DeptUseCase
+	log         *log.Helper
 }
 
-func NewSysService(uc *biz.UserUseCase, lc *biz.LogUseCase, mc *biz.MenuUseCase, logger log.Logger) *SysService {
-	return &SysService{uc: uc, lc: lc, mc: mc, log: log.NewHelper(logger)}
+func NewSysService(uc *biz.UserUseCase,
+	lc *biz.LogUseCase,
+	mc *biz.MenuUseCase,
+	logger log.Logger,
+	roleUseCase *biz.RoleUseCase,
+	jobUseCase *biz.JobUseCase,
+	dictUseCase *biz.DictUseCase,
+	deptUseCase *biz.DeptUseCase) *SysService {
+	return &SysService{uc: uc,
+		lc:          lc,
+		mc:          mc,
+		log:         log.NewHelper(logger),
+		roleUseCase: roleUseCase,
+		jobUseCase:  jobUseCase,
+		dictUseCase: dictUseCase,
+		deptUseCase: deptUseCase}
 }
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {
@@ -61,7 +79,43 @@ func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserA
 	return &pb.UserAddResp{}, nil
 }
 func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.UserListResp, error) {
-	return &pb.UserListResp{}, nil
+	listUser, _ := s.uc.ListUser(ctx, &biz.UserListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Name:     req.Name,
+		NickName: req.NickName,
+		Mobile:   req.Mobile,
+		Email:    req.Email,
+		Status:   req.Status,
+		DeptId:   req.DeptId,
+	})
+
+	list := make([]*pb.UserListData, 0)
+	for _, item := range listUser {
+		list = append(list, &pb.UserListData{
+			Id:             item.Id,
+			Name:           item.Name,
+			NickName:       item.NickName,
+			Avatar:         item.Avatar,
+			Password:       item.Password,
+			Salt:           item.Salt,
+			Email:          item.Email,
+			Mobile:         item.Mobile,
+			Status:         int64(item.Status),
+			DeptId:         item.DeptId,
+			CreateBy:       item.CreateBy,
+			CreateTime:     item.CreateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateBy:   item.LastUpdateBy,
+			LastUpdateTime: item.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			DelFlag:        int64(item.DelFlag),
+			JobId:          int64(item.JobId),
+		})
+	}
+
+	return &pb.UserListResp{
+		Total: int64(len(list)),
+		List:  list,
+	}, nil
 }
 func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb.UserUpdateResp, error) {
 	return &pb.UserUpdateResp{}, nil
@@ -101,7 +155,10 @@ func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuA
 }
 func (s *SysService) MenuList(ctx context.Context, req *pb.MenuListReq) (*pb.MenuListResp, error) {
 
-	listMenu, _ := s.mc.ListMenu(ctx, 1, 1000)
+	listMenu, _ := s.mc.ListMenu(ctx, &biz.MenuListReq{
+		Name: req.Name,
+		Url:  req.Url,
+	})
 
 	rv := make([]*pb.MenuListData, 0)
 	for _, m := range listMenu {

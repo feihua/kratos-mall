@@ -10,12 +10,33 @@ import (
 
 type OmsService struct {
 	pb.UnimplementedOmsServer
-	uc  *biz.GreeterUsecase
-	log *log.Helper
+	uc                    *biz.GreeterUsecase
+	cartItemUseCase       *biz.CartItemUseCase
+	companyAddressUseCase *biz.CompanyAddressUseCase
+	operateHistoryUseCase *biz.OperateHistoryUseCase
+	orderUseCase          *biz.OrderUseCase
+	returnApplyUseCase    *biz.ReturnApplyUseCase
+	returnReasonUseCase   *biz.ReturnReasonUseCase
+	settingUseCase        *biz.SettingUseCase
+	log                   *log.Helper
 }
 
-func NewOmsService(uc *biz.GreeterUsecase, logger log.Logger) *OmsService {
-	return &OmsService{uc: uc, log: log.NewHelper(logger)}
+func NewOmsService(uc *biz.GreeterUsecase, logger log.Logger,
+	cartItemUseCase *biz.CartItemUseCase,
+	companyAddressUseCase *biz.CompanyAddressUseCase,
+	operateHistoryUseCase *biz.OperateHistoryUseCase,
+	orderUseCase *biz.OrderUseCase,
+	returnApplyUseCase *biz.ReturnApplyUseCase,
+	returnReasonUseCase *biz.ReturnReasonUseCase,
+	settingUseCase *biz.SettingUseCase) *OmsService {
+	return &OmsService{uc: uc, log: log.NewHelper(logger),
+		cartItemUseCase:       cartItemUseCase,
+		companyAddressUseCase: companyAddressUseCase,
+		operateHistoryUseCase: operateHistoryUseCase,
+		orderUseCase:          orderUseCase,
+		returnApplyUseCase:    returnApplyUseCase,
+		returnReasonUseCase:   returnReasonUseCase,
+		settingUseCase:        settingUseCase}
 }
 
 func (s *OmsService) OrderAdd(ctx context.Context, req *pb.OrderAddReq) (*pb.OrderAddResp, error) {

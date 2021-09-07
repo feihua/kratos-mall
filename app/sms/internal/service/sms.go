@@ -10,12 +10,42 @@ import (
 
 type SmsService struct {
 	pb.UnimplementedSmsServer
-	uc  *biz.GreeterUsecase
-	log *log.Helper
+	uc                           *biz.GreeterUsecase
+	couponUseCase                *biz.CouponUseCase
+	couponHistoryUseCase         *biz.CouponHistoryUseCase
+	flashPromotionUseCase        *biz.FlashPromotionUseCase
+	flashPromotionHistoryUseCase *biz.FlashPromotionHistoryUseCase
+	flashPromotionSessionUseCase *biz.FlashPromotionSessionUseCase
+	homeAdvertiseUseCase         *biz.HomeAdvertiseUseCase
+	homeBrandUseCase             *biz.HomeBrandUseCase
+	homeNewProductUseCase        *biz.HomeNewProductUseCase
+	homeRecommendProductUseCase  *biz.HomeRecommendProductUseCase
+	homeRecommendSubjectUseCase  *biz.HomeRecommendSubjectUseCase
+	log                          *log.Helper
 }
 
-func NewSmsService(uc *biz.GreeterUsecase, logger log.Logger) *SmsService {
-	return &SmsService{uc: uc, log: log.NewHelper(logger)}
+func NewSmsService(uc *biz.GreeterUsecase, logger log.Logger,
+	couponUseCase *biz.CouponUseCase,
+	couponHistoryUseCase *biz.CouponHistoryUseCase,
+	flashPromotionUseCase *biz.FlashPromotionUseCase,
+	flashPromotionHistoryUseCase *biz.FlashPromotionHistoryUseCase,
+	flashPromotionSessionUseCase *biz.FlashPromotionSessionUseCase,
+	homeAdvertiseUseCase *biz.HomeAdvertiseUseCase,
+	homeBrandUseCase *biz.HomeBrandUseCase,
+	homeNewProductUseCase *biz.HomeNewProductUseCase,
+	homeRecommendProductUseCase *biz.HomeRecommendProductUseCase,
+	homeRecommendSubjectUseCase *biz.HomeRecommendSubjectUseCase) *SmsService {
+	return &SmsService{uc: uc, log: log.NewHelper(logger),
+		couponUseCase:                couponUseCase,
+		couponHistoryUseCase:         couponHistoryUseCase,
+		flashPromotionHistoryUseCase: flashPromotionHistoryUseCase,
+		flashPromotionSessionUseCase: flashPromotionSessionUseCase,
+		flashPromotionUseCase:        flashPromotionUseCase,
+		homeAdvertiseUseCase:         homeAdvertiseUseCase,
+		homeBrandUseCase:             homeBrandUseCase,
+		homeNewProductUseCase:        homeNewProductUseCase,
+		homeRecommendProductUseCase:  homeRecommendProductUseCase,
+		homeRecommendSubjectUseCase:  homeRecommendSubjectUseCase}
 }
 
 func (s *SmsService) CouponAdd(ctx context.Context, req *pb.CouponAddReq) (*pb.CouponAddResp, error) {

@@ -5,6 +5,7 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/sys/internal/biz"
 	"kratos-mall/app/sys/internal/data/model"
+	"kratos-mall/pkg/util/pagination"
 )
 
 type userRepo struct {
@@ -27,11 +28,11 @@ func (u userRepo) QueryUserByName(ctx context.Context, name string) *biz.User {
 
 	return &biz.User{
 		Id:       user.Id,
-		Username: user.Name,
+		Name:     user.Name,
 		Salt:     user.Salt,
 		Password: user.Password,
 		Mobile:   user.Mobile,
-		Nickname: user.NickName,
+		NickName: user.NickName,
 		Avatar:   user.Avatar,
 		Status:   user.Status,
 	}
@@ -48,11 +49,11 @@ func (u userRepo) GetUser(ctx context.Context, id int64) *biz.User {
 
 	return &biz.User{
 		Id:       user.Id,
-		Username: user.Name,
+		Name:     user.Name,
 		Salt:     user.Salt,
 		Password: user.Password,
 		Mobile:   user.Mobile,
-		Nickname: user.NickName,
+		NickName: user.NickName,
 		Avatar:   user.Avatar,
 		Status:   user.Status,
 	}
@@ -62,8 +63,39 @@ func (u userRepo) UpdateUser(ctx context.Context, user *biz.UserDTO) error {
 	panic("implement me")
 }
 
-func (u userRepo) ListUser(ctx context.Context, pageNum, pageSize int64) ([]*biz.Beer, error) {
-	panic("implement me")
+func (u userRepo) ListUser(ctx context.Context, req *biz.UserListReq) ([]*biz.User, error) {
+	var list []model.SysUser
+	result := u.data.db.WithContext(ctx).
+		Limit(int(req.PageSize)).
+		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
+		Find(&list)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	rv := make([]*biz.User, 0)
+	for _, item := range list {
+		rv = append(rv, &biz.User{
+			Id:             item.Id,
+			Name:           item.Name,
+			NickName:       item.NickName,
+			Avatar:         item.Avatar,
+			Password:       item.Password,
+			Salt:           item.Salt,
+			Email:          item.Email,
+			Mobile:         item.Mobile,
+			Status:         item.Status,
+			DeptId:         item.DeptId,
+			CreateBy:       item.CreateBy,
+			CreateTime:     item.CreateTime,
+			LastUpdateBy:   item.LastUpdateBy,
+			LastUpdateTime: item.LastUpdateTime,
+			DelFlag:        item.DelFlag,
+			JobId:          item.JobId,
+		})
+	}
+	return rv, nil
 }
 
 func (u userRepo) DeleteUser(ctx context.Context, id int64) error {

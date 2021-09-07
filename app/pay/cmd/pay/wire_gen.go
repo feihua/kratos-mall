@@ -26,7 +26,11 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	}
 	greeterRepo := data.NewGreeterRepo(dataData, logger)
 	greeterUsecase := biz.NewGreeterUsecase(greeterRepo, logger)
-	payService := service.NewPayService(greeterUsecase, logger)
+	merchantRepo := data.NewMerchantRepo(dataData, logger)
+	merchantUseCase := biz.NewMerchantUseCase(merchantRepo, logger)
+	recordRepo := data.NewRecordRepo(dataData, logger)
+	recordUseCase := biz.NewRecordUseCase(recordRepo, logger)
+	payService := service.NewPayService(greeterUsecase, logger, merchantUseCase, recordUseCase)
 	grpcServer := server.NewGRPCServer(confServer, payService, logger)
 	registrar := server.NewRegistrar(registry)
 	app := newApp(logger, grpcServer, registrar)

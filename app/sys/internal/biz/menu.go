@@ -6,27 +6,32 @@ import (
 	"time"
 )
 
+type MenuListReq struct {
+	Name string
+	Url  string
+}
+
 type Menu struct {
-	Id             int64
-	Name           string
-	ParentId       int64
+	Id             int64  // 编号
+	Name           string // 菜单名称
+	ParentId       int64  // 父菜单ID，一级菜单为0
 	Url            string
-	Perms          string
-	Type           int
-	Icon           string
-	OrderNum       int
-	CreateBy       string
-	CreateTime     time.Time
-	LastUpdateBy   string
-	LastUpdateTime time.Time
-	DelFlag        int
+	Perms          string    // 授权(多个用逗号分隔，如：sys:user:add,sys:user:edit)
+	Type           int       // 类型   0：目录   1：菜单   2：按钮
+	Icon           string    // 菜单图标
+	OrderNum       int       // 排序
+	CreateBy       string    // 创建人
+	CreateTime     time.Time // 创建时间
+	LastUpdateBy   string    // 更新人
+	LastUpdateTime time.Time // 更新时间
+	DelFlag        int       // 是否删除  -1：已删除  0：正常
 }
 
 type MenuRepo interface {
 	CreateMenu(context.Context, *Menu) error
 	GetMenu(ctx context.Context, id int64) error
 	UpdateMenu(context.Context, *Menu) error
-	ListMenu(ctx context.Context, pageNum, pageSize int64) ([]*Menu, error)
+	ListMenu(ctx context.Context, req *MenuListReq) ([]*Menu, error)
 	DeleteMenu(ctx context.Context, id int64) error
 }
 
@@ -51,9 +56,9 @@ func (m *MenuUseCase) UpdateMenu(ctx context.Context, user *Menu) error {
 	panic("implement me")
 }
 
-func (m *MenuUseCase) ListMenu(ctx context.Context, pageNum, pageSize int64) ([]*Menu, error) {
+func (m *MenuUseCase) ListMenu(ctx context.Context, req *MenuListReq) ([]*Menu, error) {
 
-	listMenu, _ := m.repo.ListMenu(ctx, pageNum, pageSize)
+	listMenu, _ := m.repo.ListMenu(ctx, req)
 
 	return listMenu, nil
 }

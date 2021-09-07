@@ -4,30 +4,11 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/sys/internal/biz"
-	"time"
 )
 
 type deptRepo struct {
 	data *Data
 	log  *log.Helper
-}
-
-type Dept struct {
-	Id          int64
-	Deptname    string
-	Salt        string
-	Password    string
-	Mobile      string
-	Nickname    string
-	Avatar      string
-	Status      int
-	LastLoginAt *time.Time
-	CreatedAt   *time.Time
-	UpdatedAt   *time.Time
-}
-
-func (Dept) TableName() string {
-	return "dept"
 }
 
 // NewDeptRepo .
@@ -38,22 +19,22 @@ func NewDeptRepo(data *Data, logger log.Logger) biz.DeptRepo {
 	}
 }
 
-func (u deptRepo) CreateDept(ctx context.Context, dept *biz.Dept) error {
+func (d deptRepo) CreateDept(ctx context.Context, dept *biz.Dept) error {
 	panic("implement me")
 }
 
-func (u deptRepo) GetDept(ctx context.Context, id int64) error {
+func (d deptRepo) GetDept(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (u deptRepo) UpdateDept(ctx context.Context, dept *biz.Dept) error {
+func (d deptRepo) UpdateDept(ctx context.Context, dept *biz.Dept) error {
 	panic("implement me")
 }
 
-func (u deptRepo) ListDept(ctx context.Context, pageNum, pageSize int64) ([]*biz.Beer, error) {
+func (d deptRepo) ListDept(ctx context.Context, req *biz.DeptListReq) ([]*biz.Dept, error) {
 	panic("implement me")
 }
 
-func (u deptRepo) DeleteDept(ctx context.Context, id int64) error {
+func (d deptRepo) DeleteDept(ctx context.Context, id int64) error {
 	panic("implement me")
 }

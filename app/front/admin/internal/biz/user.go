@@ -39,10 +39,46 @@ type MenuDTO struct {
 	Icon     string
 }
 
+type UserListReq struct {
+	Current  int64
+	PageSize int64
+	Name     string
+	NickName string
+	Mobile   string
+	Email    string
+	Status   int64
+	DeptId   int64
+}
+
+type UserListResp struct {
+	Total int64
+	List  []*User
+}
+
+type User struct {
+	Id             int64  // 编号
+	Name           string // 用户名
+	NickName       string // 昵称
+	Avatar         string // 头像
+	Password       string // 密码
+	Salt           string // 加密盐
+	Email          string // 邮箱
+	Mobile         string // 手机号
+	Status         int    // 状态  0：禁用   1：正常
+	DeptId         int64  // 机构ID
+	CreateBy       string // 创建人
+	CreateTime     string // 创建时间
+	LastUpdateBy   string // 更新人
+	LastUpdateTime string // 更新时间
+	DelFlag        int    // 是否删除  -1：已删除  0：正常
+	JobId          int    // 岗位Id
+}
+
 type UserRepo interface {
 	Login(context.Context, *LoginDTO) (*LoginRespDTO, error)
 	LoginLogAdd(context.Context, *LoginDTO) error
 	UserInfo(context.Context, int64) (*UserInfoDTO, error)
+	UserList(context.Context, *UserListReq) (*UserListResp, error)
 }
 
 type UserUseCase struct {
@@ -73,5 +109,11 @@ func (uc *UserUseCase) Login(ctx context.Context, req *LoginDTO) (*LoginRespDTO,
 func (uc *UserUseCase) UserInfo(ctx context.Context, id int64) (*UserInfoDTO, error) {
 
 	return uc.repo.UserInfo(ctx, id)
+
+}
+
+func (uc *UserUseCase) UserList(ctx context.Context, req *UserListReq) (*UserListResp, error) {
+
+	return uc.repo.UserList(ctx, req)
 
 }

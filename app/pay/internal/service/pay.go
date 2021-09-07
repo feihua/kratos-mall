@@ -10,12 +10,17 @@ import (
 
 type PayService struct {
 	pb.UnimplementedPayServer
-	uc  *biz.GreeterUsecase
-	log *log.Helper
+	uc              *biz.GreeterUsecase
+	merchantUseCase *biz.MerchantUseCase
+	recordUseCase   *biz.RecordUseCase
+	log             *log.Helper
 }
 
-func NewPayService(uc *biz.GreeterUsecase, logger log.Logger) *PayService {
-	return &PayService{uc: uc, log: log.NewHelper(logger)}
+func NewPayService(uc *biz.GreeterUsecase, logger log.Logger, merchantUseCase *biz.MerchantUseCase,
+	recordUseCase *biz.RecordUseCase) *PayService {
+	return &PayService{uc: uc, log: log.NewHelper(logger),
+		merchantUseCase: merchantUseCase,
+		recordUseCase:   recordUseCase}
 }
 
 func (s *PayService) AppUnifiedOrder(ctx context.Context, req *pb.UnifiedOrderReq) (*pb.UnifiedOrderResp, error) {

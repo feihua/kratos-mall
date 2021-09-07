@@ -10,12 +10,43 @@ import (
 
 type UmsService struct {
 	pb.UnimplementedUmsServer
-	uc  *biz.GreeterUsecase
-	log *log.Helper
+	uc                              *biz.GreeterUsecase
+	changeHistoryUseCase            *biz.ChangeHistoryUseCase
+	integrationChangeHistoryUseCase *biz.IntegrationChangeHistoryUseCase
+	consumeSettingUseCase           *biz.ConsumeSettingUseCase
+	loginLogUseCase                 *biz.LoginLogUseCase
+	memberUseCase                   *biz.MemberUseCase
+	memberAddressUseCase            *biz.MemberAddressUseCase
+	memberLevelUseCase              *biz.MemberLevelUseCase
+	ruleSettingUseCase              *biz.RuleSettingUseCase
+	tagUseCase                      *biz.TagUseCase
+	taskUseCase                     *biz.TaskUseCase
+	log                             *log.Helper
 }
 
-func NewUmsService(uc *biz.GreeterUsecase, logger log.Logger) *UmsService {
-	return &UmsService{uc: uc, log: log.NewHelper(logger)}
+func NewUmsService(uc *biz.GreeterUsecase, logger log.Logger, changeHistoryUseCase *biz.ChangeHistoryUseCase,
+	integrationChangeHistoryUseCase *biz.IntegrationChangeHistoryUseCase,
+	consumeSettingUseCase *biz.ConsumeSettingUseCase,
+	loginLogUseCase *biz.LoginLogUseCase,
+	memberUseCase *biz.MemberUseCase,
+	memberAddressUseCase *biz.MemberAddressUseCase,
+	memberLevelUseCase *biz.MemberLevelUseCase,
+	ruleSettingUseCase *biz.RuleSettingUseCase,
+	tagUseCase *biz.TagUseCase,
+	taskUseCase *biz.TaskUseCase) *UmsService {
+	return &UmsService{
+		uc:                              uc,
+		log:                             log.NewHelper(logger),
+		changeHistoryUseCase:            changeHistoryUseCase,
+		consumeSettingUseCase:           consumeSettingUseCase,
+		integrationChangeHistoryUseCase: integrationChangeHistoryUseCase,
+		loginLogUseCase:                 loginLogUseCase,
+		memberUseCase:                   memberUseCase,
+		memberAddressUseCase:            memberAddressUseCase,
+		memberLevelUseCase:              memberLevelUseCase,
+		ruleSettingUseCase:              ruleSettingUseCase,
+		tagUseCase:                      tagUseCase,
+		taskUseCase:                     taskUseCase}
 }
 
 func (s *UmsService) MemberAdd(ctx context.Context, req *pb.MemberAddReq) (*pb.MemberAddResp, error) {
