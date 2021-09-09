@@ -4,18 +4,39 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/front/admin/internal/biz"
+	"kratos-mall/app/front/admin/internal/biz/sys"
 
 	pb "kratos-mall/api/front/admin/v1"
 )
 
 type SysService struct {
 	pb.UnimplementedSysServer
-	uc  *biz.UserUseCase
-	log *log.Helper
+	uc          *biz.UserUseCase
+	lc          *sys.LogUseCase
+	mc          *sys.MenuUseCase
+	roleUseCase *sys.RoleUseCase
+	jobUseCase  *sys.JobUseCase
+	dictUseCase *sys.DictUseCase
+	deptUseCase *sys.DeptUseCase
+	log         *log.Helper
 }
 
-func NewSysService(uc *biz.UserUseCase, logger log.Logger) *SysService {
-	return &SysService{uc: uc, log: log.NewHelper(logger)}
+func NewSysService(uc *biz.UserUseCase,
+	lc *sys.LogUseCase,
+	mc *sys.MenuUseCase,
+	logger log.Logger,
+	roleUseCase *sys.RoleUseCase,
+	jobUseCase *sys.JobUseCase,
+	dictUseCase *sys.DictUseCase,
+	deptUseCase *sys.DeptUseCase) *SysService {
+	return &SysService{uc: uc,
+		lc:          lc,
+		mc:          mc,
+		log:         log.NewHelper(logger),
+		roleUseCase: roleUseCase,
+		jobUseCase:  jobUseCase,
+		dictUseCase: dictUseCase,
+		deptUseCase: deptUseCase}
 }
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {

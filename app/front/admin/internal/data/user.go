@@ -21,7 +21,7 @@ func NewUserRepo(data *Data, logger log.Logger) biz.UserRepo {
 }
 
 func (r *userRepo) Login(ctx context.Context, g *biz.LoginDTO) (*biz.LoginRespDTO, error) {
-	login, _ := r.data.sysClient.Login(ctx, &sysV1.LoginReq{
+	login, _ := r.data.SysClient.Login(ctx, &sysV1.LoginReq{
 		UserName: g.UserName,
 		Password: g.Password,
 	})
@@ -39,7 +39,7 @@ func (r *userRepo) Login(ctx context.Context, g *biz.LoginDTO) (*biz.LoginRespDT
 
 func (r *userRepo) LoginLogAdd(ctx context.Context, req *biz.LoginDTO) error {
 
-	_, err := r.data.sysClient.LoginLogAdd(ctx, &sysV1.LoginLogAddReq{
+	_, err := r.data.SysClient.LoginLogAdd(ctx, &sysV1.LoginLogAddReq{
 		UserName: req.UserName,
 		Status:   "login",
 		Ip:       "127.0.0.1",
@@ -55,7 +55,7 @@ func (r *userRepo) LoginLogAdd(ctx context.Context, req *biz.LoginDTO) error {
 
 func (r *userRepo) UserInfo(ctx context.Context, id int64) (*biz.UserInfoDTO, error) {
 
-	userInfo, _ := r.data.sysClient.UserInfo(ctx, &sysV1.InfoReq{
+	userInfo, _ := r.data.SysClient.UserInfo(ctx, &sysV1.InfoReq{
 		UserId: id,
 	})
 
@@ -81,7 +81,7 @@ func (r *userRepo) UserInfo(ctx context.Context, id int64) (*biz.UserInfoDTO, er
 
 func (r *userRepo) UserList(ctx context.Context, req *biz.UserListReq) (*biz.UserListResp, error) {
 
-	userListResp, _ := r.data.sysClient.UserList(ctx, &sysV1.UserListReq{
+	userListResp, _ := r.data.SysClient.UserList(ctx, &sysV1.UserListReq{
 		Current:  req.Current,
 		PageSize: req.PageSize,
 		Name:     req.Name,

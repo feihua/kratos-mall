@@ -2,23 +2,63 @@ package service
 
 import (
 	"context"
+	"github.com/go-kratos/kratos/v2/log"
+	"kratos-mall/app/front/admin/internal/biz/oms"
 
 	pb "kratos-mall/api/front/admin/v1"
 )
 
 type OmsService struct {
 	pb.UnimplementedOmsServer
+	cartItemUseCase       *oms.CartItemUseCase
+	companyAddressUseCase *oms.CompanyAddressUseCase
+	operateHistoryUseCase *oms.OperateHistoryUseCase
+	orderUseCase          *oms.OrderUseCase
+	returnApplyUseCase    *oms.ReturnApplyUseCase
+	returnReasonUseCase   *oms.ReturnReasonUseCase
+	settingUseCase        *oms.SettingUseCase
+	log                   *log.Helper
 }
 
-func NewOmsService() *OmsService {
-	return &OmsService{}
+func NewOmsService(logger log.Logger,
+	cartItemUseCase *oms.CartItemUseCase,
+	companyAddressUseCase *oms.CompanyAddressUseCase,
+	operateHistoryUseCase *oms.OperateHistoryUseCase,
+	orderUseCase *oms.OrderUseCase,
+	returnApplyUseCase *oms.ReturnApplyUseCase,
+	returnReasonUseCase *oms.ReturnReasonUseCase,
+	settingUseCase *oms.SettingUseCase) *OmsService {
+	return &OmsService{log: log.NewHelper(logger),
+		cartItemUseCase:       cartItemUseCase,
+		companyAddressUseCase: companyAddressUseCase,
+		operateHistoryUseCase: operateHistoryUseCase,
+		orderUseCase:          orderUseCase,
+		returnApplyUseCase:    returnApplyUseCase,
+		returnReasonUseCase:   returnReasonUseCase,
+		settingUseCase:        settingUseCase}
 }
 
 func (s *OmsService) OrderAdd(ctx context.Context, req *pb.OrderAddReq) (*pb.OrderAddResp, error) {
 	return &pb.OrderAddResp{}, nil
 }
 func (s *OmsService) OrderList(ctx context.Context, req *pb.OrderListReq) (*pb.OrderListResp, error) {
-	return &pb.OrderListResp{}, nil
+	listResp, _ := s.orderUseCase.ListOrder(ctx, &oms.OrderListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.OrderListData, 0)
+	for _, item := range listResp {
+		list = append(list, &pb.OrderListData{
+			Id:       item.Id,
+			MemberId: item.MemberId,
+			CouponId: item.CouponId,
+		})
+	}
+	return &pb.OrderListResp{
+		Total: 10,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderUpdate(ctx context.Context, req *pb.OrderUpdateReq) (*pb.OrderUpdateResp, error) {
 	return &pb.OrderUpdateResp{}, nil

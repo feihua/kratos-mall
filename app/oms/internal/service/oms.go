@@ -43,7 +43,20 @@ func (s *OmsService) OrderAdd(ctx context.Context, req *pb.OrderAddReq) (*pb.Ord
 	return &pb.OrderAddResp{}, nil
 }
 func (s *OmsService) OrderList(ctx context.Context, req *pb.OrderListReq) (*pb.OrderListResp, error) {
-	return &pb.OrderListResp{}, nil
+	listResp, _ := s.orderUseCase.ListOrder(ctx, req.Current, req.PageSize)
+
+	list := make([]*pb.OrderListData, 0)
+	for _, item := range listResp {
+		list = append(list, &pb.OrderListData{
+			Id:       item.Id,
+			MemberId: item.MemberId,
+			CouponId: item.CouponId,
+		})
+	}
+	return &pb.OrderListResp{
+		Total: 10,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderUpdate(ctx context.Context, req *pb.OrderUpdateReq) (*pb.OrderUpdateResp, error) {
 	return &pb.OrderUpdateResp{}, nil

@@ -2,16 +2,51 @@ package service
 
 import (
 	"context"
+	"github.com/go-kratos/kratos/v2/log"
+	"kratos-mall/app/front/admin/internal/biz"
+	"kratos-mall/app/front/admin/internal/biz/sms"
 
 	pb "kratos-mall/api/front/admin/v1"
 )
 
 type SmsService struct {
 	pb.UnimplementedSmsServer
+	uc                           *biz.GreeterUsecase
+	couponUseCase                *sms.CouponUseCase
+	couponHistoryUseCase         *sms.CouponHistoryUseCase
+	flashPromotionUseCase        *sms.FlashPromotionUseCase
+	flashPromotionHistoryUseCase *sms.FlashPromotionHistoryUseCase
+	flashPromotionSessionUseCase *sms.FlashPromotionSessionUseCase
+	homeAdvertiseUseCase         *sms.HomeAdvertiseUseCase
+	homeBrandUseCase             *sms.HomeBrandUseCase
+	homeNewProductUseCase        *sms.HomeNewProductUseCase
+	homeRecommendProductUseCase  *sms.HomeRecommendProductUseCase
+	homeRecommendSubjectUseCase  *sms.HomeRecommendSubjectUseCase
+	log                          *log.Helper
 }
 
-func NewSmsService() *SmsService {
-	return &SmsService{}
+func NewSmsService(uc *biz.GreeterUsecase, logger log.Logger,
+	couponUseCase *sms.CouponUseCase,
+	couponHistoryUseCase *sms.CouponHistoryUseCase,
+	flashPromotionUseCase *sms.FlashPromotionUseCase,
+	flashPromotionHistoryUseCase *sms.FlashPromotionHistoryUseCase,
+	flashPromotionSessionUseCase *sms.FlashPromotionSessionUseCase,
+	homeAdvertiseUseCase *sms.HomeAdvertiseUseCase,
+	homeBrandUseCase *sms.HomeBrandUseCase,
+	homeNewProductUseCase *sms.HomeNewProductUseCase,
+	homeRecommendProductUseCase *sms.HomeRecommendProductUseCase,
+	homeRecommendSubjectUseCase *sms.HomeRecommendSubjectUseCase) *SmsService {
+	return &SmsService{uc: uc, log: log.NewHelper(logger),
+		couponUseCase:                couponUseCase,
+		couponHistoryUseCase:         couponHistoryUseCase,
+		flashPromotionHistoryUseCase: flashPromotionHistoryUseCase,
+		flashPromotionSessionUseCase: flashPromotionSessionUseCase,
+		flashPromotionUseCase:        flashPromotionUseCase,
+		homeAdvertiseUseCase:         homeAdvertiseUseCase,
+		homeBrandUseCase:             homeBrandUseCase,
+		homeNewProductUseCase:        homeNewProductUseCase,
+		homeRecommendProductUseCase:  homeRecommendProductUseCase,
+		homeRecommendSubjectUseCase:  homeRecommendSubjectUseCase}
 }
 
 func (s *SmsService) CouponAdd(ctx context.Context, req *pb.CouponAddReq) (*pb.CouponAddResp, error) {

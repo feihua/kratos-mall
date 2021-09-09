@@ -2,16 +2,51 @@ package service
 
 import (
 	"context"
+	"github.com/go-kratos/kratos/v2/log"
+	"kratos-mall/app/front/admin/internal/biz"
+	"kratos-mall/app/front/admin/internal/biz/pms"
 
 	pb "kratos-mall/api/front/admin/v1"
 )
 
 type PmsService struct {
 	pb.UnimplementedPmsServer
+	uc                    *biz.GreeterUsecase
+	brandUseCase          *pms.BrandUseCase
+	categoryUseCase       *pms.CategoryUseCase
+	commentUseCase        *pms.CommentUseCase
+	commentReplayUseCase  *pms.CommentReplayUseCase
+	feightTemplateUseCase *pms.FeightTemplateUseCase
+	memberPriceUseCase    *pms.MemberPriceUseCase
+	operateHistoryUseCase *pms.OperateHistoryUseCase
+	productUseCase        *pms.ProductUseCase
+	skuStockUseCase       *pms.SkuStockUseCase
+	vertifyRecordUseCase  *pms.VertifyRecordUseCase
+	log                   *log.Helper
 }
 
-func NewPmsService() *PmsService {
-	return &PmsService{}
+func NewPmsService(uc *biz.GreeterUsecase, logger log.Logger,
+	brandUseCase *pms.BrandUseCase,
+	categoryUseCase *pms.CategoryUseCase,
+	commentUseCase *pms.CommentUseCase,
+	commentReplayUseCase *pms.CommentReplayUseCase,
+	feightTemplateUseCase *pms.FeightTemplateUseCase,
+	memberPriceUseCase *pms.MemberPriceUseCase,
+	operateHistoryUseCase *pms.OperateHistoryUseCase,
+	productUseCase *pms.ProductUseCase,
+	skuStockUseCase *pms.SkuStockUseCase,
+	vertifyRecordUseCase *pms.VertifyRecordUseCase) *PmsService {
+	return &PmsService{uc: uc, log: log.NewHelper(logger),
+		brandUseCase:          brandUseCase,
+		categoryUseCase:       categoryUseCase,
+		commentUseCase:        commentUseCase,
+		commentReplayUseCase:  commentReplayUseCase,
+		feightTemplateUseCase: feightTemplateUseCase,
+		memberPriceUseCase:    memberPriceUseCase,
+		operateHistoryUseCase: operateHistoryUseCase,
+		productUseCase:        productUseCase,
+		skuStockUseCase:       skuStockUseCase,
+		vertifyRecordUseCase:  vertifyRecordUseCase}
 }
 
 func (s *PmsService) ProductAdd(ctx context.Context, req *pb.ProductAddReq) (*pb.ProductAddResp, error) {

@@ -2,16 +2,52 @@ package service
 
 import (
 	"context"
+	"github.com/go-kratos/kratos/v2/log"
+	"kratos-mall/app/front/admin/internal/biz"
+	"kratos-mall/app/front/admin/internal/biz/ums"
 
 	pb "kratos-mall/api/front/admin/v1"
 )
 
 type UmsService struct {
 	pb.UnimplementedUmsServer
+	uc                              *biz.GreeterUsecase
+	changeHistoryUseCase            *ums.ChangeHistoryUseCase
+	integrationChangeHistoryUseCase *ums.IntegrationChangeHistoryUseCase
+	consumeSettingUseCase           *ums.ConsumeSettingUseCase
+	loginLogUseCase                 *ums.LoginLogUseCase
+	memberUseCase                   *ums.MemberUseCase
+	memberAddressUseCase            *ums.MemberAddressUseCase
+	memberLevelUseCase              *ums.MemberLevelUseCase
+	ruleSettingUseCase              *ums.RuleSettingUseCase
+	tagUseCase                      *ums.TagUseCase
+	taskUseCase                     *ums.TaskUseCase
+	log                             *log.Helper
 }
 
-func NewUmsService() *UmsService {
-	return &UmsService{}
+func NewUmsService(uc *biz.GreeterUsecase, logger log.Logger, changeHistoryUseCase *ums.ChangeHistoryUseCase,
+	integrationChangeHistoryUseCase *ums.IntegrationChangeHistoryUseCase,
+	consumeSettingUseCase *ums.ConsumeSettingUseCase,
+	loginLogUseCase *ums.LoginLogUseCase,
+	memberUseCase *ums.MemberUseCase,
+	memberAddressUseCase *ums.MemberAddressUseCase,
+	memberLevelUseCase *ums.MemberLevelUseCase,
+	ruleSettingUseCase *ums.RuleSettingUseCase,
+	tagUseCase *ums.TagUseCase,
+	taskUseCase *ums.TaskUseCase) *UmsService {
+	return &UmsService{
+		uc:                              uc,
+		log:                             log.NewHelper(logger),
+		changeHistoryUseCase:            changeHistoryUseCase,
+		consumeSettingUseCase:           consumeSettingUseCase,
+		integrationChangeHistoryUseCase: integrationChangeHistoryUseCase,
+		loginLogUseCase:                 loginLogUseCase,
+		memberUseCase:                   memberUseCase,
+		memberAddressUseCase:            memberAddressUseCase,
+		memberLevelUseCase:              memberLevelUseCase,
+		ruleSettingUseCase:              ruleSettingUseCase,
+		tagUseCase:                      tagUseCase,
+		taskUseCase:                     taskUseCase}
 }
 
 func (s *UmsService) MemberAdd(ctx context.Context, req *pb.MemberAddReq) (*pb.MemberAddResp, error) {

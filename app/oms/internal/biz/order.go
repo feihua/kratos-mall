@@ -2,6 +2,7 @@ package biz
 
 import (
 	"context"
+	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	"time"
 )
@@ -88,7 +89,14 @@ func (r *OrderUseCase) UpdateOrder(ctx context.Context, user *Order) error {
 }
 
 func (r *OrderUseCase) ListOrder(ctx context.Context, pageNum, pageSize int64) ([]*Order, error) {
-	panic("implement me")
+	order, _ := r.repo.ListOrder(ctx, &OrderListReq{
+		PageSize: pageSize,
+		Current:  pageNum,
+	})
+
+	fmt.Printf("%v", order)
+
+	return nil, nil
 }
 
 func (r *OrderUseCase) DeleteOrder(ctx context.Context, id int64) error {

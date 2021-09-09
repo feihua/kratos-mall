@@ -19,17 +19,29 @@ import (
 )
 
 // ProviderSet is data providers.
-var ProviderSet = wire.NewSet(NewData, NewGreeterRepo, NewDiscovery, NewRegistrar, NewUmsServiceClient, NewPmsServiceClient, NewPayServiceClient, NewOmsServiceClient, NewSmsServiceClient, NewSysServiceClient, NewUserRepo)
+var ProviderSet = wire.NewSet(
+	NewData,
+	NewGreeterRepo,
+	NewDiscovery,
+	NewRegistrar,
+	NewUmsServiceClient,
+	NewPmsServiceClient,
+	NewPayServiceClient,
+	NewOmsServiceClient,
+	NewSmsServiceClient,
+	NewSysServiceClient,
+	NewUserRepo,
+)
 
 // Data .
 type Data struct {
 	log       *log.Helper
-	umsClient umsV1.UmsClient
-	payClient payV1.PayClient
-	pmsClient pmsV1.PmsClient
-	smsClient smsV1.SmsClient
-	sysClient sysV1.SysClient
-	omsClient omsV1.OmsClient
+	UmsClient umsV1.UmsClient
+	PayClient payV1.PayClient
+	PmsClient pmsV1.PmsClient
+	SmsClient smsV1.SmsClient
+	SysClient sysV1.SysClient
+	OmsClient omsV1.OmsClient
 }
 
 // NewData .
@@ -37,12 +49,12 @@ func NewData(logger log.Logger, umsClient umsV1.UmsClient, payClient payV1.PayCl
 	l := log.NewHelper(log.With(logger, "module", "data"))
 	return &Data{
 			log:       l,
-			umsClient: umsClient,
-			payClient: payClient,
-			pmsClient: pmsClient,
-			smsClient: smsClient,
-			sysClient: sysClient,
-			omsClient: omsClient},
+			UmsClient: umsClient,
+			PayClient: payClient,
+			PmsClient: pmsClient,
+			SmsClient: smsClient,
+			SysClient: sysClient,
+			OmsClient: omsClient},
 		nil
 }
 
