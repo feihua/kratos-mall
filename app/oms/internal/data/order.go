@@ -2,7 +2,6 @@ package data
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/oms/internal/biz"
 	"kratos-mall/app/oms/internal/data/model"
@@ -44,31 +43,58 @@ func (o orderRepo) ListOrder(ctx context.Context, req *biz.OrderListReq) ([]*biz
 		return nil, result.Error
 	}
 
-	//rv := make([]*biz.User, 0)
-	//for _, item := range list {
-	//	rv = append(rv, &biz.User{
-	//		Id:             item.Id,
-	//		Name:           item.Name,
-	//		NickName:       item.NickName,
-	//		Avatar:         item.Avatar,
-	//		Password:       item.Password,
-	//		Salt:           item.Salt,
-	//		Email:          item.Email,
-	//		Mobile:         item.Mobile,
-	//		Status:         item.Status,
-	//		DeptId:         item.DeptId,
-	//		CreateBy:       item.CreateBy,
-	//		CreateTime:     item.CreateTime,
-	//		LastUpdateBy:   item.LastUpdateBy,
-	//		LastUpdateTime: item.LastUpdateTime,
-	//		DelFlag:        item.DelFlag,
-	//		JobId:          item.JobId,
-	//	})
-	//}
-	//return rv, nil
+	orders := make([]*biz.Order, 0)
 
-	fmt.Printf("%v", list)
-	return nil, nil
+	for _, order := range list {
+		orders = append(orders, &biz.Order{
+			Id:                    order.Id,
+			MemberId:              order.MemberId,
+			CouponId:              order.CouponId,
+			OrderSn:               order.OrderSn,
+			CreateTime:            order.CreateTime.Format("2006-01-02 15:04:05"),
+			MemberUsername:        order.MemberUsername,
+			TotalAmount:           order.TotalAmount,
+			PayAmount:             order.PayAmount,
+			FreightAmount:         order.FreightAmount,
+			PromotionAmount:       order.PromotionAmount,
+			IntegrationAmount:     order.IntegrationAmount,
+			CouponAmount:          order.CouponAmount,
+			DiscountAmount:        order.DiscountAmount,
+			PayType:               order.PayType,
+			SourceType:            order.SourceType,
+			Status:                order.Status,
+			OrderType:             order.OrderType,
+			DeliveryCompany:       order.DeliveryCompany,
+			DeliverySn:            order.DeliverySn,
+			AutoConfirmDay:        order.AutoConfirmDay,
+			Integration:           order.Integration,
+			Growth:                order.Growth,
+			PromotionInfo:         order.PromotionInfo,
+			BillType:              order.BillType,
+			BillHeader:            order.BillHeader,
+			BillContent:           order.BillContent,
+			BillReceiverPhone:     order.BillReceiverPhone,
+			BillReceiverEmail:     order.BillReceiverEmail,
+			ReceiverName:          order.ReceiverName,
+			ReceiverPhone:         order.ReceiverPhone,
+			ReceiverPostCode:      order.ReceiverPostCode,
+			ReceiverProvince:      order.ReceiverProvince,
+			ReceiverCity:          order.ReceiverCity,
+			ReceiverRegion:        order.ReceiverRegion,
+			ReceiverDetailAddress: order.ReceiverDetailAddress,
+			Note:                  order.Note,
+			ConfirmStatus:         order.ConfirmStatus,
+			DeleteStatus:          order.DeleteStatus,
+			UseIntegration:        order.UseIntegration,
+			PaymentTime:           order.PaymentTime.Format("2006-01-02 15:04:05"),
+			DeliveryTime:          order.DeliveryTime.Format("2006-01-02 15:04:05"),
+			ReceiveTime:           order.ReceiveTime.Format("2006-01-02 15:04:05"),
+			CommentTime:           order.CommentTime.Format("2006-01-02 15:04:05"),
+			ModifyTime:            order.ModifyTime.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	return orders, nil
 }
 
 func (o orderRepo) DeleteOrder(ctx context.Context, id int64) error {

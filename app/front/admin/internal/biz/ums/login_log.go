@@ -3,7 +3,6 @@ package ums
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type LoginLogListReq struct {
@@ -14,7 +13,7 @@ type LoginLogListReq struct {
 type LoginLog struct {
 	Id         int64
 	MemberId   int64
-	CreateTime time.Time
+	CreateTime string
 	Ip         string
 	City       string
 	LoginType  int // 登录类型：0->PC；1->android;2->ios;3->小程序

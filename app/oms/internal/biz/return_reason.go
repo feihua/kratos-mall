@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type ReturnReasonListReq struct {
@@ -15,8 +14,8 @@ type ReturnReason struct {
 	Id         int64
 	Name       string // 退货类型
 	Sort       int
-	Status     int       // 状态：0->不启用；1->启用
-	CreateTime time.Time // 添加时间
+	Status     int    // 状态：0->不启用；1->启用
+	CreateTime string // 添加时间
 }
 
 type ReturnReasonRepo interface {

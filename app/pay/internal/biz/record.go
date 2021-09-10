@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type RecordListReq struct {
@@ -21,9 +20,9 @@ type Record struct {
 	ReturnMsg  string
 	ResultCode string
 	ResultMsg  string
-	PayStatus  int       // 0：初始化 1：已发送 2：成功 3：失败
-	CreateTime time.Time // 创建时间
-	UpdateTime time.Time // 更新时间
+	PayStatus  int    // 0：初始化 1：已发送 2：成功 3：失败
+	CreateTime string // 创建时间
+	UpdateTime string // 更新时间
 }
 
 type RecordRepo interface {

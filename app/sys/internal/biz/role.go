@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type RoleListReq struct {
@@ -14,15 +13,15 @@ type RoleListReq struct {
 }
 
 type Role struct {
-	Id             int64     // 编号
-	Name           string    // 角色名称
-	Remark         string    // 备注
-	CreateBy       string    // 创建人
-	CreateTime     time.Time // 创建时间
-	LastUpdateBy   string    // 更新人
-	LastUpdateTime time.Time // 更新时间
-	DelFlag        int       // 是否删除  -1：已删除  0：正常
-	Status         int       // 状态  1:启用,0:禁用
+	Id             int64  // 编号
+	Name           string // 角色名称
+	Remark         string // 备注
+	CreateBy       string // 创建人
+	CreateTime     string // 创建时间
+	LastUpdateBy   string // 更新人
+	LastUpdateTime string // 更新时间
+	DelFlag        int    // 是否删除  -1：已删除  0：正常
+	Status         int    // 状态  1:启用,0:禁用
 }
 
 type RoleRepo interface {

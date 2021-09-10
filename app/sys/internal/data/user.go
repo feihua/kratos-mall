@@ -88,9 +88,9 @@ func (u userRepo) ListUser(ctx context.Context, req *biz.UserListReq) ([]*biz.Us
 			Status:         item.Status,
 			DeptId:         item.DeptId,
 			CreateBy:       item.CreateBy,
-			CreateTime:     item.CreateTime,
+			CreateTime:     item.CreateTime.Format("2006-01-02 15:04:05"),
 			LastUpdateBy:   item.LastUpdateBy,
-			LastUpdateTime: item.LastUpdateTime,
+			LastUpdateTime: item.LastUpdateTime.Format("2006-01-02 15:04:05"),
 			DelFlag:        item.DelFlag,
 			JobId:          item.JobId,
 		})

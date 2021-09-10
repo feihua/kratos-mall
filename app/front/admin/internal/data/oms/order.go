@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	omsV1 "kratos-mall/api/oms/v1"
 	"kratos-mall/app/front/admin/internal/biz/oms"
 	"kratos-mall/app/front/admin/internal/data"
@@ -39,8 +40,10 @@ func (o orderRepo) ListOrder(ctx context.Context, req *oms.OrderListReq) ([]*oms
 		PageSize: req.PageSize,
 	})
 
-	fmt.Printf("%v", list)
-	return nil, nil
+	orders := make([]*oms.Order, 0)
+	copier.Copy(&orders, &list.List)
+	fmt.Printf("%v", orders)
+	return orders, nil
 }
 
 func (o orderRepo) DeleteOrder(ctx context.Context, id int64) error {

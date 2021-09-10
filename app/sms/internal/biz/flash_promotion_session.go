@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type FlashPromotionSessionListReq struct {
@@ -12,12 +11,12 @@ type FlashPromotionSessionListReq struct {
 }
 
 type FlashPromotionSession struct {
-	Id         int64     // 编号
-	Name       string    // 场次名称
-	StartTime  time.Time // 每日开始时间
-	EndTime    time.Time // 每日结束时间
-	Status     int       // 启用状态：0->不启用；1->启用
-	CreateTime time.Time // 创建时间
+	Id         int64  // 编号
+	Name       string // 场次名称
+	StartTime  string // 每日开始时间
+	EndTime    string // 每日结束时间
+	Status     int    // 启用状态：0->不启用；1->启用
+	CreateTime string // 创建时间
 }
 
 type FlashPromotionSessionRepo interface {

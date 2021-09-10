@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/front/admin/internal/biz/oms"
 
 	pb "kratos-mall/api/front/admin/v1"
@@ -48,13 +49,8 @@ func (s *OmsService) OrderList(ctx context.Context, req *pb.OrderListReq) (*pb.O
 	})
 
 	list := make([]*pb.OrderListData, 0)
-	for _, item := range listResp {
-		list = append(list, &pb.OrderListData{
-			Id:       item.Id,
-			MemberId: item.MemberId,
-			CouponId: item.CouponId,
-		})
-	}
+
+	copier.Copy(&list, &listResp)
 	return &pb.OrderListResp{
 		Total: 10,
 		List:  list,

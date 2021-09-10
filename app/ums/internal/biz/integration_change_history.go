@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type IntegrationChangeHistoryListReq struct {
@@ -14,7 +13,7 @@ type IntegrationChangeHistoryListReq struct {
 type IntegrationChangeHistory struct {
 	Id          int64
 	MemberId    int64
-	CreateTime  time.Time
+	CreateTime  string
 	ChangeType  int    // 改变类型：0->增加；1->减少
 	ChangeCount int    // 积分改变数量
 	OperateMan  string // 操作人员

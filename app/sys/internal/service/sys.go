@@ -104,9 +104,9 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 			Status:         int64(item.Status),
 			DeptId:         item.DeptId,
 			CreateBy:       item.CreateBy,
-			CreateTime:     item.CreateTime.Format("2006-01-02 15:04:05"),
+			CreateTime:     item.CreateTime,
 			LastUpdateBy:   item.LastUpdateBy,
-			LastUpdateTime: item.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateTime: item.LastUpdateTime,
 			DelFlag:        int64(item.DelFlag),
 			JobId:          int64(item.JobId),
 		})
@@ -172,9 +172,9 @@ func (s *SysService) MenuList(ctx context.Context, req *pb.MenuListReq) (*pb.Men
 			Icon:           m.Icon,
 			OrderNum:       int64(m.OrderNum),
 			CreateBy:       m.CreateBy,
-			CreateTime:     m.CreateTime.Format("2006-01-02 15:04:05"),
+			CreateTime:     m.CreateTime,
 			LastUpdateBy:   m.LastUpdateBy,
-			LastUpdateTime: m.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateTime: m.LastUpdateTime,
 			DelFlag:        int64(m.DelFlag),
 		})
 	}

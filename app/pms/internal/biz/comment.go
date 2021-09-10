@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type CommentListReq struct {
@@ -18,7 +17,7 @@ type Comment struct {
 	ProductName      string
 	Star             int    // 评价星数：0->5
 	MemberIp         string // 评价的ip
-	CreateTime       time.Time
+	CreateTime       string
 	ShowStatus       int
 	ProductAttribute string // 购买时的商品属性
 	CollectCouont    int

@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type OperateHistoryListReq struct {
@@ -13,11 +12,11 @@ type OperateHistoryListReq struct {
 
 type OperateHistory struct {
 	Id          int64
-	OrderId     int64     // 订单id
-	OperateMan  string    // 操作人：用户；系统；后台管理员
-	CreateTime  time.Time // 操作时间
-	OrderStatus int       // 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单
-	Note        string    // 备注
+	OrderId     int64  // 订单id
+	OperateMan  string // 操作人：用户；系统；后台管理员
+	CreateTime  string // 操作时间
+	OrderStatus int    // 订单状态：0->待付款；1->待发货；2->已发货；3->已完成；4->已关闭；5->无效订单
+	Note        string // 备注
 }
 
 type OperateHistoryRepo interface {

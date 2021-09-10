@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type UserDTO struct {
@@ -47,22 +46,22 @@ type UserListReq struct {
 }
 
 type User struct {
-	Id             int64     // 编号
-	Name           string    // 用户名
-	NickName       string    // 昵称
-	Avatar         string    // 头像
-	Password       string    // 密码
-	Salt           string    // 加密盐
-	Email          string    // 邮箱
-	Mobile         string    // 手机号
-	Status         int       // 状态  0：禁用   1：正常
-	DeptId         int64     // 机构ID
-	CreateBy       string    // 创建人
-	CreateTime     time.Time // 创建时间
-	LastUpdateBy   string    // 更新人
-	LastUpdateTime time.Time // 更新时间
-	DelFlag        int       // 是否删除  -1：已删除  0：正常
-	JobId          int       // 岗位Id
+	Id             int64  // 编号
+	Name           string // 用户名
+	NickName       string // 昵称
+	Avatar         string // 头像
+	Password       string // 密码
+	Salt           string // 加密盐
+	Email          string // 邮箱
+	Mobile         string // 手机号
+	Status         int    // 状态  0：禁用   1：正常
+	DeptId         int64  // 机构ID
+	CreateBy       string // 创建人
+	CreateTime     string // 创建时间
+	LastUpdateBy   string // 更新人
+	LastUpdateTime string // 更新时间
+	DelFlag        int    // 是否删除  -1：已删除  0：正常
+	JobId          int    // 岗位Id
 }
 
 type UserRepo interface {

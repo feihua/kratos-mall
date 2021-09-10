@@ -3,7 +3,6 @@ package pms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type CommentReplayListReq struct {
@@ -17,7 +16,7 @@ type CommentReplay struct {
 	MemberNickName string
 	MemberIcon     string
 	Content        string
-	CreateTime     time.Time
+	CreateTime     string
 	Type           int // 评论人员类型；0->会员；1->管理员
 }
 

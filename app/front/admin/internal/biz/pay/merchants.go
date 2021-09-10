@@ -3,7 +3,6 @@ package pay
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type MerchantListReq struct {
@@ -20,8 +19,8 @@ type Merchant struct {
 	PayType    string // APP:APP支付 JSAPI:小程序,公众号 MWEB:H5支付
 	NotifyUrl  string // 微信支付回调地址
 	Remarks    string // 备注
-	CreateTime time.Time
-	UpdateTime time.Time
+	CreateTime string
+	UpdateTime string
 }
 
 type MerchantRepo interface {

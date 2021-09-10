@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type CouponListReq struct {
@@ -20,16 +19,16 @@ type Coupon struct {
 	Amount       string // 金额
 	PerLimit     int    // 每人限领张数
 	MinPoint     string // 使用门槛；0表示无门槛
-	StartTime    time.Time
-	EndTime      time.Time
-	UseType      int       // 使用类型：0->全场通用；1->指定分类；2->指定商品
-	Note         string    // 备注
-	PublishCount int       // 发行数量
-	UseCount     int       // 已使用数量
-	ReceiveCount int       // 领取数量
-	EnableTime   time.Time // 可以领取的日期
-	Code         string    // 优惠码
-	MemberLevel  int       // 可领取的会员类型：0->无限时
+	StartTime    string
+	EndTime      string
+	UseType      int    // 使用类型：0->全场通用；1->指定分类；2->指定商品
+	Note         string // 备注
+	PublishCount int    // 发行数量
+	UseCount     int    // 已使用数量
+	ReceiveCount int    // 领取数量
+	EnableTime   string // 可以领取的日期
+	Code         string // 优惠码
+	MemberLevel  int    // 可领取的会员类型：0->无限时
 }
 
 type CouponRepo interface {

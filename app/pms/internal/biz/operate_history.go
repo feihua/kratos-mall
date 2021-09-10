@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type OperateHistoryListReq struct {
@@ -23,7 +22,7 @@ type OperateHistory struct {
 	UsePointLimitOld int
 	UsePointLimitNew int
 	OperateMan       string
-	CreateTime       time.Time
+	CreateTime       string
 }
 
 type OperateHistoryRepo interface {

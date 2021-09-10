@@ -3,7 +3,6 @@ package pms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type VertifyRecordListReq struct {
@@ -14,7 +13,7 @@ type VertifyRecordListReq struct {
 type VertifyRecord struct {
 	Id         int64
 	ProductId  int64
-	CreateTime time.Time
+	CreateTime string
 	VertifyMan string
 	Status     int
 	Detail     string

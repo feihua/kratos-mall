@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type LogListReq struct {
@@ -12,14 +11,14 @@ type LogListReq struct {
 }
 
 type Log struct {
-	Id             int64     // 编号
-	UserName       string    // 用户名
-	Status         string    // 登录状态（online:在线，登录初始状态，方便统计在线人数；login:退出登录后将online置为login；logout:退出登录）
-	Ip             string    // IP地址
-	CreateBy       string    // 创建人
-	CreateTime     time.Time // 创建时间
-	LastUpdateBy   string    // 更新人
-	LastUpdateTime time.Time // 更新时间
+	Id             int64  // 编号
+	UserName       string // 用户名
+	Status         string // 登录状态（online:在线，登录初始状态，方便统计在线人数；login:退出登录后将online置为login；logout:退出登录）
+	Ip             string // IP地址
+	CreateBy       string // 创建人
+	CreateTime     string // 创建时间
+	LastUpdateBy   string // 更新人
+	LastUpdateTime string // 更新时间
 }
 
 type LogDTO struct {

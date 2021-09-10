@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type ProductListReq struct {
@@ -46,14 +45,14 @@ type Product struct {
 	AlbumPics                  string // 画册图片，连产品图片限制为5张，以逗号分割
 	DetailTitle                string
 	DetailDesc                 string
-	DetailHtml                 string    // 产品详情网页内容
-	DetailMobileHtml           string    // 移动端网页详情
-	PromotionStartTime         time.Time // 促销开始时间
-	PromotionEndTime           time.Time // 促销结束时间
-	PromotionPerLimit          int       // 活动限购数量
-	PromotionType              int       // 促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
-	BrandName                  string    // 品牌名称
-	ProductCategoryName        string    // 商品分类名称
+	DetailHtml                 string // 产品详情网页内容
+	DetailMobileHtml           string // 移动端网页详情
+	PromotionStartTime         string // 促销开始时间
+	PromotionEndTime           string // 促销结束时间
+	PromotionPerLimit          int    // 活动限购数量
+	PromotionType              int    // 促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
+	BrandName                  string // 品牌名称
+	ProductCategoryName        string // 商品分类名称
 }
 
 type ProductRepo interface {

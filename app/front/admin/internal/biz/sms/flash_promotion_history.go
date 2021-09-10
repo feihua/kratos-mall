@@ -3,7 +3,6 @@ package sms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type FlashPromotionHistoryListReq struct {
@@ -17,8 +16,8 @@ type FlashPromotionHistory struct {
 	ProductId     int64
 	MemberPhone   string
 	ProductName   string
-	SubscribeTime time.Time // 会员订阅时间
-	SendTime      time.Time
+	SubscribeTime string // 会员订阅时间
+	SendTime      string
 }
 
 type FlashPromotionHistoryRepo interface {

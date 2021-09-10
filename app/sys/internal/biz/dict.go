@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type DictListReq struct {
@@ -16,18 +15,18 @@ type DictListReq struct {
 }
 
 type Dict struct {
-	Id             int64     // 编号
-	Value          string    // 数据值
-	Label          string    // 标签名
-	Type           string    // 类型
-	Description    string    // 描述
-	Sort           string    // 排序（升序）
-	CreateBy       string    // 创建人
-	CreateTime     time.Time // 创建时间
-	LastUpdateBy   string    // 更新人
-	LastUpdateTime time.Time // 更新时间
-	Remarks        string    // 备注信息
-	DelFlag        int       // 是否删除  -1：已删除  0：正常
+	Id             int64  // 编号
+	Value          string // 数据值
+	Label          string // 标签名
+	Type           string // 类型
+	Description    string // 描述
+	Sort           string // 排序（升序）
+	CreateBy       string // 创建人
+	CreateTime     string // 创建时间
+	LastUpdateBy   string // 更新人
+	LastUpdateTime string // 更新时间
+	Remarks        string // 备注信息
+	DelFlag        int    // 是否删除  -1：已删除  0：正常
 }
 
 type DictRepo interface {

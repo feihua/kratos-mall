@@ -3,7 +3,6 @@ package sms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type HomeAdvertiseListReq struct {
@@ -16,8 +15,8 @@ type HomeAdvertise struct {
 	Name       string
 	Type       int // 轮播位置：0->PC首页轮播；1->app首页轮播
 	Pic        string
-	StartTime  time.Time
-	EndTime    time.Time
+	StartTime  string
+	EndTime    string
 	Status     int    // 上下线状态：0->下线；1->上线
 	ClickCount int    // 点击数
 	OrderCount int    // 下单数

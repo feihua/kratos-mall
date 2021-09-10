@@ -3,7 +3,6 @@ package biz
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"time"
 )
 
 type CouponHistoryListReq struct {
@@ -18,11 +17,11 @@ type CouponHistory struct {
 	CouponCode     string
 	MemberNickname string // 领取人昵称
 	GetType        int    // 获取类型：0->后台赠送；1->主动获取
-	CreateTime     time.Time
-	UseStatus      int       // 使用状态：0->未使用；1->已使用；2->已过期
-	UseTime        time.Time // 使用时间
-	OrderId        int64     // 订单编号
-	OrderSn        string    // 订单号码
+	CreateTime     string
+	UseStatus      int    // 使用状态：0->未使用；1->已使用；2->已过期
+	UseTime        string // 使用时间
+	OrderId        int64  // 订单编号
+	OrderSn        string // 订单号码
 }
 
 type CouponHistoryRepo interface {

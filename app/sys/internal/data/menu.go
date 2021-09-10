@@ -49,9 +49,9 @@ func (m menuRepo) ListMenu(ctx context.Context, req *biz.MenuListReq) ([]*biz.Me
 			Icon:           m.Icon,
 			OrderNum:       m.OrderNum,
 			CreateBy:       m.CreateBy,
-			CreateTime:     m.CreateTime,
+			CreateTime:     m.CreateTime.Format("2006-01-02 15:04:05"),
 			LastUpdateBy:   m.LastUpdateBy,
-			LastUpdateTime: m.LastUpdateTime,
+			LastUpdateTime: m.LastUpdateTime.Format("2006-01-02 15:04:05"),
 			DelFlag:        m.DelFlag,
 		})
 	}
