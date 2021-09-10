@@ -8,7 +8,7 @@ option go_package = "api/front/admin/v1;v1";
 
 //user start---------------------
 message LoginReq {
-  string user_name = 1;
+  string userName = 1;
   string password = 2;
 }
 
@@ -17,11 +17,11 @@ message LoginResp {
   string currentAuthority = 2;
   int64 id = 3;
   string userName = 4;
-  string AccessToken = 5;
-  int64 AccessExpire = 6;
-  int64 RefreshAfter = 7;
-  string Code = 8;
-  string Message = 9;
+  string accessToken = 5;
+  int64 accessExpire = 6;
+  int64 refreshAfter = 7;
+  string code = 8;
+  string message = 9;
 }
 
 message InfoReq {
@@ -32,20 +32,20 @@ message InfoResp {
   string avatar = 1;
   string name = 2;
   repeated MenuListTree menuListTree=3;
-  string Code = 4;
-  string Message = 5;
+  string code = 4;
+  string message = 5;
 }
 
 message UserAddReq {
   string email = 1;
   string mobile = 2;
   string name = 3;
-  string nick_name = 4;
+  string nickName = 4;
   string avatar = 5;
-  int64 dept_id = 6;
-  string create_by = 7;
-  int64 role_id = 8;
-  int64 job_id = 9;
+  int64 deptId = 6;
+  string createBy = 7;
+  int64 role_Id = 8;
+  int64 job_Id = 9;
 }
 
 message UserAddResp {
@@ -56,34 +56,34 @@ message UserListReq {
   int64 current = 1;
   int64 pageSize = 2;
   string name = 3;
-  string nick_name = 4;
+  string nickName = 4;
   string mobile = 5;
   string email = 6;
   int64 status = 7;
-  int64 dept_id = 8;
+  int64 dept_Id = 8;
 }
 
 message UserListData{
   int64 id = 1;
   string name = 2;
-  string nick_name = 3;
+  string nickName = 3;
   string avatar = 4;
   string password = 5;
   string salt = 6;
   string email = 7;
   string mobile = 8;
   int64 status = 9;
-  int64 dept_id = 10;
-  string create_by = 11;
-  string create_time = 12;
-  string last_update_by = 13;
-  string last_update_time = 14;
+  int64 dept_Id = 10;
+  string createBy = 11;
+  string createTime = 12;
+  string lastUpdateBy = 13;
+  string lastUpdateTime = 14;
   int64 del_flag = 15;
-  int64 job_id = 16;
-  int64 role_id = 17;
-  string role_name = 18;
-  string job_name = 19;
-  string dept_name = 20;
+  int64 job_Id = 16;
+  int64 role_Id = 17;
+  string roleName = 18;
+  string jobName = 19;
+  string deptName = 20;
 }
 
 message UserListResp {
@@ -96,13 +96,13 @@ message UserUpdateReq {
   string email = 2;
   string mobile = 3;
   string name = 4;
-  string nick_name = 5;
+  string nickName = 5;
   string avatar = 6;
-  int64 dept_id = 7;
-  string last_update_by = 8;
-  int64 role_id = 9;
+  int64 dept_Id = 7;
+  string lastUpdateBy = 8;
+  int64 role_Id = 9;
   int64 status = 10;
-  int64 job_id = 11;
+  int64 job_Id = 11;
 }
 
 message UserUpdateResp {
@@ -120,7 +120,7 @@ message UserDeleteResp {
 
 message ReSetPasswordReq {
   int64 id = 1;
-  string last_update_by = 2;
+  string lastUpdateBy = 2;
 }
 
 message ReSetPasswordResp {
@@ -130,7 +130,7 @@ message ReSetPasswordResp {
 message UserStatusReq {
   int64 id = 1;
   int64 status = 2;
-  string last_update_by = 3;
+  string lastUpdateBy = 3;
 }
 
 message UserStatusResp {
@@ -142,7 +142,7 @@ message UserStatusResp {
 message RoleAddReq {
   string name = 1;
   string remark = 2;
-  string create_by = 3;
+  string createBy = 3;
   int64 status = 5;
 }
 
@@ -161,10 +161,10 @@ message RoleListData {
   int64 id = 1;
   string name = 2;
   string remark = 3;
-  string create_by = 4;
-  string create_time = 5;
-  string last_update_by = 6;
-  string last_update_time = 7;
+  string createBy = 4;
+  string createTime = 5;
+  string lastUpdateBy = 6;
+  string lastUpdateTime = 7;
   int64 del_flag = 8;
   int64 status = 9;
 }
@@ -178,7 +178,7 @@ message RoleUpdateReq {
   int64 id = 1;
   string name = 2;
   string remark = 3;
-  string last_update_by = 4;
+  string lastUpdateBy = 4;
   int64 status = 5;
 }
 
@@ -215,13 +215,13 @@ message QueryMenuByRoleIdResp {
 //menu start---------------------
 message MenuAddReq {
   string name = 1;
-  int64 parent_id = 2;
+  int64 parent_Id = 2;
   string url = 3;
   string perms = 4;
   int64 type = 5;
   string icon = 6;
-  int64 order_num = 7;
-  string create_by = 8;
+  int64 orderNum = 7;
+  string createBy = 8;
   string vuePath =9;
   string vueComponent =10;
   string vueIcon =11;
@@ -242,16 +242,16 @@ message MenuListReq {
 message MenuListData {
   int64 id = 1;
   string name = 2;
-  int64 parent_id = 3;
+  int64 parent_Id = 3;
   string url = 4;
   string perms = 5;
   int64 type = 6;
   string icon = 7;
-  int64 order_num = 8;
-  string create_by = 10;
-  string create_time = 11;
-  string last_update_by = 12;
-  string last_update_time = 13;
+  int64 orderNum = 8;
+  string createBy = 10;
+  string createTime = 11;
+  string lastUpdateBy = 12;
+  string lastUpdateTime = 13;
   int64 del_flag = 14;
   string vuePath =15;
   string vueComponent =16;
@@ -263,11 +263,11 @@ message MenuListTree {
   int64 id = 1;
   string name = 2;
   string icon = 3;
-  int64 parent_id = 4;
+  int64 parent_Id = 4;
   string path = 5;
   string vue_path = 6;
   string vue_component = 7;
-  string vue_icon = 8;
+  string vue_Icon = 8;
   string vue_redirect = 9;
 }
 
@@ -278,13 +278,13 @@ message MenuListResp{
 message MenuUpdateReq {
   int64 id = 1;
   string name = 2;
-  int64 parent_id = 3;
+  int64 parent_Id = 3;
   string url = 4;
   string perms = 5;
   int64 type = 6;
   string icon = 7;
-  int64 order_num = 8;
-  string last_update_by = 9;
+  int64 orderNum = 8;
+  string lastUpdateBy = 9;
   string vuePath =10;
   string vueComponent =11;
   string vueIcon =12;
@@ -321,7 +321,7 @@ message DictAddReq {
   string description = 4;
   int64 sort = 5;
   string remarks = 6;
-  string create_by = 7;
+  string createBy = 7;
 }
 
 message DictAddResp {
@@ -345,10 +345,10 @@ message DictListData {
   string description = 5;
   int64 sort = 6;
   string remarks = 7;
-  string create_by = 10;
-  string create_time = 11;
-  string last_update_by = 12;
-  string last_update_time = 13;
+  string createBy = 10;
+  string createTime = 11;
+  string lastUpdateBy = 12;
+  string lastUpdateTime = 13;
   int64 del_flag = 14;
 }
 
@@ -365,7 +365,7 @@ message DictUpdateReq {
   string description = 5;
   int64 sort = 6;
   string remarks = 7;
-  string last_update_by = 8;
+  string lastUpdateBy = 8;
 }
 
 message DictUpdateResp {
@@ -384,9 +384,9 @@ message DictDeleteResp {
 //dept start---------------------
 message DeptAddReq {
   string name = 1;
-  int64 parent_id = 2;
-  int64 order_num = 3;
-  string create_by = 4;
+  int64 parent_Id = 2;
+  int64 orderNum = 3;
+  string createBy = 4;
 }
 
 message DeptAddResp {
@@ -397,18 +397,18 @@ message DeptListReq {
   //  int64 current = 1;
   //  int64 pageSize = 2;
   string name = 1;
-  string create_by = 2;
+  string createBy = 2;
 }
 
 message DeptListData {
   int64 id = 1;
   string name = 2;
-  int64 parent_id = 3;
-  int64 order_num = 4;
-  string create_by = 5;
-  string create_time = 6;
-  string last_update_by = 7;
-  string last_update_time = 8;
+  int64 parent_Id = 3;
+  int64 orderNum = 4;
+  string createBy = 5;
+  string createTime = 6;
+  string lastUpdateBy = 7;
+  string lastUpdateTime = 8;
   int64 del_flag = 9;
 }
 
@@ -419,9 +419,9 @@ message DeptListResp{
 message DeptUpdateReq {
   int64 id = 1;
   string name = 2;
-  int64 parent_id = 3;
-  int64 order_num = 4;
-  string last_update_by = 7;
+  int64 parent_Id = 3;
+  int64 orderNum = 4;
+  string lastUpdateBy = 7;
 }
 
 message DeptUpdateResp {
@@ -439,10 +439,10 @@ message DeptDeleteResp {
 
 //loginLog start---------------------
 message LoginLogAddReq {
-  string user_name = 1;
+  string userName = 1;
   string status = 2;
   string ip = 3;
-  string create_by = 4;
+  string createBy = 4;
 }
 
 message LoginLogAddResp {
@@ -456,13 +456,13 @@ message LoginLogListReq {
 
 message LoginLogListData {
   int64 id = 1;
-  string user_name = 2;
+  string userName = 2;
   string status = 3;
   string ip = 4;
-  string create_by = 5;
-  string create_time = 6;
-  string last_update_by = 7;
-  string last_update_time = 8;
+  string createBy = 5;
+  string createTime = 6;
+  string lastUpdateBy = 7;
+  string lastUpdateTime = 8;
 }
 
 message LoginLogListResp{
@@ -480,13 +480,13 @@ message LoginLogDeleteResp {
 
 //sysLog start---------------------
 message SysLogAddReq {
-  string user_name = 1;
+  string userName = 1;
   string operation = 2;
   string method = 3;
   string params = 4;
   int64 time = 5;
   string ip = 6;
-  string create_by = 7;
+  string createBy = 7;
 }
 
 message SysLogAddResp {
@@ -500,16 +500,16 @@ message SysLogListReq {
 
 message SysLogListData {
   int64 id = 1;
-  string user_name = 2;
+  string userName = 2;
   string operation = 3;
   string method = 4;
   string params = 5;
   int64 time = 6;
   string ip = 7;
-  string create_by = 8;
-  string create_time = 9;
-  string last_update_by = 10;
-  string last_update_time = 11;
+  string createBy = 8;
+  string createTime = 9;
+  string lastUpdateBy = 10;
+  string lastUpdateTime = 11;
 }
 
 message SysLogListResp{
@@ -527,13 +527,13 @@ message SysLogDeleteResp {
 
 //config start---------------------
 message ConfigAddReq {
-  string Value = 1;
-  string Label = 2;
-  string Type = 3;
-  string Description = 4;
-  int64 Sort = 5;
-  string Remarks = 6;
-  string create_by = 7;
+  string value = 1;
+  string label = 2;
+  string type = 3;
+  string description = 4;
+  int64 sort = 5;
+  string remarks = 6;
+  string createBy = 7;
 }
 
 message ConfigAddResp {
@@ -547,17 +547,17 @@ message ConfigListReq {
 
 message ConfigListData {
   int64 id = 1;
-  string Value = 2;
-  string Label = 3;
-  string Type = 4;
-  string Description = 5;
-  int64 Sort = 6;
-  string Remarks = 7;
-  int64 DelFlag = 8;
-  string create_by = 9;
-  string create_time = 10;
-  string last_update_by = 11;
-  string last_update_time = 12;
+  string value = 2;
+  string label = 3;
+  string type = 4;
+  string description = 5;
+  int64 sort = 6;
+  string remarks = 7;
+  int64 delFlag = 8;
+  string createBy = 9;
+  string createTime = 10;
+  string lastUpdateBy = 11;
+  string lastUpdateTime = 12;
 }
 
 message ConfigListResp{
@@ -566,13 +566,13 @@ message ConfigListResp{
 }
 message ConfigUpdateReq {
   int64 id = 1;
-  string Value = 2;
-  string Label = 3;
-  string Type = 4;
-  string Description = 5;
-  int64 Sort = 6;
-  string Remarks = 7;
-  string last_update_by = 8;
+  string value = 2;
+  string label = 3;
+  string type = 4;
+  string description = 5;
+  int64 sort = 6;
+  string remarks = 7;
+  string lastUpdateBy = 8;
 }
 
 message ConfigUpdateResp {
@@ -600,7 +600,7 @@ message UpdateConfigRoleResp {
 message JobAddReq {
   string jobName = 1;
   int64 orderNum = 2;
-  string create_by = 3;
+  string createBy = 3;
   string remarks = 4;
 }
 

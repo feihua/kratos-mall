@@ -7,49 +7,49 @@ import "google/api/annotations.proto";
 option go_package = "api/front/admin/v1;v1";
 
 message OrderAddReq {
-  int64       MemberId = 2;
-  int64       CouponId = 3;
-  string      OrderSn = 4;
-  string   CreateTime = 5;
-  string      MemberUsername = 6;
-  double     TotalAmount = 7;
-  double     PayAmount = 8;
-  double     FreightAmount = 9;
-  double     PromotionAmount = 10;
-  double     IntegrationAmount = 11;
-  double     CouponAmount = 12;
-  double     DiscountAmount = 13;
-  int64       PayType = 14;
-  int64       SourceType = 15;
-  int64       Status = 16;
-  int64       OrderType = 17;
-  string      DeliveryCompany = 18;
-  string      DeliverySn = 19;
-  int64       AutoConfirmDay = 20;
-  int64       Integration = 21;
-  int64       Growth = 22;
-  string      PromotionInfo = 23;
-  int64       BillType = 24;
-  string      BillHeader = 25;
-  string      BillContent = 26;
-  string      BillReceiverPhone = 27;
-  string      BillReceiverEmail = 28;
-  string      ReceiverName = 29;
-  string      ReceiverPhone = 30;
-  string      ReceiverPostCode = 31;
-  string      ReceiverProvince = 32;
-  string      ReceiverCity = 33;
-  string      ReceiverRegion = 34;
-  string      ReceiverDetailAddress = 35;
-  string      Note = 36;
-  int64       ConfirmStatus = 37;
-  int64       DeleteStatus = 38;
-  int64       UseIntegration = 39;
-  string   PaymentTime = 40;
-  string   DeliveryTime = 41;
-  string   ReceiveTime = 42;
-  string   CommentTime = 43;
-  string   ModifyTime = 44;
+  int64       memberId = 2;
+  int64       couponId = 3;
+  string      orderSn = 4;
+  string   createTime = 5;
+  string      memberUsername = 6;
+  double     totalAmount = 7;
+  double     payAmount = 8;
+  double     freightAmount = 9;
+  double     promotionAmount = 10;
+  double     integrationAmount = 11;
+  double     couponAmount = 12;
+  double     discountAmount = 13;
+  int64       payType = 14;
+  int64       sourceType = 15;
+  int64       status = 16;
+  int64       orderType = 17;
+  string      deliveryCompany = 18;
+  string      deliverySn = 19;
+  int64       autoConfirmDay = 20;
+  int64       integration = 21;
+  int64       growth = 22;
+  string      promotionInfo = 23;
+  int64       billType = 24;
+  string      billHeader = 25;
+  string      billContent = 26;
+  string      billReceiverPhone = 27;
+  string      billReceiverEmail = 28;
+  string      receiverName = 29;
+  string      receiverPhone = 30;
+  string      receiverPostCode = 31;
+  string      receiverProvince = 32;
+  string      receiverCity = 33;
+  string      receiverRegion = 34;
+  string      receiverDetailAddress = 35;
+  string      note = 36;
+  int64       confirmStatus = 37;
+  int64       deleteStatus = 38;
+  int64       useIntegration = 39;
+  string   paymentTime = 40;
+  string   deliveryTime = 41;
+  string   receiveTime = 42;
+  string   commentTime = 43;
+  string   modifyTime = 44;
 }
 
 message OrderAddResp {
@@ -62,50 +62,50 @@ message OrderListReq {
 }
 
 message OrderListData{
-  int64       Id = 1;
-  int64       MemberId = 2;
-  int64       CouponId = 3;
-  string      OrderSn = 4;
-  string   CreateTime = 5;
-  string      MemberUsername = 6;
-  double     TotalAmount = 7;
-  double     PayAmount = 8;
-  double     FreightAmount = 9;
-  double     PromotionAmount = 10;
-  double     IntegrationAmount = 11;
-  double     CouponAmount = 12;
-  double     DiscountAmount = 13;
-  int64       PayType = 14;
-  int64       SourceType = 15;
-  int64       Status = 16;
-  int64       OrderType = 17;
-  string      DeliveryCompany = 18;
-  string      DeliverySn = 19;
-  int64       AutoConfirmDay = 20;
-  int64       Integration = 21;
-  int64       Growth = 22;
-  string      PromotionInfo = 23;
-  int64       BillType = 24;
-  string      BillHeader = 25;
-  string      BillContent = 26;
-  string      BillReceiverPhone = 27;
-  string      BillReceiverEmail = 28;
-  string      ReceiverName = 29;
-  string      ReceiverPhone = 30;
-  string      ReceiverPostCode = 31;
-  string      ReceiverProvince = 32;
-  string      ReceiverCity = 33;
-  string      ReceiverRegion = 34;
-  string      ReceiverDetailAddress = 35;
-  string      Note = 36;
-  int64       ConfirmStatus = 37;
-  int64       DeleteStatus = 38;
-  int64       UseIntegration = 39;
-  string   PaymentTime = 40;
-  string   DeliveryTime = 41;
-  string   ReceiveTime = 42;
-  string   CommentTime = 43;
-  string   ModifyTime = 44;
+  int64       id = 1;
+  int64       memberId = 2;
+  int64       couponId = 3;
+  string      orderSn = 4;
+  string   createTime = 5;
+  string      memberUsername = 6;
+  double     totalAmount = 7;
+  double     payAmount = 8;
+  double     freightAmount = 9;
+  double     promotionAmount = 10;
+  double     integrationAmount = 11;
+  double     couponAmount = 12;
+  double     discountAmount = 13;
+  int64       payType = 14;
+  int64       sourceType = 15;
+  int64       status = 16;
+  int64       orderType = 17;
+  string      deliveryCompany = 18;
+  string      deliverySn = 19;
+  int64       autoConfirmDay = 20;
+  int64       integration = 21;
+  int64       growth = 22;
+  string      promotionInfo = 23;
+  int64       billType = 24;
+  string      billHeader = 25;
+  string      billContent = 26;
+  string      billReceiverPhone = 27;
+  string      billReceiverEmail = 28;
+  string      receiverName = 29;
+  string      receiverPhone = 30;
+  string      receiverPostCode = 31;
+  string      receiverProvince = 32;
+  string      receiverCity = 33;
+  string      receiverRegion = 34;
+  string      receiverDetailAddress = 35;
+  string      note = 36;
+  int64       confirmStatus = 37;
+  int64       deleteStatus = 38;
+  int64       useIntegration = 39;
+  string   paymentTime = 40;
+  string   deliveryTime = 41;
+  string   receiveTime = 42;
+  string   commentTime = 43;
+  string   modifyTime = 44;
 }
 
 message OrderListResp {
@@ -114,50 +114,50 @@ message OrderListResp {
 }
 
 message OrderUpdateReq {
-  int64       Id = 1;
-  int64       MemberId = 2;
-  int64       CouponId = 3;
-  string      OrderSn = 4;
-  string   CreateTime = 5;
-  string      MemberUsername = 6;
-  double     TotalAmount = 7;
-  double     PayAmount = 8;
-  double     FreightAmount = 9;
-  double     PromotionAmount = 10;
-  double     IntegrationAmount = 11;
-  double     CouponAmount = 12;
-  double     DiscountAmount = 13;
-  int64       PayType = 14;
-  int64       SourceType = 15;
-  int64       Status = 16;
-  int64       OrderType = 17;
-  string      DeliveryCompany = 18;
-  string      DeliverySn = 19;
-  int64       AutoConfirmDay = 20;
-  int64       Integration = 21;
-  int64       Growth = 22;
-  string      PromotionInfo = 23;
-  int64       BillType = 24;
-  string      BillHeader = 25;
-  string      BillContent = 26;
-  string      BillReceiverPhone = 27;
-  string      BillReceiverEmail = 28;
-  string      ReceiverName = 29;
-  string      ReceiverPhone = 30;
-  string      ReceiverPostCode = 31;
-  string      ReceiverProvince = 32;
-  string      ReceiverCity = 33;
-  string      ReceiverRegion = 34;
-  string      ReceiverDetailAddress = 35;
-  string      Note = 36;
-  int64       ConfirmStatus = 37;
-  int64       DeleteStatus = 38;
-  int64       UseIntegration = 39;
-  string   PaymentTime = 40;
-  string   DeliveryTime = 41;
-  string   ReceiveTime = 42;
-  string   CommentTime = 43;
-  string   ModifyTime = 44;
+  int64       id = 1;
+  int64       memberId = 2;
+  int64       couponId = 3;
+  string      orderSn = 4;
+  string      createTime = 5;
+  string      memberUsername = 6;
+  double     totalAmount = 7;
+  double     payAmount = 8;
+  double     freightAmount = 9;
+  double     promotionAmount = 10;
+  double     integrationAmount = 11;
+  double     couponAmount = 12;
+  double     discountAmount = 13;
+  int64       payType = 14;
+  int64       sourceType = 15;
+  int64       status = 16;
+  int64       orderType = 17;
+  string      deliveryCompany = 18;
+  string      deliverySn = 19;
+  int64       autoConfirmDay = 20;
+  int64       integration = 21;
+  int64       growth = 22;
+  string      promotionInfo = 23;
+  int64       billType = 24;
+  string      billHeader = 25;
+  string      billContent = 26;
+  string      billReceiverPhone = 27;
+  string      billReceiverEmail = 28;
+  string      receiverName = 29;
+  string      receiverPhone = 30;
+  string      receiverPostCode = 31;
+  string      receiverProvince = 32;
+  string      receiverCity = 33;
+  string      receiverRegion = 34;
+  string      receiverDetailAddress = 35;
+  string      note = 36;
+  int64       confirmStatus = 37;
+  int64       deleteStatus = 38;
+  int64       useIntegration = 39;
+  string   paymentTime = 40;
+  string   deliveryTime = 41;
+  string   receiveTime = 42;
+  string   commentTime = 43;
+  string   modifyTime = 44;
 }
 
 message OrderUpdateResp {
@@ -173,23 +173,23 @@ message OrderDeleteResp {
 }
 
 message CartItemAddReq {
-  int64     	ProductId   = 2;
-  int64     	ProductSkuId   = 3;
-  int64     	MemberId      = 4;
-  int64     	Quantity     = 5;
-  int64   	Price         = 6;
-  string    	ProductPic    = 7;
-  string    	ProductName       = 8;
-  string    	ProductSubTitle   = 9;
-  string    	ProductSkuCode    = 10;
-  string    	MemberNickname   = 11;
-  string 	CreateDate       = 12;
-  string 	ModifyDate        = 13;
+  int64     	productId   = 2;
+  int64     	productSkuId   = 3;
+  int64     	memberId      = 4;
+  int64     	quantity     = 5;
+  int64   	price         = 6;
+  string    	productPic    = 7;
+  string    	productName       = 8;
+  string    	productSubTitle   = 9;
+  string    	productSkuCode    = 10;
+  string    	memberNickname   = 11;
+  string 	createDate       = 12;
+  string 	modifyDate        = 13;
   int64     	DeleteStatus     = 14;
-  int64     	ProductCategoryId = 15;
-  string    	ProductBrand     = 16;
-  string    	ProductSn        = 17;
-  string    	ProductAttr       = 18;
+  int64     	productCategoryId = 15;
+  string    	productBrand     = 16;
+  string    	productSn        = 17;
+  string    	productAttr       = 18;
 }
 
 message CartItemAddResp {
@@ -202,24 +202,24 @@ message CartItemListReq {
 }
 
 message CartItemListData{
-  int64     	Id      = 1;
-  int64     	ProductId   = 2;
-  int64     	ProductSkuId   = 3;
-  int64     	MemberId      = 4;
-  int64     	Quantity     = 5;
-  int64   	Price         = 6;
-  string    	ProductPic    = 7;
-  string    	ProductName       = 8;
-  string    	ProductSubTitle   = 9;
-  string    	ProductSkuCode    = 10;
-  string    	MemberNickname   = 11;
-  string 	CreateDate       = 12;
-  string 	ModifyDate        = 13;
+  int64     	id      = 1;
+  int64     	productId   = 2;
+  int64     	productSkuId   = 3;
+  int64     	memberId      = 4;
+  int64     	quantity     = 5;
+  int64   	price         = 6;
+  string    	productPic    = 7;
+  string    	productName       = 8;
+  string    	productSubTitle   = 9;
+  string    	productSkuCode    = 10;
+  string    	memberNickname   = 11;
+  string 	createDate       = 12;
+  string 	modifyDate        = 13;
   int64     	DeleteStatus     = 14;
-  int64     	ProductCategoryId = 15;
-  string    	ProductBrand     = 16;
-  string    	ProductSn        = 17;
-  string    	ProductAttr       = 18;
+  int64     	productCategoryId = 15;
+  string    	productBrand     = 16;
+  string    	productSn        = 17;
+  string    	productAttr       = 18;
 }
 
 message CartItemListResp {
@@ -228,24 +228,24 @@ message CartItemListResp {
 }
 
 message CartItemUpdateReq {
-  int64     	Id      = 1;
-  int64     	ProductId   = 2;
-  int64     	ProductSkuId   = 3;
-  int64     	MemberId      = 4;
-  int64     	Quantity     = 5;
-  int64   	Price         = 6;
-  string    	ProductPic    = 7;
-  string    	ProductName       = 8;
-  string    	ProductSubTitle   = 9;
-  string    	ProductSkuCode    = 10;
-  string    	MemberNickname   = 11;
-  string 	CreateDate       = 12;
-  string 	ModifyDate        = 13;
+  int64     	id      = 1;
+  int64     	productId   = 2;
+  int64     	productSkuId   = 3;
+  int64     	memberId      = 4;
+  int64     	quantity     = 5;
+  int64   	price         = 6;
+  string    	productPic    = 7;
+  string    	productName       = 8;
+  string    	productSubTitle   = 9;
+  string    	productSkuCode    = 10;
+  string    	memberNickname   = 11;
+  string 	createDate       = 12;
+  string 	modifyDate        = 13;
   int64     	DeleteStatus     = 14;
-  int64     	ProductCategoryId = 15;
-  string    	ProductBrand     = 16;
-  string    	ProductSn        = 17;
-  string    	ProductAttr       = 18;
+  int64     	productCategoryId = 15;
+  string    	productBrand     = 16;
+  string    	productSn        = 17;
+  string    	productAttr       = 18;
 }
 
 message CartItemUpdateResp {
@@ -261,14 +261,14 @@ message CartItemDeleteResp {
 }
 
 message CompanyAddressAddReq {
-  string 	AddressName = 2;
+  string 	addressName = 2;
   int64  	SendStatus  = 3;
-  int64  	ReceiveStatus = 4;
+  int64  	receiveStatus = 4;
   string 	Name       = 5;
-  string 	Phone     = 6;
-  string 	Province   = 7;
-  string 	City       = 8;
-  string 	Region     = 9;
+  string 	phone     = 6;
+  string 	province   = 7;
+  string  	city       = 8;
+  string 	region     = 9;
   string 	DetailAddress = 10;
 }
 
@@ -282,15 +282,15 @@ message CompanyAddressListReq {
 }
 
 message CompanyAddressListData{
-  int64  	Id     = 1;
-  string 	AddressName = 2;
+  int64  	id     = 1;
+  string 	addressName = 2;
   int64  	SendStatus  = 3;
-  int64  	ReceiveStatus = 4;
+  int64  	receiveStatus = 4;
   string 	Name       = 5;
-  string 	Phone     = 6;
-  string 	Province   = 7;
-  string 	City       = 8;
-  string 	Region     = 9;
+  string 	phone     = 6;
+  string 	province   = 7;
+  string  	city       = 8;
+  string 	region     = 9;
   string 	DetailAddress = 10;
 }
 
@@ -300,15 +300,15 @@ message CompanyAddressListResp {
 }
 
 message CompanyAddressUpdateReq {
-  int64  	Id     = 1;
-  string 	AddressName = 2;
+  int64  	id     = 1;
+  string 	addressName = 2;
   int64  	SendStatus  = 3;
-  int64  	ReceiveStatus = 4;
+  int64  	receiveStatus = 4;
   string 	Name       = 5;
-  string 	Phone     = 6;
-  string 	Province   = 7;
-  string 	City       = 8;
-  string 	Region     = 9;
+  string 	phone     = 6;
+  string 	province   = 7;
+  string  	city       = 8;
+  string 	region     = 9;
   string 	DetailAddress = 10;
 }
 
@@ -325,26 +325,26 @@ message CompanyAddressDeleteResp {
 }
 
 message OrderItemAddReq {
-  int64   	OrderId   = 2;
-  string  	OrderSn   = 3;
-  int64   	ProductId   = 4;
-  string  	ProductPic    = 5;
-  string  	ProductName   = 6;
-  string  	ProductBrand    = 7;
-  string  	ProductSn       = 8;
-  int64 	ProductPrice    = 9;
-  int64   	ProductQuantity   = 10;
-  int64   	ProductSkuId      = 11;
-  string  	ProductSkuCode    = 12;
-  int64   	ProductCategoryId = 13;
-  string  	PromotionName     = 14;
-  int64 	PromotionAmount   = 15;
-  int64 	CouponAmount      = 17;
-  int64 	IntegrationAmount = 18;
-  int64 	RealAmount        = 19;
-  int64   	GiftIntegration   = 20;
-  int64   	GiftGrowth        = 21;
-  string  	ProductAttr      = 22;
+  int64    	orderId   = 2;
+  string   	orderSn   = 3;
+  int64   	productId   = 4;
+  string  	productPic    = 5;
+  string  	productName   = 6;
+  string  	productBrand    = 7;
+  string  	productSn       = 8;
+  int64 	productPrice    = 9;
+  int64   	productQuantity   = 10;
+  int64   	productSkuId      = 11;
+  string  	productSkuCode    = 12;
+  int64   	productCategoryId = 13;
+  string  	promotionName     = 14;
+  int64 	promotionAmount   = 15;
+  int64  	couponAmount      = 17;
+  int64 	integrationAmount = 18;
+  int64 	realAmount        = 19;
+  int64   	giftIntegration   = 20;
+  int64   	giftGrowth        = 21;
+  string  	productAttr      = 22;
 }
 
 message OrderItemAddResp {
@@ -357,27 +357,27 @@ message OrderItemListReq {
 }
 
 message OrderItemListData{
-  int64   	Id    = 1;
-  int64   	OrderId   = 2;
-  string  	OrderSn   = 3;
-  int64   	ProductId   = 4;
-  string  	ProductPic    = 5;
-  string  	ProductName   = 6;
-  string  	ProductBrand    = 7;
-  string  	ProductSn       = 8;
-  int64 	ProductPrice    = 9;
-  int64   	ProductQuantity   = 10;
-  int64   	ProductSkuId      = 11;
-  string  	ProductSkuCode    = 12;
-  int64   	ProductCategoryId = 13;
-  string  	PromotionName     = 14;
-  int64 	PromotionAmount   = 15;
-  int64 	CouponAmount      = 17;
-  int64 	IntegrationAmount = 18;
-  int64 	RealAmount        = 19;
-  int64   	GiftIntegration   = 20;
-  int64   	GiftGrowth        = 21;
-  string  	ProductAttr      = 22;
+  int64   	id    = 1;
+  int64    	orderId   = 2;
+  string   	orderSn   = 3;
+  int64   	productId   = 4;
+  string  	productPic    = 5;
+  string  	productName   = 6;
+  string  	productBrand    = 7;
+  string  	productSn       = 8;
+  int64 	productPrice    = 9;
+  int64   	productQuantity   = 10;
+  int64   	productSkuId      = 11;
+  string  	productSkuCode    = 12;
+  int64   	productCategoryId = 13;
+  string  	promotionName     = 14;
+  int64 	promotionAmount   = 15;
+  int64  	couponAmount      = 17;
+  int64 	integrationAmount = 18;
+  int64 	realAmount        = 19;
+  int64   	giftIntegration   = 20;
+  int64   	giftGrowth        = 21;
+  string  	productAttr      = 22;
 }
 
 message OrderItemListResp {
@@ -386,27 +386,27 @@ message OrderItemListResp {
 }
 
 message OrderItemUpdateReq {
-  int64   	Id    = 1;
-  int64   	OrderId   = 2;
-  string  	OrderSn   = 3;
-  int64   	ProductId   = 4;
-  string  	ProductPic    = 5;
-  string  	ProductName   = 6;
-  string  	ProductBrand    = 7;
-  string  	ProductSn       = 8;
-  int64 	ProductPrice    = 9;
-  int64   	ProductQuantity   = 10;
-  int64   	ProductSkuId      = 11;
-  string  	ProductSkuCode    = 12;
-  int64   	ProductCategoryId = 13;
-  string  	PromotionName     = 14;
-  int64 	PromotionAmount   = 15;
-  int64 	CouponAmount      = 17;
-  int64 	IntegrationAmount = 18;
-  int64 	RealAmount        = 19;
-  int64   	GiftIntegration   = 20;
-  int64   	GiftGrowth        = 21;
-  string  	ProductAttr      = 22;
+  int64   	id    = 1;
+  int64    	orderId   = 2;
+  string   	orderSn   = 3;
+  int64   	productId   = 4;
+  string  	productPic    = 5;
+  string  	productName   = 6;
+  string  	productBrand    = 7;
+  string  	productSn       = 8;
+  int64 	productPrice    = 9;
+  int64   	productQuantity   = 10;
+  int64   	productSkuId      = 11;
+  string  	productSkuCode    = 12;
+  int64   	productCategoryId = 13;
+  string  	promotionName     = 14;
+  int64 	promotionAmount   = 15;
+  int64  	couponAmount      = 17;
+  int64 	integrationAmount = 18;
+  int64 	realAmount        = 19;
+  int64   	giftIntegration   = 20;
+  int64   	giftGrowth        = 21;
+  string  	productAttr      = 22;
 }
 
 message OrderItemUpdateResp {
@@ -422,10 +422,10 @@ message OrderItemDeleteResp {
 }
 
 message OrderOperateHistoryAddReq {
-  int64    	OrderId   = 2;
-  string   	OperateMan  = 3;
-  string	CreateTime  = 4;
-  int64    	OrderStatus = 5;
+  int64     	orderId   = 2;
+  string    	operateMan  = 3;
+  string	createTime  = 4;
+  int64     	orderStatus = 5;
   string   	Note       = 6;
 }
 
@@ -439,11 +439,11 @@ message OrderOperateHistoryListReq {
 }
 
 message OrderOperateHistoryListData{
-  int64    	Id     = 1;
-  int64    	OrderId   = 2;
-  string   	OperateMan  = 3;
-  string	CreateTime  = 4;
-  int64    	OrderStatus = 5;
+  int64    	id     = 1;
+  int64     	orderId   = 2;
+  string    	operateMan  = 3;
+  string	createTime  = 4;
+  int64     	orderStatus = 5;
   string   	Note       = 6;
 }
 
@@ -453,11 +453,11 @@ message OrderOperateHistoryListResp {
 }
 
 message OrderOperateHistoryUpdateReq {
-  int64    	Id     = 1;
-  int64    	OrderId   = 2;
-  string   	OperateMan  = 3;
-  string	CreateTime  = 4;
-  int64    	OrderStatus = 5;
+  int64    	id     = 1;
+  int64     	orderId   = 2;
+  string    	operateMan  = 3;
+  string	createTime  = 4;
+  int64     	orderStatus = 5;
   string   	Note       = 6;
 }
 
@@ -474,32 +474,32 @@ message OrderOperateHistoryDeleteResp {
 }
 
 message OrderReturnApplyAddReq {
-  int64     	OrderId     = 2;
-  int64     	CompanyAddressId  = 3;
-  int64     	ProductId         = 4;
-  string    	OrderSn          = 5;
-  string 	CreateTime        = 6;
-  string    	MemberUsername    = 7;
-  int64   	ReturnAmount      = 8;
-  string    	ReturnName        = 9;
-  string    	ReturnPhone       = 10;
+  int64      	orderId     = 2;
+  int64      	companyAddressId  = 3;
+  int64     	productId         = 4;
+  string     	orderSn          = 5;
+  string 	createTime        = 6;
+  string    	memberUsername    = 7;
+  int64   	returnAmount      = 8;
+  string    	returnName        = 9;
+  string    	returnPhone       = 10;
   int64     	Status            = 11;
-  string 	HandleTime        = 12;
-  string    	ProductPic       = 13;
-  string    	ProductName       = 14;
-  string    	ProductBrand      = 15;
-  string    	ProductAttr       = 16;
-  int64     	ProductCount      = 17;
-  int64   	ProductPrice      = 18;
-  int64   	ProductRealPrice  = 19;
-  string    	Reason            = 20;
+  string 	handleTime        = 12;
+  string    	productPic       = 13;
+  string    	productName       = 14;
+  string    	productBrand      = 15;
+  string    	productAttr       = 16;
+  int64     	productCount      = 17;
+  int64   	productPrice      = 18;
+  int64   	productRealPrice  = 19;
+  string    	reason            = 20;
   string    	Description       = 21;
-  string    	ProofPics         = 22;
-  string    	HandleNote        = 23;
-  string    	HandleMan         = 24;
-  string    	ReceiveMan        = 25;
-  string 	ReceiveTime       = 26;
-  string    	ReceiveNote       = 27;
+  string    	proofPics         = 22;
+  string    	handleNote        = 23;
+  string    	handleMan         = 24;
+  string    	receiveMan        = 25;
+  string 	receiveTime       = 26;
+  string    	receiveNote       = 27;
 }
 
 message OrderReturnApplyAddResp {
@@ -512,33 +512,33 @@ message OrderReturnApplyListReq {
 }
 
 message OrderReturnApplyListData{
-  int64     	Id       = 1;
-  int64     	OrderId     = 2;
-  int64     	CompanyAddressId  = 3;
-  int64     	ProductId         = 4;
-  string    	OrderSn          = 5;
-  string 	CreateTime        = 6;
-  string    	MemberUsername    = 7;
-  int64   	ReturnAmount      = 8;
-  string    	ReturnName        = 9;
-  string    	ReturnPhone       = 10;
+  int64     	id       = 1;
+  int64      	orderId     = 2;
+  int64      	companyAddressId  = 3;
+  int64     	productId         = 4;
+  string     	orderSn          = 5;
+  string 	createTime        = 6;
+  string    	memberUsername    = 7;
+  int64   	returnAmount      = 8;
+  string    	returnName        = 9;
+  string    	returnPhone       = 10;
   int64     	Status            = 11;
-  string 	HandleTime        = 12;
-  string    	ProductPic       = 13;
-  string    	ProductName       = 14;
-  string    	ProductBrand      = 15;
-  string    	ProductAttr       = 16;
-  int64     	ProductCount      = 17;
-  int64   	ProductPrice      = 18;
-  int64   	ProductRealPrice  = 19;
-  string    	Reason            = 20;
+  string 	handleTime        = 12;
+  string    	productPic       = 13;
+  string    	productName       = 14;
+  string    	productBrand      = 15;
+  string    	productAttr       = 16;
+  int64     	productCount      = 17;
+  int64   	productPrice      = 18;
+  int64   	productRealPrice  = 19;
+  string    	reason            = 20;
   string    	Description       = 21;
-  string    	ProofPics         = 22;
-  string    	HandleNote        = 23;
-  string    	HandleMan         = 24;
-  string    	ReceiveMan        = 25;
-  string 	ReceiveTime       = 26;
-  string    	ReceiveNote       = 27;
+  string    	proofPics         = 22;
+  string    	handleNote        = 23;
+  string    	handleMan         = 24;
+  string    	receiveMan        = 25;
+  string 	receiveTime       = 26;
+  string    	receiveNote       = 27;
 }
 
 message OrderReturnApplyListResp {
@@ -547,33 +547,33 @@ message OrderReturnApplyListResp {
 }
 
 message OrderReturnApplyUpdateReq {
-  int64     	Id       = 1;
-  int64     	OrderId     = 2;
-  int64     	CompanyAddressId  = 3;
-  int64     	ProductId         = 4;
-  string    	OrderSn          = 5;
-  string 	CreateTime        = 6;
-  string    	MemberUsername    = 7;
-  int64   	ReturnAmount      = 8;
-  string    	ReturnName        = 9;
-  string    	ReturnPhone       = 10;
+  int64     	id       = 1;
+  int64      	orderId     = 2;
+  int64      	companyAddressId  = 3;
+  int64     	productId         = 4;
+  string     	orderSn          = 5;
+  string 	createTime        = 6;
+  string    	memberUsername    = 7;
+  int64   	returnAmount      = 8;
+  string    	returnName        = 9;
+  string    	returnPhone       = 10;
   int64     	Status            = 11;
-  string 	HandleTime        = 12;
-  string    	ProductPic       = 13;
-  string    	ProductName       = 14;
-  string    	ProductBrand      = 15;
-  string    	ProductAttr       = 16;
-  int64     	ProductCount      = 17;
-  int64   	ProductPrice      = 18;
-  int64   	ProductRealPrice  = 19;
-  string    	Reason            = 20;
+  string 	handleTime        = 12;
+  string    	productPic       = 13;
+  string    	productName       = 14;
+  string    	productBrand      = 15;
+  string    	productAttr       = 16;
+  int64     	productCount      = 17;
+  int64   	productPrice      = 18;
+  int64   	productRealPrice  = 19;
+  string    	reason            = 20;
   string    	Description       = 21;
-  string    	ProofPics         = 22;
-  string    	HandleNote        = 23;
-  string    	HandleMan         = 24;
-  string    	ReceiveMan        = 25;
-  string 	ReceiveTime       = 26;
-  string    	ReceiveNote       = 27;
+  string    	proofPics         = 22;
+  string    	handleNote        = 23;
+  string    	handleMan         = 24;
+  string    	receiveMan        = 25;
+  string 	receiveTime       = 26;
+  string    	receiveNote       = 27;
 }
 
 message OrderReturnApplyUpdateResp {
@@ -590,10 +590,10 @@ message OrderReturnApplyDeleteResp {
 
 
 message OrderReturnReasonAddReq {
-  string    	Name= 2;
-  int64     	Sort      = 3;
-  int64     	Status      = 4;
-  string 	CreateTime  = 5;
+  string    	name= 2;
+  int64     	sort      = 3;
+  int64     	status      = 4;
+  string 	createTime  = 5;
 }
 
 message OrderReturnReasonAddResp {
@@ -606,11 +606,11 @@ message OrderReturnReasonListReq {
 }
 
 message OrderReturnReasonListData{
-  int64     	Id  = 1;
+  int64     	id  = 1;
   string    	Name= 2;
   int64     	Sort      = 3;
   int64     	Status      = 4;
-  string 	CreateTime  = 5;
+  string 	createTime  = 5;
 }
 
 message OrderReturnReasonListResp {
@@ -619,11 +619,11 @@ message OrderReturnReasonListResp {
 }
 
 message OrderReturnReasonUpdateReq {
-  int64     	Id  = 1;
+  int64     	id  = 1;
   string    	Name= 2;
   int64     	Sort      = 3;
   int64     	Status      = 4;
-  string 	CreateTime  = 5;
+  string 	createTime  = 5;
 }
 
 message OrderReturnReasonUpdateResp {
@@ -639,11 +639,11 @@ message OrderReturnReasonDeleteResp {
 }
 
 message OrderSettingAddReq {
-  int64 	FlashOrderOvertime  = 2;
-  int64 	NormalOrderOvertime = 3;
-  int64 	ConfirmOvertime     = 4;
-  int64 	FinishOvertime      = 5;
-  int64 	CommentOvertime     = 6;
+  int64 	flashOrderOvertime  = 2;
+  int64 	normalOrderOvertime = 3;
+  int64  	confirmOvertime     = 4;
+  int64 	finishOvertime      = 5;
+  int64  	commentOvertime     = 6;
 }
 
 message OrderSettingAddResp {
@@ -656,12 +656,12 @@ message OrderSettingListReq {
 }
 
 message OrderSettingListData{
-  int64 	Id    = 1;
-  int64 	FlashOrderOvertime  = 2;
-  int64 	NormalOrderOvertime = 3;
-  int64 	ConfirmOvertime     = 4;
-  int64 	FinishOvertime      = 5;
-  int64 	CommentOvertime     = 6;
+  int64 	id    = 1;
+  int64 	flashOrderOvertime  = 2;
+  int64 	normalOrderOvertime = 3;
+  int64  	confirmOvertime     = 4;
+  int64 	finishOvertime      = 5;
+  int64  	commentOvertime     = 6;
 }
 
 message OrderSettingListResp {
@@ -670,12 +670,12 @@ message OrderSettingListResp {
 }
 
 message OrderSettingUpdateReq {
-  int64 	Id    = 1;
-  int64 	FlashOrderOvertime  = 2;
-  int64 	NormalOrderOvertime = 3;
-  int64 	ConfirmOvertime     = 4;
+  int64 	id    = 1;
+  int64 	flashOrderOvertime  = 2;
+  int64 	normalOrderOvertime = 3;
+  int64  	confirmOvertime     = 4;
   int64 	FinishOvertime      = 5;
-  int64 	CommentOvertime     = 6;
+  int64  	commentOvertime     = 6;
 }
 
 message OrderSettingUpdateResp {

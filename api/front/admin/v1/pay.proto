@@ -7,38 +7,38 @@ import "google/api/annotations.proto";
 option go_package = "api/front/admin/v1;v1";
 
 message UnifiedOrderReq {
-  string BusinessId = 1;
-  string Amount = 2;
-  string Remarks = 3;
-  string Code = 4;
-  string MerId = 5;
-  string PayType = 6;
+  string businessId = 1;
+  string amount = 2;
+  string remarks = 3;
+  string code = 4;
+  string merId = 5;
+  string payType = 6;
 }
 
 message UnifiedOrderResp {
-  string AppId = 1;
-  string PartnerId = 2;
+  string appId = 1;
+  string partnerId = 2;
   string prepayId = 3;
-  string PackageStr = 4;
-  string NonceStr = 5;
-  string Timestamp = 6;
-  string Sign = 7;
-  string MWebUrl = 8;
+  string packageStr = 4;
+  string nonceStr = 5;
+  string timestamp = 6;
+  string sign = 7;
+  string mWebUrl = 8;
 }
 
 message H5UnifiedOrderResp {
-  string MWebUrl = 1;
+  string nWebUrl = 1;
 }
 
 message OrderQueryReq {
-  string BusinessId = 1;
-  string MerId = 2;
-  string PayType = 6;
+  string businessId = 1;
+  string merId = 2;
+  string payType = 6;
 }
 
 message OrderQueryResp {
-  string PayMessage = 1;
-  string PayStatus = 2;
+  string payMessage = 1;
+  string payStatus = 2;
 }
 
 service Pay {
