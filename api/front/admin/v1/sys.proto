@@ -31,7 +31,7 @@ message InfoReq {
 message InfoResp {
   string avatar = 1;
   string name = 2;
-  repeated MenuListTree menuListTree=3;
+  repeated MenuListTree menuListTree = 3;
   string code = 4;
   string message = 5;
 }
@@ -87,8 +87,13 @@ message UserListData{
 }
 
 message UserListResp {
-  int64 total = 1;
-  repeated  UserListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  UserListData data = 6;
+  bool success = 7;
 }
 
 message UserUpdateReq {
@@ -170,8 +175,13 @@ message RoleListData {
 }
 
 message RoleListResp {
-  int64 total = 1;
-  repeated  RoleListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  RoleListData data = 6;
+  bool success = 7;
 }
 
 message RoleUpdateReq {
@@ -222,10 +232,10 @@ message MenuAddReq {
   string icon = 6;
   int64 orderNum = 7;
   string createBy = 8;
-  string vuePath =9;
-  string vueComponent =10;
-  string vueIcon =11;
-  string vueRedirect =12;
+  string vuePath = 9;
+  string vueComponent = 10;
+  string vueIcon = 11;
+  string vueRedirect = 12;
 }
 
 message MenuAddResp {
@@ -253,10 +263,10 @@ message MenuListData {
   string lastUpdateBy = 12;
   string lastUpdateTime = 13;
   int64 delFlag = 14;
-  string vuePath =15;
-  string vueComponent =16;
-  string vueIcon =17;
-  string vueRedirect =18;
+  string vuePath = 15;
+  string vueComponent = 16;
+  string vueIcon = 17;
+  string vueRedirect = 18;
 }
 
 message MenuListTree {
@@ -272,8 +282,13 @@ message MenuListTree {
 }
 
 message MenuListResp{
-  int64 total = 1;
-  repeated  MenuListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MenuListData data = 6;
+  bool success = 7;
 }
 message MenuUpdateReq {
   int64 id = 1;
@@ -285,10 +300,10 @@ message MenuUpdateReq {
   string icon = 7;
   int64 orderNum = 8;
   string lastUpdateBy = 9;
-  string vuePath =10;
-  string vueComponent =11;
-  string vueIcon =12;
-  string vueRedirect =13;
+  string vuePath = 10;
+  string vueComponent = 11;
+  string vueIcon = 12;
+  string vueRedirect = 13;
 }
 
 message MenuUpdateResp {
@@ -353,8 +368,13 @@ message DictListData {
 }
 
 message DictListResp{
-  int64 total = 1;
-  repeated  DictListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  DictListData data = 6;
+  bool success = 7;
 }
 
 message DictUpdateReq {
@@ -413,8 +433,13 @@ message DeptListData {
 }
 
 message DeptListResp{
-  int64 total = 1;
-  repeated  DeptListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  DeptListData data = 6;
+  bool success = 7;
 }
 message DeptUpdateReq {
   int64 id = 1;
@@ -466,8 +491,13 @@ message LoginLogListData {
 }
 
 message LoginLogListResp{
-  int64 total = 1;
-  repeated  LoginLogListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  LoginLogListData data = 6;
+  bool success = 7;
 }
 message LoginLogDeleteReq {
   int64 id = 1;
@@ -513,8 +543,13 @@ message SysLogListData {
 }
 
 message SysLogListResp{
-  int64 total = 1;
-  repeated  SysLogListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  SysLogListData data = 6;
+  bool success = 7;
 }
 message SysLogDeleteReq {
   int64 id = 1;
@@ -561,8 +596,13 @@ message ConfigListData {
 }
 
 message ConfigListResp{
-  int64 total = 1;
-  repeated  ConfigListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ConfigListData data = 6;
+  bool success = 7;
 }
 message ConfigUpdateReq {
   int64 id = 1;
@@ -627,8 +667,13 @@ message JobListData {
 }
 
 message JobListResp{
-  int64 total = 1;
-  repeated  JobListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  JobListData data = 6;
+  bool success = 7;
 }
 
 message JobUpdateReq {

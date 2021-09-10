@@ -59,8 +59,13 @@ message MemberListData{
 }
 
 message MemberListResp {
-  int64 total = 1;
-  repeated  MemberListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberListData data = 6;
+  bool success = 7;
 }
 
 message MemberUpdateReq {
@@ -129,8 +134,13 @@ message GrowthChangeHistoryListData{
 }
 
 message GrowthChangeHistoryListResp {
-  int64 total = 1;
-  repeated  GrowthChangeHistoryListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  GrowthChangeHistoryListData data = 6;
+  bool success = 7;
 }
 
 message GrowthChangeHistoryUpdateReq {
@@ -187,8 +197,13 @@ message IntegrationChangeHistoryListData{
 }
 
 message IntegrationChangeHistoryListResp {
-  int64 total = 1;
-  repeated  IntegrationChangeHistoryListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  IntegrationChangeHistoryListData data = 6;
+  bool success = 7;
 }
 
 message IntegrationChangeHistoryUpdateReq {
@@ -215,10 +230,10 @@ message IntegrationChangeHistoryDeleteResp {
 }
 
 message IntegrationConsumeSettingAddReq {
-  int64 	deductionPerAmount = 2;
-  int64 	maxPercentPerOrder = 3;
-  int64 	useUnit           = 4;
-  int64 	couponStatus     = 5;
+  int64  deductionPerAmount = 2;
+  int64  maxPercentPerOrder = 3;
+  int64  useUnit = 4;
+  int64  couponStatus = 5;
 }
 
 message IntegrationConsumeSettingAddResp {
@@ -231,24 +246,29 @@ message IntegrationConsumeSettingListReq {
 }
 
 message IntegrationConsumeSettingListData{
-  int64 	id = 1;
-  int64 	deductionPerAmount = 2;
-  int64 	maxPercentPerOrder = 3;
-  int64 	useUnit           = 4;
-  int64 	couponStatus     = 5;
+  int64  id = 1;
+  int64  deductionPerAmount = 2;
+  int64  maxPercentPerOrder = 3;
+  int64  useUnit = 4;
+  int64  couponStatus = 5;
 }
 
 message IntegrationConsumeSettingListResp {
-  int64 total = 1;
-  repeated  IntegrationConsumeSettingListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  IntegrationConsumeSettingListData data = 6;
+  bool success = 7;
 }
 
 message IntegrationConsumeSettingUpdateReq {
-  int64 	id = 1;
-  int64 	deductionPerAmount = 2;
-  int64 	maxPercentPerOrder = 3;
-  int64 	useUnit           = 4;
-  int64 	couponStatus     = 5;
+  int64  id = 1;
+  int64  deductionPerAmount = 2;
+  int64  maxPercentPerOrder = 3;
+  int64  useUnit = 4;
+  int64  couponStatus = 5;
 }
 
 message IntegrationConsumeSettingUpdateResp {
@@ -264,18 +284,18 @@ message IntegrationConsumeSettingDeleteResp {
 }
 
 message MemberLevelAddReq {
-  string  	name   = 2;
-  int64   	GrowthPoint  = 3;
-  int64   	defaultStatus  = 4;
-  int64 	freeFreightPoint = 5;
-  int64   	commentGrowthPoint  = 6;
-  int64   	priviledgeFreeFreight = 7;
-  int64   	priviledgeSignIn    = 8;
-  int64   	priviledgeComment    = 9;
-  int64   	priviledgePromotion  = 10;
-  int64   	priviledgeMemberPrice = 11;
-  int64   	priviledgeBirthday   = 12;
-  string  	note           = 13;
+  string    name = 2;
+  int64    GrowthPoint = 3;
+  int64    defaultStatus = 4;
+  int64  freeFreightPoint = 5;
+  int64    commentGrowthPoint = 6;
+  int64    priviledgeFreeFreight = 7;
+  int64    priviledgeSignIn = 8;
+  int64    priviledgeComment = 9;
+  int64    priviledgePromotion = 10;
+  int64    priviledgeMemberPrice = 11;
+  int64    priviledgeBirthday = 12;
+  string    note = 13;
 }
 
 message MemberLevelAddResp {
@@ -288,40 +308,45 @@ message MemberLevelListReq {
 }
 
 message MemberLevelListData{
-  int64   	id   = 1;
-  string  	name   = 2;
-  int64   	GrowthPoint  = 3;
-  int64   	defaultStatus  = 4;
-  int64 	freeFreightPoint = 5;
-  int64   	commentGrowthPoint  = 6;
-  int64   	priviledgeFreeFreight = 7;
-  int64   	priviledgeSignIn    = 8;
-  int64   	priviledgeComment    = 9;
-  int64   	priviledgePromotion  = 10;
-  int64   	priviledgeMemberPrice = 11;
-  int64   	priviledgeBirthday   = 12;
-  string  	note           = 13;
+  int64    id = 1;
+  string    name = 2;
+  int64    GrowthPoint = 3;
+  int64    defaultStatus = 4;
+  int64  freeFreightPoint = 5;
+  int64    commentGrowthPoint = 6;
+  int64    priviledgeFreeFreight = 7;
+  int64    priviledgeSignIn = 8;
+  int64    priviledgeComment = 9;
+  int64    priviledgePromotion = 10;
+  int64    priviledgeMemberPrice = 11;
+  int64    priviledgeBirthday = 12;
+  string    note = 13;
 }
 
 message MemberLevelListResp {
-  int64 total = 1;
-  repeated  MemberLevelListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberLevelListData data = 6;
+  bool success = 7;
 }
 
 message MemberLevelUpdateReq {
-  int64   	id   = 1;
-  string  	name   = 2;
-  int64   	growthPoint  = 3;
-  int64   	defaultStatus  = 4;
-  int64 	freeFreightPoint = 5;
-  int64   	commentGrowthPoint  = 6;
-  int64   	priviledgeFreeFreight = 7;
-  int64   	priviledgeSignIn    = 8;
-  int64   	priviledgeComment    = 9;
-  int64   	priviledgePromotion  = 10;
-  int64   	priviledgeMemberPrice = 11;
-  int64   	priviledgeBirthday   = 12;
-  string  	note           = 13;
+  int64    id = 1;
+  string    name = 2;
+  int64    growthPoint = 3;
+  int64    defaultStatus = 4;
+  int64  freeFreightPoint = 5;
+  int64    commentGrowthPoint = 6;
+  int64    priviledgeFreeFreight = 7;
+  int64    priviledgeSignIn = 8;
+  int64    priviledgeComment = 9;
+  int64    priviledgePromotion = 10;
+  int64    priviledgeMemberPrice = 11;
+  int64    priviledgeBirthday = 12;
+  string    note = 13;
 }
 
 message MemberLevelUpdateResp {
@@ -337,12 +362,12 @@ message MemberLevelDeleteResp {
 }
 
 message MemberLoginLogAddReq {
-  int64     	memberId  = 2;
-  string 	createTime = 3;
-  string    	Ip        = 4;
-  string    	city    = 5;
-  int64     	LoginType  = 6;
-  string    	province   = 7;
+  int64      memberId = 2;
+  string  createTime = 3;
+  string      Ip = 4;
+  string      city = 5;
+  int64      LoginType = 6;
+  string      province = 7;
 }
 
 message MemberLoginLogAddResp {
@@ -355,28 +380,33 @@ message MemberLoginLogListReq {
 }
 
 message MemberLoginLogListData{
-  int64     	id   = 1;
-  int64     	memberId  = 2;
-  string 	createTime = 3;
-  string    	Ip        = 4;
-  string    	city    = 5;
-  int64     	LoginType  = 6;
-  string    	province   = 7;
+  int64      id = 1;
+  int64      memberId = 2;
+  string  createTime = 3;
+  string      Ip = 4;
+  string      city = 5;
+  int64      LoginType = 6;
+  string      province = 7;
 }
 
 message MemberLoginLogListResp {
-  int64 total = 1;
-  repeated  MemberLoginLogListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberLoginLogListData data = 6;
+  bool success = 7;
 }
 
 message MemberLoginLogUpdateReq {
-  int64     	id   = 1;
-  int64     	memberId  = 2;
-  string 	createTime = 3;
-  string    	Ip        = 4;
-  string    	city    = 5;
-  int64     	loginType  = 6;
-  string    	province   = 7;
+  int64      id = 1;
+  int64      memberId = 2;
+  string  createTime = 3;
+  string      Ip = 4;
+  string      city = 5;
+  int64      loginType = 6;
+  string      province = 7;
 }
 
 message MemberLoginLogUpdateResp {
@@ -392,8 +422,8 @@ message MemberLoginLogDeleteResp {
 }
 
 message MemberMemberTagRelationAddReq {
-  int64 	memberId = 2;
-  int64 	tagId   = 3;
+  int64  memberId = 2;
+  int64  tagId = 3;
 }
 
 message MemberMemberTagRelationAddResp {
@@ -406,20 +436,25 @@ message MemberMemberTagRelationListReq {
 }
 
 message MemberMemberTagRelationListData{
-  int64 	id  = 1;
-  int64 	memberId = 2;
-  int64 	tagId   = 3;
+  int64  id = 1;
+  int64  memberId = 2;
+  int64  tagId = 3;
 }
 
 message MemberMemberTagRelationListResp {
-  int64 total = 1;
-  repeated  MemberMemberTagRelationListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberMemberTagRelationListData data = 6;
+  bool success = 7;
 }
 
 message MemberMemberTagRelationUpdateReq {
-  int64 	id  = 1;
-  int64 	memberId = 2;
-  int64 	tagId   = 3;
+  int64  id = 1;
+  int64  memberId = 2;
+  int64  tagId = 3;
 }
 
 message MemberMemberTagRelationUpdateResp {
@@ -435,8 +470,8 @@ message MemberMemberTagRelationDeleteResp {
 }
 
 message MemberProductCategoryRelationAddReq {
-  int64	memberId     = 2;
-  int64	productCategoryId = 3;
+  int64  memberId = 2;
+  int64  productCategoryId = 3;
 }
 
 message MemberProductCategoryRelationAddResp {
@@ -449,20 +484,25 @@ message MemberProductCategoryRelationListReq {
 }
 
 message MemberProductCategoryRelationListData{
-  int64	id           = 1;
-  int64	memberId     = 2;
-  int64	productCategoryId = 3;
+  int64  id = 1;
+  int64  memberId = 2;
+  int64  productCategoryId = 3;
 }
 
 message MemberProductCategoryRelationListResp {
-  int64 total = 1;
-  repeated  MemberProductCategoryRelationListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberProductCategoryRelationListData data = 6;
+  bool success = 7;
 }
 
 message MemberProductCategoryRelationUpdateReq {
-  int64	id           = 1;
-  int64	memberId     = 2;
-  int64	productCategoryId = 3;
+  int64  id = 1;
+  int64  memberId = 2;
+  int64  productCategoryId = 3;
 }
 
 message MemberProductCategoryRelationUpdateResp {
@@ -479,15 +519,15 @@ message MemberProductCategoryRelationDeleteResp {
 
 
 message MemberReceiveAddressAddReq {
-  int64  	memberId     = 2;
-  string 	name         = 3;
-  string 	phoneNumber   = 4;
-  int64  	defaultStatus = 5;
-  string 	postCode      = 6;
-  string 	province      = 7;
-  string 	city          = 8;
-  string 	region        = 9;
-  string 	detailAddress = 10;
+  int64    memberId = 2;
+  string  name = 3;
+  string  phoneNumber = 4;
+  int64    defaultStatus = 5;
+  string  postCode = 6;
+  string  province = 7;
+  string  city = 8;
+  string  region = 9;
+  string  detailAddress = 10;
 }
 
 message MemberReceiveAddressAddResp {
@@ -500,34 +540,39 @@ message MemberReceiveAddressListReq {
 }
 
 message MemberReceiveAddressListData{
-  int64  	id            = 1;
-  int64  	memberId     = 2;
-  string 	name         = 3;
-  string 	phoneNumber   = 4;
-  int64  	defaultStatus = 5;
-  string 	postCode      = 6;
-  string 	province      = 7;
-  string 	city          = 8;
-  string 	region        = 9;
-  string 	detailAddress = 10;
+  int64    id = 1;
+  int64    memberId = 2;
+  string  name = 3;
+  string  phoneNumber = 4;
+  int64    defaultStatus = 5;
+  string  postCode = 6;
+  string  province = 7;
+  string  city = 8;
+  string  region = 9;
+  string  detailAddress = 10;
 }
 
 message MemberReceiveAddressListResp {
-  int64 total = 1;
-  repeated  MemberReceiveAddressListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberReceiveAddressListData data = 6;
+  bool success = 7;
 }
 
 message MemberReceiveAddressUpdateReq {
-  int64  	id            = 1;
-  int64  	memberId     = 2;
-  string 	name         = 3;
-  string 	phoneNumber   = 4;
-  int64  	defaultStatus = 5;
-  string 	postCode      = 6;
-  string 	province      = 7;
-  string 	city          = 8;
-  string 	region        = 9;
-  string 	detailAddress = 10;
+  int64    id = 1;
+  int64    memberId = 2;
+  string  name = 3;
+  string  phoneNumber = 4;
+  int64    defaultStatus = 5;
+  string  postCode = 6;
+  string  province = 7;
+  string  city = 8;
+  string  region = 9;
+  string  detailAddress = 10;
 }
 
 message MemberReceiveAddressUpdateResp {
@@ -544,12 +589,12 @@ message MemberReceiveAddressDeleteResp {
 
 
 message MemberRuleSettingAddReq {
-  int64  	continueSignDay   = 2;
-  int64  	continueSignPoint  = 3;
-  int64	consumePerPoint    = 4;
-  int64	lowOrderAmount     = 5;
-  int64  	maxPointPerOrder   = 6;
-  int64  	type         = 7;
+  int64    continueSignDay = 2;
+  int64    continueSignPoint = 3;
+  int64  consumePerPoint = 4;
+  int64  lowOrderAmount = 5;
+  int64    maxPointPerOrder = 6;
+  int64    type = 7;
 }
 
 message MemberRuleSettingAddResp {
@@ -562,28 +607,33 @@ message MemberRuleSettingListReq {
 }
 
 message MemberRuleSettingListData{
-  int64  	id           = 1;
-  int64  	continueSignDay   = 2;
-  int64  	continueSignPoint  = 3;
-  int64	consumePerPoint    = 4;
-  int64	lowOrderAmount     = 5;
-  int64  	maxPointPerOrder   = 6;
-  int64  	type         = 7;
+  int64    id = 1;
+  int64    continueSignDay = 2;
+  int64    continueSignPoint = 3;
+  int64  consumePerPoint = 4;
+  int64  lowOrderAmount = 5;
+  int64    maxPointPerOrder = 6;
+  int64    type = 7;
 }
 
 message MemberRuleSettingListResp {
-  int64 total = 1;
-  repeated  MemberRuleSettingListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberRuleSettingListData data = 6;
+  bool success = 7;
 }
 
 message MemberRuleSettingUpdateReq {
-  int64  	id           = 1;
-  int64  	continueSignDay   = 2;
-  int64  	continueSignPoint  = 3;
-  int64	consumePerPoint    = 4;
-  int64	lowOrderAmount     = 5;
-  int64  	maxPointPerOrder   = 6;
-  int64  	type         = 7;
+  int64    id = 1;
+  int64    continueSignDay = 2;
+  int64    continueSignPoint = 3;
+  int64  consumePerPoint = 4;
+  int64  lowOrderAmount = 5;
+  int64    maxPointPerOrder = 6;
+  int64    type = 7;
 }
 
 message MemberRuleSettingUpdateResp {
@@ -599,21 +649,21 @@ message MemberRuleSettingDeleteResp {
 }
 
 message MemberStatisticsInfoAddReq {
-  int64     	memberId   = 2;
-  int64   	consumeAmount    = 3;
-  int64     	orderCount    = 4;
-  int64     	couponCount   = 5;
-  int64     	commentCount     = 6;
-  int64     	returnOrderCount  = 7;
-  int64     	loginCount         = 8;
-  int64     	attendCount         = 9;
-  int64     	fansCount           = 10;
-  int64     	collectProductCount = 11;
-  int64     	collectSubjectCount = 12;
-  int64     	collectTopicCount   = 13;
-  int64     	collectCommentCount = 14;
-  int64     	InviteFriendCount   = 15;
-  string 	recentOrderTime     = 16;
+  int64      memberId = 2;
+  int64    consumeAmount = 3;
+  int64      orderCount = 4;
+  int64      couponCount = 5;
+  int64      commentCount = 6;
+  int64      returnOrderCount = 7;
+  int64      loginCount = 8;
+  int64      attendCount = 9;
+  int64      fansCount = 10;
+  int64      collectProductCount = 11;
+  int64      collectSubjectCount = 12;
+  int64      collectTopicCount = 13;
+  int64      collectCommentCount = 14;
+  int64      InviteFriendCount = 15;
+  string  recentOrderTime = 16;
 }
 
 message MemberStatisticsInfoAddResp {
@@ -626,46 +676,51 @@ message MemberStatisticsInfoListReq {
 }
 
 message MemberStatisticsInfoListData{
-  int64     	id    = 1;
-  int64     	memberId   = 2;
-  int64   	consumeAmount    = 3;
-  int64     	orderCount    = 4;
-  int64     	couponCount   = 5;
-  int64     	commentCount     = 6;
-  int64     	returnOrderCount  = 7;
-  int64     	loginCount         = 8;
-  int64     	attendCount         = 9;
-  int64     	fansCount           = 10;
-  int64     	collectProductCount = 11;
-  int64     	collectSubjectCount = 12;
-  int64     	collectTopicCount   = 13;
-  int64     	collectCommentCount = 14;
-  int64     	inviteFriendCount   = 15;
-  string 	recentOrderTime     = 16;
+  int64      id = 1;
+  int64      memberId = 2;
+  int64    consumeAmount = 3;
+  int64      orderCount = 4;
+  int64      couponCount = 5;
+  int64      commentCount = 6;
+  int64      returnOrderCount = 7;
+  int64      loginCount = 8;
+  int64      attendCount = 9;
+  int64      fansCount = 10;
+  int64      collectProductCount = 11;
+  int64      collectSubjectCount = 12;
+  int64      collectTopicCount = 13;
+  int64      collectCommentCount = 14;
+  int64      inviteFriendCount = 15;
+  string  recentOrderTime = 16;
 }
 
 message MemberStatisticsInfoListResp {
-  int64 total = 1;
-  repeated  MemberStatisticsInfoListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberStatisticsInfoListData data = 6;
+  bool success = 7;
 }
 
 message MemberStatisticsInfoUpdateReq {
-  int64     	id    = 1;
-  int64     	memberId   = 2;
-  int64   	consumeAmount    = 3;
-  int64     	orderCount    = 4;
-  int64     	couponCount   = 5;
-  int64     	commentCount     = 6;
-  int64     	returnOrderCount  = 7;
-  int64     	loginCount         = 8;
-  int64     	attendCount         = 9;
-  int64     	fansCount           = 10;
-  int64     	collectProductCount = 11;
-  int64     	collectSubjectCount = 12;
-  int64     	collectTopicCount   = 13;
-  int64     	collectCommentCount = 14;
-  int64     	inviteFriendCount   = 15;
-  string 	recentOrderTime     = 16;
+  int64      id = 1;
+  int64      memberId = 2;
+  int64    consumeAmount = 3;
+  int64      orderCount = 4;
+  int64      couponCount = 5;
+  int64      commentCount = 6;
+  int64      returnOrderCount = 7;
+  int64      loginCount = 8;
+  int64      attendCount = 9;
+  int64      fansCount = 10;
+  int64      collectProductCount = 11;
+  int64      collectSubjectCount = 12;
+  int64      collectTopicCount = 13;
+  int64      collectCommentCount = 14;
+  int64      inviteFriendCount = 15;
+  string  recentOrderTime = 16;
 }
 
 message MemberStatisticsInfoUpdateResp {
@@ -682,9 +737,9 @@ message MemberStatisticsInfoDeleteResp {
 
 
 message MemberTagAddReq {
-  string  	name    = 2;
-  int64   	finishOrderCount = 3;
-  int64 	finishOrderAmount= 4;
+  string    name = 2;
+  int64    finishOrderCount = 3;
+  int64  finishOrderAmount = 4;
 }
 
 message MemberTagAddResp {
@@ -697,22 +752,27 @@ message MemberTagListReq {
 }
 
 message MemberTagListData{
-  int64   	id      = 1;
-  string  	name    = 2;
-  int64   	finishOrderCount = 3;
-  int64 	finishOrderAmount= 4;
+  int64    id = 1;
+  string    name = 2;
+  int64    finishOrderCount = 3;
+  int64  finishOrderAmount = 4;
 }
 
 message MemberTagListResp {
-  int64 total = 1;
-  repeated  MemberTagListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberTagListData data = 6;
+  bool success = 7;
 }
 
 message MemberTagUpdateReq {
-  int64   	id      = 1;
-  string  	name    = 2;
-  int64   	finishOrderCount = 3;
-  int64 	finishOrderAmount= 4;
+  int64    id = 1;
+  string    name = 2;
+  int64    finishOrderCount = 3;
+  int64  finishOrderAmount = 4;
 }
 
 message MemberTagUpdateResp {
@@ -729,10 +789,10 @@ message MemberTagDeleteResp {
 
 
 message MemberTaskAddReq {
-  string 	name    = 2;
-  int64  	growth     =3;
-  int64  	intergration  = 4;
-  int64  	type         = 5;
+  string  name = 2;
+  int64    growth = 3;
+  int64    intergration = 4;
+  int64    type = 5;
 }
 
 message MemberTaskAddResp {
@@ -745,24 +805,29 @@ message MemberTaskListReq {
 }
 
 message MemberTaskListData{
-  int64  	id    = 1;
-  string 	name    = 2;
-  int64  	Growth     =3;
-  int64  	Intergration  = 4;
-  int64  	type         = 5;
+  int64    id = 1;
+  string  name = 2;
+  int64    Growth = 3;
+  int64    Intergration = 4;
+  int64    type = 5;
 }
 
 message MemberTaskListResp {
-  int64 total = 1;
-  repeated  MemberTaskListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberTaskListData data = 6;
+  bool success = 7;
 }
 
 message MemberTaskUpdateReq {
-  int64  	id    = 1;
-  string 	name    = 2;
-  int64  	Growth     =3;
-  int64  	Intergration  = 4;
-  int64  	type         = 5;
+  int64    id = 1;
+  string  name = 2;
+  int64    Growth = 3;
+  int64    Intergration = 4;
+  int64    type = 5;
 }
 
 message MemberTaskUpdateResp {

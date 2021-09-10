@@ -105,8 +105,13 @@ message ProductListData{
 }
 
 message ProductListResp {
-  int64 total = 1;
-  repeated  ProductListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductListData data = 6;
+  bool success = 7;
 }
 
 message ProductUpdateReq {
@@ -167,11 +172,11 @@ message ProductDeleteResp {
 }
 
 message AlbumAddReq {
-  string 	name     = 2;
-  string 	coverPic     = 3;
-  int64  	picCount     = 4;
-  int64  	sort         = 5;
-  string 	Description  = 6;
+  string  name = 2;
+  string  coverPic = 3;
+  int64    picCount = 4;
+  int64    sort = 5;
+  string  Description = 6;
 }
 
 message AlbumAddResp {
@@ -184,26 +189,31 @@ message AlbumListReq {
 }
 
 message AlbumListData{
-  int64  	id       = 1;
-  string 	name     = 2;
-  string 	coverPic     = 3;
-  int64  	picCount     = 4;
-  int64  	sort         = 5;
-  string 	dDescription  = 6;
+  int64    id = 1;
+  string  name = 2;
+  string  coverPic = 3;
+  int64    picCount = 4;
+  int64    sort = 5;
+  string  dDescription = 6;
 }
 
 message AlbumListResp {
-  int64 total = 1;
-  repeated  AlbumListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  AlbumListData data = 6;
+  bool success = 7;
 }
 
 message AlbumUpdateReq {
-  int64  	id       = 1;
-  string 	name     = 2;
-  string 	coverPic     = 3;
-  int64  	picCount     = 4;
-  int64  	sort         = 5;
-  string 	description  = 6;
+  int64    id = 1;
+  string  name = 2;
+  string  coverPic = 3;
+  int64    picCount = 4;
+  int64    sort = 5;
+  string  description = 6;
 }
 
 message AlbumUpdateResp {
@@ -219,8 +229,8 @@ message AlbumDeleteResp {
 }
 
 message AlbumPicAddReq {
-  int64 	AlbumId     = 2;
-  string 	pic     = 3;
+  int64  AlbumId = 2;
+  string  pic = 3;
 }
 
 message AlbumPicAddResp {
@@ -233,21 +243,26 @@ message AlbumPicListReq {
 }
 
 message AlbumPicListData{
-  int64  	id       = 1;
-  int64 	AlbumId     = 2;
-  string 	pic     = 3;
+  int64    id = 1;
+  int64  AlbumId = 2;
+  string  pic = 3;
 
 }
 
 message AlbumPicListResp {
-  int64 total = 1;
-  repeated  AlbumPicListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  AlbumPicListData data = 6;
+  bool success = 7;
 }
 
 message AlbumPicUpdateReq {
-  int64  	id       = 1;
-  int64 	albumId     = 2;
-  string 	pic     = 3;
+  int64    id = 1;
+  int64  albumId = 2;
+  string  pic = 3;
 }
 
 message AlbumPicUpdateResp {
@@ -263,16 +278,16 @@ message AlbumPicDeleteResp {
 }
 
 message BrandAddReq {
-  string 	name     = 2;
-  string 	firstLetter    = 3;
-  int64  	sort           = 4;
-  int64  	factoryStatus     = 5;
-  int64  	showStatus        = 6;
-  int64  	productCount       = 7;
-  int64  	productCommentCount  = 8;
-  string 	logo               = 9;
-  string 	bigPic            = 10;
-  string 	brandStory        = 11;
+  string  name = 2;
+  string  firstLetter = 3;
+  int64    sort = 4;
+  int64    factoryStatus = 5;
+  int64    showStatus = 6;
+  int64    productCount = 7;
+  int64    productCommentCount = 8;
+  string  logo = 9;
+  string  bigPic = 10;
+  string  brandStory = 11;
 }
 
 message BrandAddResp {
@@ -285,37 +300,42 @@ message BrandListReq {
 }
 
 message BrandListData{
-  int64  	id     = 1;
-  string 	name     = 2;
-  string 	firstLetter    = 3;
-  int64  	sort           = 4;
-  int64  	factoryStatus     = 5;
-  int64  	showStatus        = 6;
-  int64  	productCount       = 7;
-  int64  	productCommentCount  = 8;
-  string 	logo               = 9;
-  string 	bigPic            = 10;
-  string 	brandStory        = 11;
+  int64    id = 1;
+  string  name = 2;
+  string  firstLetter = 3;
+  int64    sort = 4;
+  int64    factoryStatus = 5;
+  int64    showStatus = 6;
+  int64    productCount = 7;
+  int64    productCommentCount = 8;
+  string  logo = 9;
+  string  bigPic = 10;
+  string  brandStory = 11;
 
 }
 
 message BrandListResp {
-  int64 total = 1;
-  repeated  BrandListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  BrandListData data = 6;
+  bool success = 7;
 }
 
 message BrandUpdateReq {
-  int64  	id     = 1;
-  string 	name     = 2;
-  string 	firstLetter    = 3;
-  int64  	sort           = 4;
-  int64  	factoryStatus     = 5;
-  int64  	showStatus        = 6;
-  int64  	productCount       = 7;
-  int64  	productCommentCount  = 8;
-  string 	logo               = 9;
-  string 	bigPic            = 10;
-  string 	brandStory        = 11;
+  int64    id = 1;
+  string  name = 2;
+  string  firstLetter = 3;
+  int64    sort = 4;
+  int64    factoryStatus = 5;
+  int64    showStatus = 6;
+  int64    productCount = 7;
+  int64    productCommentCount = 8;
+  string  logo = 9;
+  string  bigPic = 10;
+  string  brandStory = 11;
 }
 
 message BrandUpdateResp {
@@ -331,20 +351,20 @@ message BrandDeleteResp {
 }
 
 message CommentAddReq {
-  int64     	productId       = 2;
-  string    	memberNickName    = 3;
-  string    	productName       = 4;
-  int64     	star              = 5;
-  string    	memberIp          = 6;
-  string 	createTime        = 7;
-  int64     	showStatus        = 8;
-  string    	productAttribute  = 9;
-  int64     	collectCouont     = 10;
-  int64     	readCount        = 11;
-  string    	content          = 12;
-  string    	pics              = 13;
-  string    	memberIcon        = 14;
-  int64     	replayCount       = 15;
+  int64      productId = 2;
+  string      memberNickName = 3;
+  string      productName = 4;
+  int64      star = 5;
+  string      memberIp = 6;
+  string  createTime = 7;
+  int64      showStatus = 8;
+  string      productAttribute = 9;
+  int64      collectCouont = 10;
+  int64      readCount = 11;
+  string      content = 12;
+  string      pics = 13;
+  string      memberIcon = 14;
+  int64      replayCount = 15;
 }
 
 message CommentAddResp {
@@ -357,45 +377,50 @@ message CommentListReq {
 }
 
 message CommentListData{
-  int64     	id           = 1;
-  int64     	productId       = 2;
-  string    	memberNickName    = 3;
-  string    	productName       = 4;
-  int64     	star              = 5;
-  string    	memberIp          = 6;
-  string 	createTime        = 7;
-  int64     	showStatus        = 8;
-  string    	productAttribute  = 9;
-  int64     	collectCouont     = 10;
-  int64     	readCount        = 11;
-  string    	content          = 12;
-  string    	pics              = 13;
-  string    	memberIcon        = 14;
-  int64     	replayCount       = 15;
+  int64      id = 1;
+  int64      productId = 2;
+  string      memberNickName = 3;
+  string      productName = 4;
+  int64      star = 5;
+  string      memberIp = 6;
+  string  createTime = 7;
+  int64      showStatus = 8;
+  string      productAttribute = 9;
+  int64      collectCouont = 10;
+  int64      readCount = 11;
+  string      content = 12;
+  string      pics = 13;
+  string      memberIcon = 14;
+  int64      replayCount = 15;
 
 }
 
 message CommentListResp {
-  int64 total = 1;
-  repeated  CommentListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  CommentListData data = 6;
+  bool success = 7;
 }
 
 message CommentUpdateReq {
-  int64     	id           = 1;
-  int64     	productId       = 2;
-  string    	memberNickName    = 3;
-  string    	productName       = 4;
-  int64     	star              = 5;
-  string    	memberIp          = 6;
-  string 	createTime        = 7;
-  int64     	showStatus        = 8;
-  string    	productAttribute  = 9;
-  int64     	collectCouont     = 10;
-  int64     	readCount        = 11;
-  string    	content          = 12;
-  string    	pics              = 13;
-  string    	memberIcon        = 14;
-  int64     	replayCount       = 15;
+  int64      id = 1;
+  int64      productId = 2;
+  string      memberNickName = 3;
+  string      productName = 4;
+  int64      star = 5;
+  string      memberIp = 6;
+  string  createTime = 7;
+  int64      showStatus = 8;
+  string      productAttribute = 9;
+  int64      collectCouont = 10;
+  int64      readCount = 11;
+  string      content = 12;
+  string      pics = 13;
+  string      memberIcon = 14;
+  int64      replayCount = 15;
 }
 
 message CommentUpdateResp {
@@ -412,12 +437,12 @@ message CommentDeleteResp {
 
 
 message CommentReplayAddReq {
-  int64     	commentId    = 2;
-  string    	memberNickName = 3;
-  string    	memberIcon     = 4;
-  string    	content        = 5;
-  string 	createTime     = 6;
-  int64     	Type           = 7;
+  int64      commentId = 2;
+  string      memberNickName = 3;
+  string      memberIcon = 4;
+  string      content = 5;
+  string  createTime = 6;
+  int64      Type = 7;
 }
 
 message CommentReplayAddResp {
@@ -430,29 +455,34 @@ message CommentReplayListReq {
 }
 
 message CommentReplayListData{
-  int64     	id    = 1;
-  int64     	commentId    = 2;
-  string    	memberNickName = 3;
-  string    	memberIcon     = 4;
-  string    	content        = 5;
-  string 	createTime     = 6;
-  int64     	Type           = 7;
+  int64      id = 1;
+  int64      commentId = 2;
+  string      memberNickName = 3;
+  string      memberIcon = 4;
+  string      content = 5;
+  string  createTime = 6;
+  int64      Type = 7;
 
 }
 
 message CommentReplayListResp {
-  int64 total = 1;
-  repeated  CommentReplayListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  CommentReplayListData data = 6;
+  bool success = 7;
 }
 
 message CommentReplayUpdateReq {
-  int64     	id    = 1;
-  int64     	commentId    = 2;
-  string    	memberNickName = 3;
-  string    	memberIcon     = 4;
-  string    	content        = 5;
-  string 	createTime     = 6;
-  int64     	Type           = 7;
+  int64      id = 1;
+  int64      commentId = 2;
+  string      memberNickName = 3;
+  string      memberIcon = 4;
+  string      content = 5;
+  string  createTime = 6;
+  int64      Type = 7;
 }
 
 message CommentReplayUpdateResp {
@@ -469,13 +499,13 @@ message CommentReplayDeleteResp {
 
 
 message FeightTemplateAddReq {
-  string  	name    = 2;
-  int64   	chargeType  = 3;
-  int64 	firstWeight    = 4;
-  int64 	firstFee       = 5;
-  int64 	continueWeight = 61;
-  int64 	continmeFee    = 7;
-  string  	Dest          = 8;
+  string    name = 2;
+  int64    chargeType = 3;
+  int64  firstWeight = 4;
+  int64  firstFee = 5;
+  int64  continueWeight = 61;
+  int64  continmeFee = 7;
+  string    Dest = 8;
 }
 
 message FeightTemplateAddResp {
@@ -488,31 +518,36 @@ message FeightTemplateListReq {
 }
 
 message FeightTemplateListData{
-  int64   	id     = 1;
-  string  	name    = 2;
-  int64   	chargeType  = 3;
-  int64 	firstWeight    = 4;
-  int64 	firstFee       = 5;
-  int64 	continueWeight = 61;
-  int64 	continmeFee    = 7;
-  string  	Dest          = 8;
+  int64    id = 1;
+  string    name = 2;
+  int64    chargeType = 3;
+  int64  firstWeight = 4;
+  int64  firstFee = 5;
+  int64  continueWeight = 61;
+  int64  continmeFee = 7;
+  string    Dest = 8;
 
 }
 
 message FeightTemplateListResp {
-  int64 total = 1;
-  repeated  FeightTemplateListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  FeightTemplateListData data = 6;
+  bool success = 7;
 }
 
 message FeightTemplateUpdateReq {
-  int64   	id     = 1;
-  string  	name    = 2;
-  int64   	chargeType  = 3;
-  int64 	firstWeight    = 4;
-  int64 	firstFee       = 5;
-  int64 	continueWeight = 61;
-  int64 	continmeFee    = 7;
-  string  	Dest          = 8;
+  int64    id = 1;
+  string    name = 2;
+  int64    chargeType = 3;
+  int64  firstWeight = 4;
+  int64  firstFee = 5;
+  int64  continueWeight = 61;
+  int64  continmeFee = 7;
+  string    Dest = 8;
 }
 
 message FeightTemplateUpdateResp {
@@ -529,10 +564,10 @@ message FeightTemplateDeleteResp {
 
 
 message MemberPriceAddReq {
-  int64   	productId   = 2;
-  int64   	memberLevelId  = 3;
-  int64 	memberPrice     = 4;
-  string  	memberLevelName = 5;
+  int64    productId = 2;
+  int64    memberLevelId = 3;
+  int64  memberPrice = 4;
+  string    memberLevelName = 5;
 }
 
 message MemberPriceAddResp {
@@ -545,25 +580,30 @@ message MemberPriceListReq {
 }
 
 message MemberPriceListData{
-  int64   	id    = 1;
-  int64   	productId   = 2;
-  int64   	memberLevelId  = 3;
-  int64 	memberPrice     = 4;
-  string  	memberLevelName = 5;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    memberLevelId = 3;
+  int64  memberPrice = 4;
+  string    memberLevelName = 5;
 
 }
 
 message MemberPriceListResp {
-  int64 total = 1;
-  repeated  MemberPriceListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  MemberPriceListData data = 6;
+  bool success = 7;
 }
 
 message MemberPriceUpdateReq {
-  int64   	id    = 1;
-  int64   	productId   = 2;
-  int64   	memberLevelId  = 3;
-  int64 	memberPrice     = 4;
-  string  	memberLevelName = 5;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    memberLevelId = 3;
+  int64  memberPrice = 4;
+  string    memberLevelName = 5;
 }
 
 message MemberPriceUpdateResp {
@@ -580,9 +620,9 @@ message MemberPriceDeleteResp {
 
 
 message ProductAttributeCategoryAddReq {
-  string 	name      = 2;
-  int64  	AttributeCount  = 3;
-  int64  	paramCount      = 4;
+  string  name = 2;
+  int64    AttributeCount = 3;
+  int64    paramCount = 4;
 }
 
 message ProductAttributeCategoryAddResp {
@@ -595,23 +635,28 @@ message ProductAttributeCategoryListReq {
 }
 
 message ProductAttributeCategoryListData{
-  int64  	id        = 1;
-  string 	name      = 2;
-  int64  	AttributeCount  = 3;
-  int64  	paramCount      = 4;
+  int64    id = 1;
+  string  name = 2;
+  int64    AttributeCount = 3;
+  int64    paramCount = 4;
 
 }
 
 message ProductAttributeCategoryListResp {
-  int64 total = 1;
-  repeated  ProductAttributeCategoryListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductAttributeCategoryListData data = 6;
+  bool success = 7;
 }
 
 message ProductAttributeCategoryUpdateReq {
-  int64  	id        = 1;
-  string 	name      = 2;
-  int64  	AttributeCount  = 3;
-  int64  	paramCount      = 4;
+  int64    id = 1;
+  string  name = 2;
+  int64    AttributeCount = 3;
+  int64    paramCount = 4;
 }
 
 message ProductAttributeCategoryUpdateResp {
@@ -628,17 +673,17 @@ message ProductAttributeCategoryDeleteResp {
 
 
 message ProductAttributeAddReq {
-  int64  	productAttributeCategoryId  = 2;
-  string 	name                   = 3;
-  int64  	selectType          = 4;
-  int64  	InputType              = 5;
-  string 	InputList              = 6;
-  int64  	sort                    = 7;
-  int64  	filterType             = 8;
-  int64  	searchType             = 9;
-  int64  	relatedStatus          = 10;
-  int64  	HandAddStatus          = 11;
-  int64  	Type                    = 12;
+  int64    productAttributeCategoryId = 2;
+  string  name = 3;
+  int64    selectType = 4;
+  int64    InputType = 5;
+  string  InputList = 6;
+  int64    sort = 7;
+  int64    filterType = 8;
+  int64    searchType = 9;
+  int64    relatedStatus = 10;
+  int64    HandAddStatus = 11;
+  int64    Type = 12;
 }
 
 message ProductAttributeAddResp {
@@ -651,39 +696,44 @@ message ProductAttributeListReq {
 }
 
 message ProductAttributeListData{
-  int64  	id       = 1;
-  int64  	productAttributeCategoryId  = 2;
-  string 	name                   = 3;
-  int64  	selectType          = 4;
-  int64  	InputType              = 5;
-  string 	InputList              = 6;
-  int64  	sort                    = 7;
-  int64  	filterType             = 8;
-  int64  	searchType             = 9;
-  int64  	relatedStatus          = 10;
-  int64  	HandAddStatus          = 11;
-  int64  	Type                    = 12;
+  int64    id = 1;
+  int64    productAttributeCategoryId = 2;
+  string  name = 3;
+  int64    selectType = 4;
+  int64    InputType = 5;
+  string  InputList = 6;
+  int64    sort = 7;
+  int64    filterType = 8;
+  int64    searchType = 9;
+  int64    relatedStatus = 10;
+  int64    HandAddStatus = 11;
+  int64    Type = 12;
 
 }
 
 message ProductAttributeListResp {
-  int64 total = 1;
-  repeated  ProductAttributeListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductAttributeListData data = 6;
+  bool success = 7;
 }
 
 message ProductAttributeUpdateReq {
-  int64  	id       = 1;
-  int64  	productAttributeCategoryId  = 2;
-  string 	name                   = 3;
-  int64  	selectType          = 4;
-  int64  	InputType              = 5;
-  string 	InputList              = 6;
-  int64  	sort                    = 7;
-  int64  	filterType             = 8;
-  int64  	searchType             = 9;
-  int64  	relatedStatus          = 10;
-  int64  	HandAddStatus          = 11;
-  int64  	Type                    = 12;
+  int64    id = 1;
+  int64    productAttributeCategoryId = 2;
+  string  name = 3;
+  int64    selectType = 4;
+  int64    InputType = 5;
+  string  InputList = 6;
+  int64    sort = 7;
+  int64    filterType = 8;
+  int64    searchType = 9;
+  int64    relatedStatus = 10;
+  int64    HandAddStatus = 11;
+  int64    Type = 12;
 }
 
 message ProductAttributeUpdateResp {
@@ -700,9 +750,9 @@ message ProductAttributeDeleteResp {
 
 
 message ProductAttributeValueAddReq {
-  int64  	productId   = 2;
-  int64  	productAttributeId = 3;
-  string 	value            = 4;
+  int64    productId = 2;
+  int64    productAttributeId = 3;
+  string  value = 4;
 }
 
 message ProductAttributeValueAddResp {
@@ -715,23 +765,28 @@ message ProductAttributeValueListReq {
 }
 
 message ProductAttributeValueListData{
-  int64  	id    = 1;
-  int64  	productId   = 2;
-  int64  	productAttributeId = 3;
-  string 	value            = 4;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    productAttributeId = 3;
+  string  value = 4;
 
 }
 
 message ProductAttributeValueListResp {
-  int64 total = 1;
-  repeated  ProductAttributeValueListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductAttributeValueListData data = 6;
+  bool success = 7;
 }
 
 message ProductAttributeValueUpdateReq {
-  int64  	id    = 1;
-  int64  	productId   = 2;
-  int64  	productAttributeId = 3;
-  string 	value            = 4;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    productAttributeId = 3;
+  string  value = 4;
 }
 
 message ProductAttributeValueUpdateResp {
@@ -747,8 +802,8 @@ message ProductAttributeValueDeleteResp {
 }
 
 message ProductCategoryAttributeRelationAddReq {
-  int64 	productCategoryId  = 2;
-  int64 	productAttributeId = 3;
+  int64  productCategoryId = 2;
+  int64  productAttributeId = 3;
 }
 
 message ProductCategoryAttributeRelationAddResp {
@@ -761,21 +816,26 @@ message ProductCategoryAttributeRelationListReq {
 }
 
 message ProductCategoryAttributeRelationListData{
-  int64 	id    = 1;
-  int64 	productCategoryId  = 2;
-  int64 	productAttributeId = 3;
+  int64  id = 1;
+  int64  productCategoryId = 2;
+  int64  productAttributeId = 3;
 
 }
 
 message ProductCategoryAttributeRelationListResp {
-  int64 total = 1;
-  repeated  ProductCategoryAttributeRelationListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductCategoryAttributeRelationListData data = 6;
+  bool success = 7;
 }
 
 message ProductCategoryAttributeRelationUpdateReq {
-  int64 	id    = 1;
-  int64 	productCategoryId  = 2;
-  int64 	productAttributeId = 3;
+  int64  id = 1;
+  int64  productCategoryId = 2;
+  int64  productAttributeId = 3;
 }
 
 message ProductCategoryAttributeRelationUpdateResp {
@@ -791,17 +851,17 @@ message ProductCategoryAttributeRelationDeleteResp {
 }
 
 message ProductCategoryAddReq {
-  int64  	parentId    = 2;
-  string 	name        = 3;
-  int64  	level         = 4;
-  int64  	productCount  = 5;
-  string 	productUnit   = 6;
-  int64  	navStatus     = 7;
-  int64  	showStatus    = 8;
-  int64  	sort          = 9;
-  string 	icon          = 10;
-  string 	keywords      = 11;
-  string 	description   = 12;
+  int64    parentId = 2;
+  string  name = 3;
+  int64    level = 4;
+  int64    productCount = 5;
+  string  productUnit = 6;
+  int64    navStatus = 7;
+  int64    showStatus = 8;
+  int64    sort = 9;
+  string  icon = 10;
+  string  keywords = 11;
+  string  description = 12;
 }
 
 message ProductCategoryAddResp {
@@ -814,39 +874,44 @@ message ProductCategoryListReq {
 }
 
 message ProductCategoryListData{
-  int64  	id         = 1;
-  int64  	parentId    = 2;
-  string 	name        = 3;
-  int64  	level         = 4;
-  int64  	productCount  = 5;
-  string 	productUnit   = 6;
-  int64  	navStatus     = 7;
-  int64  	showStatus    = 8;
-  int64  	sort          = 9;
-  string 	icon          = 10;
-  string 	deywords      = 11;
-  string 	description   = 12;
+  int64    id = 1;
+  int64    parentId = 2;
+  string  name = 3;
+  int64    level = 4;
+  int64    productCount = 5;
+  string  productUnit = 6;
+  int64    navStatus = 7;
+  int64    showStatus = 8;
+  int64    sort = 9;
+  string  icon = 10;
+  string  deywords = 11;
+  string  description = 12;
 
 }
 
 message ProductCategoryListResp {
-  int64 total = 1;
-  repeated  ProductCategoryListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductCategoryListData data = 6;
+  bool success = 7;
 }
 
 message ProductCategoryUpdateReq {
-  int64  	id         = 1;
-  int64  	parentId    = 2;
-  string 	name        = 3;
-  int64  	level         = 4;
-  int64  	productCount  = 5;
-  string 	productUnit   = 6;
-  int64  	navStatus     = 7;
-  int64  	showStatus    = 8;
-  int64  	sort          = 9;
-  string 	icon          = 10;
-  string 	keywords      = 11;
-  string 	description   = 12;
+  int64    id = 1;
+  int64    parentId = 2;
+  string  name = 3;
+  int64    level = 4;
+  int64    productCount = 5;
+  string  productUnit = 6;
+  int64    navStatus = 7;
+  int64    showStatus = 8;
+  int64    sort = 9;
+  string  icon = 10;
+  string  keywords = 11;
+  string  description = 12;
 }
 
 message ProductCategoryUpdateResp {
@@ -862,9 +927,9 @@ message ProductCategoryDeleteResp {
 }
 
 message ProductFullReductionAddReq {
-  int64   	productId   = 2;
-  int64 	fullPrice    = 3;
-  int64 	reducePrice  = 4;
+  int64    productId = 2;
+  int64  fullPrice = 3;
+  int64  reducePrice = 4;
 }
 
 message ProductFullReductionAddResp {
@@ -877,23 +942,28 @@ message ProductFullReductionListReq {
 }
 
 message ProductFullReductionListData{
-  int64   	id      = 1;
-  int64   	productId   = 2;
-  int64 	fullPrice    = 3;
-  int64 	reducePrice  = 4;
+  int64    id = 1;
+  int64    productId = 2;
+  int64  fullPrice = 3;
+  int64  reducePrice = 4;
 
 }
 
 message ProductFullReductionListResp {
-  int64 total = 1;
-  repeated  ProductFullReductionListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductFullReductionListData data = 6;
+  bool success = 7;
 }
 
 message ProductFullReductionUpdateReq {
-  int64   	id      = 1;
-  int64   	productId   = 2;
-  int64 	fullPrice    = 3;
-  int64 	reducePrice  = 4;
+  int64    id = 1;
+  int64    productId = 2;
+  int64  fullPrice = 3;
+  int64  reducePrice = 4;
 }
 
 message ProductFullReductionUpdateResp {
@@ -909,10 +979,10 @@ message ProductFullReductionDeleteResp {
 }
 
 message ProductLadderAddReq {
-  int64   	productId = 2;
-  int64   	count     = 3;
-  int64 	Discount  = 4;
-  int64 	price     = 5;
+  int64    productId = 2;
+  int64    count = 3;
+  int64  Discount = 4;
+  int64  price = 5;
 }
 
 message ProductLadderAddResp {
@@ -925,25 +995,30 @@ message ProductLadderListReq {
 }
 
 message ProductLadderListData{
-  int64   	id    = 1;
-  int64   	productId = 2;
-  int64   	count     = 3;
-  int64 	Discount  = 4;
-  int64 	price     = 5;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    count = 3;
+  int64  Discount = 4;
+  int64  price = 5;
 
 }
 
 message ProductLadderListResp {
-  int64 total = 1;
-  repeated  ProductLadderListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductLadderListData data = 6;
+  bool success = 7;
 }
 
 message ProductLadderUpdateReq {
-  int64   	id    = 1;
-  int64   	productId = 2;
-  int64   	count     = 3;
-  int64 	Discount  = 4;
-  int64 	price     = 5;
+  int64    id = 1;
+  int64    productId = 2;
+  int64    count = 3;
+  int64  Discount = 4;
+  int64  price = 5;
 }
 
 message ProductLadderUpdateResp {
@@ -960,17 +1035,17 @@ message ProductLadderDeleteResp {
 
 
 message ProductOperateLogAddReq {
-  int64     	productId  = 2;
-  int64   	priceOld    = 3;
-  int64   	priceNew    = 4;
-  int64   	salePriceOld  = 5;
-  int64   	salePriceNew   = 6;
-  int64     	giftPointOld   = 7;
-  int64     	giftPointNew    = 8;
-  int64     	usePointLimitOld = 9;
-  int64     	usePointLimitNew = 10;
-  string    	operateMan     = 11;
-  string 	createTime    = 12;
+  int64      productId = 2;
+  int64    priceOld = 3;
+  int64    priceNew = 4;
+  int64    salePriceOld = 5;
+  int64    salePriceNew = 6;
+  int64      giftPointOld = 7;
+  int64      giftPointNew = 8;
+  int64      usePointLimitOld = 9;
+  int64      usePointLimitNew = 10;
+  string      operateMan = 11;
+  string  createTime = 12;
 }
 
 message ProductOperateLogAddResp {
@@ -983,39 +1058,44 @@ message ProductOperateLogListReq {
 }
 
 message ProductOperateLogListData{
-  int64     	id        = 1;
-  int64     	productId  = 2;
-  int64   	priceOld    = 3;
-  int64   	priceNew    = 4;
-  int64   	salePriceOld  = 5;
-  int64   	salePriceNew   = 6;
-  int64     	giftPointOld   = 7;
-  int64     	giftPointNew    = 8;
-  int64     	usePointLimitOld = 9;
-  int64     	usePointLimitNew = 10;
-  string    	operateMan     = 11;
-  string 	createTime    = 12;
+  int64      id = 1;
+  int64      productId = 2;
+  int64    priceOld = 3;
+  int64    priceNew = 4;
+  int64    salePriceOld = 5;
+  int64    salePriceNew = 6;
+  int64      giftPointOld = 7;
+  int64      giftPointNew = 8;
+  int64      usePointLimitOld = 9;
+  int64      usePointLimitNew = 10;
+  string      operateMan = 11;
+  string  createTime = 12;
 
 }
 
 message ProductOperateLogListResp {
-  int64 total = 1;
-  repeated  ProductOperateLogListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductOperateLogListData data = 6;
+  bool success = 7;
 }
 
 message ProductOperateLogUpdateReq {
-  int64     	id        = 1;
-  int64     	productId  = 2;
-  int64   	priceOld    = 3;
-  int64   	priceNew    = 4;
-  int64   	salePriceOld  = 5;
-  int64   	salePriceNew   = 6;
-  int64     	giftPointOld   = 7;
-  int64     	giftPointNew    = 8;
-  int64     	usePointLimitOld = 9;
-  int64     	usePointLimitNew = 10;
-  string    	operateMan     = 11;
-  string 	createTime    = 12;
+  int64      id = 1;
+  int64      productId = 2;
+  int64    priceOld = 3;
+  int64    priceNew = 4;
+  int64    salePriceOld = 5;
+  int64    salePriceNew = 6;
+  int64      giftPointOld = 7;
+  int64      giftPointNew = 8;
+  int64      usePointLimitOld = 9;
+  int64      usePointLimitNew = 10;
+  string      operateMan = 11;
+  string  createTime = 12;
 }
 
 message ProductOperateLogUpdateResp {
@@ -1032,11 +1112,11 @@ message ProductOperateLogDeleteResp {
 
 
 message ProductVertifyRecordAddReq {
-  int64    	productId  = 2;
-  string	createTime = 3;
-  string   	vertifyMan = 4;
-  int64    	status     = 5;
-  string   	Detail     = 6;
+  int64      productId = 2;
+  string  createTime = 3;
+  string    vertifyMan = 4;
+  int64      status = 5;
+  string    Detail = 6;
 }
 
 message ProductVertifyRecordAddResp {
@@ -1049,27 +1129,32 @@ message ProductVertifyRecordListReq {
 }
 
 message ProductVertifyRecordListData{
-  int64    	id      = 1;
-  int64    	productId  = 2;
-  string	createTime = 3;
-  string   	vertifyMan = 4;
-  int64    	status     = 5;
-  string   	Detail     = 6;
+  int64      id = 1;
+  int64      productId = 2;
+  string  createTime = 3;
+  string    vertifyMan = 4;
+  int64      status = 5;
+  string    Detail = 6;
 
 }
 
 message ProductVertifyRecordListResp {
-  int64 total = 1;
-  repeated  ProductVertifyRecordListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  ProductVertifyRecordListData data = 6;
+  bool success = 7;
 }
 
 message ProductVertifyRecordUpdateReq {
-  int64    	id      = 1;
-  int64    	productId  = 2;
-  string	createTime = 3;
-  string   	vertifyMan = 4;
-  int64    	status     = 5;
-  string   	Detail     = 6;
+  int64      id = 1;
+  int64      productId = 2;
+  string  createTime = 3;
+  string    vertifyMan = 4;
+  int64      status = 5;
+  string    Detail = 6;
 }
 
 message ProductVertifyRecordUpdateResp {
@@ -1086,16 +1171,16 @@ message ProductVertifyRecordDeleteResp {
 
 
 message SkuStockAddReq {
-  int64   	productId   = 2;
-  string  	skuCode  = 3;
-  int64 	price        = 4;
-  int64   	stock       = 5;
-  int64   	LowStock    = 6;
-  string  	pic        = 7;
-  int64   	sale           = 8;
-  int64 	promotionPrice = 9;
-  int64   	LockStock      = 10;
-  string  	spData       = 11;
+  int64    productId = 2;
+  string    skuCode = 3;
+  int64  price = 4;
+  int64    stock = 5;
+  int64    LowStock = 6;
+  string    pic = 7;
+  int64    sale = 8;
+  int64  promotionPrice = 9;
+  int64    LockStock = 10;
+  string    spData = 11;
 }
 
 message SkuStockAddResp {
@@ -1108,37 +1193,42 @@ message SkuStockListReq {
 }
 
 message SkuStockListData{
-  int64   	id     = 1;
-  int64   	productId   = 2;
-  string  	skuCode  = 3;
-  int64 	price        = 4;
-  int64   	stock       = 5;
-  int64   	LowStock    = 6;
-  string  	pic        = 7;
-  int64   	sale           = 8;
-  int64 	promotionPrice = 9;
-  int64   	LockStock      = 10;
-  string  	spData       = 11;
+  int64    id = 1;
+  int64    productId = 2;
+  string    skuCode = 3;
+  int64  price = 4;
+  int64    stock = 5;
+  int64    LowStock = 6;
+  string    pic = 7;
+  int64    sale = 8;
+  int64  promotionPrice = 9;
+  int64    LockStock = 10;
+  string    spData = 11;
 
 }
 
 message SkuStockListResp {
-  int64 total = 1;
-  repeated  SkuStockListData list = 2;
+  string code = 1;
+  string message = 2;
+  int64 current = 3;
+  int64 pageSize = 4;
+  int64 total = 5;
+  repeated  SkuStockListData data = 6;
+  bool success = 7;
 }
 
 message SkuStockUpdateReq {
-  int64   	id     = 1;
-  int64   	productId   = 2;
-  string  	skuCode  = 3;
-  int64 	price        = 4;
-  int64   	stock       = 5;
-  int64   	LowStock    = 6;
-  string  	pic        = 7;
-  int64   	sale           = 8;
-  int64 	promotionPrice = 9;
-  int64   	LockStock      = 10;
-  string  	spData       = 11;
+  int64    id = 1;
+  int64    productId = 2;
+  string    skuCode = 3;
+  int64  price = 4;
+  int64    stock = 5;
+  int64    LowStock = 6;
+  string    pic = 7;
+  int64    sale = 8;
+  int64  promotionPrice = 9;
+  int64    LockStock = 10;
+  string    spData = 11;
 }
 
 message SkuStockUpdateResp {
