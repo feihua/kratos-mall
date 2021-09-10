@@ -60,7 +60,7 @@ message UserListReq {
   string mobile = 5;
   string email = 6;
   int64 status = 7;
-  int64 dept_Id = 8;
+  int64 deptId = 8;
 }
 
 message UserListData{
@@ -73,14 +73,14 @@ message UserListData{
   string email = 7;
   string mobile = 8;
   int64 status = 9;
-  int64 dept_Id = 10;
+  int64 deptId = 10;
   string createBy = 11;
   string createTime = 12;
   string lastUpdateBy = 13;
   string lastUpdateTime = 14;
-  int64 del_flag = 15;
-  int64 job_Id = 16;
-  int64 role_Id = 17;
+  int64 delFlag = 15;
+  int64 jobId = 16;
+  int64 roleId = 17;
   string roleName = 18;
   string jobName = 19;
   string deptName = 20;
@@ -252,7 +252,7 @@ message MenuListData {
   string createTime = 11;
   string lastUpdateBy = 12;
   string lastUpdateTime = 13;
-  int64 del_flag = 14;
+  int64 delFlag = 14;
   string vuePath =15;
   string vueComponent =16;
   string vueIcon =17;
@@ -263,7 +263,7 @@ message MenuListTree {
   int64 id = 1;
   string name = 2;
   string icon = 3;
-  int64 parent_Id = 4;
+  int64 parentId = 4;
   string path = 5;
   string vue_path = 6;
   string vue_component = 7;
