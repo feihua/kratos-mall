@@ -70,6 +70,9 @@ func (u userRepo) ListUser(ctx context.Context, req *biz.UserListReq) ([]*biz.Us
 		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
 		Find(&list)
 
+	var count int64
+	u.data.db.WithContext(ctx).Model(&list).Count(&count)
+
 	if result.Error != nil {
 		return nil, result.Error
 	}

@@ -24,12 +24,16 @@ type Category struct {
 	Keywords     string
 	Description  string // 描述
 }
+type CategoryListResp struct {
+	Total int64
+	List  []*Category
+}
 
 type CategoryRepo interface {
 	CreateCategory(context.Context, *Category) error
 	GetCategory(ctx context.Context, id int64) error
 	UpdateCategory(context.Context, *Category) error
-	ListCategory(ctx context.Context, req *CategoryListReq) ([]*Category, error)
+	ListCategory(ctx context.Context, req *CategoryListReq) (*CategoryListResp, error)
 	DeleteCategory(ctx context.Context, id int64) error
 }
 
@@ -42,22 +46,22 @@ func NewCategoryUseCase(repo CategoryRepo, logger log.Logger) *CategoryUseCase {
 	return &CategoryUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CategoryUseCase) CreateCategory(ctx context.Context, user *Category) error {
+func (c CategoryUseCase) CreateCategory(ctx context.Context, category *Category) error {
 	panic("implement me")
 }
 
-func (r *CategoryUseCase) GetCategory(ctx context.Context, id int64) error {
+func (c CategoryUseCase) GetCategory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CategoryUseCase) UpdateCategory(ctx context.Context, user *Category) error {
+func (c CategoryUseCase) UpdateCategory(ctx context.Context, category *Category) error {
 	panic("implement me")
 }
 
-func (r *CategoryUseCase) ListCategory(ctx context.Context, pageNum, pageSize int64) ([]*Category, error) {
-	panic("implement me")
+func (c CategoryUseCase) ListCategory(ctx context.Context, req *CategoryListReq) (*CategoryListResp, error) {
+	return c.repo.ListCategory(ctx, req)
 }
 
-func (r *CategoryUseCase) DeleteCategory(ctx context.Context, id int64) error {
+func (c CategoryUseCase) DeleteCategory(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/ums/internal/biz"
 
 	pb "kratos-mall/api/ums/v1"
@@ -60,7 +61,18 @@ func (s *UmsService) MemberAdd(ctx context.Context, req *pb.MemberAddReq) (*pb.M
 	return &pb.MemberAddResp{}, nil
 }
 func (s *UmsService) MemberList(ctx context.Context, req *pb.MemberListReq) (*pb.MemberListResp, error) {
-	return &pb.MemberListResp{}, nil
+	listResp, _ := s.memberUseCase.ListMember(ctx, &biz.MemberListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberUpdate(ctx context.Context, req *pb.MemberUpdateReq) (*pb.MemberUpdateResp, error) {
 	return &pb.MemberUpdateResp{}, nil
@@ -72,7 +84,18 @@ func (s *UmsService) GrowthChangeHistoryAdd(ctx context.Context, req *pb.GrowthC
 	return &pb.GrowthChangeHistoryAddResp{}, nil
 }
 func (s *UmsService) GrowthChangeHistoryList(ctx context.Context, req *pb.GrowthChangeHistoryListReq) (*pb.GrowthChangeHistoryListResp, error) {
-	return &pb.GrowthChangeHistoryListResp{}, nil
+	listResp, _ := s.changeHistoryUseCase.ListChangeHistory(ctx, &biz.ChangeHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.GrowthChangeHistoryListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.GrowthChangeHistoryListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) GrowthChangeHistoryUpdate(ctx context.Context, req *pb.GrowthChangeHistoryUpdateReq) (*pb.GrowthChangeHistoryUpdateResp, error) {
 	return &pb.GrowthChangeHistoryUpdateResp{}, nil
@@ -84,7 +107,18 @@ func (s *UmsService) IntegrationChangeHistoryAdd(ctx context.Context, req *pb.In
 	return &pb.IntegrationChangeHistoryAddResp{}, nil
 }
 func (s *UmsService) IntegrationChangeHistoryList(ctx context.Context, req *pb.IntegrationChangeHistoryListReq) (*pb.IntegrationChangeHistoryListResp, error) {
-	return &pb.IntegrationChangeHistoryListResp{}, nil
+	listResp, _ := s.integrationChangeHistoryUseCase.ListIntegrationChangeHistory(ctx, &biz.IntegrationChangeHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.IntegrationChangeHistoryListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.IntegrationChangeHistoryListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) IntegrationChangeHistoryUpdate(ctx context.Context, req *pb.IntegrationChangeHistoryUpdateReq) (*pb.IntegrationChangeHistoryUpdateResp, error) {
 	return &pb.IntegrationChangeHistoryUpdateResp{}, nil
@@ -96,7 +130,18 @@ func (s *UmsService) IntegrationConsumeSettingAdd(ctx context.Context, req *pb.I
 	return &pb.IntegrationConsumeSettingAddResp{}, nil
 }
 func (s *UmsService) IntegrationConsumeSettingList(ctx context.Context, req *pb.IntegrationConsumeSettingListReq) (*pb.IntegrationConsumeSettingListResp, error) {
-	return &pb.IntegrationConsumeSettingListResp{}, nil
+	listResp, _ := s.consumeSettingUseCase.ListConsumeSetting(ctx, &biz.ConsumeSettingListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.IntegrationConsumeSettingListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.IntegrationConsumeSettingListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) IntegrationConsumeSettingUpdate(ctx context.Context, req *pb.IntegrationConsumeSettingUpdateReq) (*pb.IntegrationConsumeSettingUpdateResp, error) {
 	return &pb.IntegrationConsumeSettingUpdateResp{}, nil
@@ -108,7 +153,18 @@ func (s *UmsService) MemberLevelAdd(ctx context.Context, req *pb.MemberLevelAddR
 	return &pb.MemberLevelAddResp{}, nil
 }
 func (s *UmsService) MemberLevelList(ctx context.Context, req *pb.MemberLevelListReq) (*pb.MemberLevelListResp, error) {
-	return &pb.MemberLevelListResp{}, nil
+	listResp, _ := s.memberLevelUseCase.ListMemberLevl(ctx, &biz.MemberLevlListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberLevelListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberLevelListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberLevelUpdate(ctx context.Context, req *pb.MemberLevelUpdateReq) (*pb.MemberLevelUpdateResp, error) {
 	return &pb.MemberLevelUpdateResp{}, nil
@@ -120,7 +176,18 @@ func (s *UmsService) MemberLoginLogAdd(ctx context.Context, req *pb.MemberLoginL
 	return &pb.MemberLoginLogAddResp{}, nil
 }
 func (s *UmsService) MemberLoginLogList(ctx context.Context, req *pb.MemberLoginLogListReq) (*pb.MemberLoginLogListResp, error) {
-	return &pb.MemberLoginLogListResp{}, nil
+	listResp, _ := s.loginLogUseCase.ListLoginLog(ctx, &biz.LoginLogListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberLoginLogListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberLoginLogListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberLoginLogUpdate(ctx context.Context, req *pb.MemberLoginLogUpdateReq) (*pb.MemberLoginLogUpdateResp, error) {
 	return &pb.MemberLoginLogUpdateResp{}, nil
@@ -156,7 +223,18 @@ func (s *UmsService) MemberReceiveAddressAdd(ctx context.Context, req *pb.Member
 	return &pb.MemberReceiveAddressAddResp{}, nil
 }
 func (s *UmsService) MemberReceiveAddressList(ctx context.Context, req *pb.MemberReceiveAddressListReq) (*pb.MemberReceiveAddressListResp, error) {
-	return &pb.MemberReceiveAddressListResp{}, nil
+	listResp, _ := s.memberAddressUseCase.ListMemberAddress(ctx, &biz.MemberAddressListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberReceiveAddressListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberReceiveAddressListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberReceiveAddressUpdate(ctx context.Context, req *pb.MemberReceiveAddressUpdateReq) (*pb.MemberReceiveAddressUpdateResp, error) {
 	return &pb.MemberReceiveAddressUpdateResp{}, nil
@@ -168,7 +246,18 @@ func (s *UmsService) MemberRuleSettingAdd(ctx context.Context, req *pb.MemberRul
 	return &pb.MemberRuleSettingAddResp{}, nil
 }
 func (s *UmsService) MemberRuleSettingList(ctx context.Context, req *pb.MemberRuleSettingListReq) (*pb.MemberRuleSettingListResp, error) {
-	return &pb.MemberRuleSettingListResp{}, nil
+	listResp, _ := s.ruleSettingUseCase.ListRuleSetting(ctx, &biz.RuleSettingListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberRuleSettingListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberRuleSettingListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberRuleSettingUpdate(ctx context.Context, req *pb.MemberRuleSettingUpdateReq) (*pb.MemberRuleSettingUpdateResp, error) {
 	return &pb.MemberRuleSettingUpdateResp{}, nil
@@ -192,7 +281,18 @@ func (s *UmsService) MemberTagAdd(ctx context.Context, req *pb.MemberTagAddReq) 
 	return &pb.MemberTagAddResp{}, nil
 }
 func (s *UmsService) MemberTagList(ctx context.Context, req *pb.MemberTagListReq) (*pb.MemberTagListResp, error) {
-	return &pb.MemberTagListResp{}, nil
+	listResp, _ := s.tagUseCase.ListTag(ctx, &biz.TagListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberTagListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberTagListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberTagUpdate(ctx context.Context, req *pb.MemberTagUpdateReq) (*pb.MemberTagUpdateResp, error) {
 	return &pb.MemberTagUpdateResp{}, nil
@@ -204,7 +304,18 @@ func (s *UmsService) MemberTaskAdd(ctx context.Context, req *pb.MemberTaskAddReq
 	return &pb.MemberTaskAddResp{}, nil
 }
 func (s *UmsService) MemberTaskList(ctx context.Context, req *pb.MemberTaskListReq) (*pb.MemberTaskListResp, error) {
-	return &pb.MemberTaskListResp{}, nil
+	listResp, _ := s.taskUseCase.ListTask(ctx, &biz.TaskListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberTaskListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberTaskListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *UmsService) MemberTaskUpdate(ctx context.Context, req *pb.MemberTaskUpdateReq) (*pb.MemberTaskUpdateResp, error) {
 	return &pb.MemberTaskUpdateResp{}, nil

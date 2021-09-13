@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/pms/internal/biz"
 
 	pb "kratos-mall/api/pms/v1"
@@ -52,7 +53,18 @@ func (s *PmsService) ProductAdd(ctx context.Context, req *pb.ProductAddReq) (*pb
 	return &pb.ProductAddResp{}, nil
 }
 func (s *PmsService) ProductList(ctx context.Context, req *pb.ProductListReq) (*pb.ProductListResp, error) {
-	return &pb.ProductListResp{}, nil
+	listResp, _ := s.productUseCase.ListProduct(ctx, &biz.ProductListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.ProductListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.ProductListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) ProductUpdate(ctx context.Context, req *pb.ProductUpdateReq) (*pb.ProductUpdateResp, error) {
 	return &pb.ProductUpdateResp{}, nil
@@ -88,7 +100,18 @@ func (s *PmsService) BrandAdd(ctx context.Context, req *pb.BrandAddReq) (*pb.Bra
 	return &pb.BrandAddResp{}, nil
 }
 func (s *PmsService) BrandList(ctx context.Context, req *pb.BrandListReq) (*pb.BrandListResp, error) {
-	return &pb.BrandListResp{}, nil
+	listResp, _ := s.brandUseCase.ListBrand(ctx, &biz.BrandListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.BrandListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.BrandListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) BrandUpdate(ctx context.Context, req *pb.BrandUpdateReq) (*pb.BrandUpdateResp, error) {
 	return &pb.BrandUpdateResp{}, nil
@@ -100,7 +123,18 @@ func (s *PmsService) CommentAdd(ctx context.Context, req *pb.CommentAddReq) (*pb
 	return &pb.CommentAddResp{}, nil
 }
 func (s *PmsService) CommentList(ctx context.Context, req *pb.CommentListReq) (*pb.CommentListResp, error) {
-	return &pb.CommentListResp{}, nil
+	listResp, _ := s.commentUseCase.ListComment(ctx, &biz.CommentListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.CommentListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.CommentListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) CommentUpdate(ctx context.Context, req *pb.CommentUpdateReq) (*pb.CommentUpdateResp, error) {
 	return &pb.CommentUpdateResp{}, nil
@@ -124,7 +158,18 @@ func (s *PmsService) FeightTemplateAdd(ctx context.Context, req *pb.FeightTempla
 	return &pb.FeightTemplateAddResp{}, nil
 }
 func (s *PmsService) FeightTemplateList(ctx context.Context, req *pb.FeightTemplateListReq) (*pb.FeightTemplateListResp, error) {
-	return &pb.FeightTemplateListResp{}, nil
+	listResp, _ := s.feightTemplateUseCase.ListFeightTemplate(ctx, &biz.FeightTemplateListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.FeightTemplateListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.FeightTemplateListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) FeightTemplateUpdate(ctx context.Context, req *pb.FeightTemplateUpdateReq) (*pb.FeightTemplateUpdateResp, error) {
 	return &pb.FeightTemplateUpdateResp{}, nil
@@ -136,7 +181,18 @@ func (s *PmsService) MemberPriceAdd(ctx context.Context, req *pb.MemberPriceAddR
 	return &pb.MemberPriceAddResp{}, nil
 }
 func (s *PmsService) MemberPriceList(ctx context.Context, req *pb.MemberPriceListReq) (*pb.MemberPriceListResp, error) {
-	return &pb.MemberPriceListResp{}, nil
+	listResp, _ := s.memberPriceUseCase.ListMemberPrice(ctx, &biz.MemberPriceListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.MemberPriceListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.MemberPriceListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) MemberPriceUpdate(ctx context.Context, req *pb.MemberPriceUpdateReq) (*pb.MemberPriceUpdateResp, error) {
 	return &pb.MemberPriceUpdateResp{}, nil
@@ -196,7 +252,18 @@ func (s *PmsService) ProductCategoryAdd(ctx context.Context, req *pb.ProductCate
 	return &pb.ProductCategoryAddResp{}, nil
 }
 func (s *PmsService) ProductCategoryList(ctx context.Context, req *pb.ProductCategoryListReq) (*pb.ProductCategoryListResp, error) {
-	return &pb.ProductCategoryListResp{}, nil
+	listResp, _ := s.categoryUseCase.ListCategory(ctx, &biz.CategoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.ProductCategoryListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.ProductCategoryListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) ProductCategoryUpdate(ctx context.Context, req *pb.ProductCategoryUpdateReq) (*pb.ProductCategoryUpdateResp, error) {
 	return &pb.ProductCategoryUpdateResp{}, nil
@@ -256,7 +323,18 @@ func (s *PmsService) SkuStockAdd(ctx context.Context, req *pb.SkuStockAddReq) (*
 	return &pb.SkuStockAddResp{}, nil
 }
 func (s *PmsService) SkuStockList(ctx context.Context, req *pb.SkuStockListReq) (*pb.SkuStockListResp, error) {
-	return &pb.SkuStockListResp{}, nil
+	listResp, _ := s.skuStockUseCase.ListSkuStock(ctx, &biz.SkuStockListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.SkuStockListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.SkuStockListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *PmsService) SkuStockUpdate(ctx context.Context, req *pb.SkuStockUpdateReq) (*pb.SkuStockUpdateResp, error) {
 	return &pb.SkuStockUpdateResp{}, nil

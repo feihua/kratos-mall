@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/ums/internal/biz"
+	"kratos-mall/app/ums/internal/data/model"
+	"kratos-mall/pkg/util/pagination"
 )
 
 type changeHistoryRepo struct {
@@ -31,8 +33,39 @@ func (c changeHistoryRepo) UpdateChangeHistory(ctx context.Context, history *biz
 	panic("implement me")
 }
 
-func (c changeHistoryRepo) ListChangeHistory(ctx context.Context, req *biz.ChangeHistoryListReq) ([]*biz.ChangeHistory, error) {
-	panic("implement me")
+func (c changeHistoryRepo) ListChangeHistory(ctx context.Context, req *biz.ChangeHistoryListReq) (*biz.ChangeHistoryListResp, error) {
+	var all []model.UmsGrowthChangeHistory
+	result := c.data.db.WithContext(ctx).
+		Limit(int(req.PageSize)).
+		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
+		Find(&all)
+
+	var count int64
+	c.data.db.WithContext(ctx).Model(&all).Count(&count)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	list := make([]*biz.ChangeHistory, 0)
+
+	for _, item := range all {
+		list = append(list, &biz.ChangeHistory{
+			Id:          item.Id,
+			MemberId:    item.MemberId,
+			CreateTime:  item.CreateTime.Format("2006-01-02 15:04:05"),
+			ChangeType:  item.ChangeType,
+			ChangeCount: item.ChangeCount,
+			OperateMan:  item.OperateMan,
+			OperateNote: item.OperateNote,
+			SourceType:  item.SourceType,
+		})
+	}
+
+	return &biz.ChangeHistoryListResp{
+		Total: count,
+		List:  list,
+	}, nil
 }
 
 func (c changeHistoryRepo) DeleteChangeHistory(ctx context.Context, id int64) error {

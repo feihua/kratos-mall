@@ -2,7 +2,6 @@ package biz
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
 )
@@ -58,6 +57,10 @@ type Order struct {
 	CommentTime           string // 评价时间
 	ModifyTime            string // 修改时间
 }
+type OrderListResp struct {
+	Total int64
+	List  []*Order
+}
 
 type OrderRepo interface {
 	CreateOrder(context.Context, *Order) error
@@ -97,8 +100,6 @@ func (r *OrderUseCase) ListOrder(ctx context.Context, pageNum, pageSize int64) (
 	orders := make([]*Order, 0)
 
 	copier.Copy(&orders, &order)
-
-	fmt.Printf("test%v", *orders[0])
 
 	return orders, nil
 }

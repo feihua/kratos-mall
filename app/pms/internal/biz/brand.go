@@ -23,12 +23,16 @@ type Brand struct {
 	BigPic              string // 专区大图
 	BrandStory          string // 品牌故事
 }
+type BrandListResp struct {
+	Total int64
+	List  []*Brand
+}
 
 type BrandRepo interface {
 	CreateBrand(context.Context, *Brand) error
 	GetBrand(ctx context.Context, id int64) error
 	UpdateBrand(context.Context, *Brand) error
-	ListBrand(ctx context.Context, req *BrandListReq) ([]*Brand, error)
+	ListBrand(ctx context.Context, req *BrandListReq) (*BrandListResp, error)
 	DeleteBrand(ctx context.Context, id int64) error
 }
 
@@ -41,22 +45,22 @@ func NewBrandUseCase(repo BrandRepo, logger log.Logger) *BrandUseCase {
 	return &BrandUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *BrandUseCase) CreateBrand(ctx context.Context, user *Brand) error {
+func (b BrandUseCase) CreateBrand(ctx context.Context, brand *Brand) error {
 	panic("implement me")
 }
 
-func (r *BrandUseCase) GetBrand(ctx context.Context, id int64) error {
+func (b BrandUseCase) GetBrand(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *BrandUseCase) UpdateBrand(ctx context.Context, user *Brand) error {
+func (b BrandUseCase) UpdateBrand(ctx context.Context, brand *Brand) error {
 	panic("implement me")
 }
 
-func (r *BrandUseCase) ListBrand(ctx context.Context, pageNum, pageSize int64) ([]*Brand, error) {
-	panic("implement me")
+func (b BrandUseCase) ListBrand(ctx context.Context, req *BrandListReq) (*BrandListResp, error) {
+	return b.repo.ListBrand(ctx, req)
 }
 
-func (r *BrandUseCase) DeleteBrand(ctx context.Context, id int64) error {
+func (b BrandUseCase) DeleteBrand(ctx context.Context, id int64) error {
 	panic("implement me")
 }

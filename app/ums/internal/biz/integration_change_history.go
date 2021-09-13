@@ -20,12 +20,16 @@ type IntegrationChangeHistory struct {
 	OperateNote string // 操作备注
 	SourceType  int    // 积分来源：0->购物；1->管理员修改
 }
+type IntegrationChangeHistoryListResp struct {
+	Total int64
+	List  []*IntegrationChangeHistory
+}
 
 type IntegrationChangeHistoryRepo interface {
 	CreateIntegrationChangeHistory(context.Context, *IntegrationChangeHistory) error
 	GetIntegrationChangeHistory(ctx context.Context, id int64) error
 	UpdateIntegrationChangeHistory(context.Context, *IntegrationChangeHistory) error
-	ListIntegrationChangeHistory(ctx context.Context, req *IntegrationChangeHistoryListReq) ([]*IntegrationChangeHistory, error)
+	ListIntegrationChangeHistory(ctx context.Context, req *IntegrationChangeHistoryListReq) (*IntegrationChangeHistoryListResp, error)
 	DeleteIntegrationChangeHistory(ctx context.Context, id int64) error
 }
 
@@ -38,22 +42,22 @@ func NewIntegrationChangeHistoryUseCase(repo IntegrationChangeHistoryRepo, logge
 	return &IntegrationChangeHistoryUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *IntegrationChangeHistoryUseCase) CreateIntegrationChangeHistory(ctx context.Context, user *IntegrationChangeHistory) error {
+func (i IntegrationChangeHistoryUseCase) CreateIntegrationChangeHistory(ctx context.Context, history *IntegrationChangeHistory) error {
 	panic("implement me")
 }
 
-func (r *IntegrationChangeHistoryUseCase) GetIntegrationChangeHistory(ctx context.Context, id int64) error {
+func (i IntegrationChangeHistoryUseCase) GetIntegrationChangeHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *IntegrationChangeHistoryUseCase) UpdateIntegrationChangeHistory(ctx context.Context, user *IntegrationChangeHistory) error {
+func (i IntegrationChangeHistoryUseCase) UpdateIntegrationChangeHistory(ctx context.Context, history *IntegrationChangeHistory) error {
 	panic("implement me")
 }
 
-func (r *IntegrationChangeHistoryUseCase) ListIntegrationChangeHistory(ctx context.Context, pageNum, pageSize int64) ([]*IntegrationChangeHistory, error) {
-	panic("implement me")
+func (i IntegrationChangeHistoryUseCase) ListIntegrationChangeHistory(ctx context.Context, req *IntegrationChangeHistoryListReq) (*IntegrationChangeHistoryListResp, error) {
+	return i.repo.ListIntegrationChangeHistory(ctx, req)
 }
 
-func (r *IntegrationChangeHistoryUseCase) DeleteIntegrationChangeHistory(ctx context.Context, id int64) error {
+func (i IntegrationChangeHistoryUseCase) DeleteIntegrationChangeHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }

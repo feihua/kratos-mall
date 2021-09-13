@@ -31,12 +31,16 @@ type CartItem struct {
 	ProductAttr       string // 商品销售属性:[{"key":"颜色","value":"颜色"},{"key":"容量","value":"4G"}]
 
 }
+type CartItemListResp struct {
+	Total int64
+	List  []*CartItem
+}
 
 type CartItemRepo interface {
 	CreateCartItem(context.Context, *CartItem) error
 	GetCartItem(ctx context.Context, id int64) error
 	UpdateCartItem(context.Context, *CartItem) error
-	ListCartItem(ctx context.Context, req *CartItemListReq) ([]*CartItem, error)
+	ListCartItem(ctx context.Context, req *CartItemListReq) (*CartItemListResp, error)
 	DeleteCartItem(ctx context.Context, id int64) error
 }
 
@@ -49,22 +53,22 @@ func NewCartItemUseCase(repo CartItemRepo, logger log.Logger) *CartItemUseCase {
 	return &CartItemUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CartItemUseCase) CreateCartItem(ctx context.Context, user *CartItem) error {
+func (c CartItemUseCase) CreateCartItem(ctx context.Context, item *CartItem) error {
 	panic("implement me")
 }
 
-func (r *CartItemUseCase) GetCartItem(ctx context.Context, id int64) error {
+func (c CartItemUseCase) GetCartItem(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CartItemUseCase) UpdateCartItem(ctx context.Context, user *CartItem) error {
+func (c CartItemUseCase) UpdateCartItem(ctx context.Context, item *CartItem) error {
 	panic("implement me")
 }
 
-func (r *CartItemUseCase) ListCartItem(ctx context.Context, pageNum, pageSize int64) ([]*CartItem, error) {
-	panic("implement me")
+func (c CartItemUseCase) ListCartItem(ctx context.Context, req *CartItemListReq) (*CartItemListResp, error) {
+	return c.repo.ListCartItem(ctx, req)
 }
 
-func (r *CartItemUseCase) DeleteCartItem(ctx context.Context, id int64) error {
+func (c CartItemUseCase) DeleteCartItem(ctx context.Context, id int64) error {
 	panic("implement me")
 }

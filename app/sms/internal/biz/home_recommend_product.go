@@ -17,12 +17,16 @@ type HomeRecommendProduct struct {
 	RecommendStatus int
 	Sort            int
 }
+type HomeRecommendProductListResp struct {
+	Total int64
+	List  []*HomeRecommendProduct
+}
 
 type HomeRecommendProductRepo interface {
 	CreateHomeRecommendProduct(context.Context, *HomeRecommendProduct) error
 	GetHomeRecommendProduct(ctx context.Context, id int64) error
 	UpdateHomeRecommendProduct(context.Context, *HomeRecommendProduct) error
-	ListHomeRecommendProduct(ctx context.Context, req *HomeRecommendProductListReq) ([]*HomeRecommendProduct, error)
+	ListHomeRecommendProduct(ctx context.Context, req *HomeRecommendProductListReq) (*HomeRecommendProductListResp, error)
 	DeleteHomeRecommendProduct(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewHomeRecommendProductUseCase(repo HomeRecommendProductRepo, logger log.Lo
 	return &HomeRecommendProductUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *HomeRecommendProductUseCase) CreateHomeRecommendProduct(ctx context.Context, user *HomeRecommendProduct) error {
+func (h HomeRecommendProductUseCase) CreateHomeRecommendProduct(ctx context.Context, product *HomeRecommendProduct) error {
 	panic("implement me")
 }
 
-func (r *HomeRecommendProductUseCase) GetHomeRecommendProduct(ctx context.Context, id int64) error {
+func (h HomeRecommendProductUseCase) GetHomeRecommendProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *HomeRecommendProductUseCase) UpdateHomeRecommendProduct(ctx context.Context, user *HomeRecommendProduct) error {
+func (h HomeRecommendProductUseCase) UpdateHomeRecommendProduct(ctx context.Context, product *HomeRecommendProduct) error {
 	panic("implement me")
 }
 
-func (r *HomeRecommendProductUseCase) ListHomeRecommendProduct(ctx context.Context, pageNum, pageSize int64) ([]*HomeRecommendProduct, error) {
-	panic("implement me")
+func (h HomeRecommendProductUseCase) ListHomeRecommendProduct(ctx context.Context, req *HomeRecommendProductListReq) (*HomeRecommendProductListResp, error) {
+	return h.repo.ListHomeRecommendProduct(ctx, req)
 }
 
-func (r *HomeRecommendProductUseCase) DeleteHomeRecommendProduct(ctx context.Context, id int64) error {
+func (h HomeRecommendProductUseCase) DeleteHomeRecommendProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }

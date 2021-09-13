@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/sys/internal/biz"
 
 	pb "kratos-mall/api/sys/v1"
@@ -133,7 +134,18 @@ func (s *SysService) RoleAdd(ctx context.Context, req *pb.RoleAddReq) (*pb.RoleA
 	return &pb.RoleAddResp{}, nil
 }
 func (s *SysService) RoleList(ctx context.Context, req *pb.RoleListReq) (*pb.RoleListResp, error) {
-	return &pb.RoleListResp{}, nil
+	listResp, _ := s.roleUseCase.ListRole(ctx, &biz.RoleListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.RoleListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.RoleListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) RoleUpdate(ctx context.Context, req *pb.RoleUpdateReq) (*pb.RoleUpdateResp, error) {
 	return &pb.RoleUpdateResp{}, nil
@@ -194,7 +206,18 @@ func (s *SysService) DictAdd(ctx context.Context, req *pb.DictAddReq) (*pb.DictA
 	return &pb.DictAddResp{}, nil
 }
 func (s *SysService) DictList(ctx context.Context, req *pb.DictListReq) (*pb.DictListResp, error) {
-	return &pb.DictListResp{}, nil
+	listResp, _ := s.dictUseCase.ListDict(ctx, &biz.DictListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.DictListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.DictListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) DictUpdate(ctx context.Context, req *pb.DictUpdateReq) (*pb.DictUpdateResp, error) {
 	return &pb.DictUpdateResp{}, nil
@@ -206,7 +229,18 @@ func (s *SysService) DeptAdd(ctx context.Context, req *pb.DeptAddReq) (*pb.DeptA
 	return &pb.DeptAddResp{}, nil
 }
 func (s *SysService) DeptList(ctx context.Context, req *pb.DeptListReq) (*pb.DeptListResp, error) {
-	return &pb.DeptListResp{}, nil
+	listResp, _ := s.deptUseCase.ListDept(ctx, &biz.DeptListReq{
+		Name:     "",
+		CreateBy: "",
+	})
+
+	list := make([]*pb.DeptListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.DeptListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) DeptUpdate(ctx context.Context, req *pb.DeptUpdateReq) (*pb.DeptUpdateResp, error) {
 	return &pb.DeptUpdateResp{}, nil
@@ -228,7 +262,18 @@ func (s *SysService) LoginLogAdd(ctx context.Context, req *pb.LoginLogAddReq) (*
 	}, nil
 }
 func (s *SysService) LoginLogList(ctx context.Context, req *pb.LoginLogListReq) (*pb.LoginLogListResp, error) {
-	return &pb.LoginLogListResp{}, nil
+	listResp, _ := s.lc.ListLog(ctx, &biz.LogListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.LoginLogListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.LoginLogListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) LoginLogDelete(ctx context.Context, req *pb.LoginLogDeleteReq) (*pb.LoginLogDeleteResp, error) {
 	return &pb.LoginLogDeleteResp{}, nil
@@ -261,7 +306,18 @@ func (s *SysService) JobAdd(ctx context.Context, req *pb.JobAddReq) (*pb.JobAddR
 	return &pb.JobAddResp{}, nil
 }
 func (s *SysService) JobList(ctx context.Context, req *pb.JobListReq) (*pb.JobListResp, error) {
-	return &pb.JobListResp{}, nil
+	listResp, _ := s.jobUseCase.ListJob(ctx, &biz.JobListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.JobListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.JobListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *SysService) JobUpdate(ctx context.Context, req *pb.JobUpdateReq) (*pb.JobUpdateResp, error) {
 	return &pb.JobUpdateResp{}, nil

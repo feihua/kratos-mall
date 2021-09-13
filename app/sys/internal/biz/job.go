@@ -22,12 +22,16 @@ type Job struct {
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	Remarks        string // 备注
 }
+type JobListResp struct {
+	Total int64
+	List  []*Job
+}
 
 type JobRepo interface {
 	CreateJob(context.Context, *Job) error
 	GetJob(ctx context.Context, id int64) error
 	UpdateJob(context.Context, *Job) error
-	ListJob(ctx context.Context, req *JobListReq) ([]*Job, error)
+	ListJob(ctx context.Context, req *JobListReq) (*JobListResp, error)
 	DeleteJob(ctx context.Context, id int64) error
 }
 
@@ -52,8 +56,8 @@ func (j *JobUseCase) UpdateJob(ctx context.Context, user *Job) error {
 	panic("implement me")
 }
 
-func (j *JobUseCase) ListJob(ctx context.Context, pageNum, pageSize int64) ([]*Job, error) {
-	panic("implement me")
+func (j *JobUseCase) ListJob(ctx context.Context, req *JobListReq) (*JobListResp, error) {
+	return j.repo.ListJob(ctx, req)
 }
 
 func (j *JobUseCase) DeleteJob(ctx context.Context, id int64) error {

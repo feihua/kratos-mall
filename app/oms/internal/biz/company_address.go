@@ -22,12 +22,16 @@ type CompanyAddress struct {
 	Region        string // 区
 	DetailAddress string // 详细地址
 }
+type CompanyAddressListResp struct {
+	Total int64
+	List  []*CompanyAddress
+}
 
 type CompanyAddressRepo interface {
 	CreateCompanyAddress(context.Context, *CompanyAddress) error
 	GetCompanyAddress(ctx context.Context, id int64) error
 	UpdateCompanyAddress(context.Context, *CompanyAddress) error
-	ListCompanyAddress(ctx context.Context, req *CompanyAddressListReq) ([]*CompanyAddress, error)
+	ListCompanyAddress(ctx context.Context, req *CompanyAddressListReq) (*CompanyAddressListResp, error)
 	DeleteCompanyAddress(ctx context.Context, id int64) error
 }
 
@@ -40,22 +44,22 @@ func NewCompanyAddressUseCase(repo CompanyAddressRepo, logger log.Logger) *Compa
 	return &CompanyAddressUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CompanyAddressUseCase) CreateCompanyAddress(ctx context.Context, user *CompanyAddress) error {
+func (c CompanyAddressUseCase) CreateCompanyAddress(ctx context.Context, address *CompanyAddress) error {
 	panic("implement me")
 }
 
-func (r *CompanyAddressUseCase) GetCompanyAddress(ctx context.Context, id int64) error {
+func (c CompanyAddressUseCase) GetCompanyAddress(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CompanyAddressUseCase) UpdateCompanyAddress(ctx context.Context, user *CompanyAddress) error {
+func (c CompanyAddressUseCase) UpdateCompanyAddress(ctx context.Context, address *CompanyAddress) error {
 	panic("implement me")
 }
 
-func (r *CompanyAddressUseCase) ListCompanyAddress(ctx context.Context, pageNum, pageSize int64) ([]*CompanyAddress, error) {
-	panic("implement me")
+func (c CompanyAddressUseCase) ListCompanyAddress(ctx context.Context, req *CompanyAddressListReq) (*CompanyAddressListResp, error) {
+	return c.repo.ListCompanyAddress(ctx, req)
 }
 
-func (r *CompanyAddressUseCase) DeleteCompanyAddress(ctx context.Context, id int64) error {
+func (c CompanyAddressUseCase) DeleteCompanyAddress(ctx context.Context, id int64) error {
 	panic("implement me")
 }

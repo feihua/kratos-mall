@@ -24,12 +24,16 @@ type Record struct {
 	CreateTime string // 创建时间
 	UpdateTime string // 更新时间
 }
+type RecordListResp struct {
+	Total int64
+	List  []*Record
+}
 
 type RecordRepo interface {
 	CreateRecord(context.Context, *Record) error
 	GetRecord(ctx context.Context, id int64) error
 	UpdateRecord(context.Context, *Record) error
-	ListRecord(ctx context.Context, req *RecordListReq) ([]*Record, error)
+	ListRecord(ctx context.Context, req *RecordListReq) (*RecordListResp, error)
 	DeleteRecord(ctx context.Context, id int64) error
 }
 
@@ -42,22 +46,22 @@ func NewRecordUseCase(repo RecordRepo, logger log.Logger) *RecordUseCase {
 	return &RecordUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *RecordUseCase) CreateRecord(ctx context.Context, user *Record) error {
+func (r RecordUseCase) CreateRecord(ctx context.Context, record *Record) error {
 	panic("implement me")
 }
 
-func (r *RecordUseCase) GetRecord(ctx context.Context, id int64) error {
+func (r RecordUseCase) GetRecord(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *RecordUseCase) UpdateRecord(ctx context.Context, user *Record) error {
+func (r RecordUseCase) UpdateRecord(ctx context.Context, record *Record) error {
 	panic("implement me")
 }
 
-func (r *RecordUseCase) ListRecord(ctx context.Context, pageNum, pageSize int64) ([]*Record, error) {
+func (r RecordUseCase) ListRecord(ctx context.Context, req *RecordListReq) (*RecordListResp, error) {
 	panic("implement me")
 }
 
-func (r *RecordUseCase) DeleteRecord(ctx context.Context, id int64) error {
+func (r RecordUseCase) DeleteRecord(ctx context.Context, id int64) error {
 	panic("implement me")
 }

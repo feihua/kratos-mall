@@ -18,12 +18,16 @@ type FlashPromotion struct {
 	Status     int    // 上下线状态
 	CreateTime string // 秒杀时间段名称
 }
+type FlashPromotionListResp struct {
+	Total int64
+	List  []*FlashPromotion
+}
 
 type FlashPromotionRepo interface {
 	CreateFlashPromotion(context.Context, *FlashPromotion) error
 	GetFlashPromotion(ctx context.Context, id int64) error
 	UpdateFlashPromotion(context.Context, *FlashPromotion) error
-	ListFlashPromotion(ctx context.Context, req *FlashPromotionListReq) ([]*FlashPromotion, error)
+	ListFlashPromotion(ctx context.Context, req *FlashPromotionListReq) (*FlashPromotionListResp, error)
 	DeleteFlashPromotion(ctx context.Context, id int64) error
 }
 
@@ -36,22 +40,22 @@ func NewFlashPromotionUseCase(repo FlashPromotionRepo, logger log.Logger) *Flash
 	return &FlashPromotionUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *FlashPromotionUseCase) CreateFlashPromotion(ctx context.Context, user *FlashPromotion) error {
+func (f FlashPromotionUseCase) CreateFlashPromotion(ctx context.Context, promotion *FlashPromotion) error {
 	panic("implement me")
 }
 
-func (r *FlashPromotionUseCase) GetFlashPromotion(ctx context.Context, id int64) error {
+func (f FlashPromotionUseCase) GetFlashPromotion(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *FlashPromotionUseCase) UpdateFlashPromotion(ctx context.Context, user *FlashPromotion) error {
+func (f FlashPromotionUseCase) UpdateFlashPromotion(ctx context.Context, promotion *FlashPromotion) error {
 	panic("implement me")
 }
 
-func (r *FlashPromotionUseCase) ListFlashPromotion(ctx context.Context, pageNum, pageSize int64) ([]*FlashPromotion, error) {
-	panic("implement me")
+func (f FlashPromotionUseCase) ListFlashPromotion(ctx context.Context, req *FlashPromotionListReq) (*FlashPromotionListResp, error) {
+	return f.repo.ListFlashPromotion(ctx, req)
 }
 
-func (r *FlashPromotionUseCase) DeleteFlashPromotion(ctx context.Context, id int64) error {
+func (f FlashPromotionUseCase) DeleteFlashPromotion(ctx context.Context, id int64) error {
 	panic("implement me")
 }

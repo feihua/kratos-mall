@@ -22,12 +22,16 @@ type MemberAddress struct {
 	Region        string // 区
 	DetailAddress string // 详细地址(街道)
 }
+type MemberAddressListResp struct {
+	Total int64
+	List  []*MemberAddress
+}
 
 type MemberAddressRepo interface {
 	CreateMemberAddress(context.Context, *MemberAddress) error
 	GetMemberAddress(ctx context.Context, id int64) error
 	UpdateMemberAddress(context.Context, *MemberAddress) error
-	ListMemberAddress(ctx context.Context, req *MemberAddressListReq) ([]*MemberAddress, error)
+	ListMemberAddress(ctx context.Context, req *MemberAddressListReq) (*MemberAddressListResp, error)
 	DeleteMemberAddress(ctx context.Context, id int64) error
 }
 
@@ -40,22 +44,22 @@ func NewMemberAddressUseCase(repo MemberAddressRepo, logger log.Logger) *MemberA
 	return &MemberAddressUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *MemberAddressUseCase) CreateMemberAddress(ctx context.Context, user *MemberAddress) error {
+func (m MemberAddressUseCase) CreateMemberAddress(ctx context.Context, address *MemberAddress) error {
 	panic("implement me")
 }
 
-func (r *MemberAddressUseCase) GetMemberAddress(ctx context.Context, id int64) error {
+func (m MemberAddressUseCase) GetMemberAddress(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *MemberAddressUseCase) UpdateMemberAddress(ctx context.Context, user *MemberAddress) error {
+func (m MemberAddressUseCase) UpdateMemberAddress(ctx context.Context, address *MemberAddress) error {
 	panic("implement me")
 }
 
-func (r *MemberAddressUseCase) ListMemberAddress(ctx context.Context, pageNum, pageSize int64) ([]*MemberAddress, error) {
-	panic("implement me")
+func (m MemberAddressUseCase) ListMemberAddress(ctx context.Context, req *MemberAddressListReq) (*MemberAddressListResp, error) {
+	return m.repo.ListMemberAddress(ctx, req)
 }
 
-func (r *MemberAddressUseCase) DeleteMemberAddress(ctx context.Context, id int64) error {
+func (m MemberAddressUseCase) DeleteMemberAddress(ctx context.Context, id int64) error {
 	panic("implement me")
 }

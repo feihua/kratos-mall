@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/ums/internal/biz"
+	"kratos-mall/app/ums/internal/data/model"
+	"kratos-mall/pkg/util/pagination"
 )
 
 type ruleSettingRepo struct {
@@ -30,8 +32,38 @@ func (r ruleSettingRepo) UpdateRuleSetting(ctx context.Context, setting *biz.Rul
 	panic("implement me")
 }
 
-func (r ruleSettingRepo) ListRuleSetting(ctx context.Context, req *biz.RuleSettingListReq) ([]*biz.RuleSetting, error) {
-	panic("implement me")
+func (r ruleSettingRepo) ListRuleSetting(ctx context.Context, req *biz.RuleSettingListReq) (*biz.RuleSettingListResp, error) {
+	var all []model.UmsMemberRuleSetting
+	result := r.data.db.WithContext(ctx).
+		Limit(int(req.PageSize)).
+		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
+		Find(&all)
+
+	var count int64
+	r.data.db.WithContext(ctx).Model(&all).Count(&count)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	list := make([]*biz.RuleSetting, 0)
+
+	for _, item := range all {
+		list = append(list, &biz.RuleSetting{
+			Id:                item.Id,
+			ContinueSignDay:   item.ContinueSignDay,
+			ContinueSignPoint: item.ContinueSignPoint,
+			ConsumePerPoint:   item.ConsumePerPoint,
+			LowOrderAmount:    item.LowOrderAmount,
+			MaxPointPerOrder:  item.MaxPointPerOrder,
+			Type:              item.Type,
+		})
+	}
+
+	return &biz.RuleSettingListResp{
+		Total: count,
+		List:  list,
+	}, nil
 }
 
 func (r ruleSettingRepo) DeleteRuleSetting(ctx context.Context, id int64) error {

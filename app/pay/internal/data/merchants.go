@@ -30,7 +30,7 @@ func (m merchantRepo) UpdateMerchant(ctx context.Context, merchant *biz.Merchant
 	panic("implement me")
 }
 
-func (m merchantRepo) ListMerchant(ctx context.Context, req *biz.MerchantListReq) ([]*biz.Merchant, error) {
+func (m merchantRepo) ListMerchant(ctx context.Context, req *biz.MerchantListReq) (*biz.MerchantListResp, error) {
 	panic("implement me")
 }
 

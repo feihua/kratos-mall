@@ -25,6 +25,10 @@ type Menu struct {
 	LastUpdateTime string // 更新时间
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 }
+type MenuListResp struct {
+	Total int64
+	List  []*Menu
+}
 
 type MenuRepo interface {
 	CreateMenu(context.Context, *Menu) error
@@ -57,9 +61,7 @@ func (m *MenuUseCase) UpdateMenu(ctx context.Context, user *Menu) error {
 
 func (m *MenuUseCase) ListMenu(ctx context.Context, req *MenuListReq) ([]*Menu, error) {
 
-	listMenu, _ := m.repo.ListMenu(ctx, req)
-
-	return listMenu, nil
+	return m.repo.ListMenu(ctx, req)
 }
 
 func (m *MenuUseCase) DeleteMenu(ctx context.Context, id int64) error {

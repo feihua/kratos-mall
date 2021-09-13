@@ -25,12 +25,16 @@ type MemberLevel struct {
 	PriviledgeBirthday    int    // 是否有生日特权
 	Note                  string
 }
+type MemberLevelListResp struct {
+	Total int64
+	List  []*MemberLevel
+}
 
 type MemberLevelRepo interface {
 	CreateMemberLevl(context.Context, *MemberLevel) error
 	GetMemberLevl(ctx context.Context, id int64) error
 	UpdateMemberLevl(context.Context, *MemberLevel) error
-	ListMemberLevl(ctx context.Context, req *MemberLevlListReq) ([]*MemberLevel, error)
+	ListMemberLevl(ctx context.Context, req *MemberLevlListReq) (*MemberLevelListResp, error)
 	DeleteMemberLevl(ctx context.Context, id int64) error
 }
 
@@ -43,22 +47,22 @@ func NewMemberLevelUseCase(repo MemberLevelRepo, logger log.Logger) *MemberLevel
 	return &MemberLevelUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *MemberLevelUseCase) CreateMemberLevl(ctx context.Context, user *MemberLevel) error {
+func (m MemberLevelUseCase) CreateMemberLevl(ctx context.Context, level *MemberLevel) error {
 	panic("implement me")
 }
 
-func (r *MemberLevelUseCase) GetMemberLevl(ctx context.Context, id int64) error {
+func (m MemberLevelUseCase) GetMemberLevl(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *MemberLevelUseCase) UpdateMemberLevl(ctx context.Context, user *MemberLevel) error {
+func (m MemberLevelUseCase) UpdateMemberLevl(ctx context.Context, level *MemberLevel) error {
 	panic("implement me")
 }
 
-func (r *MemberLevelUseCase) ListMemberLevl(ctx context.Context, pageNum, pageSize int64) ([]*MemberLevel, error) {
-	panic("implement me")
+func (m MemberLevelUseCase) ListMemberLevl(ctx context.Context, req *MemberLevlListReq) (*MemberLevelListResp, error) {
+	return m.repo.ListMemberLevl(ctx, req)
 }
 
-func (r *MemberLevelUseCase) DeleteMemberLevl(ctx context.Context, id int64) error {
+func (m MemberLevelUseCase) DeleteMemberLevl(ctx context.Context, id int64) error {
 	panic("implement me")
 }

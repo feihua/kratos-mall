@@ -27,12 +27,16 @@ type Comment struct {
 	MemberIcon       string // 评论用户头像
 	ReplayCount      int
 }
+type CommentListResp struct {
+	Total int64
+	List  []*Comment
+}
 
 type CommentRepo interface {
 	CreateComment(context.Context, *Comment) error
 	GetComment(ctx context.Context, id int64) error
 	UpdateComment(context.Context, *Comment) error
-	ListComment(ctx context.Context, req *CommentListReq) ([]*Comment, error)
+	ListComment(ctx context.Context, req *CommentListReq) (*CommentListResp, error)
 	DeleteComment(ctx context.Context, id int64) error
 }
 
@@ -45,22 +49,22 @@ func NewCommentUseCase(repo CommentRepo, logger log.Logger) *CommentUseCase {
 	return &CommentUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CommentUseCase) CreateComment(ctx context.Context, user *Comment) error {
+func (c CommentUseCase) CreateComment(ctx context.Context, comment *Comment) error {
 	panic("implement me")
 }
 
-func (r *CommentUseCase) GetComment(ctx context.Context, id int64) error {
+func (c CommentUseCase) GetComment(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CommentUseCase) UpdateComment(ctx context.Context, user *Comment) error {
+func (c CommentUseCase) UpdateComment(ctx context.Context, comment *Comment) error {
 	panic("implement me")
 }
 
-func (r *CommentUseCase) ListComment(ctx context.Context, pageNum, pageSize int64) ([]*Comment, error) {
-	panic("implement me")
+func (c CommentUseCase) ListComment(ctx context.Context, req *CommentListReq) (*CommentListResp, error) {
+	return c.repo.ListComment(ctx, req)
 }
 
-func (r *CommentUseCase) DeleteComment(ctx context.Context, id int64) error {
+func (c CommentUseCase) DeleteComment(ctx context.Context, id int64) error {
 	panic("implement me")
 }

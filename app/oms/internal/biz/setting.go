@@ -18,12 +18,16 @@ type Setting struct {
 	FinishOvertime      int // 自动完成交易时间，不能申请售后（天）
 	CommentOvertime     int // 订单完成后自动好评时间（天）
 }
+type SettingListResp struct {
+	Total int64
+	List  []*Setting
+}
 
 type SettingRepo interface {
 	CreateSetting(context.Context, *Setting) error
 	GetSetting(ctx context.Context, id int64) error
 	UpdateSetting(context.Context, *Setting) error
-	ListSetting(ctx context.Context, req *SettingListReq) ([]*Setting, error)
+	ListSetting(ctx context.Context, req *SettingListReq) (*SettingListResp, error)
 	DeleteSetting(ctx context.Context, id int64) error
 }
 
@@ -36,22 +40,22 @@ func NewSettingUseCase(repo SettingRepo, logger log.Logger) *SettingUseCase {
 	return &SettingUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *SettingUseCase) CreateSetting(ctx context.Context, user *Setting) error {
+func (s SettingUseCase) CreateSetting(ctx context.Context, setting *Setting) error {
 	panic("implement me")
 }
 
-func (r *SettingUseCase) GetSetting(ctx context.Context, id int64) error {
+func (s SettingUseCase) GetSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *SettingUseCase) UpdateSetting(ctx context.Context, user *Setting) error {
+func (s SettingUseCase) UpdateSetting(ctx context.Context, setting *Setting) error {
 	panic("implement me")
 }
 
-func (r *SettingUseCase) ListSetting(ctx context.Context, pageNum, pageSize int64) ([]*Setting, error) {
-	panic("implement me")
+func (s SettingUseCase) ListSetting(ctx context.Context, req *SettingListReq) (*SettingListResp, error) {
+	return s.repo.ListSetting(ctx, req)
 }
 
-func (r *SettingUseCase) DeleteSetting(ctx context.Context, id int64) error {
+func (s SettingUseCase) DeleteSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }

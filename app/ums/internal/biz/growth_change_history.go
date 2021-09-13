@@ -20,12 +20,16 @@ type ChangeHistory struct {
 	OperateNote string // 操作备注
 	SourceType  int    // 积分来源：0->购物；1->管理员修改
 }
+type ChangeHistoryListResp struct {
+	Total int64
+	List  []*ChangeHistory
+}
 
 type ChangeHistoryRepo interface {
 	CreateChangeHistory(context.Context, *ChangeHistory) error
 	GetChangeHistory(ctx context.Context, id int64) error
 	UpdateChangeHistory(context.Context, *ChangeHistory) error
-	ListChangeHistory(ctx context.Context, req *ChangeHistoryListReq) ([]*ChangeHistory, error)
+	ListChangeHistory(ctx context.Context, req *ChangeHistoryListReq) (*ChangeHistoryListResp, error)
 	DeleteChangeHistory(ctx context.Context, id int64) error
 }
 
@@ -38,22 +42,22 @@ func NewChangeHistoryUseCase(repo ChangeHistoryRepo, logger log.Logger) *ChangeH
 	return &ChangeHistoryUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *ChangeHistoryUseCase) CreateChangeHistory(ctx context.Context, user *ChangeHistory) error {
+func (c ChangeHistoryUseCase) CreateChangeHistory(ctx context.Context, history *ChangeHistory) error {
 	panic("implement me")
 }
 
-func (r *ChangeHistoryUseCase) GetChangeHistory(ctx context.Context, id int64) error {
+func (c ChangeHistoryUseCase) GetChangeHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *ChangeHistoryUseCase) UpdateChangeHistory(ctx context.Context, user *ChangeHistory) error {
+func (c ChangeHistoryUseCase) UpdateChangeHistory(ctx context.Context, history *ChangeHistory) error {
 	panic("implement me")
 }
 
-func (r *ChangeHistoryUseCase) ListChangeHistory(ctx context.Context, pageNum, pageSize int64) ([]*ChangeHistory, error) {
-	panic("implement me")
+func (c ChangeHistoryUseCase) ListChangeHistory(ctx context.Context, req *ChangeHistoryListReq) (*ChangeHistoryListResp, error) {
+	return c.repo.ListChangeHistory(ctx, req)
 }
 
-func (r *ChangeHistoryUseCase) DeleteChangeHistory(ctx context.Context, id int64) error {
+func (c ChangeHistoryUseCase) DeleteChangeHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }

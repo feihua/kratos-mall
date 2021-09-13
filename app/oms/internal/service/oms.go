@@ -64,7 +64,18 @@ func (s *OmsService) CartItemAdd(ctx context.Context, req *pb.CartItemAddReq) (*
 	return &pb.CartItemAddResp{}, nil
 }
 func (s *OmsService) CartItemList(ctx context.Context, req *pb.CartItemListReq) (*pb.CartItemListResp, error) {
-	return &pb.CartItemListResp{}, nil
+	listResp, _ := s.cartItemUseCase.ListCartItem(ctx, &biz.CartItemListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.CartItemListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.CartItemListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) CartItemUpdate(ctx context.Context, req *pb.CartItemUpdateReq) (*pb.CartItemUpdateResp, error) {
 	return &pb.CartItemUpdateResp{}, nil
@@ -76,7 +87,18 @@ func (s *OmsService) CompanyAddressAdd(ctx context.Context, req *pb.CompanyAddre
 	return &pb.CompanyAddressAddResp{}, nil
 }
 func (s *OmsService) CompanyAddressList(ctx context.Context, req *pb.CompanyAddressListReq) (*pb.CompanyAddressListResp, error) {
-	return &pb.CompanyAddressListResp{}, nil
+	listResp, _ := s.companyAddressUseCase.ListCompanyAddress(ctx, &biz.CompanyAddressListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.CompanyAddressListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.CompanyAddressListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) CompanyAddressUpdate(ctx context.Context, req *pb.CompanyAddressUpdateReq) (*pb.CompanyAddressUpdateResp, error) {
 	return &pb.CompanyAddressUpdateResp{}, nil
@@ -100,7 +122,18 @@ func (s *OmsService) OrderOperateHistoryAdd(ctx context.Context, req *pb.OrderOp
 	return &pb.OrderOperateHistoryAddResp{}, nil
 }
 func (s *OmsService) OrderOperateHistoryList(ctx context.Context, req *pb.OrderOperateHistoryListReq) (*pb.OrderOperateHistoryListResp, error) {
-	return &pb.OrderOperateHistoryListResp{}, nil
+	listResp, _ := s.operateHistoryUseCase.ListOperateHistory(ctx, &biz.OperateHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.OrderOperateHistoryListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.OrderOperateHistoryListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderOperateHistoryUpdate(ctx context.Context, req *pb.OrderOperateHistoryUpdateReq) (*pb.OrderOperateHistoryUpdateResp, error) {
 	return &pb.OrderOperateHistoryUpdateResp{}, nil
@@ -112,7 +145,18 @@ func (s *OmsService) OrderReturnApplyAdd(ctx context.Context, req *pb.OrderRetur
 	return &pb.OrderReturnApplyAddResp{}, nil
 }
 func (s *OmsService) OrderReturnApplyList(ctx context.Context, req *pb.OrderReturnApplyListReq) (*pb.OrderReturnApplyListResp, error) {
-	return &pb.OrderReturnApplyListResp{}, nil
+	listResp, _ := s.returnApplyUseCase.ListReturnApply(ctx, &biz.ReturnApplyListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.OrderReturnApplyListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.OrderReturnApplyListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderReturnApplyUpdate(ctx context.Context, req *pb.OrderReturnApplyUpdateReq) (*pb.OrderReturnApplyUpdateResp, error) {
 	return &pb.OrderReturnApplyUpdateResp{}, nil
@@ -124,7 +168,18 @@ func (s *OmsService) OrderReturnReasonAdd(ctx context.Context, req *pb.OrderRetu
 	return &pb.OrderReturnReasonAddResp{}, nil
 }
 func (s *OmsService) OrderReturnReasonList(ctx context.Context, req *pb.OrderReturnReasonListReq) (*pb.OrderReturnReasonListResp, error) {
-	return &pb.OrderReturnReasonListResp{}, nil
+	listResp, _ := s.returnReasonUseCase.ListReturnReason(ctx, &biz.ReturnReasonListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.OrderReturnReasonListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.OrderReturnReasonListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderReturnReasonUpdate(ctx context.Context, req *pb.OrderReturnReasonUpdateReq) (*pb.OrderReturnReasonUpdateResp, error) {
 	return &pb.OrderReturnReasonUpdateResp{}, nil
@@ -136,7 +191,18 @@ func (s *OmsService) OrderSettingAdd(ctx context.Context, req *pb.OrderSettingAd
 	return &pb.OrderSettingAddResp{}, nil
 }
 func (s *OmsService) OrderSettingList(ctx context.Context, req *pb.OrderSettingListReq) (*pb.OrderSettingListResp, error) {
-	return &pb.OrderSettingListResp{}, nil
+	listResp, _ := s.settingUseCase.ListSetting(ctx, &biz.SettingListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.OrderSettingListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.OrderSettingListResp{
+		Total: listResp.Total,
+		List:  list,
+	}, nil
 }
 func (s *OmsService) OrderSettingUpdate(ctx context.Context, req *pb.OrderSettingUpdateReq) (*pb.OrderSettingUpdateResp, error) {
 	return &pb.OrderSettingUpdateResp{}, nil

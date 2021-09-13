@@ -31,12 +31,16 @@ type Member struct {
 	LuckeyCount           int    // 剩余抽奖次数
 	HistoryIntegration    int    // 历史积分数量
 }
+type MemberListResp struct {
+	Total int64
+	List  []*Member
+}
 
 type MemberRepo interface {
 	CreateMember(context.Context, *Member) error
 	GetMember(ctx context.Context, id int64) error
 	UpdateMember(context.Context, *Member) error
-	ListMember(ctx context.Context, req *MemberListReq) ([]*Member, error)
+	ListMember(ctx context.Context, req *MemberListReq) (*MemberListResp, error)
 	DeleteMember(ctx context.Context, id int64) error
 }
 
@@ -49,22 +53,22 @@ func NewMemberUseCase(repo MemberRepo, logger log.Logger) *MemberUseCase {
 	return &MemberUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *MemberUseCase) CreateMember(ctx context.Context, user *Member) error {
+func (m MemberUseCase) CreateMember(ctx context.Context, member *Member) error {
 	panic("implement me")
 }
 
-func (r *MemberUseCase) GetMember(ctx context.Context, id int64) error {
+func (m MemberUseCase) GetMember(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *MemberUseCase) UpdateMember(ctx context.Context, user *Member) error {
+func (m MemberUseCase) UpdateMember(ctx context.Context, member *Member) error {
 	panic("implement me")
 }
 
-func (r *MemberUseCase) ListMember(ctx context.Context, pageNum, pageSize int64) ([]*Member, error) {
-	panic("implement me")
+func (m MemberUseCase) ListMember(ctx context.Context, req *MemberListReq) (*MemberListResp, error) {
+	return m.repo.ListMember(ctx, req)
 }
 
-func (r *MemberUseCase) DeleteMember(ctx context.Context, id int64) error {
+func (m MemberUseCase) DeleteMember(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -20,12 +20,16 @@ type FeightTemplate struct {
 	ContinmeFee    string
 	Dest           string // 目的地（省、市）
 }
+type FeightTemplateListResp struct {
+	Total int64
+	List  []*FeightTemplate
+}
 
 type FeightTemplateRepo interface {
 	CreateFeightTemplate(context.Context, *FeightTemplate) error
 	GetFeightTemplate(ctx context.Context, id int64) error
 	UpdateFeightTemplate(context.Context, *FeightTemplate) error
-	ListFeightTemplate(ctx context.Context, req *FeightTemplateListReq) ([]*FeightTemplate, error)
+	ListFeightTemplate(ctx context.Context, req *FeightTemplateListReq) (*FeightTemplateListResp, error)
 	DeleteFeightTemplate(ctx context.Context, id int64) error
 }
 
@@ -38,22 +42,22 @@ func NewFeightTemplateUseCase(repo FeightTemplateRepo, logger log.Logger) *Feigh
 	return &FeightTemplateUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *FeightTemplateUseCase) CreateFeightTemplate(ctx context.Context, user *FeightTemplate) error {
+func (f FeightTemplateUseCase) CreateFeightTemplate(ctx context.Context, template *FeightTemplate) error {
 	panic("implement me")
 }
 
-func (r *FeightTemplateUseCase) GetFeightTemplate(ctx context.Context, id int64) error {
+func (f FeightTemplateUseCase) GetFeightTemplate(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *FeightTemplateUseCase) UpdateFeightTemplate(ctx context.Context, user *FeightTemplate) error {
+func (f FeightTemplateUseCase) UpdateFeightTemplate(ctx context.Context, template *FeightTemplate) error {
 	panic("implement me")
 }
 
-func (r *FeightTemplateUseCase) ListFeightTemplate(ctx context.Context, pageNum, pageSize int64) ([]*FeightTemplate, error) {
-	panic("implement me")
+func (f FeightTemplateUseCase) ListFeightTemplate(ctx context.Context, req *FeightTemplateListReq) (*FeightTemplateListResp, error) {
+	return f.repo.ListFeightTemplate(ctx, req)
 }
 
-func (r *FeightTemplateUseCase) DeleteFeightTemplate(ctx context.Context, id int64) error {
+func (f FeightTemplateUseCase) DeleteFeightTemplate(ctx context.Context, id int64) error {
 	panic("implement me")
 }

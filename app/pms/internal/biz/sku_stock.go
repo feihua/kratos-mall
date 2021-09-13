@@ -23,12 +23,16 @@ type SkuStock struct {
 	LockStock      int    // 锁定库存
 	SpData         string // 商品销售属性，json格式
 }
+type SkuStockListResp struct {
+	Total int64
+	List  []*SkuStock
+}
 
 type SkuStockRepo interface {
 	CreateSkuStock(context.Context, *SkuStock) error
 	GetSkuStock(ctx context.Context, id int64) error
 	UpdateSkuStock(context.Context, *SkuStock) error
-	ListSkuStock(ctx context.Context, req *SkuStockListReq) ([]*SkuStock, error)
+	ListSkuStock(ctx context.Context, req *SkuStockListReq) (*SkuStockListResp, error)
 	DeleteSkuStock(ctx context.Context, id int64) error
 }
 
@@ -41,22 +45,22 @@ func NewSkuStockUseCase(repo SkuStockRepo, logger log.Logger) *SkuStockUseCase {
 	return &SkuStockUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *SkuStockUseCase) CreateSkuStock(ctx context.Context, user *SkuStock) error {
+func (s SkuStockUseCase) CreateSkuStock(ctx context.Context, stock *SkuStock) error {
 	panic("implement me")
 }
 
-func (r *SkuStockUseCase) GetSkuStock(ctx context.Context, id int64) error {
+func (s SkuStockUseCase) GetSkuStock(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *SkuStockUseCase) UpdateSkuStock(ctx context.Context, user *SkuStock) error {
+func (s SkuStockUseCase) UpdateSkuStock(ctx context.Context, stock *SkuStock) error {
 	panic("implement me")
 }
 
-func (r *SkuStockUseCase) ListSkuStock(ctx context.Context, pageNum, pageSize int64) ([]*SkuStock, error) {
-	panic("implement me")
+func (s SkuStockUseCase) ListSkuStock(ctx context.Context, req *SkuStockListReq) (*SkuStockListResp, error) {
+	return s.repo.ListSkuStock(ctx, req)
 }
 
-func (r *SkuStockUseCase) DeleteSkuStock(ctx context.Context, id int64) error {
+func (s SkuStockUseCase) DeleteSkuStock(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -23,12 +23,16 @@ type Role struct {
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	Status         int    // 状态  1:启用,0:禁用
 }
+type RoleListResp struct {
+	Total int64
+	List  []*Role
+}
 
 type RoleRepo interface {
 	CreateRole(context.Context, *Role) error
 	GetRole(ctx context.Context, id int64) error
 	UpdateRole(context.Context, *Role) error
-	ListRole(ctx context.Context, req *RoleListReq) ([]*Role, error)
+	ListRole(ctx context.Context, req *RoleListReq) (*RoleListResp, error)
 	DeleteRole(ctx context.Context, id int64) error
 }
 
@@ -53,8 +57,8 @@ func (r *RoleUseCase) UpdateRole(ctx context.Context, user *Role) error {
 	panic("implement me")
 }
 
-func (r *RoleUseCase) ListRole(ctx context.Context, pageNum, pageSize int64) ([]*Role, error) {
-	panic("implement me")
+func (r *RoleUseCase) ListRole(ctx context.Context, req *RoleListReq) (*RoleListResp, error) {
+	return r.repo.ListRole(ctx, req)
 }
 
 func (r *RoleUseCase) DeleteRole(ctx context.Context, id int64) error {

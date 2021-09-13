@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/sms/internal/biz"
+	"kratos-mall/app/sms/internal/data/model"
+	"kratos-mall/pkg/util/pagination"
 )
 
 type flashPromotionRepo struct {
@@ -30,8 +32,37 @@ func (f flashPromotionRepo) UpdateFlashPromotion(ctx context.Context, promotion 
 	panic("implement me")
 }
 
-func (f flashPromotionRepo) ListFlashPromotion(ctx context.Context, req *biz.FlashPromotionListReq) ([]*biz.FlashPromotion, error) {
-	panic("implement me")
+func (f flashPromotionRepo) ListFlashPromotion(ctx context.Context, req *biz.FlashPromotionListReq) (*biz.FlashPromotionListResp, error) {
+	var all []model.SmsFlashPromotion
+	result := f.data.db.WithContext(ctx).
+		Limit(int(req.PageSize)).
+		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
+		Find(&all)
+
+	var count int64
+	f.data.db.WithContext(ctx).Model(&all).Count(&count)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	list := make([]*biz.FlashPromotion, 0)
+
+	for _, item := range all {
+		list = append(list, &biz.FlashPromotion{
+			Id:         item.Id,
+			Title:      item.Title,
+			StartDate:  item.StartDate.Format("2006-01-02 15:04:05"),
+			EndDate:    item.EndDate.Format("2006-01-02 15:04:05"),
+			Status:     item.Status,
+			CreateTime: item.CreateTime.Format("2006-01-02 15:04:05"),
+		})
+	}
+
+	return &biz.FlashPromotionListResp{
+		Total: count,
+		List:  list,
+	}, nil
 }
 
 func (f flashPromotionRepo) DeleteFlashPromotion(ctx context.Context, id int64) error {

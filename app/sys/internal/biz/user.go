@@ -63,6 +63,10 @@ type User struct {
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	JobId          int    // 岗位Id
 }
+type UserListResp struct {
+	Total int64
+	List  []*User
+}
 
 type UserRepo interface {
 	CreateUser(context.Context, *UserDTO) error

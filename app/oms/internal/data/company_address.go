@@ -4,6 +4,8 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"kratos-mall/app/oms/internal/biz"
+	"kratos-mall/app/oms/internal/data/model"
+	"kratos-mall/pkg/util/pagination"
 )
 
 type companyAddressRepo struct {
@@ -30,8 +32,41 @@ func (c companyAddressRepo) UpdateCompanyAddress(ctx context.Context, address *b
 	panic("implement me")
 }
 
-func (c companyAddressRepo) ListCompanyAddress(ctx context.Context, req *biz.CompanyAddressListReq) ([]*biz.CompanyAddress, error) {
-	panic("implement me")
+func (c companyAddressRepo) ListCompanyAddress(ctx context.Context, req *biz.CompanyAddressListReq) (*biz.CompanyAddressListResp, error) {
+	var all []model.OmsCompanyAddress
+	result := c.data.db.WithContext(ctx).
+		Limit(int(req.PageSize)).
+		Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
+		Find(&all)
+
+	var count int64
+	c.data.db.WithContext(ctx).Model(&all).Count(&count)
+
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	list := make([]*biz.CompanyAddress, 0)
+
+	for _, item := range all {
+		list = append(list, &biz.CompanyAddress{
+			Id:            item.Id,
+			AddressName:   item.AddressName,
+			SendStatus:    item.SendStatus,
+			ReceiveStatus: item.ReceiveStatus,
+			Name:          item.Name,
+			Phone:         item.Phone,
+			Province:      item.Province,
+			City:          item.City,
+			Region:        item.Region,
+			DetailAddress: item.DetailAddress,
+		})
+	}
+
+	return &biz.CompanyAddressListResp{
+		Total: count,
+		List:  list,
+	}, nil
 }
 
 func (c companyAddressRepo) DeleteCompanyAddress(ctx context.Context, id int64) error {

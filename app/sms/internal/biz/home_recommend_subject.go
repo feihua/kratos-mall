@@ -17,12 +17,16 @@ type HomeRecommendSubject struct {
 	RecommendStatus int
 	Sort            int
 }
+type HomeRecommendSubjectListResp struct {
+	Total int64
+	List  []*HomeRecommendSubject
+}
 
 type HomeRecommendSubjectRepo interface {
 	CreateHomeRecommendSubject(context.Context, *HomeRecommendSubject) error
 	GetHomeRecommendSubject(ctx context.Context, id int64) error
 	UpdateHomeRecommendSubject(context.Context, *HomeRecommendSubject) error
-	ListHomeRecommendSubject(ctx context.Context, req *HomeRecommendSubjectListReq) ([]*HomeRecommendSubject, error)
+	ListHomeRecommendSubject(ctx context.Context, req *HomeRecommendSubjectListReq) (*HomeRecommendSubjectListResp, error)
 	DeleteHomeRecommendSubject(ctx context.Context, id int64) error
 }
 
@@ -39,18 +43,18 @@ func (r *HomeRecommendSubjectUseCase) CreateHomeRecommendSubject(ctx context.Con
 	panic("implement me")
 }
 
-func (r *HomeRecommendSubjectUseCase) GetHomeRecommendSubject(ctx context.Context, id int64) error {
+func (h HomeRecommendSubjectUseCase) GetHomeRecommendSubject(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *HomeRecommendSubjectUseCase) UpdateHomeRecommendSubject(ctx context.Context, user *HomeRecommendSubject) error {
+func (h HomeRecommendSubjectUseCase) UpdateHomeRecommendSubject(ctx context.Context, subject *HomeRecommendSubject) error {
 	panic("implement me")
 }
 
-func (r *HomeRecommendSubjectUseCase) ListHomeRecommendSubject(ctx context.Context, pageNum, pageSize int64) ([]*HomeRecommendSubject, error) {
-	panic("implement me")
+func (h HomeRecommendSubjectUseCase) ListHomeRecommendSubject(ctx context.Context, req *HomeRecommendSubjectListReq) (*HomeRecommendSubjectListResp, error) {
+	return h.repo.ListHomeRecommendSubject(ctx, req)
 }
 
-func (r *HomeRecommendSubjectUseCase) DeleteHomeRecommendSubject(ctx context.Context, id int64) error {
+func (h HomeRecommendSubjectUseCase) DeleteHomeRecommendSubject(ctx context.Context, id int64) error {
 	panic("implement me")
 }
