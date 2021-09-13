@@ -15,11 +15,11 @@ message LoginReq {
 message LoginResp {
   string status = 1;
   string currentAuthority = 2;
-  int64 id = 3;
+  int32 id = 3;
   string userName = 4;
-  string accessToken = 5;
-  int64 accessExpire = 6;
-  int64 refreshAfter = 7;
+  string token = 5;
+  int32 accessExpire = 6;
+  int32 refreshAfter = 7;
   string code = 8;
   string message = 9;
 }
@@ -31,7 +31,7 @@ message InfoReq {
 message InfoResp {
   string avatar = 1;
   string name = 2;
-  repeated MenuListTree menuListTree = 3;
+  repeated MenuListTree menuTree = 3;
   string code = 4;
   string message = 5;
 }
@@ -42,10 +42,10 @@ message UserAddReq {
   string name = 3;
   string nickName = 4;
   string avatar = 5;
-  int64 deptId = 6;
+  int32 deptId = 6;
   string createBy = 7;
-  int64 role_Id = 8;
-  int64 job_Id = 9;
+  int32 role_Id = 8;
+  int32 job_Id = 9;
 }
 
 message UserAddResp {
@@ -64,7 +64,7 @@ message UserListReq {
 }
 
 message UserListData{
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   string nickName = 3;
   string avatar = 4;
@@ -72,15 +72,15 @@ message UserListData{
   string salt = 6;
   string email = 7;
   string mobile = 8;
-  int64 status = 9;
-  int64 deptId = 10;
+  int32 status = 9;
+  int32 deptId = 10;
   string createBy = 11;
   string createTime = 12;
   string lastUpdateBy = 13;
   string lastUpdateTime = 14;
-  int64 delFlag = 15;
-  int64 jobId = 16;
-  int64 roleId = 17;
+  int32 delFlag = 15;
+  int32 jobId = 16;
+  int32 roleId = 17;
   string roleName = 18;
   string jobName = 19;
   string deptName = 20;
@@ -91,23 +91,23 @@ message UserListResp {
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  UserListData data = 6;
   bool success = 7;
 }
 
 message UserUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string email = 2;
   string mobile = 3;
   string name = 4;
   string nickName = 5;
   string avatar = 6;
-  int64 dept_Id = 7;
+  int32 dept_Id = 7;
   string lastUpdateBy = 8;
-  int64 role_Id = 9;
-  int64 status = 10;
-  int64 job_Id = 11;
+  int32 role_Id = 9;
+  int32 status = 10;
+  int32 job_Id = 11;
 }
 
 message UserUpdateResp {
@@ -115,7 +115,7 @@ message UserUpdateResp {
 }
 
 message UserDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message UserDeleteResp {
@@ -124,7 +124,7 @@ message UserDeleteResp {
 
 
 message ReSetPasswordReq {
-  int64 id = 1;
+  int32 id = 1;
   string lastUpdateBy = 2;
 }
 
@@ -133,8 +133,8 @@ message ReSetPasswordResp {
 }
 
 message UserStatusReq {
-  int64 id = 1;
-  int64 status = 2;
+  int32 id = 1;
+  int32 status = 2;
   string lastUpdateBy = 3;
 }
 
@@ -148,7 +148,7 @@ message RoleAddReq {
   string name = 1;
   string remark = 2;
   string createBy = 3;
-  int64 status = 5;
+  int32 status = 5;
 }
 
 message RoleAddResp {
@@ -159,19 +159,19 @@ message RoleListReq {
   int64 current = 1;
   int64 pageSize = 2;
   string name = 3;
-  int64 status = 4;
+  int32 status = 4;
 }
 
 message RoleListData {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   string remark = 3;
   string createBy = 4;
   string createTime = 5;
   string lastUpdateBy = 6;
   string lastUpdateTime = 7;
-  int64 del_flag = 8;
-  int64 status = 9;
+  int32 del_flag = 8;
+  int32 status = 9;
 }
 
 message RoleListResp {
@@ -179,17 +179,17 @@ message RoleListResp {
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  RoleListData data = 6;
   bool success = 7;
 }
 
 message RoleUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   string remark = 3;
   string lastUpdateBy = 4;
-  int64 status = 5;
+  int32 status = 5;
 }
 
 message RoleUpdateResp {
@@ -197,7 +197,7 @@ message RoleUpdateResp {
 }
 
 message RoleDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message RoleDeleteResp {
@@ -213,11 +213,11 @@ message UpdateRoleRoleResp {
 }
 
 message QueryMenuByRoleIdReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message QueryMenuByRoleIdResp {
-  repeated int64 ids = 1;
+  repeated int32 ids = 1;
 }
 
 //role end---------------------
@@ -225,12 +225,12 @@ message QueryMenuByRoleIdResp {
 //menu start---------------------
 message MenuAddReq {
   string name = 1;
-  int64 parent_Id = 2;
+  int32 parent_Id = 2;
   string url = 3;
   string perms = 4;
-  int64 type = 5;
+  int32 type = 5;
   string icon = 6;
-  int64 orderNum = 7;
+  int32 orderNum = 7;
   string createBy = 8;
   string vuePath = 9;
   string vueComponent = 10;
@@ -243,26 +243,26 @@ message MenuAddResp {
 }
 
 message MenuListReq {
-  //  int64 current = 1;
+  //  int64 current  = 1;
   //  int64 pageSize = 2;
   string name = 1;
   string url = 2;
 }
 
 message MenuListData {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
-  int64 parent_Id = 3;
+  int32 parent_Id = 3;
   string url = 4;
   string perms = 5;
-  int64 type = 6;
+  int32 type = 6;
   string icon = 7;
-  int64 orderNum = 8;
+  int32 orderNum = 8;
   string createBy = 10;
   string createTime = 11;
   string lastUpdateBy = 12;
   string lastUpdateTime = 13;
-  int64 delFlag = 14;
+  int32 delFlag = 14;
   string vuePath = 15;
   string vueComponent = 16;
   string vueIcon = 17;
@@ -270,10 +270,10 @@ message MenuListData {
 }
 
 message MenuListTree {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   string icon = 3;
-  int64 parentId = 4;
+  int32 parentId = 4;
   string path = 5;
   string vue_path = 6;
   string vue_component = 7;
@@ -286,19 +286,19 @@ message MenuListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  MenuListData data = 6;
   bool success = 7;
 }
 message MenuUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
-  int64 parent_Id = 3;
+  int32 parent_Id = 3;
   string url = 4;
   string perms = 5;
-  int64 type = 6;
+  int32 type = 6;
   string icon = 7;
-  int64 orderNum = 8;
+  int32 orderNum = 8;
   string lastUpdateBy = 9;
   string vuePath = 10;
   string vueComponent = 11;
@@ -311,7 +311,7 @@ message MenuUpdateResp {
 }
 
 message MenuDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message MenuDeleteResp {
@@ -319,8 +319,8 @@ message MenuDeleteResp {
 }
 
 message UpdateMenuRoleReq {
-  int64 roleId = 1;
-  repeated int64 menuIds = 2;
+  int32 roleId = 1;
+  repeated int32 menuIds = 2;
 }
 
 message UpdateMenuRoleResp {
@@ -334,7 +334,7 @@ message DictAddReq {
   string label = 2;
   string type = 3;
   string description = 4;
-  int64 sort = 5;
+  int32 sort = 5;
   string remarks = 6;
   string createBy = 7;
 }
@@ -349,22 +349,22 @@ message DictListReq {
   string value = 3;
   string label = 4;
   string type = 5;
-  int64 del_flag = 6;
+  int32 del_flag = 6;
 }
 
 message DictListData {
-  int64 id = 1;
+  int32 id = 1;
   string value = 2;
   string label = 3;
   string type = 4;
   string description = 5;
-  int64 sort = 6;
+  int32 sort = 6;
   string remarks = 7;
   string createBy = 10;
   string createTime = 11;
   string lastUpdateBy = 12;
   string lastUpdateTime = 13;
-  int64 del_flag = 14;
+  int32 del_flag = 14;
 }
 
 message DictListResp{
@@ -372,18 +372,18 @@ message DictListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  DictListData data = 6;
   bool success = 7;
 }
 
 message DictUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string value = 2;
   string label = 3;
   string type = 4;
   string description = 5;
-  int64 sort = 6;
+  int32 sort = 6;
   string remarks = 7;
   string lastUpdateBy = 8;
 }
@@ -393,7 +393,7 @@ message DictUpdateResp {
 }
 
 message DictDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message DictDeleteResp {
@@ -404,8 +404,8 @@ message DictDeleteResp {
 //dept start---------------------
 message DeptAddReq {
   string name = 1;
-  int64 parent_Id = 2;
-  int64 orderNum = 3;
+  int32 parent_Id = 2;
+  int32 orderNum = 3;
   string createBy = 4;
 }
 
@@ -414,22 +414,22 @@ message DeptAddResp {
 }
 
 message DeptListReq {
-  //  int64 current = 1;
+  //  int64 current  = 1;
   //  int64 pageSize = 2;
   string name = 1;
   string createBy = 2;
 }
 
 message DeptListData {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
-  int64 parent_Id = 3;
-  int64 orderNum = 4;
+  int32 parent_Id = 3;
+  int32 orderNum = 4;
   string createBy = 5;
   string createTime = 6;
   string lastUpdateBy = 7;
   string lastUpdateTime = 8;
-  int64 del_flag = 9;
+  int32 del_flag = 9;
 }
 
 message DeptListResp{
@@ -437,15 +437,15 @@ message DeptListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  DeptListData data = 6;
   bool success = 7;
 }
 message DeptUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
-  int64 parent_Id = 3;
-  int64 orderNum = 4;
+  int32 parent_Id = 3;
+  int32 orderNum = 4;
   string lastUpdateBy = 7;
 }
 
@@ -454,7 +454,7 @@ message DeptUpdateResp {
 }
 
 message DeptDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message DeptDeleteResp {
@@ -480,7 +480,7 @@ message LoginLogListReq {
 }
 
 message LoginLogListData {
-  int64 id = 1;
+  int32 id = 1;
   string userName = 2;
   string status = 3;
   string ip = 4;
@@ -495,12 +495,12 @@ message LoginLogListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  LoginLogListData data = 6;
   bool success = 7;
 }
 message LoginLogDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message LoginLogDeleteResp {
@@ -514,7 +514,7 @@ message SysLogAddReq {
   string operation = 2;
   string method = 3;
   string params = 4;
-  int64 time = 5;
+  int32 time = 5;
   string ip = 6;
   string createBy = 7;
 }
@@ -529,12 +529,12 @@ message SysLogListReq {
 }
 
 message SysLogListData {
-  int64 id = 1;
+  int32 id = 1;
   string userName = 2;
   string operation = 3;
   string method = 4;
   string params = 5;
-  int64 time = 6;
+  int32 time = 6;
   string ip = 7;
   string createBy = 8;
   string createTime = 9;
@@ -547,12 +547,12 @@ message SysLogListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  SysLogListData data = 6;
   bool success = 7;
 }
 message SysLogDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message SysLogDeleteResp {
@@ -566,7 +566,7 @@ message ConfigAddReq {
   string label = 2;
   string type = 3;
   string description = 4;
-  int64 sort = 5;
+  int32 sort = 5;
   string remarks = 6;
   string createBy = 7;
 }
@@ -581,14 +581,14 @@ message ConfigListReq {
 }
 
 message ConfigListData {
-  int64 id = 1;
+  int32 id = 1;
   string value = 2;
   string label = 3;
   string type = 4;
   string description = 5;
-  int64 sort = 6;
+  int32 sort = 6;
   string remarks = 7;
-  int64 delFlag = 8;
+  int32 delFlag = 8;
   string createBy = 9;
   string createTime = 10;
   string lastUpdateBy = 11;
@@ -600,17 +600,17 @@ message ConfigListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  ConfigListData data = 6;
   bool success = 7;
 }
 message ConfigUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string value = 2;
   string label = 3;
   string type = 4;
   string description = 5;
-  int64 sort = 6;
+  int32 sort = 6;
   string remarks = 7;
   string lastUpdateBy = 8;
 }
@@ -620,7 +620,7 @@ message ConfigUpdateResp {
 }
 
 message ConfigDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message ConfigDeleteResp {
@@ -639,7 +639,7 @@ message UpdateConfigRoleResp {
 //job start---------------------
 message JobAddReq {
   string jobName = 1;
-  int64 orderNum = 2;
+  int32 orderNum = 2;
   string createBy = 3;
   string remarks = 4;
 }
@@ -655,14 +655,14 @@ message JobListReq {
 }
 
 message JobListData {
-  int64 id = 1;
+  int32 id = 1;
   string jobName = 2;
-  int64 orderNum = 3;
+  int32 orderNum = 3;
   string createBy = 4;
   string createTime = 5;
   string lastUpdateBy = 6;
   string lastUpdateTime = 7;
-  int64 delFlag = 8;
+  int32 delFlag = 8;
   string remarks = 9;
 }
 
@@ -671,15 +671,15 @@ message JobListResp{
   string message = 2;
   int64 current = 3;
   int64 pageSize = 4;
-  int64 total = 5;
+  int32 total = 5;
   repeated  JobListData data = 6;
   bool success = 7;
 }
 
 message JobUpdateReq {
-  int64 id = 1;
+  int32 id = 1;
   string jobName = 2;
-  int64 orderNum = 3;
+  int32 orderNum = 3;
   string lastUpdateBy = 4;
   string remarks = 5;
 }
@@ -689,7 +689,7 @@ message JobUpdateResp {
 }
 
 message JobDeleteReq {
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message JobDeleteResp {
@@ -707,8 +707,7 @@ service Sys {
   }
   rpc UserInfo(InfoReq) returns(InfoResp){
     option (google.api.http) = {
-      post: "/api/sys/user/currentUser"
-      body: "*"
+      get: "/api/sys/user/currentUser"
     };
   }
   rpc UserAdd(UserAddReq) returns(UserAddResp){

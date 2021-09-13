@@ -50,11 +50,11 @@ func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp
 	return &pb.LoginResp{
 		Status:           loginResp.Status,
 		CurrentAuthority: loginResp.CurrentAuthority,
-		Id:               loginResp.Id,
+		Id:               int32(loginResp.Id),
 		UserName:         loginResp.UserName,
-		AccessToken:      loginResp.AccessToken,
-		AccessExpire:     loginResp.AccessExpire,
-		RefreshAfter:     loginResp.RefreshAfter,
+		Token:            loginResp.AccessToken,
+		AccessExpire:     int32(loginResp.AccessExpire),
+		RefreshAfter:     int32(loginResp.RefreshAfter),
 		Code:             "000000",
 		Message:          "登录成功",
 	}, nil
@@ -67,20 +67,20 @@ func (s *SysService) UserInfo(ctx context.Context, req *pb.InfoReq) (*pb.InfoRes
 	rv := make([]*pb.MenuListTree, 0)
 	for _, m := range userInfo.MenuListTree {
 		rv = append(rv, &pb.MenuListTree{
-			Id:       m.Id,
+			Id:       int32(m.Id),
 			Path:     m.Url,
 			Name:     m.Name,
-			ParentId: m.ParentId,
+			ParentId: int32(m.ParentId),
 			Icon:     m.Icon,
 		})
 	}
 
 	return &pb.InfoResp{
-		Avatar:       userInfo.Avatar,
-		Name:         userInfo.Name,
-		MenuListTree: rv,
-		Code:         "000000",
-		Message:      "获取个人信息成功",
+		Avatar:   userInfo.Avatar,
+		Name:     userInfo.Name,
+		MenuTree: rv,
+		Code:     "000000",
+		Message:  "获取个人信息成功",
 	}, nil
 }
 func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserAddResp, error) {
@@ -102,7 +102,7 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 	list := make([]*pb.UserListData, 0)
 	for _, item := range userListResp.List {
 		list = append(list, &pb.UserListData{
-			Id:             item.Id,
+			Id:             int32(item.Id),
 			Name:           item.Name,
 			NickName:       item.NickName,
 			Avatar:         item.Avatar,
@@ -110,14 +110,14 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 			Salt:           item.Salt,
 			Email:          item.Email,
 			Mobile:         item.Mobile,
-			Status:         int64(item.Status),
-			DeptId:         item.DeptId,
+			Status:         int32(item.Status),
+			DeptId:         int32(item.DeptId),
 			CreateBy:       item.CreateBy,
 			CreateTime:     item.CreateTime,
 			LastUpdateBy:   item.LastUpdateBy,
 			LastUpdateTime: item.LastUpdateTime,
-			DelFlag:        int64(item.DelFlag),
-			JobId:          int64(item.JobId),
+			DelFlag:        int32(item.DelFlag),
+			JobId:          int32(item.JobId),
 		})
 	}
 	return &pb.UserListResp{
@@ -125,7 +125,7 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 		Message:  "查询用户列表成功",
 		Current:  req.Current,
 		PageSize: req.PageSize,
-		Total:    userListResp.Total,
+		Total:    int32(userListResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -159,7 +159,7 @@ func (s *SysService) RoleList(ctx context.Context, req *pb.RoleListReq) (*pb.Rol
 		Message:  "查询订单信息成功",
 		Current:  req.Current,
 		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -218,7 +218,7 @@ func (s *SysService) DictList(ctx context.Context, req *pb.DictListReq) (*pb.Dic
 		Message:  "查询订单信息成功",
 		Current:  req.Current,
 		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -244,7 +244,7 @@ func (s *SysService) DeptList(ctx context.Context, req *pb.DeptListReq) (*pb.Dep
 	return &pb.DeptListResp{
 		Code:    "000000",
 		Message: "查询订单信息成功",
-		Total:   listResp.Total,
+		Total:   int32(listResp.Total),
 		Data:    list,
 		Success: true,
 	}, nil
@@ -269,7 +269,7 @@ func (s *SysService) LoginLogList(ctx context.Context, req *pb.LoginLogListReq) 
 		Message:  "查询订单信息成功",
 		Current:  req.Current,
 		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -301,7 +301,7 @@ func (s *SysService) JobList(ctx context.Context, req *pb.JobListReq) (*pb.JobLi
 		Message:  "查询订单信息成功",
 		Current:  req.Current,
 		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil

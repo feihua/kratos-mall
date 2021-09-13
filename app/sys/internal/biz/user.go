@@ -105,7 +105,7 @@ func (u *UserUseCase) UserLogin(ctx context.Context, userDTO *UserDTO) (*TokenDT
 
 func (u *UserUseCase) UserInfo(ctx context.Context, id int64) *UserInfoDTO {
 
-	user := u.userRepo.GetUser(ctx, id)
+	user := u.userRepo.GetUser(ctx, 1)
 
 	listMenu, _ := u.menuRepo.ListMenu(ctx, &MenuListReq{})
 
