@@ -3,6 +3,8 @@ package sms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	smsV1 "kratos-mall/api/sms/v1"
 	"kratos-mall/app/front/admin/internal/biz/sms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (f flashPromotionHistoryRepo) UpdateFlashPromotionHistory(ctx context.Conte
 	panic("implement me")
 }
 
-func (f flashPromotionHistoryRepo) ListFlashPromotionHistory(ctx context.Context, req *sms.FlashPromotionHistoryListReq) ([]*sms.FlashPromotionHistory, error) {
-	panic("implement me")
+func (f flashPromotionHistoryRepo) ListFlashPromotionHistory(ctx context.Context, req *sms.FlashPromotionHistoryListReq) (*sms.FlashPromotionHistoryListResp, error) {
+	list, _ := f.data.SmsClient.FlashPromotionLogList(ctx, &smsV1.FlashPromotionLogListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*sms.FlashPromotionHistory, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &sms.FlashPromotionHistoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (f flashPromotionHistoryRepo) DeleteFlashPromotionHistory(ctx context.Context, id int64) error {

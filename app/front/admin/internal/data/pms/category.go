@@ -3,6 +3,8 @@ package pms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	pmsV1 "kratos-mall/api/pms/v1"
 	"kratos-mall/app/front/admin/internal/biz/pms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,18 @@ func (c categoryRepo) UpdateCategory(ctx context.Context, category *pms.Category
 	panic("implement me")
 }
 
-func (c categoryRepo) ListCategory(ctx context.Context, req *pms.CategoryListReq) ([]*pms.Category, error) {
-	panic("implement me")
+func (c categoryRepo) ListCategory(ctx context.Context, req *pms.CategoryListReq) (*pms.CategoryListResp, error) {
+	list, _ := c.data.PmsClient.ProductCategoryList(ctx, &pmsV1.ProductCategoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*pms.Category, 0)
+	copier.Copy(&orders, &list.List)
+	return &pms.CategoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (c categoryRepo) DeleteCategory(ctx context.Context, id int64) error {

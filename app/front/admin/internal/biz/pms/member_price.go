@@ -17,12 +17,16 @@ type MemberPrice struct {
 	MemberPrice     string
 	MemberLevelName string
 }
+type MemberPriceListResp struct {
+	Total int64
+	List  []*MemberPrice
+}
 
 type MemberPriceRepo interface {
 	CreateMemberPrice(context.Context, *MemberPrice) error
 	GetMemberPrice(ctx context.Context, id int64) error
 	UpdateMemberPrice(context.Context, *MemberPrice) error
-	ListMemberPrice(ctx context.Context, req *MemberPriceListReq) ([]*MemberPrice, error)
+	ListMemberPrice(ctx context.Context, req *MemberPriceListReq) (*MemberPriceListResp, error)
 	DeleteMemberPrice(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewMemberPriceUseCase(repo MemberPriceRepo, logger log.Logger) *MemberPrice
 	return &MemberPriceUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *MemberPriceUseCase) CreateMemberPrice(ctx context.Context, user *MemberPrice) error {
+func (m MemberPriceUseCase) CreateMemberPrice(ctx context.Context, price *MemberPrice) error {
 	panic("implement me")
 }
 
-func (r *MemberPriceUseCase) GetMemberPrice(ctx context.Context, id int64) error {
+func (m MemberPriceUseCase) GetMemberPrice(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *MemberPriceUseCase) UpdateMemberPrice(ctx context.Context, user *MemberPrice) error {
+func (m MemberPriceUseCase) UpdateMemberPrice(ctx context.Context, price *MemberPrice) error {
 	panic("implement me")
 }
 
-func (r *MemberPriceUseCase) ListMemberPrice(ctx context.Context, pageNum, pageSize int64) ([]*MemberPrice, error) {
-	panic("implement me")
+func (m MemberPriceUseCase) ListMemberPrice(ctx context.Context, req *MemberPriceListReq) (*MemberPriceListResp, error) {
+	return m.repo.ListMemberPrice(ctx, req)
 }
 
-func (r *MemberPriceUseCase) DeleteMemberPrice(ctx context.Context, id int64) error {
+func (m MemberPriceUseCase) DeleteMemberPrice(ctx context.Context, id int64) error {
 	panic("implement me")
 }

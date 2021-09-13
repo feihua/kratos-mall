@@ -23,12 +23,16 @@ type CouponHistory struct {
 	OrderId        int64  // 订单编号
 	OrderSn        string // 订单号码
 }
+type CouponHistoryListResp struct {
+	Total int64
+	List  []*CouponHistory
+}
 
 type CouponHistoryRepo interface {
 	CreateCouponHistory(context.Context, *CouponHistory) error
 	GetCouponHistory(ctx context.Context, id int64) error
 	UpdateCouponHistory(context.Context, *CouponHistory) error
-	ListCouponHistory(ctx context.Context, req *CouponHistoryListReq) ([]*CouponHistory, error)
+	ListCouponHistory(ctx context.Context, req *CouponHistoryListReq) (*CouponHistoryListResp, error)
 	DeleteCouponHistory(ctx context.Context, id int64) error
 }
 
@@ -41,22 +45,22 @@ func NewCouponHistoryUseCase(repo CouponHistoryRepo, logger log.Logger) *CouponH
 	return &CouponHistoryUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CouponHistoryUseCase) CreateCouponHistory(ctx context.Context, user *CouponHistory) error {
+func (c CouponHistoryUseCase) CreateCouponHistory(ctx context.Context, history *CouponHistory) error {
 	panic("implement me")
 }
 
-func (r *CouponHistoryUseCase) GetCouponHistory(ctx context.Context, id int64) error {
+func (c CouponHistoryUseCase) GetCouponHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CouponHistoryUseCase) UpdateCouponHistory(ctx context.Context, user *CouponHistory) error {
+func (c CouponHistoryUseCase) UpdateCouponHistory(ctx context.Context, history *CouponHistory) error {
 	panic("implement me")
 }
 
-func (r *CouponHistoryUseCase) ListCouponHistory(ctx context.Context, pageNum, pageSize int64) ([]*CouponHistory, error) {
-	panic("implement me")
+func (c CouponHistoryUseCase) ListCouponHistory(ctx context.Context, req *CouponHistoryListReq) (*CouponHistoryListResp, error) {
+	return c.repo.ListCouponHistory(ctx, req)
 }
 
-func (r *CouponHistoryUseCase) DeleteCouponHistory(ctx context.Context, id int64) error {
+func (c CouponHistoryUseCase) DeleteCouponHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }

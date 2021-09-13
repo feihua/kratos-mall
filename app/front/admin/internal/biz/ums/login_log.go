@@ -19,12 +19,16 @@ type LoginLog struct {
 	LoginType  int // 登录类型：0->PC；1->android;2->ios;3->小程序
 	Province   string
 }
+type LoginLogListResp struct {
+	Total int64
+	List  []*LoginLog
+}
 
 type LoginLogRepo interface {
 	CreateLoginLog(context.Context, *LoginLog) error
 	GetLoginLog(ctx context.Context, id int64) error
 	UpdateLoginLog(context.Context, *LoginLog) error
-	ListLoginLog(ctx context.Context, req *LoginLogListReq) ([]*LoginLog, error)
+	ListLoginLog(ctx context.Context, req *LoginLogListReq) (*LoginLogListResp, error)
 	DeleteLoginLog(ctx context.Context, id int64) error
 }
 
@@ -37,22 +41,22 @@ func NewLoginLogUseCase(repo LoginLogRepo, logger log.Logger) *LoginLogUseCase {
 	return &LoginLogUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *LoginLogUseCase) CreateLoginLog(ctx context.Context, user *LoginLog) error {
+func (l LoginLogUseCase) CreateLoginLog(ctx context.Context, loginLog *LoginLog) error {
 	panic("implement me")
 }
 
-func (r *LoginLogUseCase) GetLoginLog(ctx context.Context, id int64) error {
+func (l LoginLogUseCase) GetLoginLog(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *LoginLogUseCase) UpdateLoginLog(ctx context.Context, user *LoginLog) error {
+func (l LoginLogUseCase) UpdateLoginLog(ctx context.Context, loginLog *LoginLog) error {
 	panic("implement me")
 }
 
-func (r *LoginLogUseCase) ListLoginLog(ctx context.Context, pageNum, pageSize int64) ([]*LoginLog, error) {
-	panic("implement me")
+func (l LoginLogUseCase) ListLoginLog(ctx context.Context, req *LoginLogListReq) (*LoginLogListResp, error) {
+	return l.repo.ListLoginLog(ctx, req)
 }
 
-func (r *LoginLogUseCase) DeleteLoginLog(ctx context.Context, id int64) error {
+func (l LoginLogUseCase) DeleteLoginLog(ctx context.Context, id int64) error {
 	panic("implement me")
 }

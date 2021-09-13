@@ -17,12 +17,16 @@ type HomeBrand struct {
 	RecommendStatus int
 	Sort            int
 }
+type HomeBrandListResp struct {
+	Total int64
+	List  []*HomeBrand
+}
 
 type HomeBrandRepo interface {
 	CreateHomeBrand(context.Context, *HomeBrand) error
 	GetHomeBrand(ctx context.Context, id int64) error
 	UpdateHomeBrand(context.Context, *HomeBrand) error
-	ListHomeBrand(ctx context.Context, req *HomeBrandListReq) ([]*HomeBrand, error)
+	ListHomeBrand(ctx context.Context, req *HomeBrandListReq) (*HomeBrandListResp, error)
 	DeleteHomeBrand(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewHomeBrandUseCase(repo HomeBrandRepo, logger log.Logger) *HomeBrandUseCas
 	return &HomeBrandUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *HomeBrandUseCase) CreateHomeBrand(ctx context.Context, user *HomeBrand) error {
+func (h HomeBrandUseCase) CreateHomeBrand(ctx context.Context, brand *HomeBrand) error {
 	panic("implement me")
 }
 
-func (r *HomeBrandUseCase) GetHomeBrand(ctx context.Context, id int64) error {
+func (h HomeBrandUseCase) GetHomeBrand(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *HomeBrandUseCase) UpdateHomeBrand(ctx context.Context, user *HomeBrand) error {
+func (h HomeBrandUseCase) UpdateHomeBrand(ctx context.Context, brand *HomeBrand) error {
 	panic("implement me")
 }
 
-func (r *HomeBrandUseCase) ListHomeBrand(ctx context.Context, pageNum, pageSize int64) ([]*HomeBrand, error) {
-	panic("implement me")
+func (h HomeBrandUseCase) ListHomeBrand(ctx context.Context, req *HomeBrandListReq) (*HomeBrandListResp, error) {
+	return h.repo.ListHomeBrand(ctx, req)
 }
 
-func (r *HomeBrandUseCase) DeleteHomeBrand(ctx context.Context, id int64) error {
+func (h HomeBrandUseCase) DeleteHomeBrand(ctx context.Context, id int64) error {
 	panic("implement me")
 }

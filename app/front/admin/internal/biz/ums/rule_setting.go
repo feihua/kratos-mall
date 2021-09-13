@@ -19,12 +19,16 @@ type RuleSetting struct {
 	MaxPointPerOrder  int    // 每笔订单最高获取点数
 	Type              int    // 类型：0->积分规则；1->成长值规则
 }
+type RuleSettingListResp struct {
+	Total int64
+	List  []*RuleSetting
+}
 
 type RuleSettingRepo interface {
 	CreateRuleSetting(context.Context, *RuleSetting) error
 	GetRuleSetting(ctx context.Context, id int64) error
 	UpdateRuleSetting(context.Context, *RuleSetting) error
-	ListRuleSetting(ctx context.Context, req *RuleSettingListReq) ([]*RuleSetting, error)
+	ListRuleSetting(ctx context.Context, req *RuleSettingListReq) (*RuleSettingListResp, error)
 	DeleteRuleSetting(ctx context.Context, id int64) error
 }
 
@@ -37,22 +41,22 @@ func NewRuleSettingUseCase(repo RuleSettingRepo, logger log.Logger) *RuleSetting
 	return &RuleSettingUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *RuleSettingUseCase) CreateRuleSetting(ctx context.Context, user *RuleSetting) error {
+func (r RuleSettingUseCase) CreateRuleSetting(ctx context.Context, setting *RuleSetting) error {
 	panic("implement me")
 }
 
-func (r *RuleSettingUseCase) GetRuleSetting(ctx context.Context, id int64) error {
+func (r RuleSettingUseCase) GetRuleSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *RuleSettingUseCase) UpdateRuleSetting(ctx context.Context, user *RuleSetting) error {
+func (r RuleSettingUseCase) UpdateRuleSetting(ctx context.Context, setting *RuleSetting) error {
 	panic("implement me")
 }
 
-func (r *RuleSettingUseCase) ListRuleSetting(ctx context.Context, pageNum, pageSize int64) ([]*RuleSetting, error) {
-	panic("implement me")
+func (r RuleSettingUseCase) ListRuleSetting(ctx context.Context, req *RuleSettingListReq) (*RuleSettingListResp, error) {
+	return r.repo.ListRuleSetting(ctx, req)
 }
 
-func (r *RuleSettingUseCase) DeleteRuleSetting(ctx context.Context, id int64) error {
+func (r RuleSettingUseCase) DeleteRuleSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }

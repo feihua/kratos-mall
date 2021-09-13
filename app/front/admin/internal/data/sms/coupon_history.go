@@ -3,6 +3,8 @@ package sms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	smsV1 "kratos-mall/api/sms/v1"
 	"kratos-mall/app/front/admin/internal/biz/sms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (c couponHistoryRepo) UpdateCouponHistory(ctx context.Context, history *sms
 	panic("implement me")
 }
 
-func (c couponHistoryRepo) ListCouponHistory(ctx context.Context, req *sms.CouponHistoryListReq) ([]*sms.CouponHistory, error) {
-	panic("implement me")
+func (c couponHistoryRepo) ListCouponHistory(ctx context.Context, req *sms.CouponHistoryListReq) (*sms.CouponHistoryListResp, error) {
+	list, _ := c.data.SmsClient.CouponHistoryList(ctx, &smsV1.CouponHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*sms.CouponHistory, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &sms.CouponHistoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (c couponHistoryRepo) DeleteCouponHistory(ctx context.Context, id int64) error {

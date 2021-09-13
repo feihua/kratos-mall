@@ -3,6 +3,8 @@ package ums
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	umsV1 "kratos-mall/api/ums/v1"
 	"kratos-mall/app/front/admin/internal/biz/ums"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -32,8 +34,19 @@ func (c changeHistoryRepo) UpdateChangeHistory(ctx context.Context, history *ums
 	panic("implement me")
 }
 
-func (c changeHistoryRepo) ListChangeHistory(ctx context.Context, req *ums.ChangeHistoryListReq) ([]*ums.ChangeHistory, error) {
-	panic("implement me")
+func (c changeHistoryRepo) ListChangeHistory(ctx context.Context, req *ums.ChangeHistoryListReq) (*ums.ChangeHistoryListResp, error) {
+	list, _ := c.data.UmsClient.GrowthChangeHistoryList(ctx, &umsV1.GrowthChangeHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*ums.ChangeHistory, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &ums.ChangeHistoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (c changeHistoryRepo) DeleteChangeHistory(ctx context.Context, id int64) error {

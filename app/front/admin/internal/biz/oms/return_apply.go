@@ -40,11 +40,16 @@ type ReturnApply struct {
 	ReceiveNote      string // 收货备注
 }
 
+type ReturnApplyListResp struct {
+	Total int64
+	List  []*ReturnApply
+}
+
 type ReturnApplyRepo interface {
 	CreateReturnApply(context.Context, *ReturnApply) error
 	GetReturnApply(ctx context.Context, id int64) error
 	UpdateReturnApply(context.Context, *ReturnApply) error
-	ListReturnApply(ctx context.Context, req *ReturnApplyListReq) ([]*ReturnApply, error)
+	ListReturnApply(ctx context.Context, req *ReturnApplyListReq) (*ReturnApplyListResp, error)
 	DeleteReturnApply(ctx context.Context, id int64) error
 }
 
@@ -57,22 +62,22 @@ func NewReturnApplyUseCase(repo ReturnApplyRepo, logger log.Logger) *ReturnApply
 	return &ReturnApplyUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *ReturnApplyUseCase) CreateReturnApply(ctx context.Context, user *ReturnApply) error {
+func (r ReturnApplyUseCase) CreateReturnApply(ctx context.Context, apply *ReturnApply) error {
 	panic("implement me")
 }
 
-func (r *ReturnApplyUseCase) GetReturnApply(ctx context.Context, id int64) error {
+func (r ReturnApplyUseCase) GetReturnApply(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *ReturnApplyUseCase) UpdateReturnApply(ctx context.Context, user *ReturnApply) error {
+func (r ReturnApplyUseCase) UpdateReturnApply(ctx context.Context, apply *ReturnApply) error {
 	panic("implement me")
 }
 
-func (r *ReturnApplyUseCase) ListReturnApply(ctx context.Context, pageNum, pageSize int64) ([]*ReturnApply, error) {
-	panic("implement me")
+func (r ReturnApplyUseCase) ListReturnApply(ctx context.Context, req *ReturnApplyListReq) (*ReturnApplyListResp, error) {
+	return r.repo.ListReturnApply(ctx, req)
 }
 
-func (r *ReturnApplyUseCase) DeleteReturnApply(ctx context.Context, id int64) error {
+func (r ReturnApplyUseCase) DeleteReturnApply(ctx context.Context, id int64) error {
 	panic("implement me")
 }

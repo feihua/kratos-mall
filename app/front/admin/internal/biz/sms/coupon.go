@@ -30,12 +30,16 @@ type Coupon struct {
 	Code         string // 优惠码
 	MemberLevel  int    // 可领取的会员类型：0->无限时
 }
+type CouponListResp struct {
+	Total int64
+	List  []*Coupon
+}
 
 type CouponRepo interface {
 	CreateCoupon(context.Context, *Coupon) error
 	GetCoupon(ctx context.Context, id int64) error
 	UpdateCoupon(context.Context, *Coupon) error
-	ListCoupon(ctx context.Context, req *CouponListReq) ([]*Coupon, error)
+	ListCoupon(ctx context.Context, req *CouponListReq) (*CouponListResp, error)
 	DeleteCoupon(ctx context.Context, id int64) error
 }
 
@@ -48,22 +52,22 @@ func NewCouponUseCase(repo CouponRepo, logger log.Logger) *CouponUseCase {
 	return &CouponUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *CouponUseCase) CreateCoupon(ctx context.Context, user *Coupon) error {
+func (c CouponUseCase) CreateCoupon(ctx context.Context, coupon *Coupon) error {
 	panic("implement me")
 }
 
-func (r *CouponUseCase) GetCoupon(ctx context.Context, id int64) error {
+func (c CouponUseCase) GetCoupon(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *CouponUseCase) UpdateCoupon(ctx context.Context, user *Coupon) error {
+func (c CouponUseCase) UpdateCoupon(ctx context.Context, coupon *Coupon) error {
 	panic("implement me")
 }
 
-func (r *CouponUseCase) ListCoupon(ctx context.Context, pageNum, pageSize int64) ([]*Coupon, error) {
-	panic("implement me")
+func (c CouponUseCase) ListCoupon(ctx context.Context, req *CouponListReq) (*CouponListResp, error) {
+	return c.repo.ListCoupon(ctx, req)
 }
 
-func (r *CouponUseCase) DeleteCoupon(ctx context.Context, id int64) error {
+func (c CouponUseCase) DeleteCoupon(ctx context.Context, id int64) error {
 	panic("implement me")
 }

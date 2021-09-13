@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/front/admin/internal/biz"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 
@@ -12,8 +13,8 @@ import (
 type SysService struct {
 	pb.UnimplementedSysServer
 	uc          *biz.UserUseCase
-	lc          *sys.LogUseCase
-	mc          *sys.MenuUseCase
+	logUseCase  *sys.LogUseCase
+	menuUseCase *sys.MenuUseCase
 	roleUseCase *sys.RoleUseCase
 	jobUseCase  *sys.JobUseCase
 	dictUseCase *sys.DictUseCase
@@ -22,7 +23,7 @@ type SysService struct {
 }
 
 func NewSysService(uc *biz.UserUseCase,
-	lc *sys.LogUseCase,
+	logUseCase *sys.LogUseCase,
 	mc *sys.MenuUseCase,
 	logger log.Logger,
 	roleUseCase *sys.RoleUseCase,
@@ -30,8 +31,8 @@ func NewSysService(uc *biz.UserUseCase,
 	dictUseCase *sys.DictUseCase,
 	deptUseCase *sys.DeptUseCase) *SysService {
 	return &SysService{uc: uc,
-		lc:          lc,
-		mc:          mc,
+		logUseCase:  logUseCase,
+		menuUseCase: mc,
 		log:         log.NewHelper(logger),
 		roleUseCase: roleUseCase,
 		jobUseCase:  jobUseCase,
@@ -120,8 +121,13 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 		})
 	}
 	return &pb.UserListResp{
-		Total: userListResp.Total,
-		List:  list,
+		Code:     "000000",
+		Message:  "查询用户列表成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    userListResp.Total,
+		Data:     list,
+		Success:  true,
 	}, nil
 }
 func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb.UserUpdateResp, error) {
@@ -140,7 +146,23 @@ func (s *SysService) RoleAdd(ctx context.Context, req *pb.RoleAddReq) (*pb.RoleA
 	return &pb.RoleAddResp{}, nil
 }
 func (s *SysService) RoleList(ctx context.Context, req *pb.RoleListReq) (*pb.RoleListResp, error) {
-	return &pb.RoleListResp{}, nil
+	listResp, _ := s.roleUseCase.ListRole(ctx, &sys.RoleListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.RoleListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.RoleListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SysService) RoleUpdate(ctx context.Context, req *pb.RoleUpdateReq) (*pb.RoleUpdateResp, error) {
 	return &pb.RoleUpdateResp{}, nil
@@ -158,7 +180,20 @@ func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuA
 	return &pb.MenuAddResp{}, nil
 }
 func (s *SysService) MenuList(ctx context.Context, req *pb.MenuListReq) (*pb.MenuListResp, error) {
-	return &pb.MenuListResp{}, nil
+	listResp, _ := s.menuUseCase.ListMenu(ctx, &sys.MenuListReq{
+		Name: "",
+		Url:  "",
+	})
+
+	list := make([]*pb.MenuListData, 0)
+
+	copier.Copy(&list, &listResp)
+	return &pb.MenuListResp{
+		Code:    "000000",
+		Message: "查询订单信息成功",
+		Data:    list,
+		Success: true,
+	}, nil
 }
 func (s *SysService) MenuUpdate(ctx context.Context, req *pb.MenuUpdateReq) (*pb.MenuUpdateResp, error) {
 	return &pb.MenuUpdateResp{}, nil
@@ -170,7 +205,23 @@ func (s *SysService) DictAdd(ctx context.Context, req *pb.DictAddReq) (*pb.DictA
 	return &pb.DictAddResp{}, nil
 }
 func (s *SysService) DictList(ctx context.Context, req *pb.DictListReq) (*pb.DictListResp, error) {
-	return &pb.DictListResp{}, nil
+	listResp, _ := s.dictUseCase.ListDict(ctx, &sys.DictListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.DictListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.DictListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SysService) DictUpdate(ctx context.Context, req *pb.DictUpdateReq) (*pb.DictUpdateResp, error) {
 	return &pb.DictUpdateResp{}, nil
@@ -182,7 +233,21 @@ func (s *SysService) DeptAdd(ctx context.Context, req *pb.DeptAddReq) (*pb.DeptA
 	return &pb.DeptAddResp{}, nil
 }
 func (s *SysService) DeptList(ctx context.Context, req *pb.DeptListReq) (*pb.DeptListResp, error) {
-	return &pb.DeptListResp{}, nil
+	listResp, _ := s.deptUseCase.ListDept(ctx, &sys.DeptListReq{
+		Name:     "",
+		CreateBy: "",
+	})
+
+	list := make([]*pb.DeptListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.DeptListResp{
+		Code:    "000000",
+		Message: "查询订单信息成功",
+		Total:   listResp.Total,
+		Data:    list,
+		Success: true,
+	}, nil
 }
 func (s *SysService) DeptUpdate(ctx context.Context, req *pb.DeptUpdateReq) (*pb.DeptUpdateResp, error) {
 	return &pb.DeptUpdateResp{}, nil
@@ -191,12 +256,29 @@ func (s *SysService) DeptDelete(ctx context.Context, req *pb.DeptDeleteReq) (*pb
 	return &pb.DeptDeleteResp{}, nil
 }
 func (s *SysService) LoginLogList(ctx context.Context, req *pb.LoginLogListReq) (*pb.LoginLogListResp, error) {
-	return &pb.LoginLogListResp{}, nil
+	listResp, _ := s.logUseCase.ListLog(ctx, &sys.LogListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.LoginLogListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.LoginLogListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SysService) LoginLogDelete(ctx context.Context, req *pb.LoginLogDeleteReq) (*pb.LoginLogDeleteResp, error) {
 	return &pb.LoginLogDeleteResp{}, nil
 }
 func (s *SysService) SysLogList(ctx context.Context, req *pb.SysLogListReq) (*pb.SysLogListResp, error) {
+
 	return &pb.SysLogListResp{}, nil
 }
 func (s *SysService) SysLogDelete(ctx context.Context, req *pb.SysLogDeleteReq) (*pb.SysLogDeleteResp, error) {
@@ -206,7 +288,23 @@ func (s *SysService) JobAdd(ctx context.Context, req *pb.JobAddReq) (*pb.JobAddR
 	return &pb.JobAddResp{}, nil
 }
 func (s *SysService) JobList(ctx context.Context, req *pb.JobListReq) (*pb.JobListResp, error) {
-	return &pb.JobListResp{}, nil
+	listResp, _ := s.jobUseCase.ListJob(ctx, &sys.JobListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.JobListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.JobListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SysService) JobUpdate(ctx context.Context, req *pb.JobUpdateReq) (*pb.JobUpdateResp, error) {
 	return &pb.JobUpdateResp{}, nil

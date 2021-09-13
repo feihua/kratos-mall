@@ -16,12 +16,16 @@ type Tag struct {
 	FinishOrderCount  int    // 自动打标签完成订单数量
 	FinishOrderAmount string // 自动打标签完成订单金额
 }
+type TagListResp struct {
+	Total int64
+	List  []*Tag
+}
 
 type TagRepo interface {
 	CreateTag(context.Context, *Tag) error
 	GetTag(ctx context.Context, id int64) error
 	UpdateTag(context.Context, *Tag) error
-	ListTag(ctx context.Context, req *TagListReq) ([]*Tag, error)
+	ListTag(ctx context.Context, req *TagListReq) (*TagListResp, error)
 	DeleteTag(ctx context.Context, id int64) error
 }
 
@@ -34,22 +38,22 @@ func NewTagUseCase(repo TagRepo, logger log.Logger) *TagUseCase {
 	return &TagUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *TagUseCase) CreateTag(ctx context.Context, user *Tag) error {
+func (t TagUseCase) CreateTag(ctx context.Context, tag *Tag) error {
 	panic("implement me")
 }
 
-func (r *TagUseCase) GetTag(ctx context.Context, id int64) error {
+func (t TagUseCase) GetTag(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *TagUseCase) UpdateTag(ctx context.Context, user *Tag) error {
+func (t TagUseCase) UpdateTag(ctx context.Context, tag *Tag) error {
 	panic("implement me")
 }
 
-func (r *TagUseCase) ListTag(ctx context.Context, pageNum, pageSize int64) ([]*Tag, error) {
-	panic("implement me")
+func (t TagUseCase) ListTag(ctx context.Context, req *TagListReq) (*TagListResp, error) {
+	return t.repo.ListTag(ctx, req)
 }
 
-func (r *TagUseCase) DeleteTag(ctx context.Context, id int64) error {
+func (t TagUseCase) DeleteTag(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -24,12 +24,16 @@ type OperateHistory struct {
 	OperateMan       string
 	CreateTime       string
 }
+type OperateHistoryListResp struct {
+	Total int64
+	List  []*OperateHistory
+}
 
 type OperateHistoryRepo interface {
 	CreateOperateHistory(context.Context, *OperateHistory) error
 	GetOperateHistory(ctx context.Context, id int64) error
 	UpdateOperateHistory(context.Context, *OperateHistory) error
-	ListOperateHistory(ctx context.Context, req *OperateHistoryListReq) ([]*OperateHistory, error)
+	ListOperateHistory(ctx context.Context, req *OperateHistoryListReq) (*OperateHistoryListResp, error)
 	DeleteOperateHistory(ctx context.Context, id int64) error
 }
 
@@ -42,22 +46,22 @@ func NewOperateHistoryUseCase(repo OperateHistoryRepo, logger log.Logger) *Opera
 	return &OperateHistoryUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *OperateHistoryUseCase) CreateOperateHistory(ctx context.Context, user *OperateHistory) error {
+func (o OperateHistoryUseCase) CreateOperateHistory(ctx context.Context, history *OperateHistory) error {
 	panic("implement me")
 }
 
-func (r *OperateHistoryUseCase) GetOperateHistory(ctx context.Context, id int64) error {
+func (o OperateHistoryUseCase) GetOperateHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *OperateHistoryUseCase) UpdateOperateHistory(ctx context.Context, user *OperateHistory) error {
+func (o OperateHistoryUseCase) UpdateOperateHistory(ctx context.Context, history *OperateHistory) error {
 	panic("implement me")
 }
 
-func (r *OperateHistoryUseCase) ListOperateHistory(ctx context.Context, pageNum, pageSize int64) ([]*OperateHistory, error) {
-	panic("implement me")
+func (o OperateHistoryUseCase) ListOperateHistory(ctx context.Context, req *OperateHistoryListReq) (*OperateHistoryListResp, error) {
+	return o.repo.ListOperateHistory(ctx, req)
 }
 
-func (r *OperateHistoryUseCase) DeleteOperateHistory(ctx context.Context, id int64) error {
+func (o OperateHistoryUseCase) DeleteOperateHistory(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -23,11 +23,16 @@ type Merchant struct {
 	UpdateTime string
 }
 
+type MerchantListResp struct {
+	Total int64
+	List  []*Merchant
+}
+
 type MerchantRepo interface {
 	CreateMerchant(context.Context, *Merchant) error
 	GetMerchant(ctx context.Context, id int64) error
 	UpdateMerchant(context.Context, *Merchant) error
-	ListMerchant(ctx context.Context, req *MerchantListReq) ([]*Merchant, error)
+	ListMerchant(ctx context.Context, req *MerchantListReq) (*MerchantListResp, error)
 	DeleteMerchant(ctx context.Context, id int64) error
 }
 
@@ -40,22 +45,22 @@ func NewMerchantUseCase(repo MerchantRepo, logger log.Logger) *MerchantUseCase {
 	return &MerchantUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *MerchantUseCase) CreateMerchant(ctx context.Context, user *Merchant) error {
+func (m MerchantUseCase) CreateMerchant(ctx context.Context, merchant *Merchant) error {
 	panic("implement me")
 }
 
-func (r *MerchantUseCase) GetMerchant(ctx context.Context, id int64) error {
+func (m MerchantUseCase) GetMerchant(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *MerchantUseCase) UpdateMerchant(ctx context.Context, user *Merchant) error {
+func (m MerchantUseCase) UpdateMerchant(ctx context.Context, merchant *Merchant) error {
 	panic("implement me")
 }
 
-func (r *MerchantUseCase) ListMerchant(ctx context.Context, pageNum, pageSize int64) ([]*Merchant, error) {
+func (m MerchantUseCase) ListMerchant(ctx context.Context, req *MerchantListReq) (*MerchantListResp, error) {
 	panic("implement me")
 }
 
-func (r *MerchantUseCase) DeleteMerchant(ctx context.Context, id int64) error {
+func (m MerchantUseCase) DeleteMerchant(ctx context.Context, id int64) error {
 	panic("implement me")
 }

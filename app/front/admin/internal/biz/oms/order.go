@@ -57,11 +57,16 @@ type Order struct {
 	ModifyTime            string // 修改时间
 }
 
+type OrderListResp struct {
+	Total int64
+	List  []*Order
+}
+
 type OrderRepo interface {
 	CreateOrder(context.Context, *Order) error
 	GetOrder(ctx context.Context, id int64) error
 	UpdateOrder(context.Context, *Order) error
-	ListOrder(ctx context.Context, req *OrderListReq) ([]*Order, error)
+	ListOrder(ctx context.Context, req *OrderListReq) (*OrderListResp, error)
 	DeleteOrder(ctx context.Context, id int64) error
 }
 
@@ -86,7 +91,7 @@ func (r *OrderUseCase) UpdateOrder(ctx context.Context, user *Order) error {
 	panic("implement me")
 }
 
-func (r *OrderUseCase) ListOrder(ctx context.Context, req *OrderListReq) ([]*Order, error) {
+func (r *OrderUseCase) ListOrder(ctx context.Context, req *OrderListReq) (*OrderListResp, error) {
 	return r.repo.ListOrder(ctx, req)
 }
 

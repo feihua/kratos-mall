@@ -3,6 +3,8 @@ package sms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	smsV1 "kratos-mall/api/sms/v1"
 	"kratos-mall/app/front/admin/internal/biz/sms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (h homeRecommendSubjectRepo) UpdateHomeRecommendSubject(ctx context.Context
 	panic("implement me")
 }
 
-func (h homeRecommendSubjectRepo) ListHomeRecommendSubject(ctx context.Context, req *sms.HomeRecommendSubjectListReq) ([]*sms.HomeRecommendSubject, error) {
-	panic("implement me")
+func (h homeRecommendSubjectRepo) ListHomeRecommendSubject(ctx context.Context, req *sms.HomeRecommendSubjectListReq) (*sms.HomeRecommendSubjectListResp, error) {
+	list, _ := h.data.SmsClient.HomeRecommendSubjectList(ctx, &smsV1.HomeRecommendSubjectListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*sms.HomeRecommendSubject, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &sms.HomeRecommendSubjectListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (h homeRecommendSubjectRepo) DeleteHomeRecommendSubject(ctx context.Context, id int64) error {

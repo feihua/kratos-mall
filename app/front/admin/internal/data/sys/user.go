@@ -3,6 +3,8 @@ package sys
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	sysV1 "kratos-mall/api/sys/v1"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -64,40 +66,19 @@ func (u userRepo) UpdateUser(ctx context.Context, user *sys.UserDTO) error {
 	panic("implement me")
 }
 
-func (u userRepo) ListUser(ctx context.Context, req *sys.UserListReq) ([]*sys.User, error) {
-	//var list []model.SysUser
-	//result := u.data.db.WithContext(ctx).
-	//	Limit(int(req.PageSize)).
-	//	Offset(int(pagination.GetPageOffset(req.Current, req.PageSize))).
-	//	Find(&list)
-	//
-	//if result.Error != nil {
-	//	return nil, result.Error
-	//}
-	//
-	//rv := make([]*sys.User, 0)
-	//for _, item := range list {
-	//	rv = append(rv, &sys.User{
-	//		Id:             item.Id,
-	//		Name:           item.Name,
-	//		NickName:       item.NickName,
-	//		Avatar:         item.Avatar,
-	//		Password:       item.Password,
-	//		Salt:           item.Salt,
-	//		Email:          item.Email,
-	//		Mobile:         item.Mobile,
-	//		Status:         item.Status,
-	//		DeptId:         item.DeptId,
-	//		CreateBy:       item.CreateBy,
-	//		CreateTime:     item.CreateTime,
-	//		LastUpdateBy:   item.LastUpdateBy,
-	//		LastUpdateTime: item.LastUpdateTime,
-	//		DelFlag:        item.DelFlag,
-	//		JobId:          item.JobId,
-	//	})
-	//}
-	//return rv, nil
-	return nil, nil
+func (u userRepo) ListUser(ctx context.Context, req *sys.UserListReq) (*sys.UserListResp, error) {
+	list, _ := u.data.SysClient.UserList(ctx, &sysV1.UserListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*sys.User, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &sys.UserListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (u userRepo) DeleteUser(ctx context.Context, id int64) error {

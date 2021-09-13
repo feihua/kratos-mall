@@ -20,12 +20,16 @@ type Dept struct {
 	LastUpdateTime string // 更新时间
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 }
+type DeptListResp struct {
+	Total int64
+	List  []*Dept
+}
 
 type DeptRepo interface {
 	CreateDept(context.Context, *Dept) error
 	GetDept(ctx context.Context, id int64) error
 	UpdateDept(context.Context, *Dept) error
-	ListDept(ctx context.Context, req *DeptListReq) ([]*Dept, error)
+	ListDept(ctx context.Context, req *DeptListReq) (*DeptListResp, error)
 	DeleteDept(ctx context.Context, id int64) error
 }
 
@@ -38,22 +42,22 @@ func NewDeptUseCase(repo DeptRepo, logger log.Logger) *DeptUseCase {
 	return &DeptUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (dc *DeptUseCase) CreateDept(ctx context.Context, user *Dept) error {
+func (d DeptUseCase) CreateDept(ctx context.Context, dept *Dept) error {
 	panic("implement me")
 }
 
-func (dc *DeptUseCase) GetDept(ctx context.Context, id int64) error {
+func (d DeptUseCase) GetDept(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (dc *DeptUseCase) UpdateDept(ctx context.Context, user *Dept) error {
+func (d DeptUseCase) UpdateDept(ctx context.Context, dept *Dept) error {
 	panic("implement me")
 }
 
-func (dc *DeptUseCase) ListDept(ctx context.Context, pageNum, pageSize int64) ([]*Dept, error) {
-	panic("implement me")
+func (d DeptUseCase) ListDept(ctx context.Context, req *DeptListReq) (*DeptListResp, error) {
+	return d.repo.ListDept(ctx, req)
 }
 
-func (dc *DeptUseCase) DeleteDept(ctx context.Context, id int64) error {
+func (d DeptUseCase) DeleteDept(ctx context.Context, id int64) error {
 	panic("implement me")
 }

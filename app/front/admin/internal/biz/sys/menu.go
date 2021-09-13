@@ -25,6 +25,10 @@ type Menu struct {
 	LastUpdateTime string // 更新时间
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 }
+type MenuListResp struct {
+	Total int64
+	List  []*Menu
+}
 
 type MenuRepo interface {
 	CreateMenu(context.Context, *Menu) error

@@ -63,12 +63,16 @@ type User struct {
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	JobId          int    // 岗位Id
 }
+type UserListResp struct {
+	Total int64
+	List  []*User
+}
 
 type UserRepo interface {
 	CreateUser(context.Context, *UserDTO) error
 	GetUser(ctx context.Context, id int64) *User
 	UpdateUser(context.Context, *UserDTO) error
-	ListUser(ctx context.Context, req *UserListReq) ([]*User, error)
+	ListUser(ctx context.Context, req *UserListReq) (*UserListResp, error)
 	DeleteUser(ctx context.Context, id int64) error
 	QueryUserByName(ctx context.Context, name string) *User
 }
@@ -125,7 +129,7 @@ func (u *UserUseCase) UpdateUser(ctx context.Context, user *UserDTO) error {
 	panic("implement me")
 }
 
-func (u *UserUseCase) ListUser(ctx context.Context, req *UserListReq) ([]*User, error) {
+func (u *UserUseCase) ListUser(ctx context.Context, req *UserListReq) (*UserListResp, error) {
 	return u.userRepo.ListUser(ctx, req)
 }
 

@@ -3,6 +3,8 @@ package pms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	pmsV1 "kratos-mall/api/pms/v1"
 	"kratos-mall/app/front/admin/internal/biz/pms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (o operateHistoryRepo) UpdateOperateHistory(ctx context.Context, history *p
 	panic("implement me")
 }
 
-func (o operateHistoryRepo) ListOperateHistory(ctx context.Context, req *pms.OperateHistoryListReq) ([]*pms.OperateHistory, error) {
-	panic("implement me")
+func (o operateHistoryRepo) ListOperateHistory(ctx context.Context, req *pms.OperateHistoryListReq) (*pms.OperateHistoryListResp, error) {
+	list, _ := o.data.PmsClient.ProductOperateLogList(ctx, &pmsV1.ProductOperateLogListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*pms.OperateHistory, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &pms.OperateHistoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (o operateHistoryRepo) DeleteOperateHistory(ctx context.Context, id int64) error {

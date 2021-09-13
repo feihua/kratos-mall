@@ -17,12 +17,16 @@ type ConsumeSetting struct {
 	UseUnit            int // 每次使用积分最小单位100
 	CouponStatus       int // 是否可以和优惠券同用；0->不可以；1->可以
 }
+type ConsumeSettingListResp struct {
+	Total int64
+	List  []*ConsumeSetting
+}
 
 type ConsumeSettingRepo interface {
 	CreateConsumeSetting(context.Context, *ConsumeSetting) error
 	GetConsumeSetting(ctx context.Context, id int64) error
 	UpdateConsumeSetting(context.Context, *ConsumeSetting) error
-	ListConsumeSetting(ctx context.Context, req *ConsumeSettingListReq) ([]*ConsumeSetting, error)
+	ListConsumeSetting(ctx context.Context, req *ConsumeSettingListReq) (*ConsumeSettingListResp, error)
 	DeleteConsumeSetting(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewConsumeSettingUseCase(repo ConsumeSettingRepo, logger log.Logger) *Consu
 	return &ConsumeSettingUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *ConsumeSettingUseCase) CreateConsumeSetting(ctx context.Context, user *ConsumeSetting) error {
+func (c ConsumeSettingUseCase) CreateConsumeSetting(ctx context.Context, setting *ConsumeSetting) error {
 	panic("implement me")
 }
 
-func (r *ConsumeSettingUseCase) GetConsumeSetting(ctx context.Context, id int64) error {
+func (c ConsumeSettingUseCase) GetConsumeSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *ConsumeSettingUseCase) UpdateConsumeSetting(ctx context.Context, user *ConsumeSetting) error {
+func (c ConsumeSettingUseCase) UpdateConsumeSetting(ctx context.Context, setting *ConsumeSetting) error {
 	panic("implement me")
 }
 
-func (r *ConsumeSettingUseCase) ListConsumeSetting(ctx context.Context, pageNum, pageSize int64) ([]*ConsumeSetting, error) {
-	panic("implement me")
+func (c ConsumeSettingUseCase) ListConsumeSetting(ctx context.Context, req *ConsumeSettingListReq) (*ConsumeSettingListResp, error) {
+	return c.repo.ListConsumeSetting(ctx, req)
 }
 
-func (r *ConsumeSettingUseCase) DeleteConsumeSetting(ctx context.Context, id int64) error {
+func (c ConsumeSettingUseCase) DeleteConsumeSetting(ctx context.Context, id int64) error {
 	panic("implement me")
 }

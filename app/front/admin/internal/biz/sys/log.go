@@ -27,12 +27,16 @@ type LogDTO struct {
 	Ip       string
 	CreateBy string
 }
+type LogListResp struct {
+	Total int64
+	List  []*Log
+}
 
 type LogRepo interface {
 	CreateLog(context.Context, *LogDTO) error
 	GetLog(ctx context.Context, id int64) error
 	UpdateLog(context.Context, *LogDTO) error
-	ListLog(ctx context.Context, req *LogListReq) ([]*Log, error)
+	ListLog(ctx context.Context, req *LogListReq) (*LogListResp, error)
 	DeleteLog(ctx context.Context, id int64) error
 }
 
@@ -59,8 +63,8 @@ func (l *LogUseCase) UpdateLog(ctx context.Context, user *LogDTO) error {
 	panic("implement me")
 }
 
-func (l *LogUseCase) ListLog(ctx context.Context, pageNum, pageSize int64) ([]*Log, error) {
-	panic("implement me")
+func (l *LogUseCase) ListLog(ctx context.Context, req *LogListReq) (*LogListResp, error) {
+	return l.repo.ListLog(ctx, req)
 }
 
 func (l *LogUseCase) DeleteLog(ctx context.Context, id int64) error {

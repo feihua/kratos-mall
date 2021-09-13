@@ -28,12 +28,16 @@ type Dict struct {
 	Remarks        string // 备注信息
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 }
+type DictListResp struct {
+	Total int64
+	List  []*Dict
+}
 
 type DictRepo interface {
 	CreateDict(context.Context, *Dict) error
 	GetDict(ctx context.Context, id int64) error
 	UpdateDict(context.Context, *Dict) error
-	ListDict(ctx context.Context, req *DictListReq) ([]*Dict, error)
+	ListDict(ctx context.Context, req *DictListReq) (*DictListResp, error)
 	DeleteDict(ctx context.Context, id int64) error
 }
 
@@ -46,22 +50,22 @@ func NewDictUseCase(repo DictRepo, logger log.Logger) *DictUseCase {
 	return &DictUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (d *DictUseCase) CreateDict(ctx context.Context, user *Dict) error {
+func (d DictUseCase) CreateDict(ctx context.Context, dict *Dict) error {
 	panic("implement me")
 }
 
-func (d *DictUseCase) GetDict(ctx context.Context, id int64) error {
+func (d DictUseCase) GetDict(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (d *DictUseCase) UpdateDict(ctx context.Context, user *Dict) error {
+func (d DictUseCase) UpdateDict(ctx context.Context, dict *Dict) error {
 	panic("implement me")
 }
 
-func (d *DictUseCase) ListDict(ctx context.Context, pageNum, pageSize int64) ([]*Dict, error) {
-	panic("implement me")
+func (d DictUseCase) ListDict(ctx context.Context, req *DictListReq) (*DictListResp, error) {
+	return d.repo.ListDict(ctx, req)
 }
 
-func (d *DictUseCase) DeleteDict(ctx context.Context, id int64) error {
+func (d DictUseCase) DeleteDict(ctx context.Context, id int64) error {
 	panic("implement me")
 }

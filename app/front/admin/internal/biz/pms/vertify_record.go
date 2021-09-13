@@ -18,12 +18,16 @@ type VertifyRecord struct {
 	Status     int
 	Detail     string
 }
+type VertifyRecordListResp struct {
+	Total int64
+	List  []*VertifyRecord
+}
 
 type VertifyRecordRepo interface {
 	CreateVertifyRecord(context.Context, *VertifyRecord) error
 	GetVertifyRecord(ctx context.Context, id int64) error
 	UpdateVertifyRecord(context.Context, *VertifyRecord) error
-	ListVertifyRecord(ctx context.Context, req *VertifyRecordListReq) ([]*VertifyRecord, error)
+	ListVertifyRecord(ctx context.Context, req *VertifyRecordListReq) (*VertifyRecordListResp, error)
 	DeleteVertifyRecord(ctx context.Context, id int64) error
 }
 
@@ -36,22 +40,22 @@ func NewVertifyRecordUseCase(repo VertifyRecordRepo, logger log.Logger) *Vertify
 	return &VertifyRecordUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *VertifyRecordUseCase) CreateVertifyRecord(ctx context.Context, user *VertifyRecord) error {
+func (v VertifyRecordUseCase) CreateVertifyRecord(ctx context.Context, record *VertifyRecord) error {
 	panic("implement me")
 }
 
-func (r *VertifyRecordUseCase) GetVertifyRecord(ctx context.Context, id int64) error {
+func (v VertifyRecordUseCase) GetVertifyRecord(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *VertifyRecordUseCase) UpdateVertifyRecord(ctx context.Context, user *VertifyRecord) error {
+func (v VertifyRecordUseCase) UpdateVertifyRecord(ctx context.Context, record *VertifyRecord) error {
 	panic("implement me")
 }
 
-func (r *VertifyRecordUseCase) ListVertifyRecord(ctx context.Context, pageNum, pageSize int64) ([]*VertifyRecord, error) {
-	panic("implement me")
+func (v VertifyRecordUseCase) ListVertifyRecord(ctx context.Context, req *VertifyRecordListReq) (*VertifyRecordListResp, error) {
+	return v.repo.ListVertifyRecord(ctx, req)
 }
 
-func (r *VertifyRecordUseCase) DeleteVertifyRecord(ctx context.Context, id int64) error {
+func (v VertifyRecordUseCase) DeleteVertifyRecord(ctx context.Context, id int64) error {
 	panic("implement me")
 }

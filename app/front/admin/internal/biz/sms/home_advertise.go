@@ -24,12 +24,16 @@ type HomeAdvertise struct {
 	Note       string // 备注
 	Sort       int    // 排序
 }
+type HomeAdvertiseListResp struct {
+	Total int64
+	List  []*HomeAdvertise
+}
 
 type HomeAdvertiseRepo interface {
 	CreateHomeAdvertise(context.Context, *HomeAdvertise) error
 	GetHomeAdvertise(ctx context.Context, id int64) error
 	UpdateHomeAdvertise(context.Context, *HomeAdvertise) error
-	ListHomeAdvertise(ctx context.Context, req *HomeAdvertiseListReq) ([]*HomeAdvertise, error)
+	ListHomeAdvertise(ctx context.Context, req *HomeAdvertiseListReq) (*HomeAdvertiseListResp, error)
 	DeleteHomeAdvertise(ctx context.Context, id int64) error
 }
 
@@ -42,22 +46,22 @@ func NewHomeAdvertiseUseCase(repo HomeAdvertiseRepo, logger log.Logger) *HomeAdv
 	return &HomeAdvertiseUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *HomeAdvertiseUseCase) CreateHomeAdvertise(ctx context.Context, user *HomeAdvertise) error {
+func (h HomeAdvertiseUseCase) CreateHomeAdvertise(ctx context.Context, advertise *HomeAdvertise) error {
 	panic("implement me")
 }
 
-func (r *HomeAdvertiseUseCase) GetHomeAdvertise(ctx context.Context, id int64) error {
+func (h HomeAdvertiseUseCase) GetHomeAdvertise(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *HomeAdvertiseUseCase) UpdateHomeAdvertise(ctx context.Context, user *HomeAdvertise) error {
+func (h HomeAdvertiseUseCase) UpdateHomeAdvertise(ctx context.Context, advertise *HomeAdvertise) error {
 	panic("implement me")
 }
 
-func (r *HomeAdvertiseUseCase) ListHomeAdvertise(ctx context.Context, pageNum, pageSize int64) ([]*HomeAdvertise, error) {
-	panic("implement me")
+func (h HomeAdvertiseUseCase) ListHomeAdvertise(ctx context.Context, req *HomeAdvertiseListReq) (*HomeAdvertiseListResp, error) {
+	return h.repo.ListHomeAdvertise(ctx, req)
 }
 
-func (r *HomeAdvertiseUseCase) DeleteHomeAdvertise(ctx context.Context, id int64) error {
+func (h HomeAdvertiseUseCase) DeleteHomeAdvertise(ctx context.Context, id int64) error {
 	panic("implement me")
 }

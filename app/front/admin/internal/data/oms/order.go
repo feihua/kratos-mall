@@ -2,7 +2,6 @@ package oms
 
 import (
 	"context"
-	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
 	omsV1 "kratos-mall/api/oms/v1"
@@ -34,7 +33,7 @@ func (o orderRepo) UpdateOrder(ctx context.Context, order *oms.Order) error {
 	panic("implement me")
 }
 
-func (o orderRepo) ListOrder(ctx context.Context, req *oms.OrderListReq) ([]*oms.Order, error) {
+func (o orderRepo) ListOrder(ctx context.Context, req *oms.OrderListReq) (*oms.OrderListResp, error) {
 	list, _ := o.data.OmsClient.OrderList(ctx, &omsV1.OrderListReq{
 		Current:  req.Current,
 		PageSize: req.PageSize,
@@ -42,8 +41,11 @@ func (o orderRepo) ListOrder(ctx context.Context, req *oms.OrderListReq) ([]*oms
 
 	orders := make([]*oms.Order, 0)
 	copier.Copy(&orders, &list.List)
-	fmt.Printf("%v", orders)
-	return orders, nil
+
+	return &oms.OrderListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (o orderRepo) DeleteOrder(ctx context.Context, id int64) error {

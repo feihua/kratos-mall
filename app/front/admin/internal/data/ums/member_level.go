@@ -3,6 +3,8 @@ package ums
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	umsV1 "kratos-mall/api/ums/v1"
 	"kratos-mall/app/front/admin/internal/biz/ums"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (m memberLevelRepo) UpdateMemberLevl(ctx context.Context, levl *ums.MemberL
 	panic("implement me")
 }
 
-func (m memberLevelRepo) ListMemberLevl(ctx context.Context, req *ums.MemberLevlListReq) ([]*ums.MemberLevel, error) {
-	panic("implement me")
+func (m memberLevelRepo) ListMemberLevl(ctx context.Context, req *ums.MemberLevlListReq) (*ums.MemberLevelListResp, error) {
+	list, _ := m.data.UmsClient.MemberLevelList(ctx, &umsV1.MemberLevelListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*ums.MemberLevel, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &ums.MemberLevelListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (m memberLevelRepo) DeleteMemberLevl(ctx context.Context, id int64) error {

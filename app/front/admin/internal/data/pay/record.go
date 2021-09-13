@@ -31,7 +31,7 @@ func (r recordRepo) UpdateRecord(ctx context.Context, record *pay.Record) error 
 	panic("implement me")
 }
 
-func (r recordRepo) ListRecord(ctx context.Context, req *pay.RecordListReq) ([]*pay.Record, error) {
+func (r recordRepo) ListRecord(ctx context.Context, req *pay.RecordListReq) (*pay.RecordListResp, error) {
 	panic("implement me")
 }
 

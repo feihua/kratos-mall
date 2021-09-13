@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"kratos-mall/app/front/admin/internal/biz"
 	"kratos-mall/app/front/admin/internal/biz/sms"
 
@@ -53,7 +54,23 @@ func (s *SmsService) CouponAdd(ctx context.Context, req *pb.CouponAddReq) (*pb.C
 	return &pb.CouponAddResp{}, nil
 }
 func (s *SmsService) CouponList(ctx context.Context, req *pb.CouponListReq) (*pb.CouponListResp, error) {
-	return &pb.CouponListResp{}, nil
+	listResp, _ := s.couponUseCase.ListCoupon(ctx, &sms.CouponListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.CouponListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.CouponListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) CouponUpdate(ctx context.Context, req *pb.CouponUpdateReq) (*pb.CouponUpdateResp, error) {
 	return &pb.CouponUpdateResp{}, nil
@@ -65,7 +82,23 @@ func (s *SmsService) CouponHistoryAdd(ctx context.Context, req *pb.CouponHistory
 	return &pb.CouponHistoryAddResp{}, nil
 }
 func (s *SmsService) CouponHistoryList(ctx context.Context, req *pb.CouponHistoryListReq) (*pb.CouponHistoryListResp, error) {
-	return &pb.CouponHistoryListResp{}, nil
+	listResp, _ := s.couponHistoryUseCase.ListCouponHistory(ctx, &sms.CouponHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.CouponHistoryListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.CouponHistoryListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) CouponHistoryUpdate(ctx context.Context, req *pb.CouponHistoryUpdateReq) (*pb.CouponHistoryUpdateResp, error) {
 	return &pb.CouponHistoryUpdateResp{}, nil
@@ -77,7 +110,23 @@ func (s *SmsService) FlashPromotionLogAdd(ctx context.Context, req *pb.FlashProm
 	return &pb.FlashPromotionLogAddResp{}, nil
 }
 func (s *SmsService) FlashPromotionLogList(ctx context.Context, req *pb.FlashPromotionLogListReq) (*pb.FlashPromotionLogListResp, error) {
-	return &pb.FlashPromotionLogListResp{}, nil
+	listResp, _ := s.flashPromotionHistoryUseCase.ListFlashPromotionHistory(ctx, &sms.FlashPromotionHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.FlashPromotionLogListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.FlashPromotionLogListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) FlashPromotionLogUpdate(ctx context.Context, req *pb.FlashPromotionLogUpdateReq) (*pb.FlashPromotionLogUpdateResp, error) {
 	return &pb.FlashPromotionLogUpdateResp{}, nil
@@ -89,7 +138,23 @@ func (s *SmsService) FlashPromotionAdd(ctx context.Context, req *pb.FlashPromoti
 	return &pb.FlashPromotionAddResp{}, nil
 }
 func (s *SmsService) FlashPromotionList(ctx context.Context, req *pb.FlashPromotionListReq) (*pb.FlashPromotionListResp, error) {
-	return &pb.FlashPromotionListResp{}, nil
+	listResp, _ := s.flashPromotionUseCase.ListFlashPromotion(ctx, &sms.FlashPromotionListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.FlashPromotionListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.FlashPromotionListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) FlashPromotionUpdate(ctx context.Context, req *pb.FlashPromotionUpdateReq) (*pb.FlashPromotionUpdateResp, error) {
 	return &pb.FlashPromotionUpdateResp{}, nil
@@ -101,7 +166,23 @@ func (s *SmsService) FlashPromotionSessionAdd(ctx context.Context, req *pb.Flash
 	return &pb.FlashPromotionSessionAddResp{}, nil
 }
 func (s *SmsService) FlashPromotionSessionList(ctx context.Context, req *pb.FlashPromotionSessionListReq) (*pb.FlashPromotionSessionListResp, error) {
-	return &pb.FlashPromotionSessionListResp{}, nil
+	listResp, _ := s.flashPromotionSessionUseCase.ListFlashPromotionSession(ctx, &sms.FlashPromotionSessionListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.FlashPromotionSessionListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.FlashPromotionSessionListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) FlashPromotionSessionUpdate(ctx context.Context, req *pb.FlashPromotionSessionUpdateReq) (*pb.FlashPromotionSessionUpdateResp, error) {
 	return &pb.FlashPromotionSessionUpdateResp{}, nil
@@ -113,7 +194,23 @@ func (s *SmsService) HomeAdvertiseAdd(ctx context.Context, req *pb.HomeAdvertise
 	return &pb.HomeAdvertiseAddResp{}, nil
 }
 func (s *SmsService) HomeAdvertiseList(ctx context.Context, req *pb.HomeAdvertiseListReq) (*pb.HomeAdvertiseListResp, error) {
-	return &pb.HomeAdvertiseListResp{}, nil
+	listResp, _ := s.homeAdvertiseUseCase.ListHomeAdvertise(ctx, &sms.HomeAdvertiseListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.HomeAdvertiseListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.HomeAdvertiseListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) HomeAdvertiseUpdate(ctx context.Context, req *pb.HomeAdvertiseUpdateReq) (*pb.HomeAdvertiseUpdateResp, error) {
 	return &pb.HomeAdvertiseUpdateResp{}, nil
@@ -125,7 +222,23 @@ func (s *SmsService) HomeBrandAdd(ctx context.Context, req *pb.HomeBrandAddReq) 
 	return &pb.HomeBrandAddResp{}, nil
 }
 func (s *SmsService) HomeBrandList(ctx context.Context, req *pb.HomeBrandListReq) (*pb.HomeBrandListResp, error) {
-	return &pb.HomeBrandListResp{}, nil
+	listResp, _ := s.homeBrandUseCase.ListHomeBrand(ctx, &sms.HomeBrandListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.HomeBrandListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.HomeBrandListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) HomeBrandUpdate(ctx context.Context, req *pb.HomeBrandUpdateReq) (*pb.HomeBrandUpdateResp, error) {
 	return &pb.HomeBrandUpdateResp{}, nil
@@ -137,7 +250,23 @@ func (s *SmsService) HomeNewProductAdd(ctx context.Context, req *pb.HomeNewProdu
 	return &pb.HomeNewProductAddResp{}, nil
 }
 func (s *SmsService) HomeNewProductList(ctx context.Context, req *pb.HomeNewProductListReq) (*pb.HomeNewProductListResp, error) {
-	return &pb.HomeNewProductListResp{}, nil
+	listResp, _ := s.homeNewProductUseCase.ListHomeNewProduct(ctx, &sms.HomeNewProductListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.HomeNewProductListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.HomeNewProductListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) HomeNewProductUpdate(ctx context.Context, req *pb.HomeNewProductUpdateReq) (*pb.HomeNewProductUpdateResp, error) {
 	return &pb.HomeNewProductUpdateResp{}, nil
@@ -149,7 +278,23 @@ func (s *SmsService) HomeRecommendProductAdd(ctx context.Context, req *pb.HomeRe
 	return &pb.HomeRecommendProductAddResp{}, nil
 }
 func (s *SmsService) HomeRecommendProductList(ctx context.Context, req *pb.HomeRecommendProductListReq) (*pb.HomeRecommendProductListResp, error) {
-	return &pb.HomeRecommendProductListResp{}, nil
+	listResp, _ := s.homeRecommendProductUseCase.ListHomeRecommendProduct(ctx, &sms.HomeRecommendProductListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.HomeRecommendProductListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.HomeRecommendProductListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) HomeRecommendProductUpdate(ctx context.Context, req *pb.HomeRecommendProductUpdateReq) (*pb.HomeRecommendProductUpdateResp, error) {
 	return &pb.HomeRecommendProductUpdateResp{}, nil
@@ -161,7 +306,23 @@ func (s *SmsService) HomeRecommendSubjectAdd(ctx context.Context, req *pb.HomeRe
 	return &pb.HomeRecommendSubjectAddResp{}, nil
 }
 func (s *SmsService) HomeRecommendSubjectList(ctx context.Context, req *pb.HomeRecommendSubjectListReq) (*pb.HomeRecommendSubjectListResp, error) {
-	return &pb.HomeRecommendSubjectListResp{}, nil
+	listResp, _ := s.homeRecommendSubjectUseCase.ListHomeRecommendSubject(ctx, &sms.HomeRecommendSubjectListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	list := make([]*pb.HomeRecommendSubjectListData, 0)
+
+	copier.Copy(&list, &listResp.List)
+	return &pb.HomeRecommendSubjectListResp{
+		Code:     "000000",
+		Message:  "查询订单信息成功",
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Total:    listResp.Total,
+		Data:     list,
+		Success:  true,
+	}, nil
 }
 func (s *SmsService) HomeRecommendSubjectUpdate(ctx context.Context, req *pb.HomeRecommendSubjectUpdateReq) (*pb.HomeRecommendSubjectUpdateResp, error) {
 	return &pb.HomeRecommendSubjectUpdateResp{}, nil

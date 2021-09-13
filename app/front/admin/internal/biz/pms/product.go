@@ -54,12 +54,16 @@ type Product struct {
 	BrandName                  string // 品牌名称
 	ProductCategoryName        string // 商品分类名称
 }
+type ProductListResp struct {
+	Total int64
+	List  []*Product
+}
 
 type ProductRepo interface {
 	CreateProduct(context.Context, *Product) error
 	GetProduct(ctx context.Context, id int64) error
 	UpdateProduct(context.Context, *Product) error
-	ListProduct(ctx context.Context, req *ProductListReq) ([]*Product, error)
+	ListProduct(ctx context.Context, req *ProductListReq) (*ProductListResp, error)
 	DeleteProduct(ctx context.Context, id int64) error
 }
 
@@ -72,22 +76,22 @@ func NewProductUseCase(repo ProductRepo, logger log.Logger) *ProductUseCase {
 	return &ProductUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *ProductUseCase) CreateProduct(ctx context.Context, user *Product) error {
+func (p ProductUseCase) CreateProduct(ctx context.Context, product *Product) error {
 	panic("implement me")
 }
 
-func (r *ProductUseCase) GetProduct(ctx context.Context, id int64) error {
+func (p ProductUseCase) GetProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *ProductUseCase) UpdateProduct(ctx context.Context, user *Product) error {
+func (p ProductUseCase) UpdateProduct(ctx context.Context, product *Product) error {
 	panic("implement me")
 }
 
-func (r *ProductUseCase) ListProduct(ctx context.Context, pageNum, pageSize int64) ([]*Product, error) {
-	panic("implement me")
+func (p ProductUseCase) ListProduct(ctx context.Context, req *ProductListReq) (*ProductListResp, error) {
+	return p.repo.ListProduct(ctx, req)
 }
 
-func (r *ProductUseCase) DeleteProduct(ctx context.Context, id int64) error {
+func (p ProductUseCase) DeleteProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }

@@ -3,6 +3,8 @@ package ums
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	umsV1 "kratos-mall/api/ums/v1"
 	"kratos-mall/app/front/admin/internal/biz/ums"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (r ruleSettingRepo) UpdateRuleSetting(ctx context.Context, setting *ums.Rul
 	panic("implement me")
 }
 
-func (r ruleSettingRepo) ListRuleSetting(ctx context.Context, req *ums.RuleSettingListReq) ([]*ums.RuleSetting, error) {
-	panic("implement me")
+func (r ruleSettingRepo) ListRuleSetting(ctx context.Context, req *ums.RuleSettingListReq) (*ums.RuleSettingListResp, error) {
+	list, _ := r.data.UmsClient.MemberRuleSettingList(ctx, &umsV1.MemberRuleSettingListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*ums.RuleSetting, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &ums.RuleSettingListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (r ruleSettingRepo) DeleteRuleSetting(ctx context.Context, id int64) error {

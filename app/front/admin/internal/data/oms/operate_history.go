@@ -3,6 +3,8 @@ package oms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	omsV1 "kratos-mall/api/oms/v1"
 	"kratos-mall/app/front/admin/internal/biz/oms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -30,8 +32,18 @@ func (o operateHistoryRepo) UpdateOperateHistory(ctx context.Context, history *o
 	panic("implement me")
 }
 
-func (o operateHistoryRepo) ListOperateHistory(ctx context.Context, req *oms.OperateHistoryListReq) ([]*oms.OperateHistory, error) {
-	panic("implement me")
+func (o operateHistoryRepo) ListOperateHistory(ctx context.Context, req *oms.OperateHistoryListReq) (*oms.OperateHistoryListResp, error) {
+	list, _ := o.data.OmsClient.OrderOperateHistoryList(ctx, &omsV1.OrderOperateHistoryListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*oms.OperateHistory, 0)
+	copier.Copy(&orders, &list.List)
+	return &oms.OperateHistoryListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (o operateHistoryRepo) DeleteOperateHistory(ctx context.Context, id int64) error {

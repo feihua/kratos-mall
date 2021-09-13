@@ -3,6 +3,8 @@ package pms
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	pmsV1 "kratos-mall/api/pms/v1"
 	"kratos-mall/app/front/admin/internal/biz/pms"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -31,8 +33,19 @@ func (s skuStockRepo) UpdateSkuStock(ctx context.Context, stock *pms.SkuStock) e
 	panic("implement me")
 }
 
-func (s skuStockRepo) ListSkuStock(ctx context.Context, req *pms.SkuStockListReq) ([]*pms.SkuStock, error) {
-	panic("implement me")
+func (s skuStockRepo) ListSkuStock(ctx context.Context, req *pms.SkuStockListReq) (*pms.SkuStockListResp, error) {
+	list, _ := s.data.PmsClient.SkuStockList(ctx, &pmsV1.SkuStockListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+
+	orders := make([]*pms.SkuStock, 0)
+	copier.Copy(&orders, &list.List)
+
+	return &pms.SkuStockListResp{
+		Total: list.Total,
+		List:  orders,
+	}, nil
 }
 
 func (s skuStockRepo) DeleteSkuStock(ctx context.Context, id int64) error {

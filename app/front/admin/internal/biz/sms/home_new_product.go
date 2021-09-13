@@ -17,12 +17,16 @@ type HomeNewProduct struct {
 	RecommendStatus int
 	Sort            int
 }
+type HomeNewProductListResp struct {
+	Total int64
+	List  []*HomeNewProduct
+}
 
 type HomeNewProductRepo interface {
 	CreateHomeNewProduct(context.Context, *HomeNewProduct) error
 	GetHomeNewProduct(ctx context.Context, id int64) error
 	UpdateHomeNewProduct(context.Context, *HomeNewProduct) error
-	ListHomeNewProduct(ctx context.Context, req *HomeNewProductListReq) ([]*HomeNewProduct, error)
+	ListHomeNewProduct(ctx context.Context, req *HomeNewProductListReq) (*HomeNewProductListResp, error)
 	DeleteHomeNewProduct(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewHomeNewProductUseCase(repo HomeNewProductRepo, logger log.Logger) *HomeN
 	return &HomeNewProductUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *HomeNewProductUseCase) CreateHomeNewProduct(ctx context.Context, user *HomeNewProduct) error {
+func (h HomeNewProductUseCase) CreateHomeNewProduct(ctx context.Context, product *HomeNewProduct) error {
 	panic("implement me")
 }
 
-func (r *HomeNewProductUseCase) GetHomeNewProduct(ctx context.Context, id int64) error {
+func (h HomeNewProductUseCase) GetHomeNewProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *HomeNewProductUseCase) UpdateHomeNewProduct(ctx context.Context, user *HomeNewProduct) error {
+func (h HomeNewProductUseCase) UpdateHomeNewProduct(ctx context.Context, product *HomeNewProduct) error {
 	panic("implement me")
 }
 
-func (r *HomeNewProductUseCase) ListHomeNewProduct(ctx context.Context, pageNum, pageSize int64) ([]*HomeNewProduct, error) {
-	panic("implement me")
+func (h HomeNewProductUseCase) ListHomeNewProduct(ctx context.Context, req *HomeNewProductListReq) (*HomeNewProductListResp, error) {
+	return h.repo.ListHomeNewProduct(ctx, req)
 }
 
-func (r *HomeNewProductUseCase) DeleteHomeNewProduct(ctx context.Context, id int64) error {
+func (h HomeNewProductUseCase) DeleteHomeNewProduct(ctx context.Context, id int64) error {
 	panic("implement me")
 }

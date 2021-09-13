@@ -17,12 +17,16 @@ type Task struct {
 	Intergration int // 赠送积分
 	Type         int // 任务类型：0->新手任务；1->日常任务
 }
+type TaskListResp struct {
+	Total int64
+	List  []*Task
+}
 
 type TaskRepo interface {
 	CreateTask(context.Context, *Task) error
 	GetTask(ctx context.Context, id int64) error
 	UpdateTask(context.Context, *Task) error
-	ListTask(ctx context.Context, req *TaskListReq) ([]*Task, error)
+	ListTask(ctx context.Context, req *TaskListReq) (*TaskListResp, error)
 	DeleteTask(ctx context.Context, id int64) error
 }
 
@@ -35,22 +39,22 @@ func NewTaskUseCase(repo TaskRepo, logger log.Logger) *TaskUseCase {
 	return &TaskUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (r *TaskUseCase) CreateTask(ctx context.Context, user *Task) error {
+func (t TaskUseCase) CreateTask(ctx context.Context, task *Task) error {
 	panic("implement me")
 }
 
-func (r *TaskUseCase) GetTask(ctx context.Context, id int64) error {
+func (t TaskUseCase) GetTask(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r *TaskUseCase) UpdateTask(ctx context.Context, user *Task) error {
+func (t TaskUseCase) UpdateTask(ctx context.Context, task *Task) error {
 	panic("implement me")
 }
 
-func (r *TaskUseCase) ListTask(ctx context.Context, pageNum, pageSize int64) ([]*Task, error) {
-	panic("implement me")
+func (t TaskUseCase) ListTask(ctx context.Context, req *TaskListReq) (*TaskListResp, error) {
+	return t.repo.ListTask(ctx, req)
 }
 
-func (r *TaskUseCase) DeleteTask(ctx context.Context, id int64) error {
+func (t TaskUseCase) DeleteTask(ctx context.Context, id int64) error {
 	panic("implement me")
 }
