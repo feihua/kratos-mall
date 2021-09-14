@@ -44,8 +44,8 @@ message UserAddReq {
   string avatar = 5;
   int32 deptId = 6;
   string createBy = 7;
-  int32 role_Id = 8;
-  int32 job_Id = 9;
+  int32 roleId = 8;
+  int32 jobId = 9;
 }
 
 message UserAddResp {
@@ -103,11 +103,11 @@ message UserUpdateReq {
   string name = 4;
   string nickName = 5;
   string avatar = 6;
-  int32 dept_Id = 7;
+  int32 deptId = 7;
   string lastUpdateBy = 8;
-  int32 role_Id = 9;
+  int32 roleId = 9;
   int32 status = 10;
-  int32 job_Id = 11;
+  int32 jobId = 11;
 }
 
 message UserUpdateResp {
@@ -170,7 +170,7 @@ message RoleListData {
   string createTime = 5;
   string lastUpdateBy = 6;
   string lastUpdateTime = 7;
-  int32 del_flag = 8;
+  int32 delFlag = 8;
   int32 status = 9;
 }
 
@@ -225,7 +225,7 @@ message QueryMenuByRoleIdResp {
 //menu start---------------------
 message MenuAddReq {
   string name = 1;
-  int32 parent_Id = 2;
+  int32 parentId = 2;
   string url = 3;
   string perms = 4;
   int32 type = 5;
@@ -252,7 +252,7 @@ message MenuListReq {
 message MenuListData {
   int32 id = 1;
   string name = 2;
-  int32 parent_Id = 3;
+  int32 parentId = 3;
   string url = 4;
   string perms = 5;
   int32 type = 6;
@@ -293,7 +293,7 @@ message MenuListResp{
 message MenuUpdateReq {
   int32 id = 1;
   string name = 2;
-  int32 parent_Id = 3;
+  int32 parentId = 3;
   string url = 4;
   string perms = 5;
   int32 type = 6;
@@ -349,7 +349,7 @@ message DictListReq {
   string value = 3;
   string label = 4;
   string type = 5;
-  int32 del_flag = 6;
+  int32 delFlag = 6;
 }
 
 message DictListData {
@@ -364,7 +364,7 @@ message DictListData {
   string createTime = 11;
   string lastUpdateBy = 12;
   string lastUpdateTime = 13;
-  int32 del_flag = 14;
+  int32 delFlag = 14;
 }
 
 message DictListResp{
@@ -404,7 +404,7 @@ message DictDeleteResp {
 //dept start---------------------
 message DeptAddReq {
   string name = 1;
-  int32 parent_Id = 2;
+  int32 parentId = 2;
   int32 orderNum = 3;
   string createBy = 4;
 }
@@ -423,13 +423,13 @@ message DeptListReq {
 message DeptListData {
   int32 id = 1;
   string name = 2;
-  int32 parent_Id = 3;
+  int32 parentId = 3;
   int32 orderNum = 4;
   string createBy = 5;
   string createTime = 6;
   string lastUpdateBy = 7;
   string lastUpdateTime = 8;
-  int32 del_flag = 9;
+  int32 delFlag = 9;
 }
 
 message DeptListResp{
@@ -444,7 +444,7 @@ message DeptListResp{
 message DeptUpdateReq {
   int32 id = 1;
   string name = 2;
-  int32 parent_Id = 3;
+  int32 parentId = 3;
   int32 orderNum = 4;
   string lastUpdateBy = 7;
 }
