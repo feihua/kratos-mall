@@ -56,7 +56,7 @@ func (r returnApplyRepo) ListReturnApply(ctx context.Context, req *biz.ReturnApp
 			ProductId:        item.ProductId,
 			OrderSn:          item.OrderSn,
 			CreateTime:       item.CreateTime.Format("2006-01-02 15:04:05"),
-			MemberUsername:   item.MemberUsername,
+			MemberUserName:   item.MemberUsername,
 			ReturnAmount:     item.ReturnAmount,
 			ReturnName:       item.ReturnName,
 			ReturnPhone:      item.ReturnPhone,

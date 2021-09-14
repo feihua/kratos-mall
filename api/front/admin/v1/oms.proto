@@ -543,7 +543,7 @@ message OrderReturnApplyListData{
   int32      productId = 4;
   string      orderSn = 5;
   string  createTime = 6;
-  string      memberUsername = 7;
+  string      memberUserName = 7;
   int32    returnAmount = 8;
   string      returnName = 9;
   string      returnPhone = 10;
@@ -637,9 +637,9 @@ message OrderReturnReasonListReq {
 
 message OrderReturnReasonListData{
   int32      id = 1;
-  string      Name = 2;
-  int32      Sort = 3;
-  int32      Status = 4;
+  string      name = 2;
+  int32      sort = 3;
+  int32      status = 4;
   string  createTime = 5;
 }
 
@@ -655,9 +655,9 @@ message OrderReturnReasonListResp {
 
 message OrderReturnReasonUpdateReq {
   int64      id = 1;
-  string      Name = 2;
-  int64      Sort = 3;
-  int64      Status = 4;
+  string      name = 2;
+  int64      sort = 3;
+  int64      status = 4;
   string  createTime = 5;
 }
 

@@ -366,7 +366,7 @@ message FlashPromotionListReq {
 
 message FlashPromotionListData{
   int32      id = 1;
-  string      Title = 2;
+  string      title = 2;
   string  startDate = 3;
   string  endDate = 4;
   int32      status = 5;
@@ -532,7 +532,7 @@ message FlashPromotionSessionDeleteResp {
 
 message HomeAdvertiseAddReq {
   string      name = 2;
-  int64      Type = 3;
+  int64      type = 3;
   string      pic = 4;
   string  startTime = 5;
   string  endTime = 6;
@@ -556,7 +556,7 @@ message HomeAdvertiseListReq {
 message HomeAdvertiseListData{
   int32      id = 1;
   string      name = 2;
-  int32      Type = 3;
+  int32      type = 3;
   string      pic = 4;
   string  startTime = 5;
   string  endTime = 6;
@@ -582,7 +582,7 @@ message HomeAdvertiseListResp {
 message HomeAdvertiseUpdateReq {
   int64      id = 1;
   string      name = 2;
-  int64      Type = 3;
+  int64      type = 3;
   string      pic = 4;
   string  startTime = 5;
   string  endTime = 6;

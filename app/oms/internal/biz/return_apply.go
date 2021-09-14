@@ -17,7 +17,7 @@ type ReturnApply struct {
 	ProductId        int64  // 退货商品id
 	OrderSn          string // 订单编号
 	CreateTime       string // 申请时间
-	MemberUsername   string // 会员用户名
+	MemberUserName   string // 会员用户名
 	ReturnAmount     string // 退款金额
 	ReturnName       string // 退货人姓名
 	ReturnPhone      string // 退货人电话
@@ -74,7 +74,7 @@ func (r ReturnApplyUseCase) UpdateReturnApply(ctx context.Context, apply *Return
 }
 
 func (r ReturnApplyUseCase) ListReturnApply(ctx context.Context, req *ReturnApplyListReq) (*ReturnApplyListResp, error) {
-	panic("implement me")
+	return r.repo.ListReturnApply(ctx, req)
 }
 
 func (r ReturnApplyUseCase) DeleteReturnApply(ctx context.Context, id int64) error {
