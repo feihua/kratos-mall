@@ -34,7 +34,7 @@ type MenuRepo interface {
 	CreateMenu(context.Context, *Menu) error
 	GetMenu(ctx context.Context, id int64) error
 	UpdateMenu(context.Context, *Menu) error
-	ListMenu(ctx context.Context, req *MenuListReq) ([]*Menu, error)
+	ListMenu(ctx context.Context, req *MenuListReq) (*MenuListResp, error)
 	DeleteMenu(ctx context.Context, id int64) error
 }
 
@@ -59,7 +59,7 @@ func (m *MenuUseCase) UpdateMenu(ctx context.Context, user *Menu) error {
 	panic("implement me")
 }
 
-func (m *MenuUseCase) ListMenu(ctx context.Context, req *MenuListReq) ([]*Menu, error) {
+func (m *MenuUseCase) ListMenu(ctx context.Context, req *MenuListReq) (*MenuListResp, error) {
 
 	listMenu, _ := m.repo.ListMenu(ctx, req)
 

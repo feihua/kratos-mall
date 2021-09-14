@@ -180,13 +180,13 @@ func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuA
 }
 func (s *SysService) MenuList(ctx context.Context, req *pb.MenuListReq) (*pb.MenuListResp, error) {
 	listResp, _ := s.menuUseCase.ListMenu(ctx, &sys.MenuListReq{
-		Name: "",
-		Url:  "",
+		Name: req.Name,
+		Url:  req.Url,
 	})
 
 	list := make([]*pb.MenuListData, 0)
 
-	copier.Copy(&list, &listResp)
+	copier.Copy(&list, &listResp.List)
 	return &pb.MenuListResp{
 		Code:    "000000",
 		Message: "查询订单信息成功",

@@ -3,6 +3,8 @@ package sys
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
+	sysV1 "kratos-mall/api/sys/v1"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 	"kratos-mall/app/front/admin/internal/data"
 )
@@ -32,31 +34,20 @@ func (u menuRepo) UpdateMenu(ctx context.Context, menu *sys.Menu) error {
 	panic("implement me")
 }
 
-func (m menuRepo) ListMenu(ctx context.Context, req *sys.MenuListReq) ([]*sys.Menu, error) {
+func (m menuRepo) ListMenu(ctx context.Context, req *sys.MenuListReq) (*sys.MenuListResp, error) {
 
-	//var memus []model.SysMenu
-	//m.data.db.WithContext(ctx).Find(&memus)
-	//
-	//rv := make([]*sys.Menu, 0)
-	//for _, m := range memus {
-	//	rv = append(rv, &sys.Menu{
-	//		Id:             m.Id,
-	//		Name:           m.Name,
-	//		ParentId:       m.ParentId,
-	//		Url:            m.Url,
-	//		Perms:          m.Perms,
-	//		Type:           m.Type,
-	//		Icon:           m.Icon,
-	//		OrderNum:       m.OrderNum,
-	//		CreateBy:       m.CreateBy,
-	//		CreateTime:     m.CreateTime,
-	//		LastUpdateBy:   m.LastUpdateBy,
-	//		LastUpdateTime: m.LastUpdateTime,
-	//		DelFlag:        m.DelFlag,
-	//	})
-	//}
-	//return rv, nil
-	return nil, nil
+	list, _ := m.data.SysClient.MenuList(ctx, &sysV1.MenuListReq{
+		Name: req.Name,
+		Url:  req.Url,
+	})
+
+	menus := make([]*sys.Menu, 0)
+	copier.Copy(&menus, &list.List)
+
+	return &sys.MenuListResp{
+		Total: list.Total,
+		List:  menus,
+	}, nil
 }
 
 func (u menuRepo) DeleteMenu(ctx context.Context, id int64) error {
