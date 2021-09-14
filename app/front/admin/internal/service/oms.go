@@ -54,9 +54,9 @@ func (s *OmsService) OrderList(ctx context.Context, req *pb.OrderListReq) (*pb.O
 	return &pb.OrderListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -82,9 +82,9 @@ func (s *OmsService) CartItemList(ctx context.Context, req *pb.CartItemListReq) 
 	return &pb.CartItemListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -110,9 +110,9 @@ func (s *OmsService) CompanyAddressList(ctx context.Context, req *pb.CompanyAddr
 	return &pb.CompanyAddressListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -138,9 +138,9 @@ func (s *OmsService) OrderOperateHistoryList(ctx context.Context, req *pb.OrderO
 	return &pb.OrderOperateHistoryListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -166,9 +166,9 @@ func (s *OmsService) OrderReturnApplyList(ctx context.Context, req *pb.OrderRetu
 	return &pb.OrderReturnApplyListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -194,9 +194,9 @@ func (s *OmsService) OrderReturnReasonList(ctx context.Context, req *pb.OrderRet
 	return &pb.OrderReturnReasonListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -222,9 +222,9 @@ func (s *OmsService) OrderSettingList(ctx context.Context, req *pb.OrderSettingL
 	return &pb.OrderSettingListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil

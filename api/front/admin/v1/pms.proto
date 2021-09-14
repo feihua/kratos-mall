@@ -60,34 +60,34 @@ message ProductListReq {
 }
 
 message ProductListData{
-  int64       Id = 1;
-  int64       brandId = 2;
-  int64       productCategoryId = 3;
-  int64       feightTemplateId = 4;
-  int64       productAttributeCategoryId = 5;
+  int32       Id = 1;
+  int32       brandId = 2;
+  int32       productCategoryId = 3;
+  int32       feightTemplateId = 4;
+  int32       productAttributeCategoryId = 5;
   string      name = 6;
   string      pic = 7;
   string      productSn = 8;
-  int64       deleteStatus = 9;
-  int64       publishStatus = 10;
-  int64       newStatus = 11;
-  int64       recommandStatus = 12;
-  int64       verifyStatus = 13;
-  int64       sort = 14;
-  int64       sale = 15;
+  int32       deleteStatus = 9;
+  int32       publishStatus = 10;
+  int32       newStatus = 11;
+  int32       recommandStatus = 12;
+  int32       verifyStatus = 13;
+  int32       sort = 14;
+  int32       sale = 15;
   double     price = 16;
   double     promotionPrice = 17;
-  int64       giftGrowth = 18;
-  int64       giftPoint = 19;
-  int64       usePointLimit = 20;
+  int32       giftGrowth = 18;
+  int32       giftPoint = 19;
+  int32       usePointLimit = 20;
   string      subTitle = 21;
   string      description = 22;
   double     originalPrice = 23;
-  int64       stock = 24;
-  int64       LowStock = 25;
+  int32       stock = 24;
+  int32       LowStock = 25;
   string      unit = 26;
   double     weight = 27;
-  int64       previewStatus = 28;
+  int32       previewStatus = 28;
   string      serviceIds = 29;
   string      Keywords = 30;
   string      note = 31;
@@ -98,8 +98,8 @@ message ProductListData{
   string      detailMobileHtml = 36;
   string   promotionStartTime = 37;
   string   promotionEndTime = 38;
-  int64       promotionPerLimit = 39;
-  int64       promotionType = 40;
+  int32       promotionPerLimit = 39;
+  int32       promotionType = 40;
   string      brandName = 41;
   string      productCategoryName = 42;
 }
@@ -107,9 +107,9 @@ message ProductListData{
 message ProductListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductListData data = 6;
   bool success = 7;
 }
@@ -189,20 +189,20 @@ message AlbumListReq {
 }
 
 message AlbumListData{
-  int64    id = 1;
+  int32    id = 1;
   string  name = 2;
   string  coverPic = 3;
-  int64    picCount = 4;
-  int64    sort = 5;
+  int32    picCount = 4;
+  int32    sort = 5;
   string  dDescription = 6;
 }
 
 message AlbumListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  AlbumListData data = 6;
   bool success = 7;
 }
@@ -243,8 +243,8 @@ message AlbumPicListReq {
 }
 
 message AlbumPicListData{
-  int64    id = 1;
-  int64  AlbumId = 2;
+  int32    id = 1;
+  int32  AlbumId = 2;
   string  pic = 3;
 
 }
@@ -252,9 +252,9 @@ message AlbumPicListData{
 message AlbumPicListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  AlbumPicListData data = 6;
   bool success = 7;
 }
@@ -300,14 +300,14 @@ message BrandListReq {
 }
 
 message BrandListData{
-  int64    id = 1;
+  int32    id = 1;
   string  name = 2;
   string  firstLetter = 3;
-  int64    sort = 4;
-  int64    factoryStatus = 5;
-  int64    showStatus = 6;
-  int64    productCount = 7;
-  int64    productCommentCount = 8;
+  int32    sort = 4;
+  int32    factoryStatus = 5;
+  int32    showStatus = 6;
+  int32    productCount = 7;
+  int32    productCommentCount = 8;
   string  logo = 9;
   string  bigPic = 10;
   string  brandStory = 11;
@@ -317,9 +317,9 @@ message BrandListData{
 message BrandListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  BrandListData data = 6;
   bool success = 7;
 }
@@ -377,30 +377,30 @@ message CommentListReq {
 }
 
 message CommentListData{
-  int64      id = 1;
-  int64      productId = 2;
+  int32      id = 1;
+  int32      productId = 2;
   string      memberNickName = 3;
   string      productName = 4;
-  int64      star = 5;
+  int32      star = 5;
   string      memberIp = 6;
   string  createTime = 7;
-  int64      showStatus = 8;
+  int32      showStatus = 8;
   string      productAttribute = 9;
-  int64      collectCouont = 10;
-  int64      readCount = 11;
+  int32      collectCouont = 10;
+  int32      readCount = 11;
   string      content = 12;
   string      pics = 13;
   string      memberIcon = 14;
-  int64      replayCount = 15;
+  int32      replayCount = 15;
 
 }
 
 message CommentListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CommentListData data = 6;
   bool success = 7;
 }
@@ -455,22 +455,22 @@ message CommentReplayListReq {
 }
 
 message CommentReplayListData{
-  int64      id = 1;
-  int64      commentId = 2;
+  int32      id = 1;
+  int32      commentId = 2;
   string      memberNickName = 3;
   string      memberIcon = 4;
   string      content = 5;
   string  createTime = 6;
-  int64      Type = 7;
+  int32      Type = 7;
 
 }
 
 message CommentReplayListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CommentReplayListData data = 6;
   bool success = 7;
 }
@@ -518,13 +518,13 @@ message FeightTemplateListReq {
 }
 
 message FeightTemplateListData{
-  int64    id = 1;
+  int32    id = 1;
   string    name = 2;
-  int64    chargeType = 3;
-  int64  firstWeight = 4;
-  int64  firstFee = 5;
-  int64  continueWeight = 61;
-  int64  continmeFee = 7;
+  int32    chargeType = 3;
+  int32  firstWeight = 4;
+  int32  firstFee = 5;
+  int32  continueWeight = 61;
+  int32  continmeFee = 7;
   string    Dest = 8;
 
 }
@@ -532,9 +532,9 @@ message FeightTemplateListData{
 message FeightTemplateListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  FeightTemplateListData data = 6;
   bool success = 7;
 }
@@ -580,10 +580,10 @@ message MemberPriceListReq {
 }
 
 message MemberPriceListData{
-  int64    id = 1;
-  int64    productId = 2;
-  int64    memberLevelId = 3;
-  int64  memberPrice = 4;
+  int32    id = 1;
+  int32    productId = 2;
+  int32    memberLevelId = 3;
+  int32  memberPrice = 4;
   string    memberLevelName = 5;
 
 }
@@ -591,9 +591,9 @@ message MemberPriceListData{
 message MemberPriceListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  MemberPriceListData data = 6;
   bool success = 7;
 }
@@ -635,10 +635,10 @@ message ProductAttributeCategoryListReq {
 }
 
 message ProductAttributeCategoryListData{
-  int64    id = 1;
+  int32    id = 1;
   string  name = 2;
-  int64    AttributeCount = 3;
-  int64    paramCount = 4;
+  int32    AttributeCount = 3;
+  int32    paramCount = 4;
 
 }
 
@@ -696,27 +696,27 @@ message ProductAttributeListReq {
 }
 
 message ProductAttributeListData{
-  int64    id = 1;
-  int64    productAttributeCategoryId = 2;
+  int32    id = 1;
+  int32    productAttributeCategoryId = 2;
   string  name = 3;
-  int64    selectType = 4;
-  int64    InputType = 5;
+  int32    selectType = 4;
+  int32    InputType = 5;
   string  InputList = 6;
-  int64    sort = 7;
-  int64    filterType = 8;
-  int64    searchType = 9;
-  int64    relatedStatus = 10;
-  int64    HandAddStatus = 11;
-  int64    Type = 12;
+  int32    sort = 7;
+  int32    filterType = 8;
+  int32    searchType = 9;
+  int32    relatedStatus = 10;
+  int32    HandAddStatus = 11;
+  int32    Type = 12;
 
 }
 
 message ProductAttributeListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductAttributeListData data = 6;
   bool success = 7;
 }
@@ -765,9 +765,9 @@ message ProductAttributeValueListReq {
 }
 
 message ProductAttributeValueListData{
-  int64    id = 1;
-  int64    productId = 2;
-  int64    productAttributeId = 3;
+  int32    id = 1;
+  int32    productId = 2;
+  int32    productAttributeId = 3;
   string  value = 4;
 
 }
@@ -775,9 +775,9 @@ message ProductAttributeValueListData{
 message ProductAttributeValueListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductAttributeValueListData data = 6;
   bool success = 7;
 }
@@ -816,18 +816,18 @@ message ProductCategoryAttributeRelationListReq {
 }
 
 message ProductCategoryAttributeRelationListData{
-  int64  id = 1;
-  int64  productCategoryId = 2;
-  int64  productAttributeId = 3;
+  int32  id = 1;
+  int32  productCategoryId = 2;
+  int32  productAttributeId = 3;
 
 }
 
 message ProductCategoryAttributeRelationListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductCategoryAttributeRelationListData data = 6;
   bool success = 7;
 }
@@ -874,15 +874,15 @@ message ProductCategoryListReq {
 }
 
 message ProductCategoryListData{
-  int64    id = 1;
-  int64    parentId = 2;
+  int32    id = 1;
+  int32    parentId = 2;
   string  name = 3;
-  int64    level = 4;
-  int64    productCount = 5;
+  int32    level = 4;
+  int32    productCount = 5;
   string  productUnit = 6;
-  int64    navStatus = 7;
-  int64    showStatus = 8;
-  int64    sort = 9;
+  int32    navStatus = 7;
+  int32    showStatus = 8;
+  int32    sort = 9;
   string  icon = 10;
   string  deywords = 11;
   string  description = 12;
@@ -892,9 +892,9 @@ message ProductCategoryListData{
 message ProductCategoryListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductCategoryListData data = 6;
   bool success = 7;
 }
@@ -942,19 +942,19 @@ message ProductFullReductionListReq {
 }
 
 message ProductFullReductionListData{
-  int64    id = 1;
-  int64    productId = 2;
-  int64  fullPrice = 3;
-  int64  reducePrice = 4;
+  int32    id = 1;
+  int32    productId = 2;
+  int32  fullPrice = 3;
+  int32  reducePrice = 4;
 
 }
 
 message ProductFullReductionListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductFullReductionListData data = 6;
   bool success = 7;
 }
@@ -995,20 +995,20 @@ message ProductLadderListReq {
 }
 
 message ProductLadderListData{
-  int64    id = 1;
-  int64    productId = 2;
-  int64    count = 3;
-  int64  Discount = 4;
-  int64  price = 5;
+  int32    id = 1;
+  int32    productId = 2;
+  int32    count = 3;
+  int32  Discount = 4;
+  int32  price = 5;
 
 }
 
 message ProductLadderListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductLadderListData data = 6;
   bool success = 7;
 }
@@ -1058,16 +1058,16 @@ message ProductOperateLogListReq {
 }
 
 message ProductOperateLogListData{
-  int64      id = 1;
-  int64      productId = 2;
-  int64    priceOld = 3;
-  int64    priceNew = 4;
-  int64    salePriceOld = 5;
-  int64    salePriceNew = 6;
-  int64      giftPointOld = 7;
-  int64      giftPointNew = 8;
-  int64      usePointLimitOld = 9;
-  int64      usePointLimitNew = 10;
+  int32      id = 1;
+  int32      productId = 2;
+  int32    priceOld = 3;
+  int32    priceNew = 4;
+  int32    salePriceOld = 5;
+  int32    salePriceNew = 6;
+  int32      giftPointOld = 7;
+  int32      giftPointNew = 8;
+  int32      usePointLimitOld = 9;
+  int32      usePointLimitNew = 10;
   string      operateMan = 11;
   string  createTime = 12;
 
@@ -1076,9 +1076,9 @@ message ProductOperateLogListData{
 message ProductOperateLogListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductOperateLogListData data = 6;
   bool success = 7;
 }
@@ -1129,11 +1129,11 @@ message ProductVertifyRecordListReq {
 }
 
 message ProductVertifyRecordListData{
-  int64      id = 1;
-  int64      productId = 2;
+  int32      id = 1;
+  int32      productId = 2;
   string  createTime = 3;
   string    vertifyMan = 4;
-  int64      status = 5;
+  int32      status = 5;
   string    Detail = 6;
 
 }
@@ -1141,9 +1141,9 @@ message ProductVertifyRecordListData{
 message ProductVertifyRecordListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  ProductVertifyRecordListData data = 6;
   bool success = 7;
 }
@@ -1193,16 +1193,16 @@ message SkuStockListReq {
 }
 
 message SkuStockListData{
-  int64    id = 1;
-  int64    productId = 2;
+  int32    id = 1;
+  int32    productId = 2;
   string    skuCode = 3;
-  int64  price = 4;
-  int64    stock = 5;
-  int64    LowStock = 6;
+  int32  price = 4;
+  int32    stock = 5;
+  int32    LowStock = 6;
   string    pic = 7;
-  int64    sale = 8;
-  int64  promotionPrice = 9;
-  int64    LockStock = 10;
+  int32    sale = 8;
+  int32  promotionPrice = 9;
+  int32    LockStock = 10;
   string    spData = 11;
 
 }

@@ -37,32 +37,32 @@ message CouponListReq {
 }
 
 message CouponListData{
-  int64     id = 1;
-  int64     type = 2;
+  int32     id = 1;
+  int32     type = 2;
   string    name = 3;
-  int64     platform = 4;
-  int64     count = 5;
+  int32     platform = 4;
+  int32     count = 5;
   double    amount = 6;
-  int64     perLimit = 7;
+  int32     perLimit = 7;
   double    minPoint = 8;
   string    startTime = 9;
   string    endTime = 10;
-  int64     useType = 11;
+  int32     useType = 11;
   string    note = 12;
-  int64     publishCount = 13;
-  int64     useCount = 14;
-  int64     receiveCount = 15;
+  int32     publishCount = 13;
+  int32     useCount = 14;
+  int32     receiveCount = 15;
   string    enableTime = 16;
   string    code = 17;
-  int64     memberLevel = 18;
+  int32     memberLevel = 18;
 }
 
 message CouponListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CouponListData data = 6;
   bool success = 7;
 }
@@ -123,16 +123,16 @@ message CouponHistoryListReq {
 }
 
 message CouponHistoryListData{
-  int64      id = 1;
-  int64      couponId = 2;
-  int64      memberId = 3;
+  int32      id = 1;
+  int32      couponId = 2;
+  int32      memberId = 3;
   string      couponCode = 4;
   string      memberNickname = 5;
-  int64      GetType = 6;
+  int32      GetType = 6;
   string  createTime = 7;
-  int64      useStatus = 8;
+  int32      useStatus = 8;
   string  useTime = 9;
-  int64      orderId = 10;
+  int32      orderId = 10;
   string      orderSn = 11;
 
 }
@@ -140,9 +140,9 @@ message CouponHistoryListData{
 message CouponHistoryListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CouponHistoryListData data = 6;
   bool success = 7;
 }
@@ -191,9 +191,9 @@ message CouponProductCategoryRelationListReq {
 }
 
 message CouponProductCategoryRelationListData{
-  int64  id = 1;
-  int64  couponId = 2;
-  int64  productCategoryId = 3;
+  int32  id = 1;
+  int32  couponId = 2;
+  int32  productCategoryId = 3;
   string  productCategoryName = 4;
   string  parentCategoryName = 5;
 
@@ -202,9 +202,9 @@ message CouponProductCategoryRelationListData{
 message CouponProductCategoryRelationListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CouponProductCategoryRelationListData data = 6;
   bool success = 7;
 }
@@ -247,9 +247,9 @@ message CouponProductRelationListReq {
 }
 
 message CouponProductRelationListData{
-  int64    id = 1;
-  int64    couponId = 2;
-  int64    productId = 3;
+  int32    id = 1;
+  int32    couponId = 2;
+  int32    productId = 3;
   string  productName = 4;
   string  productSn = 5;
 
@@ -258,9 +258,9 @@ message CouponProductRelationListData{
 message CouponProductRelationListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CouponProductRelationListData data = 6;
   bool success = 7;
 }
@@ -304,9 +304,9 @@ message FlashPromotionLogListReq {
 }
 
 message FlashPromotionLogListData{
-  int64      id = 1;
-  int64      memberId = 2;
-  int64      productId = 3;
+  int32      id = 1;
+  int32      memberId = 2;
+  int32      productId = 3;
   string      memberPhone = 4;
   string      productName = 5;
   string  subscribeTime = 6;
@@ -317,9 +317,9 @@ message FlashPromotionLogListData{
 message FlashPromotionLogListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  FlashPromotionLogListData data = 6;
   bool success = 7;
 }
@@ -365,11 +365,11 @@ message FlashPromotionListReq {
 }
 
 message FlashPromotionListData{
-  int64      id = 1;
+  int32      id = 1;
   string      Title = 2;
   string  startDate = 3;
   string  endDate = 4;
-  int64      status = 5;
+  int32      status = 5;
   string  createTime = 6;
 
 }
@@ -377,9 +377,9 @@ message FlashPromotionListData{
 message FlashPromotionListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  FlashPromotionListData data = 6;
   bool success = 7;
 }
@@ -426,23 +426,23 @@ message FlashPromotionProductRelationListReq {
 }
 
 message FlashPromotionProductRelationListData{
-  int64    id = 1;
-  int64    flashPromotionId = 2;
-  int64    flashPromotionSessionId = 3;
-  int64    productId = 4;
-  int64  flashPromotionPrice = 5;
-  int64    flashPromotionCount = 6;
-  int64    flashPromotionLimit = 7;
-  int64    sort = 8;
+  int32    id = 1;
+  int32    flashPromotionId = 2;
+  int32    flashPromotionSessionId = 3;
+  int32    productId = 4;
+  int32  flashPromotionPrice = 5;
+  int32    flashPromotionCount = 6;
+  int32    flashPromotionLimit = 7;
+  int32    sort = 8;
 
 }
 
 message FlashPromotionProductRelationListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  FlashPromotionProductRelationListData data = 6;
   bool success = 7;
 }
@@ -489,11 +489,11 @@ message FlashPromotionSessionListReq {
 }
 
 message FlashPromotionSessionListData{
-  int64      id = 1;
+  int32      id = 1;
   string      name = 2;
   string      startTime = 3;
   string      endTime = 4;
-  int64      status = 5;
+  int32      status = 5;
   string  createTime = 6;
 
 }
@@ -501,9 +501,9 @@ message FlashPromotionSessionListData{
 message FlashPromotionSessionListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  FlashPromotionSessionListData data = 6;
   bool success = 7;
 }
@@ -554,27 +554,27 @@ message HomeAdvertiseListReq {
 }
 
 message HomeAdvertiseListData{
-  int64      id = 1;
+  int32      id = 1;
   string      name = 2;
-  int64      Type = 3;
+  int32      Type = 3;
   string      pic = 4;
   string  startTime = 5;
   string  endTime = 6;
-  int64      status = 7;
-  int64      clickCount = 8;
-  int64      orderCount = 9;
+  int32      status = 7;
+  int32      clickCount = 8;
+  int32      orderCount = 9;
   string      url = 10;
   string      note = 11;
-  int64      sort = 12;
+  int32      sort = 12;
 
 }
 
 message HomeAdvertiseListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  HomeAdvertiseListData data = 6;
   bool success = 7;
 }
@@ -624,20 +624,20 @@ message HomeBrandListReq {
 }
 
 message HomeBrandListData{
-  int64  id = 1;
-  int64  brandId = 2;
+  int32  id = 1;
+  int32  brandId = 2;
   string  brandName = 3;
-  int64  recommendStatus = 4;
-  int64  sort = 5;
+  int32  recommendStatus = 4;
+  int32  sort = 5;
 
 }
 
 message HomeBrandListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  HomeBrandListData data = 6;
   bool success = 7;
 }
@@ -680,20 +680,20 @@ message HomeNewProductListReq {
 }
 
 message HomeNewProductListData{
-  int64    id = 1;
-  int64    productId = 2;
+  int32    id = 1;
+  int32    productId = 2;
   string  productName = 3;
-  int64    recommendStatus = 4;
-  int64    sort = 5;
+  int32    recommendStatus = 4;
+  int32    sort = 5;
 
 }
 
 message HomeNewProductListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  HomeNewProductListData data = 6;
   bool success = 7;
 }
@@ -736,20 +736,20 @@ message HomeRecommendProductListReq {
 }
 
 message HomeRecommendProductListData{
-  int64  id = 1;
-  int64  productId = 2;
+  int32  id = 1;
+  int32  productId = 2;
   string  productName = 3;
-  int64  recommendStatus = 4;
-  int64  sort = 5;
+  int32  recommendStatus = 4;
+  int32  sort = 5;
 
 }
 
 message HomeRecommendProductListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  HomeRecommendProductListData data = 6;
   bool success = 7;
 }
@@ -792,20 +792,20 @@ message HomeRecommendSubjectListReq {
 }
 
 message HomeRecommendSubjectListData{
-  int64    id = 1;
-  int64    subjectId = 2;
+  int32    id = 1;
+  int32    subjectId = 2;
   string  subjectName = 3;
-  int64    recommendStatus = 4;
-  int64    sort = 5;
+  int32    recommendStatus = 4;
+  int32    sort = 5;
 
 }
 
 message HomeRecommendSubjectListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  HomeRecommendSubjectListData data = 6;
   bool success = 7;
 }

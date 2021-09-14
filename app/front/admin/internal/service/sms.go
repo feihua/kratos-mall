@@ -65,9 +65,9 @@ func (s *SmsService) CouponList(ctx context.Context, req *pb.CouponListReq) (*pb
 	return &pb.CouponListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -93,9 +93,9 @@ func (s *SmsService) CouponHistoryList(ctx context.Context, req *pb.CouponHistor
 	return &pb.CouponHistoryListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -121,9 +121,9 @@ func (s *SmsService) FlashPromotionLogList(ctx context.Context, req *pb.FlashPro
 	return &pb.FlashPromotionLogListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -149,9 +149,9 @@ func (s *SmsService) FlashPromotionList(ctx context.Context, req *pb.FlashPromot
 	return &pb.FlashPromotionListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -177,9 +177,9 @@ func (s *SmsService) FlashPromotionSessionList(ctx context.Context, req *pb.Flas
 	return &pb.FlashPromotionSessionListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -205,9 +205,9 @@ func (s *SmsService) HomeAdvertiseList(ctx context.Context, req *pb.HomeAdvertis
 	return &pb.HomeAdvertiseListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -233,9 +233,9 @@ func (s *SmsService) HomeBrandList(ctx context.Context, req *pb.HomeBrandListReq
 	return &pb.HomeBrandListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -261,9 +261,9 @@ func (s *SmsService) HomeNewProductList(ctx context.Context, req *pb.HomeNewProd
 	return &pb.HomeNewProductListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -289,9 +289,9 @@ func (s *SmsService) HomeRecommendProductList(ctx context.Context, req *pb.HomeR
 	return &pb.HomeRecommendProductListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -317,9 +317,9 @@ func (s *SmsService) HomeRecommendSubjectList(ctx context.Context, req *pb.HomeR
 	return &pb.HomeRecommendSubjectListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil

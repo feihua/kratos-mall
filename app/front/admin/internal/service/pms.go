@@ -65,9 +65,9 @@ func (s *PmsService) ProductList(ctx context.Context, req *pb.ProductListReq) (*
 	return &pb.ProductListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -93,9 +93,9 @@ func (s *PmsService) BrandList(ctx context.Context, req *pb.BrandListReq) (*pb.B
 	return &pb.BrandListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -121,9 +121,9 @@ func (s *PmsService) CommentList(ctx context.Context, req *pb.CommentListReq) (*
 	return &pb.CommentListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -149,9 +149,9 @@ func (s *PmsService) FeightTemplateList(ctx context.Context, req *pb.FeightTempl
 	return &pb.FeightTemplateListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -177,9 +177,9 @@ func (s *PmsService) MemberPriceList(ctx context.Context, req *pb.MemberPriceLis
 	return &pb.MemberPriceListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -205,9 +205,9 @@ func (s *PmsService) ProductCategoryList(ctx context.Context, req *pb.ProductCat
 	return &pb.ProductCategoryListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil

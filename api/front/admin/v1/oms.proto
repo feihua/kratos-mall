@@ -62,9 +62,9 @@ message OrderListReq {
 }
 
 message OrderListData{
-  int64       id = 1;
-  int64       memberId = 2;
-  int64       couponId = 3;
+  int32       id = 1;
+  int32       memberId = 2;
+  int32       couponId = 3;
   string      orderSn = 4;
   string   createTime = 5;
   string      memberUsername = 6;
@@ -75,17 +75,17 @@ message OrderListData{
   double     integrationAmount = 11;
   double     couponAmount = 12;
   double     discountAmount = 13;
-  int64       payType = 14;
-  int64       sourceType = 15;
-  int64       status = 16;
-  int64       orderType = 17;
+  int32       payType = 14;
+  int32       sourceType = 15;
+  int32       status = 16;
+  int32       orderType = 17;
   string      deliveryCompany = 18;
   string      deliverySn = 19;
-  int64       autoConfirmDay = 20;
-  int64       integration = 21;
-  int64       growth = 22;
+  int32       autoConfirmDay = 20;
+  int32       integration = 21;
+  int32       growth = 22;
   string      promotionInfo = 23;
-  int64       billType = 24;
+  int32       billType = 24;
   string      billHeader = 25;
   string      billContent = 26;
   string      billReceiverPhone = 27;
@@ -98,9 +98,9 @@ message OrderListData{
   string      receiverRegion = 34;
   string      receiverDetailAddress = 35;
   string      note = 36;
-  int64       confirmStatus = 37;
-  int64       deleteStatus = 38;
-  int64       useIntegration = 39;
+  int32       confirmStatus = 37;
+  int32       deleteStatus = 38;
+  int32       useIntegration = 39;
   string   paymentTime = 40;
   string   deliveryTime = 41;
   string   receiveTime = 42;
@@ -111,9 +111,9 @@ message OrderListData{
 message OrderListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderListData data = 6;
   bool success = 7;
 }
@@ -207,12 +207,12 @@ message CartItemListReq {
 }
 
 message CartItemListData{
-  int64      id = 1;
-  int64      productId = 2;
-  int64      productSkuId = 3;
-  int64      memberId = 4;
-  int64      quantity = 5;
-  int64    price = 6;
+  int32      id = 1;
+  int32      productId = 2;
+  int32      productSkuId = 3;
+  int32      memberId = 4;
+  int32      quantity = 5;
+  int32    price = 6;
   string      productPic = 7;
   string      productName = 8;
   string      productSubTitle = 9;
@@ -220,8 +220,8 @@ message CartItemListData{
   string      memberNickname = 11;
   string  createDate = 12;
   string  modifyDate = 13;
-  int64      DeleteStatus = 14;
-  int64      productCategoryId = 15;
+  int32      DeleteStatus = 14;
+  int32      productCategoryId = 15;
   string      productBrand = 16;
   string      productSn = 17;
   string      productAttr = 18;
@@ -230,9 +230,9 @@ message CartItemListData{
 message CartItemListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CartItemListData data = 6;
   bool success = 7;
 }
@@ -292,10 +292,10 @@ message CompanyAddressListReq {
 }
 
 message CompanyAddressListData{
-  int64    id = 1;
+  int32    id = 1;
   string  addressName = 2;
-  int64    SendStatus = 3;
-  int64    receiveStatus = 4;
+  int32    SendStatus = 3;
+  int32    receiveStatus = 4;
   string  Name = 5;
   string  phone = 6;
   string  province = 7;
@@ -307,9 +307,9 @@ message CompanyAddressListData{
 message CompanyAddressListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  CompanyAddressListData data = 6;
   bool success = 7;
 }
@@ -372,35 +372,35 @@ message OrderItemListReq {
 }
 
 message OrderItemListData{
-  int64    id = 1;
-  int64      orderId = 2;
+  int32    id = 1;
+  int32      orderId = 2;
   string    orderSn = 3;
-  int64    productId = 4;
+  int32    productId = 4;
   string    productPic = 5;
   string    productName = 6;
   string    productBrand = 7;
   string    productSn = 8;
-  int64  productPrice = 9;
-  int64    productQuantity = 10;
-  int64    productSkuId = 11;
+  int32  productPrice = 9;
+  int32    productQuantity = 10;
+  int32    productSkuId = 11;
   string    productSkuCode = 12;
-  int64    productCategoryId = 13;
+  int32    productCategoryId = 13;
   string    promotionName = 14;
-  int64  promotionAmount = 15;
-  int64    couponAmount = 17;
-  int64  integrationAmount = 18;
-  int64  realAmount = 19;
-  int64    giftIntegration = 20;
-  int64    giftGrowth = 21;
+  int32  promotionAmount = 15;
+  int32    couponAmount = 17;
+  int32  integrationAmount = 18;
+  int32  realAmount = 19;
+  int32    giftIntegration = 20;
+  int32    giftGrowth = 21;
   string    productAttr = 22;
 }
 
 message OrderItemListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderItemListData data = 6;
   bool success = 7;
 }
@@ -459,20 +459,20 @@ message OrderOperateHistoryListReq {
 }
 
 message OrderOperateHistoryListData{
-  int64      id = 1;
-  int64      orderId = 2;
+  int32      id = 1;
+  int32      orderId = 2;
   string      operateMan = 3;
   string  createTime = 4;
-  int64      orderStatus = 5;
+  int32      orderStatus = 5;
   string    Note = 6;
 }
 
 message OrderOperateHistoryListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderOperateHistoryListData data = 6;
   bool success = 7;
 }
@@ -537,25 +537,25 @@ message OrderReturnApplyListReq {
 }
 
 message OrderReturnApplyListData{
-  int64      id = 1;
-  int64        orderId = 2;
-  int64        companyAddressId = 3;
-  int64      productId = 4;
+  int32      id = 1;
+  int32        orderId = 2;
+  int32        companyAddressId = 3;
+  int32      productId = 4;
   string      orderSn = 5;
   string  createTime = 6;
   string      memberUsername = 7;
-  int64    returnAmount = 8;
+  int32    returnAmount = 8;
   string      returnName = 9;
   string      returnPhone = 10;
-  int64      Status = 11;
+  int32      Status = 11;
   string  handleTime = 12;
   string      productPic = 13;
   string      productName = 14;
   string      productBrand = 15;
   string      productAttr = 16;
-  int64      productCount = 17;
-  int64    productPrice = 18;
-  int64    productRealPrice = 19;
+  int32      productCount = 17;
+  int32    productPrice = 18;
+  int32    productRealPrice = 19;
   string      reason = 20;
   string      Description = 21;
   string      proofPics = 22;
@@ -569,9 +569,9 @@ message OrderReturnApplyListData{
 message OrderReturnApplyListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderReturnApplyListData data = 6;
   bool success = 7;
 }
@@ -636,19 +636,19 @@ message OrderReturnReasonListReq {
 }
 
 message OrderReturnReasonListData{
-  int64      id = 1;
+  int32      id = 1;
   string      Name = 2;
-  int64      Sort = 3;
-  int64      Status = 4;
+  int32      Sort = 3;
+  int32      Status = 4;
   string  createTime = 5;
 }
 
 message OrderReturnReasonListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderReturnReasonListData data = 6;
   bool success = 7;
 }
@@ -691,20 +691,20 @@ message OrderSettingListReq {
 }
 
 message OrderSettingListData{
-  int64  id = 1;
-  int64  flashOrderOvertime = 2;
-  int64  normalOrderOvertime = 3;
-  int64    confirmOvertime = 4;
-  int64  finishOvertime = 5;
-  int64    commentOvertime = 6;
+  int32  id = 1;
+  int32  flashOrderOvertime = 2;
+  int32  normalOrderOvertime = 3;
+  int32    confirmOvertime = 4;
+  int32  finishOvertime = 5;
+  int32    commentOvertime = 6;
 }
 
 message OrderSettingListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
-  int64 total = 5;
+  int32 current = 3;
+  int32 pageSize = 4;
+  int32 total = 5;
   repeated  OrderSettingListData data = 6;
   bool success = 7;
 }

@@ -66,9 +66,9 @@ func (s *UmsService) MemberList(ctx context.Context, req *pb.MemberListReq) (*pb
 	return &pb.MemberListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -94,9 +94,9 @@ func (s *UmsService) GrowthChangeHistoryList(ctx context.Context, req *pb.Growth
 	return &pb.GrowthChangeHistoryListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -122,9 +122,9 @@ func (s *UmsService) IntegrationChangeHistoryList(ctx context.Context, req *pb.I
 	return &pb.IntegrationChangeHistoryListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -150,9 +150,9 @@ func (s *UmsService) IntegrationConsumeSettingList(ctx context.Context, req *pb.
 	return &pb.IntegrationConsumeSettingListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -178,9 +178,9 @@ func (s *UmsService) MemberLevelList(ctx context.Context, req *pb.MemberLevelLis
 	return &pb.MemberLevelListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -206,9 +206,9 @@ func (s *UmsService) MemberLoginLogList(ctx context.Context, req *pb.MemberLogin
 	return &pb.MemberLoginLogListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -234,9 +234,9 @@ func (s *UmsService) MemberReceiveAddressList(ctx context.Context, req *pb.Membe
 	return &pb.MemberReceiveAddressListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -262,9 +262,9 @@ func (s *UmsService) MemberRuleSettingList(ctx context.Context, req *pb.MemberRu
 	return &pb.MemberRuleSettingListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -303,9 +303,9 @@ func (s *UmsService) MemberTagList(ctx context.Context, req *pb.MemberTagListReq
 	return &pb.MemberTagListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil
@@ -331,9 +331,9 @@ func (s *UmsService) MemberTaskList(ctx context.Context, req *pb.MemberTaskListR
 	return &pb.MemberTaskListResp{
 		Code:     "000000",
 		Message:  "查询订单信息成功",
-		Current:  req.Current,
-		PageSize: req.PageSize,
-		Total:    listResp.Total,
+		Current:  int32(req.Current),
+		PageSize: int32(req.PageSize),
+		Total:    int32(listResp.Total),
 		Data:     list,
 		Success:  true,
 	}, nil

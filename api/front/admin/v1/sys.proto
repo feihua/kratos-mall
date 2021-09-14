@@ -89,8 +89,8 @@ message UserListData{
 message UserListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  UserListData data = 6;
   bool success = 7;
@@ -177,8 +177,8 @@ message RoleListData {
 message RoleListResp {
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  RoleListData data = 6;
   bool success = 7;
@@ -284,8 +284,8 @@ message MenuListTree {
 message MenuListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  MenuListData data = 6;
   bool success = 7;
@@ -370,8 +370,8 @@ message DictListData {
 message DictListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  DictListData data = 6;
   bool success = 7;
@@ -435,8 +435,8 @@ message DeptListData {
 message DeptListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  DeptListData data = 6;
   bool success = 7;
@@ -493,8 +493,8 @@ message LoginLogListData {
 message LoginLogListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  LoginLogListData data = 6;
   bool success = 7;
@@ -545,8 +545,8 @@ message SysLogListData {
 message SysLogListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  SysLogListData data = 6;
   bool success = 7;
@@ -598,8 +598,8 @@ message ConfigListData {
 message ConfigListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  ConfigListData data = 6;
   bool success = 7;
@@ -669,8 +669,8 @@ message JobListData {
 message JobListResp{
   string code = 1;
   string message = 2;
-  int64 current = 3;
-  int64 pageSize = 4;
+  int32 current = 3;
+  int32 pageSize = 4;
   int32 total = 5;
   repeated  JobListData data = 6;
   bool success = 7;
