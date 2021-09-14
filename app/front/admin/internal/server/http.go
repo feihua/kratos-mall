@@ -1,14 +1,27 @@
 package server
 
 import (
+	"context"
+	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-kratos/kratos/v2/middleware"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
+	"github.com/go-kratos/kratos/v2/transport"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	v1 "kratos-mall/api/front/admin/v1"
 	"kratos-mall/app/front/admin/internal/conf"
 	"kratos-mall/app/front/admin/internal/service"
 )
+
+func getOperation(handler middleware.Handler) middleware.Handler {
+	return func(ctx context.Context, req interface{}) (reply interface{}, err error) {
+		if tr, ok := transport.FromServerContext(ctx); ok {
+			fmt.Println(tr.Operation())
+		}
+		return handler(ctx, req)
+	}
+}
 
 // NewHTTPServer new a HTTP server.
 func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, oms *service.OmsService, pay *service.PayService, pms *service.PmsService, sms *service.SmsService, sys *service.SysService, ums *service.UmsService, logger log.Logger) *http.Server {
@@ -16,6 +29,12 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, oms *service
 		http.Middleware(
 			recovery.Recovery(),
 			logging.Server(logger),
+			//selector.Server(jwt.AuthMiddleware()).
+			//	Regex(`^[/front.admin.v1.Sys/Login]`).
+			///front.admin.v1.Sys/UserInfo,/front.admin.v1.Sys/Login
+			//.Path("/front.admin.v1.Oms/OrderList").
+			//	Build(),
+			getOperation,
 		),
 	}
 	if c.Http.Network != "" {

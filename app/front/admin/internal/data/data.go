@@ -30,7 +30,6 @@ var ProviderSet = wire.NewSet(
 	NewOmsServiceClient,
 	NewSmsServiceClient,
 	NewSysServiceClient,
-	NewUserRepo,
 )
 
 // Data .

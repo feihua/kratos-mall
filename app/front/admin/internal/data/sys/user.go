@@ -3,10 +3,10 @@ package sys
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
-	"github.com/jinzhu/copier"
 	sysV1 "kratos-mall/api/sys/v1"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 	"kratos-mall/app/front/admin/internal/data"
+	"kratos-mall/app/front/admin/internal/pkg/middleware"
 )
 
 type userRepo struct {
@@ -22,65 +22,105 @@ func NewUserRepo(data *data.Data, logger log.Logger) sys.UserRepo {
 	}
 }
 
-func (u userRepo) QueryUserByName(ctx context.Context, name string) *sys.User {
-
-	//var user model.SysUser
-	//_ = u.data.db.WithContext(ctx).Where("name=?", name).First(&user)
-	//
-	//return &sys.User{
-	//	Id:       user.Id,
-	//	Name:     user.Name,
-	//	Salt:     user.Salt,
-	//	Password: user.Password,
-	//	Mobile:   user.Mobile,
-	//	NickName: user.NickName,
-	//	Avatar:   user.Avatar,
-	//	Status:   user.Status,
-	//}
-	return nil
-}
-
-func (u userRepo) CreateUser(ctx context.Context, user *sys.UserDTO) error {
-	panic("implement me")
-}
-
-func (u userRepo) GetUser(ctx context.Context, id int64) *sys.User {
-
-	//var user model.SysUser
-	//_ = u.data.db.WithContext(ctx).Where("id=?", id).First(&user)
-	//
-	//return &sys.User{
-	//	Id:       user.Id,
-	//	Name:     user.Name,
-	//	Salt:     user.Salt,
-	//	Password: user.Password,
-	//	Mobile:   user.Mobile,
-	//	NickName: user.NickName,
-	//	Avatar:   user.Avatar,
-	//	Status:   user.Status,
-	//}
-	return nil
-}
-
-func (u userRepo) UpdateUser(ctx context.Context, user *sys.UserDTO) error {
-	panic("implement me")
-}
-
-func (u userRepo) ListUser(ctx context.Context, req *sys.UserListReq) (*sys.UserListResp, error) {
-	list, _ := u.data.SysClient.UserList(ctx, &sysV1.UserListReq{
-		Current:  req.Current,
-		PageSize: req.PageSize,
+func (r *userRepo) Login(ctx context.Context, g *sys.LoginDTO) (*sys.LoginRespDTO, error) {
+	login, _ := r.data.SysClient.Login(ctx, &sysV1.LoginReq{
+		UserName: g.UserName,
+		Password: g.Password,
 	})
 
-	orders := make([]*sys.User, 0)
-	copier.Copy(&orders, &list.List)
+	token, _ := jwt.GenerateToken(login.Id, login.UserName)
 
-	return &sys.UserListResp{
-		Total: list.Total,
-		List:  orders,
+	return &sys.LoginRespDTO{
+		Status:           login.Status,
+		CurrentAuthority: login.CurrentAuthority,
+		Id:               login.Id,
+		UserName:         login.UserName,
+		AccessToken:      token,
+		AccessExpire:     login.AccessExpire,
+		RefreshAfter:     login.RefreshAfter,
 	}, nil
 }
 
-func (u userRepo) DeleteUser(ctx context.Context, id int64) error {
-	panic("implement me")
+func (r *userRepo) LoginLogAdd(ctx context.Context, req *sys.LoginDTO) error {
+
+	_, err := r.data.SysClient.LoginLogAdd(ctx, &sysV1.LoginLogAddReq{
+		UserName: req.UserName,
+		Status:   "login",
+		Ip:       "127.0.0.1",
+		CreateBy: req.UserName,
+	})
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (r *userRepo) UserInfo(ctx context.Context, id int64) (*sys.UserInfoDTO, error) {
+
+	userInfo, _ := r.data.SysClient.UserInfo(ctx, &sysV1.InfoReq{
+		UserId: id,
+	})
+
+	rv := make([]*sys.MenuDTO, 0)
+	for _, m := range userInfo.MenuListTree {
+		rv = append(rv, &sys.MenuDTO{
+			Id:       m.Id,
+			Url:      m.Path,
+			Name:     m.Name,
+			ParentId: m.ParentId,
+			Icon:     m.Icon,
+		})
+	}
+
+	return &sys.UserInfoDTO{
+		Avatar:         userInfo.Avatar,
+		Name:           userInfo.Name,
+		MenuListTree:   rv,
+		BackgroundUrls: nil,
+	}, nil
+
+}
+
+func (r *userRepo) UserList(ctx context.Context, req *sys.UserListReq) (*sys.UserListResp, error) {
+
+	userListResp, _ := r.data.SysClient.UserList(ctx, &sysV1.UserListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+		Name:     req.Name,
+		NickName: req.NickName,
+		Mobile:   req.Mobile,
+		Email:    req.Email,
+		Status:   req.Status,
+		DeptId:   req.DeptId,
+	})
+
+	list := make([]*sys.User, 0)
+	for _, item := range userListResp.List {
+		list = append(list, &sys.User{
+			Id:             item.Id,
+			Name:           item.Name,
+			NickName:       item.NickName,
+			Avatar:         item.Avatar,
+			Password:       item.Password,
+			Salt:           item.Salt,
+			Email:          item.Email,
+			Mobile:         item.Mobile,
+			Status:         int(item.Status),
+			DeptId:         item.DeptId,
+			CreateBy:       item.CreateBy,
+			CreateTime:     item.CreateTime,
+			LastUpdateBy:   item.LastUpdateBy,
+			LastUpdateTime: item.LastUpdateTime,
+			DelFlag:        int(item.DelFlag),
+			JobId:          int(item.JobId),
+		})
+	}
+
+	return &sys.UserListResp{
+		Total: userListResp.Total,
+		List:  list,
+	}, nil
+
 }

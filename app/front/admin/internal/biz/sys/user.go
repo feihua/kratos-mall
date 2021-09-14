@@ -2,22 +2,17 @@ package sys
 
 import (
 	"context"
+	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/log"
+	"strings"
 )
 
-type UserDTO struct {
+type LoginDTO struct {
 	UserName string
 	Password string
 }
 
-type UserInfoDTO struct {
-	Avatar         string
-	Name           string
-	MenuListTree   []*Menu
-	BackgroundUrls []string
-}
-
-type TokenDTO struct {
+type LoginRespDTO struct {
 	Status           string
 	CurrentAuthority string
 	Id               int64
@@ -27,11 +22,21 @@ type TokenDTO struct {
 	RefreshAfter     int64
 }
 
-type Beer struct {
-	Id          int64
-	Name        string
-	Description string
-	Count       int64
+type UserInfoDTO struct {
+	Avatar         string
+	Name           string
+	MenuListTree   []*MenuDTO
+	BackgroundUrls []string
+}
+
+type MenuDTO struct {
+	Id       int64
+	Name     string
+	ParentId int64
+	Url      string
+	Perms    string
+	Type     int
+	Icon     string
 }
 
 type UserListReq struct {
@@ -43,6 +48,11 @@ type UserListReq struct {
 	Email    string
 	Status   int64
 	DeptId   int64
+}
+
+type UserListResp struct {
+	Total int64
+	List  []*User
 }
 
 type User struct {
@@ -63,76 +73,47 @@ type User struct {
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	JobId          int    // 岗位Id
 }
-type UserListResp struct {
-	Total int64
-	List  []*User
-}
 
 type UserRepo interface {
-	CreateUser(context.Context, *UserDTO) error
-	GetUser(ctx context.Context, id int64) *User
-	UpdateUser(context.Context, *UserDTO) error
-	ListUser(ctx context.Context, req *UserListReq) (*UserListResp, error)
-	DeleteUser(ctx context.Context, id int64) error
-	QueryUserByName(ctx context.Context, name string) *User
+	Login(context.Context, *LoginDTO) (*LoginRespDTO, error)
+	LoginLogAdd(context.Context, *LoginDTO) error
+	UserInfo(context.Context, int64) (*UserInfoDTO, error)
+	UserList(context.Context, *UserListReq) (*UserListResp, error)
 }
 
 type UserUseCase struct {
-	userRepo UserRepo
-	menuRepo MenuRepo
-	log      *log.Helper
+	repo UserRepo
+	log  *log.Helper
 }
 
-func NewUserUseCase(userRepo UserRepo, menuRepo MenuRepo, logger log.Logger) *UserUseCase {
-	return &UserUseCase{userRepo: userRepo, menuRepo: menuRepo, log: log.NewHelper(logger)}
+func NewUserUseCase(repo UserRepo, logger log.Logger) *UserUseCase {
+	return &UserUseCase{repo: repo, log: log.NewHelper(logger)}
 }
 
-func (u *UserUseCase) UserLogin(ctx context.Context, userDTO *UserDTO) (*TokenDTO, error) {
+func (uc *UserUseCase) Login(ctx context.Context, req *LoginDTO) (*LoginRespDTO, error) {
 
-	user := u.userRepo.QueryUserByName(ctx, userDTO.UserName)
-
-	return &TokenDTO{
-		Status:           "1",
-		CurrentAuthority: "admin",
-		Id:               user.Id,
-		UserName:         user.Name,
-		AccessToken:      "test",
-		AccessExpire:     0,
-		RefreshAfter:     0,
-	}, nil
-
-}
-
-func (u *UserUseCase) UserInfo(ctx context.Context, id int64) *UserInfoDTO {
-
-	user := u.userRepo.GetUser(ctx, id)
-
-	listMenu, _ := u.menuRepo.ListMenu(ctx, &MenuListReq{})
-
-	return &UserInfoDTO{
-		Avatar:         "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-		Name:           user.Name,
-		MenuListTree:   listMenu,
-		BackgroundUrls: nil,
+	if len(strings.TrimSpace(req.UserName)) == 0 || len(strings.TrimSpace(req.Password)) == 0 {
+		uc.log.WithContext(ctx).Errorf("用户名或密码不能为空,请求信息失败,参数: %v", req)
+		return nil, errors.BadRequest("用户名或密码不能为空", "用户名或密码不能为空")
 	}
+
+	loginResp, _ := uc.repo.Login(ctx, req)
+
+	_ = uc.repo.LoginLogAdd(ctx, req)
+
+	uc.log.WithContext(ctx).Infof("登录成功: %v", loginResp)
+
+	return loginResp, nil
 }
 
-func (u *UserUseCase) CreateUser(ctx context.Context, user *UserDTO) error {
-	panic("implement me")
+func (uc *UserUseCase) UserInfo(ctx context.Context, id int64) (*UserInfoDTO, error) {
+
+	return uc.repo.UserInfo(ctx, id)
+
 }
 
-func (u *UserUseCase) GetUser(ctx context.Context, id int64) error {
-	panic("implement me")
-}
+func (uc *UserUseCase) UserList(ctx context.Context, req *UserListReq) (*UserListResp, error) {
 
-func (u *UserUseCase) UpdateUser(ctx context.Context, user *UserDTO) error {
-	panic("implement me")
-}
+	return uc.repo.UserList(ctx, req)
 
-func (u *UserUseCase) ListUser(ctx context.Context, req *UserListReq) (*UserListResp, error) {
-	return u.userRepo.ListUser(ctx, req)
-}
-
-func (u *UserUseCase) DeleteUser(ctx context.Context, id int64) error {
-	panic("implement me")
 }

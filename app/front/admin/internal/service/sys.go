@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
-	"kratos-mall/app/front/admin/internal/biz"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 
 	pb "kratos-mall/api/front/admin/v1"
@@ -12,7 +11,7 @@ import (
 
 type SysService struct {
 	pb.UnimplementedSysServer
-	uc          *biz.UserUseCase
+	uc          *sys.UserUseCase
 	logUseCase  *sys.LogUseCase
 	menuUseCase *sys.MenuUseCase
 	roleUseCase *sys.RoleUseCase
@@ -22,7 +21,7 @@ type SysService struct {
 	log         *log.Helper
 }
 
-func NewSysService(uc *biz.UserUseCase,
+func NewSysService(uc *sys.UserUseCase,
 	logUseCase *sys.LogUseCase,
 	mc *sys.MenuUseCase,
 	logger log.Logger,
@@ -42,7 +41,7 @@ func NewSysService(uc *biz.UserUseCase,
 
 func (s *SysService) Login(ctx context.Context, req *pb.LoginReq) (*pb.LoginResp, error) {
 
-	loginResp, _ := s.uc.Login(ctx, &biz.LoginDTO{
+	loginResp, _ := s.uc.Login(ctx, &sys.LoginDTO{
 		UserName: req.UserName,
 		Password: req.Password,
 	})
@@ -88,7 +87,7 @@ func (s *SysService) UserAdd(ctx context.Context, req *pb.UserAddReq) (*pb.UserA
 }
 func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.UserListResp, error) {
 
-	userListResp, _ := s.uc.UserList(ctx, &biz.UserListReq{
+	userListResp, _ := s.uc.UserList(ctx, &sys.UserListReq{
 		Current:  req.Current,
 		PageSize: req.PageSize,
 		Name:     req.Name,
