@@ -3,6 +3,7 @@ module kratos-mall
 go 1.14
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-kratos/consul v0.1.5
 	github.com/go-kratos/kratos/v2 v2.0.5
 	github.com/go-sql-driver/mysql v1.6.0
