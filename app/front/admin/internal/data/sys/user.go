@@ -3,6 +3,7 @@ package sys
 import (
 	"context"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	sysV1 "kratos-mall/api/sys/v1"
 	"kratos-mall/app/front/admin/internal/biz/sys"
 	"kratos-mall/app/front/admin/internal/data"
@@ -122,5 +123,18 @@ func (r *userRepo) UserList(ctx context.Context, req *sys.UserListReq) (*sys.Use
 		Total: userListResp.Total,
 		List:  list,
 	}, nil
+}
 
+func (r *userRepo) UserUpdate(ctx context.Context, req *sys.User) error {
+
+	var tempUser *sysV1.UserUpdateReq
+
+	_ = copier.Copy(&tempUser, &req)
+	_, err := r.data.SysClient.UserUpdate(ctx, tempUser)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

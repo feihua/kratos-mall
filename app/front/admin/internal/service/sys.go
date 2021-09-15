@@ -158,7 +158,13 @@ func (s *SysService) SelectAllData(ctx context.Context, req *pb.SelectDataReq) (
 }
 
 func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb.UserUpdateResp, error) {
-	return &pb.UserUpdateResp{}, nil
+
+	var tempUser *sys.User
+	_ = copier.Copy(&tempUser, &req)
+	_ = s.uc.UserUpdate(ctx, tempUser)
+	return &pb.UserUpdateResp{
+		Pong: "",
+	}, nil
 }
 func (s *SysService) UserDelete(ctx context.Context, req *pb.UserDeleteReq) (*pb.UserDeleteResp, error) {
 	return &pb.UserDeleteResp{}, nil

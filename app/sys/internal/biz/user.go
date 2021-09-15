@@ -62,6 +62,7 @@ type User struct {
 	LastUpdateTime string // 更新时间
 	DelFlag        int    // 是否删除  -1：已删除  0：正常
 	JobId          int    // 岗位Id
+	RoleId         int64  // 角色Id
 }
 type UserListResp struct {
 	Total int64
@@ -71,10 +72,13 @@ type UserListResp struct {
 type UserRepo interface {
 	CreateUser(context.Context, *UserDTO) error
 	GetUser(ctx context.Context, id int64) *User
-	UpdateUser(context.Context, *UserDTO) error
+	UpdateUser(context.Context, *User) error
 	ListUser(ctx context.Context, req *UserListReq) ([]*User, error)
 	DeleteUser(ctx context.Context, id int64) error
 	QueryUserByName(ctx context.Context, name string) *User
+
+	DeleteUserRole(ctx context.Context, userId int64) error
+	UpdateUserRole(ctx context.Context, userId int64, roleId int64) error
 }
 
 type UserUseCase struct {
@@ -125,8 +129,13 @@ func (u *UserUseCase) GetUser(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (u *UserUseCase) UpdateUser(ctx context.Context, user *UserDTO) error {
-	panic("implement me")
+func (u *UserUseCase) UpdateUser(ctx context.Context, user *User) error {
+
+	_ = u.userRepo.DeleteUserRole(ctx, user.Id)
+
+	_ = u.userRepo.UpdateUserRole(ctx, user.Id, user.RoleId)
+
+	return u.userRepo.UpdateUser(ctx, user)
 }
 
 func (u *UserUseCase) ListUser(ctx context.Context, req *UserListReq) ([]*User, error) {

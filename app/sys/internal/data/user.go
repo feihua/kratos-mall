@@ -6,6 +6,7 @@ import (
 	"kratos-mall/app/sys/internal/biz"
 	"kratos-mall/app/sys/internal/data/model"
 	"kratos-mall/pkg/util/pagination"
+	"time"
 )
 
 type userRepo struct {
@@ -59,7 +60,7 @@ func (u userRepo) GetUser(ctx context.Context, id int64) *biz.User {
 	}
 }
 
-func (u userRepo) UpdateUser(ctx context.Context, user *biz.UserDTO) error {
+func (u userRepo) UpdateUser(ctx context.Context, user *biz.User) error {
 	panic("implement me")
 }
 
@@ -103,4 +104,24 @@ func (u userRepo) ListUser(ctx context.Context, req *biz.UserListReq) ([]*biz.Us
 
 func (u userRepo) DeleteUser(ctx context.Context, id int64) error {
 	panic("implement me")
+}
+
+func (u userRepo) DeleteUserRole(ctx context.Context, userId int64) error {
+	return u.data.db.Where(&model.SysUserRole{UserId: userId}).Delete(&model.SysUserRole{}).Error
+}
+
+func (u userRepo) UpdateUserRole(ctx context.Context, userId int64, roleId int64) error {
+
+	sysLog := model.SysUserRole{
+		UserId:         userId,
+		RoleId:         roleId,
+		CreateBy:       "admin",
+		CreateTime:     time.Time{},
+		LastUpdateBy:   "admin",
+		LastUpdateTime: time.Time{},
+	}
+
+	u.data.db.Create(&sysLog)
+
+	return nil
 }

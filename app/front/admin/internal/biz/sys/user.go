@@ -109,6 +109,7 @@ type UserRepo interface {
 	LoginLogAdd(context.Context, *LoginDTO) error
 	UserInfo(context.Context, int64) (*UserInfoDTO, error)
 	UserList(context.Context, *UserListReq) (*UserListResp, error)
+	UserUpdate(ctx context.Context, req *User) error
 }
 
 type UserUseCase struct {
@@ -180,4 +181,9 @@ func (uc *UserUseCase) SelectAllData(ctx context.Context, req *SelectDataReq) (*
 		DeptAll: deptAlls,
 		JobAll:  jobAlls,
 	}, nil
+}
+func (uc *UserUseCase) UserUpdate(ctx context.Context, req *User) error {
+
+	return uc.repo.UserUpdate(ctx, req)
+
 }
