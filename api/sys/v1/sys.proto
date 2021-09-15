@@ -204,8 +204,21 @@ message QueryMenuByRoleIdReq {
   int64 id = 1;
 }
 
+message ListMenuData {
+  string key = 1;
+  string title = 2;
+  int32 parentId = 3;
+  string label = 4;
+  int32  id = 5;
+}
+
+
 message QueryMenuByRoleIdResp {
-  repeated int64 ids = 1;
+  string code = 1;
+  string message = 2;
+  repeated int32 UserData = 3;
+  repeated ListMenuData AllData = 4;
+
 }
 
 //role end---------------------

@@ -51,3 +51,18 @@ func (r roleRepo) ListRole(ctx context.Context, req *sys.RoleListReq) (*sys.Role
 func (r roleRepo) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
 }
+func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64) error {
+	panic("implement me")
+}
+
+func (r roleRepo) QueryMenuByRoleId(ctx context.Context, id int64) (*sys.QueryMenuByRoleIdResp, error) {
+	menuByRoleId, _ := r.data.SysClient.QueryMenuByRoleId(ctx, &sysV1.QueryMenuByRoleIdReq{Id: id})
+
+	dataResps := make([]*sys.ListMenuDataResp, 0)
+	_ = copier.Copy(&dataResps, &menuByRoleId.AllData)
+
+	return &sys.QueryMenuByRoleIdResp{
+		Ids:  menuByRoleId.UserData,
+		List: dataResps,
+	}, nil
+}

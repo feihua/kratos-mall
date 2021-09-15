@@ -164,7 +164,18 @@ func (s *SysService) UpdateRoleRole(ctx context.Context, req *pb.UpdateRoleRoleR
 	return &pb.UpdateRoleRoleResp{}, nil
 }
 func (s *SysService) QueryMenuByRoleId(ctx context.Context, req *pb.QueryMenuByRoleIdReq) (*pb.QueryMenuByRoleIdResp, error) {
-	return &pb.QueryMenuByRoleIdResp{}, nil
+
+	resp, _ := s.roleUseCase.QueryMenuByRoleId(ctx, req.Id)
+
+	var temp []*pb.ListMenuData
+	_ = copier.Copy(&temp, &resp.List)
+
+	return &pb.QueryMenuByRoleIdResp{
+		Code:     "000000",
+		Message:  "查询成功",
+		UserData: resp.Ids,
+		AllData:  temp,
+	}, nil
 }
 func (s *SysService) UpdateMenuRole(ctx context.Context, req *pb.UpdateMenuRoleReq) (*pb.UpdateMenuRoleResp, error) {
 	return &pb.UpdateMenuRoleResp{}, nil

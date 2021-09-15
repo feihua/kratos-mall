@@ -71,3 +71,21 @@ func (r roleRepo) ListRole(ctx context.Context, req *biz.RoleListReq) (*biz.Role
 func (r roleRepo) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
 }
+func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64) error {
+	panic("implement me")
+}
+
+func (r roleRepo) QueryMenuByRoleId(ctx context.Context, id int64) ([]int32, error) {
+
+	var all []model.SysRoleMenu
+	r.data.db.WithContext(ctx).Where(&model.SysRoleMenu{RoleId: id}).Find(&all)
+
+	var list []int32
+	for _, user := range all {
+
+		list = append(list, int32(user.MenuId))
+	}
+
+	return list, nil
+
+}

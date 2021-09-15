@@ -103,20 +103,20 @@ message SelectDataReq {
 
 message RoleAllResp {
   int32 id = 1;
-  string name= 2;
+  string name = 2;
   string remark = 3;
 }
 
 message DeptAllResp {
   int32 id = 1;
   string value = 2;
-  string title =3;
-  int32 parentId =4;
+  string title = 3;
+  int32 parentId = 4;
 }
 
 message JobAllResp {
   int32 id = 1;
- string jobName =2;
+  string jobName = 2;
 }
 
 message SelectDataResp {
@@ -245,11 +245,24 @@ message UpdateRoleRoleResp {
 }
 
 message QueryMenuByRoleIdReq {
-  int32 id = 1;
+  int64 id = 1;
 }
 
+message ListMenuData {
+  string key = 1;
+  string title = 2;
+  int32 parentId = 3;
+  string label = 4;
+  int32  id = 5;
+}
+
+
 message QueryMenuByRoleIdResp {
-  repeated int32 ids = 1;
+  string code = 1;
+  string message = 2;
+  repeated int32 UserData = 3;
+  repeated ListMenuData AllData = 4;
+
 }
 
 //role end---------------------

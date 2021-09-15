@@ -28,12 +28,27 @@ type RoleListResp struct {
 	List  []*Role
 }
 
+type ListMenuDataResp struct {
+	key      string
+	title    string
+	parentId int32
+	label    string
+	id       int32
+}
+
+type QueryMenuByRoleIdResp struct {
+	Ids  []int32
+	List []*ListMenuDataResp
+}
+
 type RoleRepo interface {
 	CreateRole(context.Context, *Role) error
 	GetRole(ctx context.Context, id int64) error
 	UpdateRole(context.Context, *Role) error
 	ListRole(ctx context.Context, req *RoleListReq) (*RoleListResp, error)
 	DeleteRole(ctx context.Context, id int64) error
+	UpdateMenuRole(ctx context.Context, id int64) error
+	QueryMenuByRoleId(ctx context.Context, id int64) (*QueryMenuByRoleIdResp, error)
 }
 
 type RoleUseCase struct {
@@ -63,4 +78,12 @@ func (r RoleUseCase) ListRole(ctx context.Context, req *RoleListReq) (*RoleListR
 
 func (r RoleUseCase) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
+}
+
+func (r RoleUseCase) UpdateMenuRole(ctx context.Context, id int64) error {
+	panic("implement me")
+}
+
+func (r RoleUseCase) QueryMenuByRoleId(ctx context.Context, id int64) (*QueryMenuByRoleIdResp, error) {
+	return r.repo.QueryMenuByRoleId(ctx, id)
 }
