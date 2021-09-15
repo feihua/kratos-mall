@@ -31,7 +31,7 @@ func initApp(confServer *conf.Server, registry *conf.Registry, confData *conf.Da
 	logUseCase := biz.NewLogUseCase(logRepo, logger)
 	menuUseCase := biz.NewMenuUseCase(menuRepo, logger)
 	roleRepo := data.NewRoleRepo(dataData, logger)
-	roleUseCase := biz.NewRoleUseCase(roleRepo, logger)
+	roleUseCase := biz.NewRoleUseCase(roleRepo, menuRepo, logger)
 	jobRepo := data.NewJobRepo(dataData, logger)
 	jobUseCase := biz.NewJobUseCase(jobRepo, logger)
 	dictRepo := data.NewDictRepo(dataData, logger)
