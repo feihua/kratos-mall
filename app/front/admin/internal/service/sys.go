@@ -129,6 +129,34 @@ func (s *SysService) UserList(ctx context.Context, req *pb.UserListReq) (*pb.Use
 		Success:  true,
 	}, nil
 }
+
+func (s *SysService) SelectAllData(ctx context.Context, req *pb.SelectDataReq) (*pb.SelectDataResp, error) {
+
+	allData, _ := s.uc.SelectAllData(ctx, &sys.SelectDataReq{
+		Current:  1,
+		PageSize: 1000,
+	})
+
+	roleAll := allData.RoleAll
+	roleAllResps := make([]*pb.RoleAllResp, 0)
+	copier.Copy(&roleAllResps, &roleAll)
+
+	deptAll := allData.DeptAll
+	deptAllResps := make([]*pb.DeptAllResp, 0)
+	copier.Copy(&deptAllResps, &deptAll)
+
+	jobAll := allData.JobAll
+	jobAllResps := make([]*pb.JobAllResp, 0)
+	copier.Copy(&jobAllResps, &jobAll)
+	return &pb.SelectDataResp{
+		Code:    "000000",
+		Message: "查询成功",
+		RoleAll: roleAllResps,
+		DeptAll: deptAllResps,
+		JobAll:  jobAllResps,
+	}, nil
+}
+
 func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb.UserUpdateResp, error) {
 	return &pb.UserUpdateResp{}, nil
 }

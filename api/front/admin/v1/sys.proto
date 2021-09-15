@@ -96,6 +96,38 @@ message UserListResp {
   bool success = 7;
 }
 
+message SelectDataReq {
+  int32 current = 1;
+  int32 pageSize = 2;
+}
+
+message RoleAllResp {
+  int32 id = 1;
+  string name= 2;
+  string remark = 3;
+}
+
+message DeptAllResp {
+  int32 id = 1;
+  string value = 2;
+  string title =3;
+  int32 parentId =4;
+}
+
+message JobAllResp {
+  int32 id = 1;
+ string jobName =2;
+}
+
+message SelectDataResp {
+  string code = 1;
+  string message = 2;
+  repeated  RoleAllResp roleAll = 3;
+  repeated  DeptAllResp deptAll = 4;
+  repeated  JobAllResp jobAll = 5;
+}
+
+
 message UserUpdateReq {
   int32 id = 1;
   string email = 2;
@@ -722,6 +754,14 @@ service Sys {
       body: "*"
     };
   }
+
+  rpc SelectAllData(SelectDataReq) returns(SelectDataResp){
+    option (google.api.http) = {
+      post: "/api/sys/user/selectAllData"
+      body: "*"
+    };
+  }
+
   rpc UserUpdate(UserUpdateReq) returns(UserUpdateResp){
     option (google.api.http) = {
       post: "/api/sys/user/update"

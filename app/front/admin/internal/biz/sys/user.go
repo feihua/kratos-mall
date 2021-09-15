@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/jinzhu/copier"
 	"strings"
 )
 
@@ -74,6 +75,35 @@ type User struct {
 	JobId          int    // 岗位Id
 }
 
+type SelectDataReq struct {
+	Current  int64
+	PageSize int64
+}
+
+type RoleAll struct {
+	Id     int32
+	Name   string
+	Remark string
+}
+
+type DeptAll struct {
+	Id       int32
+	Value    string
+	Title    string
+	ParentId int32
+}
+
+type JobAll struct {
+	Id      int32
+	JobName string
+}
+
+type SelectDataResp struct {
+	RoleAll []*RoleAll
+	DeptAll []*DeptAll
+	JobAll  []*JobAll
+}
+
 type UserRepo interface {
 	Login(context.Context, *LoginDTO) (*LoginRespDTO, error)
 	LoginLogAdd(context.Context, *LoginDTO) error
@@ -82,12 +112,20 @@ type UserRepo interface {
 }
 
 type UserUseCase struct {
-	repo UserRepo
-	log  *log.Helper
+	repo     UserRepo
+	roleRepo RoleRepo
+	deptRepo DeptRepo
+	jobRepo  JobRepo
+	log      *log.Helper
 }
 
-func NewUserUseCase(repo UserRepo, logger log.Logger) *UserUseCase {
-	return &UserUseCase{repo: repo, log: log.NewHelper(logger)}
+func NewUserUseCase(repo UserRepo, roleRepo RoleRepo, deptRepo DeptRepo, jobRepo JobRepo, logger log.Logger) *UserUseCase {
+	return &UserUseCase{repo: repo,
+		log:      log.NewHelper(logger),
+		roleRepo: roleRepo,
+		deptRepo: deptRepo,
+		jobRepo:  jobRepo,
+	}
 }
 
 func (uc *UserUseCase) Login(ctx context.Context, req *LoginDTO) (*LoginRespDTO, error) {
@@ -116,4 +154,30 @@ func (uc *UserUseCase) UserList(ctx context.Context, req *UserListReq) (*UserLis
 
 	return uc.repo.UserList(ctx, req)
 
+}
+func (uc *UserUseCase) SelectAllData(ctx context.Context, req *SelectDataReq) (*SelectDataResp, error) {
+
+	listRole, _ := uc.roleRepo.ListRole(ctx, &RoleListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+	roleAlls := make([]*RoleAll, 0)
+	_ = copier.Copy(&roleAlls, &listRole.List)
+
+	listDept, _ := uc.deptRepo.ListDept(ctx, &DeptListReq{})
+	deptAlls := make([]*DeptAll, 0)
+	_ = copier.Copy(&deptAlls, &listDept.List)
+
+	listJob, _ := uc.jobRepo.ListJob(ctx, &JobListReq{
+		Current:  req.Current,
+		PageSize: req.PageSize,
+	})
+	jobAlls := make([]*JobAll, 0)
+	_ = copier.Copy(&jobAlls, &listJob.List)
+
+	return &SelectDataResp{
+		RoleAll: roleAlls,
+		DeptAll: deptAlls,
+		JobAll:  jobAlls,
+	}, nil
 }

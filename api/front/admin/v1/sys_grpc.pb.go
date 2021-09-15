@@ -22,6 +22,7 @@ type SysClient interface {
 	UserInfo(ctx context.Context, in *InfoReq, opts ...grpc.CallOption) (*InfoResp, error)
 	UserAdd(ctx context.Context, in *UserAddReq, opts ...grpc.CallOption) (*UserAddResp, error)
 	UserList(ctx context.Context, in *UserListReq, opts ...grpc.CallOption) (*UserListResp, error)
+	SelectAllData(ctx context.Context, in *SelectDataReq, opts ...grpc.CallOption) (*SelectDataResp, error)
 	UserUpdate(ctx context.Context, in *UserUpdateReq, opts ...grpc.CallOption) (*UserUpdateResp, error)
 	UserDelete(ctx context.Context, in *UserDeleteReq, opts ...grpc.CallOption) (*UserDeleteResp, error)
 	ReSetPassword(ctx context.Context, in *ReSetPasswordReq, opts ...grpc.CallOption) (*ReSetPasswordResp, error)
@@ -92,6 +93,15 @@ func (c *sysClient) UserAdd(ctx context.Context, in *UserAddReq, opts ...grpc.Ca
 func (c *sysClient) UserList(ctx context.Context, in *UserListReq, opts ...grpc.CallOption) (*UserListResp, error) {
 	out := new(UserListResp)
 	err := c.cc.Invoke(ctx, "/front.admin.v1.Sys/UserList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sysClient) SelectAllData(ctx context.Context, in *SelectDataReq, opts ...grpc.CallOption) (*SelectDataResp, error) {
+	out := new(SelectDataResp)
+	err := c.cc.Invoke(ctx, "/front.admin.v1.Sys/SelectAllData", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -376,6 +386,7 @@ type SysServer interface {
 	UserInfo(context.Context, *InfoReq) (*InfoResp, error)
 	UserAdd(context.Context, *UserAddReq) (*UserAddResp, error)
 	UserList(context.Context, *UserListReq) (*UserListResp, error)
+	SelectAllData(context.Context, *SelectDataReq) (*SelectDataResp, error)
 	UserUpdate(context.Context, *UserUpdateReq) (*UserUpdateResp, error)
 	UserDelete(context.Context, *UserDeleteReq) (*UserDeleteResp, error)
 	ReSetPassword(context.Context, *ReSetPasswordReq) (*ReSetPasswordResp, error)
@@ -424,6 +435,9 @@ func (UnimplementedSysServer) UserAdd(context.Context, *UserAddReq) (*UserAddRes
 }
 func (UnimplementedSysServer) UserList(context.Context, *UserListReq) (*UserListResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserList not implemented")
+}
+func (UnimplementedSysServer) SelectAllData(context.Context, *SelectDataReq) (*SelectDataResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelectAllData not implemented")
 }
 func (UnimplementedSysServer) UserUpdate(context.Context, *UserUpdateReq) (*UserUpdateResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserUpdate not implemented")
@@ -596,6 +610,24 @@ func _Sys_UserList_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SysServer).UserList(ctx, req.(*UserListReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Sys_SelectAllData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelectDataReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SysServer).SelectAllData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/front.admin.v1.Sys/SelectAllData",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SysServer).SelectAllData(ctx, req.(*SelectDataReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1162,6 +1194,10 @@ var Sys_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UserList",
 			Handler:    _Sys_UserList_Handler,
+		},
+		{
+			MethodName: "SelectAllData",
+			Handler:    _Sys_SelectAllData_Handler,
 		},
 		{
 			MethodName: "UserUpdate",
