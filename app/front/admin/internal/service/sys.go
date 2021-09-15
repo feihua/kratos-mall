@@ -218,7 +218,11 @@ func (s *SysService) QueryMenuByRoleId(ctx context.Context, req *pb.QueryMenuByR
 	}, nil
 }
 func (s *SysService) UpdateMenuRole(ctx context.Context, req *pb.UpdateMenuRoleReq) (*pb.UpdateMenuRoleResp, error) {
-	return &pb.UpdateMenuRoleResp{}, nil
+
+	_ = s.roleUseCase.UpdateMenuRole(ctx, req.RoleId, req.MenuIds)
+	return &pb.UpdateMenuRoleResp{
+		Pong: "",
+	}, nil
 }
 func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuAddResp, error) {
 	return &pb.MenuAddResp{}, nil

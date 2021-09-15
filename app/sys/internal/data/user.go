@@ -112,16 +112,14 @@ func (u userRepo) DeleteUserRole(ctx context.Context, userId int64) error {
 
 func (u userRepo) UpdateUserRole(ctx context.Context, userId int64, roleId int64) error {
 
-	sysLog := model.SysUserRole{
+	u.data.db.Create(&model.SysUserRole{
 		UserId:         userId,
 		RoleId:         roleId,
 		CreateBy:       "admin",
-		CreateTime:     time.Time{},
+		CreateTime:     time.Now(),
 		LastUpdateBy:   "admin",
-		LastUpdateTime: time.Time{},
-	}
-
-	u.data.db.Create(&sysLog)
+		LastUpdateTime: time.Now(),
+	})
 
 	return nil
 }

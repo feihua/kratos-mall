@@ -6,6 +6,7 @@ import (
 	"kratos-mall/app/sys/internal/biz"
 	"kratos-mall/app/sys/internal/data/model"
 	"kratos-mall/pkg/util/pagination"
+	"time"
 )
 
 type roleRepo struct {
@@ -71,9 +72,6 @@ func (r roleRepo) ListRole(ctx context.Context, req *biz.RoleListReq) (*biz.Role
 func (r roleRepo) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
 }
-func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64) error {
-	panic("implement me")
-}
 
 func (r roleRepo) QueryMenuByRoleId(ctx context.Context, id int64) ([]int32, error) {
 
@@ -88,4 +86,22 @@ func (r roleRepo) QueryMenuByRoleId(ctx context.Context, id int64) ([]int32, err
 
 	return list, nil
 
+}
+
+func (r roleRepo) DeleteMenuRole(ctx context.Context, id int64) error {
+	return r.data.db.Where(&model.SysRoleMenu{RoleId: id}).Delete(&model.SysRoleMenu{}).Error
+}
+
+func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64, menuId int64) error {
+
+	r.data.db.Create(&model.SysRoleMenu{
+		RoleId:         id,
+		MenuId:         menuId,
+		CreateBy:       "admin",
+		CreateTime:     time.Now(),
+		LastUpdateBy:   "admin",
+		LastUpdateTime: time.Now(),
+	})
+
+	return nil
 }

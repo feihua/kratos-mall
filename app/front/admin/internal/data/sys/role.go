@@ -51,8 +51,13 @@ func (r roleRepo) ListRole(ctx context.Context, req *sys.RoleListReq) (*sys.Role
 func (r roleRepo) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
 }
-func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64) error {
-	panic("implement me")
+func (r roleRepo) UpdateMenuRole(ctx context.Context, id int64, menuIds []int64) error {
+	r.data.SysClient.UpdateMenuRole(ctx, &sysV1.UpdateMenuRoleReq{
+		RoleId:  id,
+		MenuIds: menuIds,
+	})
+
+	return nil
 }
 
 func (r roleRepo) QueryMenuByRoleId(ctx context.Context, id int64) (*sys.QueryMenuByRoleIdResp, error) {

@@ -364,8 +364,8 @@ message MenuDeleteResp {
 }
 
 message UpdateMenuRoleReq {
-  int32 roleId = 1;
-  repeated int32 menuIds = 2;
+  int64 roleId = 1;
+  repeated int64 menuIds = 2;
 }
 
 message UpdateMenuRoleResp {

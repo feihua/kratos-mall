@@ -122,7 +122,7 @@ func (s *SysService) UserUpdate(ctx context.Context, req *pb.UserUpdateReq) (*pb
 
 	var tempUser *biz.User
 	_ = copier.Copy(&tempUser, &req)
-	s.uc.UpdateUser(ctx, tempUser)
+	_ = s.uc.UpdateUser(ctx, tempUser)
 
 	return &pb.UserUpdateResp{
 		Pong: "",
@@ -178,7 +178,10 @@ func (s *SysService) QueryMenuByRoleId(ctx context.Context, req *pb.QueryMenuByR
 	}, nil
 }
 func (s *SysService) UpdateMenuRole(ctx context.Context, req *pb.UpdateMenuRoleReq) (*pb.UpdateMenuRoleResp, error) {
-	return &pb.UpdateMenuRoleResp{}, nil
+	_ = s.roleUseCase.UpdateMenuRole(ctx, req.RoleId, req.MenuIds)
+	return &pb.UpdateMenuRoleResp{
+		Pong: "",
+	}, nil
 }
 func (s *SysService) MenuAdd(ctx context.Context, req *pb.MenuAddReq) (*pb.MenuAddResp, error) {
 	return &pb.MenuAddResp{}, nil

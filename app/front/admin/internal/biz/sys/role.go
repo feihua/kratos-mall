@@ -47,7 +47,7 @@ type RoleRepo interface {
 	UpdateRole(context.Context, *Role) error
 	ListRole(ctx context.Context, req *RoleListReq) (*RoleListResp, error)
 	DeleteRole(ctx context.Context, id int64) error
-	UpdateMenuRole(ctx context.Context, id int64) error
+	UpdateMenuRole(ctx context.Context, id int64, menuIds []int64) error
 	QueryMenuByRoleId(ctx context.Context, id int64) (*QueryMenuByRoleIdResp, error)
 }
 
@@ -80,8 +80,8 @@ func (r RoleUseCase) DeleteRole(ctx context.Context, id int64) error {
 	panic("implement me")
 }
 
-func (r RoleUseCase) UpdateMenuRole(ctx context.Context, id int64) error {
-	panic("implement me")
+func (r RoleUseCase) UpdateMenuRole(ctx context.Context, id int64, menuIds []int64) error {
+	return r.repo.UpdateMenuRole(ctx, id, menuIds)
 }
 
 func (r RoleUseCase) QueryMenuByRoleId(ctx context.Context, id int64) (*QueryMenuByRoleIdResp, error) {
