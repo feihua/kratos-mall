@@ -30,11 +30,11 @@ type RoleListResp struct {
 }
 
 type ListMenuDataResp struct {
-	key      string
-	title    string
-	parentId int32
-	label    string
-	id       int32
+	Key      string
+	Title    string
+	ParentId int32
+	Label    string
+	Id       int32
 }
 
 type QueryMenuByRoleIdResp struct {
@@ -103,11 +103,11 @@ func (r RoleUseCase) QueryMenuByRoleId(ctx context.Context, id int64) (*QueryMen
 
 	for _, menu := range listMenu {
 		resps = append(resps, &ListMenuDataResp{
-			key:      strconv.FormatInt(menu.Id, 10),
-			title:    menu.Name,
-			parentId: int32(menu.ParentId),
-			label:    menu.Name,
-			id:       0,
+			Key:      strconv.FormatInt(menu.Id, 10),
+			Title:    menu.Name,
+			ParentId: int32(menu.ParentId),
+			Label:    menu.Name,
+			Id:       int32(menu.Id),
 		})
 	}
 	return &QueryMenuByRoleIdResp{

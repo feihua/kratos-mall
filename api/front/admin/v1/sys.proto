@@ -260,8 +260,8 @@ message ListMenuData {
 message QueryMenuByRoleIdResp {
   string code = 1;
   string message = 2;
-  repeated int32 UserData = 3;
-  repeated ListMenuData AllData = 4;
+  repeated int32 userData = 3;
+  repeated ListMenuData allData = 4;
 
 }
 

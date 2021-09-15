@@ -5,6 +5,7 @@ import (
 	"github.com/go-kratos/kratos/v2/errors"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
+	"strconv"
 	"strings"
 )
 
@@ -167,7 +168,16 @@ func (uc *UserUseCase) SelectAllData(ctx context.Context, req *SelectDataReq) (*
 
 	listDept, _ := uc.deptRepo.ListDept(ctx, &DeptListReq{})
 	deptAlls := make([]*DeptAll, 0)
-	_ = copier.Copy(&deptAlls, &listDept.List)
+	//_ = copier.Copy(&deptAlls, &listDept.List)
+
+	for _, dept := range listDept.List {
+		deptAlls = append(deptAlls, &DeptAll{
+			Id:       int32(dept.Id),
+			Value:    strconv.FormatInt(dept.Id, 10),
+			Title:    dept.Name,
+			ParentId: int32(dept.ParentId),
+		})
+	}
 
 	listJob, _ := uc.jobRepo.ListJob(ctx, &JobListReq{
 		Current:  req.Current,

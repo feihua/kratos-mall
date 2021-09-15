@@ -29,11 +29,11 @@ type RoleListResp struct {
 }
 
 type ListMenuDataResp struct {
-	key      string
-	title    string
-	parentId int32
-	label    string
-	id       int32
+	Key      string
+	Title    string
+	ParentId int32
+	Label    string
+	Id       int32
 }
 
 type QueryMenuByRoleIdResp struct {
