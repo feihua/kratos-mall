@@ -6,6 +6,7 @@ import (
 	"kratos-mall/app/sys/internal/biz"
 	"kratos-mall/app/sys/internal/data/model"
 	"kratos-mall/pkg/util/pagination"
+	"kratos-mall/pkg/util/time2str"
 	"time"
 )
 
@@ -92,9 +93,9 @@ func (u userRepo) ListUser(ctx context.Context, req *biz.UserListReq) ([]*biz.Us
 			Status:         item.Status,
 			DeptId:         item.DeptId,
 			CreateBy:       item.CreateBy,
-			CreateTime:     item.CreateTime.Format("2006-01-02 15:04:05"),
+			CreateTime:     time2str.String(item.CreateTime),
 			LastUpdateBy:   item.LastUpdateBy,
-			LastUpdateTime: item.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateTime: time2str.String(item.LastUpdateTime),
 			DelFlag:        item.DelFlag,
 			JobId:          item.JobId,
 		})

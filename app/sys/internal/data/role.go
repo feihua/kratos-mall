@@ -6,6 +6,7 @@ import (
 	"kratos-mall/app/sys/internal/biz"
 	"kratos-mall/app/sys/internal/data/model"
 	"kratos-mall/pkg/util/pagination"
+	"kratos-mall/pkg/util/time2str"
 	"time"
 )
 
@@ -55,9 +56,9 @@ func (r roleRepo) ListRole(ctx context.Context, req *biz.RoleListReq) (*biz.Role
 			Name:           role.Name,
 			Remark:         role.Remark,
 			CreateBy:       role.CreateBy,
-			CreateTime:     role.CreateTime.Format("2006-01-02 15:04:05"),
+			CreateTime:     time2str.String(role.CreateTime),
 			LastUpdateBy:   role.LastUpdateBy,
-			LastUpdateTime: role.LastUpdateTime.Format("2006-01-02 15:04:05"),
+			LastUpdateTime: time2str.String(role.LastUpdateTime),
 			DelFlag:        role.DelFlag,
 			Status:         role.Status,
 		})
