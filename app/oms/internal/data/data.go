@@ -6,6 +6,7 @@ import (
 	"github.com/google/wire"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 	"kratos-mall/app/oms/internal/conf"
 )
 
@@ -29,10 +30,12 @@ type Data struct {
 	log *log.Helper
 }
 
-func NewDB(conf *conf.Data, logger log.Logger) *gorm.DB {
-	log := log.NewHelper(log.With(logger, "module", "ums-service/data/gorm"))
+func NewDB(conf *conf.Data, logger1 log.Logger) *gorm.DB {
+	log := log.NewHelper(log.With(logger1, "module", "ums-service/data/gorm"))
 
-	db, err := gorm.Open(mysql.Open(conf.Database.Source), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(conf.Database.Source), &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info),
+	})
 	if err != nil {
 		log.Fatalf("failed opening connection to mysql: %v", err)
 	}
