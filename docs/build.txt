@@ -1,0 +1,31 @@
+kratos proto client .\api\oms\v1\oms.proto
+kratos proto client .\api\pay\v1\pay.proto
+kratos proto client .\api\pms\v1\pms.proto
+kratos proto client .\api\sms\v1\sms.proto
+kratos proto client .\api\sys\v1\sys.proto
+kratos proto client .\api\ums\v1\ums.proto
+
+kratos proto server .\api\oms\v1\oms.proto -t .\app\oms\internal\service
+kratos proto server .\api\pay\v1\pay.proto -t .\app\pay\internal\service
+kratos proto server .\api\pms\v1\pms.proto -t .\app\pms\internal\service
+kratos proto server .\api\sms\v1\sms.proto -t .\app\sms\internal\service
+kratos proto server .\api\sys\v1\sys.proto -t .\app\sys\internal\service
+kratos proto server .\api\ums\v1\ums.proto -t .\app\ums\internal\service
+
+
+kratos proto client .\api\front\admin\v1\oms.proto
+kratos proto client .\api\front\admin\v1\pay.proto
+kratos proto client .\api\front\admin\v1\pms.proto
+kratos proto client .\api\front\admin\v1\sms.proto
+kratos proto client .\api\front\admin\v1\sys.proto
+kratos proto client .\api\front\admin\v1\ums.proto
+
+
+kratos proto server .\api\front\admin\v1\oms.proto -t  .\app\front\admin\internal\service
+kratos proto server .\api\front\admin\v1\pay.proto -t  .\app\front\admin\internal\service
+kratos proto server .\api\front\admin\v1\pms.proto -t  .\app\front\admin\internal\service
+kratos proto server .\api\front\admin\v1\sms.proto -t  .\app\front\admin\internal\service
+kratos proto server .\api\front\admin\v1\sys.proto -t  .\app\front\admin\internal\service
+kratos proto server .\api\front\admin\v1\ums.proto -t  .\app\front\admin\internal\service
+
+
