@@ -7,10 +7,12 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
+	"github.com/go-kratos/kratos/v2/middleware/selector"
 	"github.com/go-kratos/kratos/v2/transport"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	v1 "kratos-mall/api/front/admin/v1"
 	"kratos-mall/app/front/admin/internal/conf"
+	jwt "kratos-mall/app/front/admin/internal/pkg/middleware"
 	"kratos-mall/app/front/admin/internal/service"
 )
 
@@ -23,17 +25,18 @@ func getOperation(handler middleware.Handler) middleware.Handler {
 	}
 }
 
+func MatchFunc(x string) bool {
+	return x != "/front.admin.v1.Sys/Login"
+}
+
 // NewHTTPServer new a HTTP server.
 func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, oms *service.OmsService, pay *service.PayService, pms *service.PmsService, sms *service.SmsService, sys *service.SysService, ums *service.UmsService, logger log.Logger) *http.Server {
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
 			logging.Server(logger),
-			//selector.Server(jwt.AuthMiddleware()).
-			//	Regex(`^[/front.admin.v1.Sys/Login]`).
-			///front.admin.v1.Sys/UserInfo,/front.admin.v1.Sys/Login
-			//.Path("/front.admin.v1.Oms/OrderList").
-			//	Build(),
+			selector.Server(jwt.AuthMiddleware()).Match(MatchFunc).
+				Build(),
 			getOperation,
 		),
 	}
