@@ -53,8 +53,8 @@ func main() {
 		"service.id", id,
 		"service.name", Name,
 		"service.version", Version,
-		"trace_id", log.TraceID(),
-		"span_id", log.SpanID(),
+		//"trace_id", trace.TraceID,
+		//"span_id", trace.SpanID{},
 	)
 	c := config.New(
 		config.WithSource(

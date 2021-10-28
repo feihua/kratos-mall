@@ -1,0 +1,262 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "支付相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Pay"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/pay/wx/appUnifiedOrder": {
+      "post": {
+        "operationId": "Pay_AppUnifiedOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UnifiedOrderResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UnifiedOrderReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pay"
+        ]
+      }
+    },
+    "/api/pay/wx/h5UnifiedOrder": {
+      "post": {
+        "operationId": "Pay_H5UnifiedOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1H5UnifiedOrderResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UnifiedOrderReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pay"
+        ]
+      }
+    },
+    "/api/pay/wx/jsUnifiedOrder": {
+      "post": {
+        "operationId": "Pay_JsUnifiedOrder",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UnifiedOrderResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UnifiedOrderReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pay"
+        ]
+      }
+    },
+    "/api/pay/wx/orderQuery": {
+      "post": {
+        "operationId": "Pay_OrderQuery",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderQueryResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderQueryReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pay"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1H5UnifiedOrderResp": {
+      "type": "object",
+      "properties": {
+        "nWebUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderQueryReq": {
+      "type": "object",
+      "properties": {
+        "businessId": {
+          "type": "string"
+        },
+        "merId": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderQueryResp": {
+      "type": "object",
+      "properties": {
+        "payMessage": {
+          "type": "string"
+        },
+        "payStatus": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UnifiedOrderReq": {
+      "type": "object",
+      "properties": {
+        "businessId": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "merId": {
+          "type": "string"
+        },
+        "payType": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UnifiedOrderResp": {
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string"
+        },
+        "partnerId": {
+          "type": "string"
+        },
+        "prepayId": {
+          "type": "string"
+        },
+        "packageStr": {
+          "type": "string"
+        },
+        "nonceStr": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "sign": {
+          "type": "string"
+        },
+        "mWebUrl": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

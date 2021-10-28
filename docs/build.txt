@@ -1,3 +1,17 @@
+//更新
+go get -u github.com/go-kratos/kratos/cmd/kratos/v2@latest
+
+go get -u github.com/go-kratos/swagger-api
+
+//生成swagger.json文件
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\oms.proto
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\pay.proto
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\pms.proto
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\sms.proto
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\sys.proto
+protoc --proto_path=.  --proto_path=./third_party --openapiv2_out . --openapiv2_opt logtostderr=true --openapiv2_opt json_names_for_fields=false .\api\front\admin\v1\ums.proto
+
+//生成client
 kratos proto client .\api\oms\v1\oms.proto
 kratos proto client .\api\pay\v1\pay.proto
 kratos proto client .\api\pms\v1\pms.proto
@@ -5,6 +19,7 @@ kratos proto client .\api\sms\v1\sms.proto
 kratos proto client .\api\sys\v1\sys.proto
 kratos proto client .\api\ums\v1\ums.proto
 
+//生成service
 kratos proto server .\api\oms\v1\oms.proto -t .\app\oms\internal\service
 kratos proto server .\api\pay\v1\pay.proto -t .\app\pay\internal\service
 kratos proto server .\api\pms\v1\pms.proto -t .\app\pms\internal\service
@@ -12,7 +27,7 @@ kratos proto server .\api\sms\v1\sms.proto -t .\app\sms\internal\service
 kratos proto server .\api\sys\v1\sys.proto -t .\app\sys\internal\service
 kratos proto server .\api\ums\v1\ums.proto -t .\app\ums\internal\service
 
-
+//生成client
 kratos proto client .\api\front\admin\v1\oms.proto
 kratos proto client .\api\front\admin\v1\pay.proto
 kratos proto client .\api\front\admin\v1\pms.proto
@@ -20,7 +35,7 @@ kratos proto client .\api\front\admin\v1\sms.proto
 kratos proto client .\api\front\admin\v1\sys.proto
 kratos proto client .\api\front\admin\v1\ums.proto
 
-
+//生成service
 kratos proto server .\api\front\admin\v1\oms.proto -t  .\app\front\admin\internal\service
 kratos proto server .\api\front\admin\v1\pay.proto -t  .\app\front\admin\internal\service
 kratos proto server .\api\front\admin\v1\pms.proto -t  .\app\front\admin\internal\service

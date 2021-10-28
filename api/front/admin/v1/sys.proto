@@ -3,8 +3,16 @@ syntax = "proto3";
 package front.admin.v1;
 
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "api/front/admin/v1;v1";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "系统相关";
+    version: "1.0";
+  };
+};
 
 //user start---------------------
 message LoginReq {
@@ -789,13 +797,13 @@ service Sys {
   }
   rpc ReSetPassword(ReSetPasswordReq) returns(ReSetPasswordResp){
     option (google.api.http) = {
-      post: "/api/sys/"
+      post: "/api/sys/reSetPassword"
       body: "*"
     };
   }
   rpc UpdateUserStatus(UserStatusReq) returns(UserStatusResp){
     option (google.api.http) = {
-      post: "/api/sys/"
+      post: "/api/sys/updateUserStatus"
       body: "*"
     };
   }

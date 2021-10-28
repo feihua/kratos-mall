@@ -1,0 +1,2690 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "商品相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Pms"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/product/brand/add": {
+      "post": {
+        "operationId": "Pms_BrandAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1BrandAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1BrandAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/brand/delete": {
+      "post": {
+        "operationId": "Pms_BrandDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1BrandDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1BrandDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/brand/list": {
+      "post": {
+        "operationId": "Pms_BrandList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1BrandListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1BrandListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/brand/update": {
+      "post": {
+        "operationId": "Pms_BrandUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1BrandUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1BrandUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/category/add": {
+      "post": {
+        "operationId": "Pms_ProductCategoryAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/category/delete": {
+      "post": {
+        "operationId": "Pms_ProductCategoryDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/category/list": {
+      "post": {
+        "operationId": "Pms_ProductCategoryList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/category/update": {
+      "post": {
+        "operationId": "Pms_ProductCategoryUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductCategoryUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/comment/add": {
+      "post": {
+        "operationId": "Pms_CommentAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CommentAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CommentAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/comment/delete": {
+      "post": {
+        "operationId": "Pms_CommentDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CommentDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CommentDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/comment/list": {
+      "post": {
+        "operationId": "Pms_CommentList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CommentListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CommentListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/comment/update": {
+      "post": {
+        "operationId": "Pms_CommentUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CommentUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CommentUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/feighttemplate/add": {
+      "post": {
+        "operationId": "Pms_FeightTemplateAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/feighttemplate/delete": {
+      "post": {
+        "operationId": "Pms_FeightTemplateDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/feighttemplate/list": {
+      "post": {
+        "operationId": "Pms_FeightTemplateList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/feighttemplate/update": {
+      "post": {
+        "operationId": "Pms_FeightTemplateUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FeightTemplateUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/memberprice/add": {
+      "post": {
+        "operationId": "Pms_MemberPriceAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/memberprice/delete": {
+      "post": {
+        "operationId": "Pms_MemberPriceDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/memberprice/list": {
+      "post": {
+        "operationId": "Pms_MemberPriceList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/memberprice/update": {
+      "post": {
+        "operationId": "Pms_MemberPriceUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberPriceUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/product/add": {
+      "post": {
+        "operationId": "Pms_ProductAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/product/delete": {
+      "post": {
+        "operationId": "Pms_ProductDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/product/list": {
+      "post": {
+        "operationId": "Pms_ProductList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/product/update": {
+      "post": {
+        "operationId": "Pms_ProductUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ProductUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ProductUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/skustock/add": {
+      "post": {
+        "operationId": "Pms_SkuStockAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/skustock/delete": {
+      "post": {
+        "operationId": "Pms_SkuStockDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/skustock/list": {
+      "post": {
+        "operationId": "Pms_SkuStockList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    },
+    "/api/product/skustock/update": {
+      "post": {
+        "operationId": "Pms_SkuStockUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SkuStockUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Pms"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1BrandAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "firstLetter": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "factoryStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCommentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "bigPic": {
+          "type": "string"
+        },
+        "brandStory": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BrandAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BrandDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1BrandDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BrandListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstLetter": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "factoryStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "showStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productCommentCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "bigPic": {
+          "type": "string"
+        },
+        "brandStory": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BrandListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1BrandListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1BrandListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1BrandUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "firstLetter": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "factoryStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCommentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "bigPic": {
+          "type": "string"
+        },
+        "brandStory": {
+          "type": "string"
+        }
+      }
+    },
+    "v1BrandUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CommentAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberNickName": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "star": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberIp": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productAttribute": {
+          "type": "string"
+        },
+        "collectCouont": {
+          "type": "string",
+          "format": "int64"
+        },
+        "readCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "content": {
+          "type": "string"
+        },
+        "pics": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "replayCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CommentAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CommentDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CommentDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CommentListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberNickName": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "star": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberIp": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "showStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productAttribute": {
+          "type": "string"
+        },
+        "collectCouont": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "readCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "string"
+        },
+        "pics": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "replayCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CommentListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CommentListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CommentListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1CommentUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberNickName": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "star": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberIp": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productAttribute": {
+          "type": "string"
+        },
+        "collectCouont": {
+          "type": "string",
+          "format": "int64"
+        },
+        "readCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "content": {
+          "type": "string"
+        },
+        "pics": {
+          "type": "string"
+        },
+        "memberIcon": {
+          "type": "string"
+        },
+        "replayCount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CommentUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "chargeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstWeight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstFee": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continueWeight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continmeFee": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Dest": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FeightTemplateDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "chargeType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstWeight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "firstFee": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "continueWeight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "continmeFee": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Dest": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FeightTemplateListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1FeightTemplateListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1FeightTemplateUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "chargeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstWeight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "firstFee": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continueWeight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continmeFee": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Dest": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FeightTemplateUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberLevelId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberLevelName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberPriceDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberLevelId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberLevelName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberPriceListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberPriceListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberPriceUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberLevelId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberLevelName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberPriceUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductAddReq": {
+      "type": "object",
+      "properties": {
+        "brandId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "feightTemplateId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productAttributeCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "deleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "publishStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "newStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "recommandStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "verifyStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sale": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "giftGrowth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "giftPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "usePointLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "subTitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "originalPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "stock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LowStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "previewStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serviceIds": {
+          "type": "string"
+        },
+        "Keywords": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "AlbumPics": {
+          "type": "string"
+        },
+        "detailTitle": {
+          "type": "string"
+        },
+        "detailDesc": {
+          "type": "string"
+        },
+        "detailHtml": {
+          "type": "string"
+        },
+        "detailMobileHtml": {
+          "type": "string"
+        },
+        "promotionStartTime": {
+          "type": "string"
+        },
+        "promotionEndTime": {
+          "type": "string"
+        },
+        "promotionPerLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "productCategoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryAddReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productUnit": {
+          "type": "string"
+        },
+        "navStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ProductCategoryDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productUnit": {
+          "type": "string"
+        },
+        "navStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "showStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "deywords": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ProductCategoryListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProductCategoryListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1ProductCategoryUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "parentId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productUnit": {
+          "type": "string"
+        },
+        "navStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "showStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductCategoryUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ProductDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductListData": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "brandId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "feightTemplateId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productAttributeCategoryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "publishStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "newStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "recommandStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "verifyStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sale": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "giftGrowth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "giftPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "usePointLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subTitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "originalPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "LowStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "previewStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serviceIds": {
+          "type": "string"
+        },
+        "Keywords": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "AlbumPics": {
+          "type": "string"
+        },
+        "detailTitle": {
+          "type": "string"
+        },
+        "detailDesc": {
+          "type": "string"
+        },
+        "detailHtml": {
+          "type": "string"
+        },
+        "detailMobileHtml": {
+          "type": "string"
+        },
+        "promotionStartTime": {
+          "type": "string"
+        },
+        "promotionEndTime": {
+          "type": "string"
+        },
+        "promotionPerLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "promotionType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "productCategoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1ProductListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ProductListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1ProductUpdateReq": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "feightTemplateId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productAttributeCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "deleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "publishStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "newStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "recommandStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "verifyStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sale": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "giftGrowth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "giftPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "usePointLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "subTitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "originalPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "stock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LowStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "previewStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "serviceIds": {
+          "type": "string"
+        },
+        "Keywords": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "AlbumPics": {
+          "type": "string"
+        },
+        "detailTitle": {
+          "type": "string"
+        },
+        "detailDesc": {
+          "type": "string"
+        },
+        "detailHtml": {
+          "type": "string"
+        },
+        "detailMobileHtml": {
+          "type": "string"
+        },
+        "promotionStartTime": {
+          "type": "string"
+        },
+        "promotionEndTime": {
+          "type": "string"
+        },
+        "promotionPerLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "productCategoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ProductUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "skuCode": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "stock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LowStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "sale": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LockStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "spData": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1SkuStockDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "skuCode": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "stock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "LowStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "sale": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "promotionPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "LockStock": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "spData": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1SkuStockListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1SkuStockListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1SkuStockUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "skuCode": {
+          "type": "string"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "stock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LowStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "sale": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "LockStock": {
+          "type": "string",
+          "format": "int64"
+        },
+        "spData": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SkuStockUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

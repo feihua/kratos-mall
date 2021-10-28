@@ -1,0 +1,3564 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "会员相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Ums"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/member/address/add": {
+      "post": {
+        "operationId": "Ums_MemberReceiveAddressAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/address/delete": {
+      "post": {
+        "operationId": "Ums_MemberReceiveAddressDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/address/list": {
+      "post": {
+        "operationId": "Ums_MemberReceiveAddressList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/address/update": {
+      "post": {
+        "operationId": "Ums_MemberReceiveAddressUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberReceiveAddressUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/growthchangehistory/add": {
+      "post": {
+        "operationId": "Ums_GrowthChangeHistoryAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/growthchangehistory/delete": {
+      "post": {
+        "operationId": "Ums_GrowthChangeHistoryDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/growthchangehistory/list": {
+      "post": {
+        "operationId": "Ums_GrowthChangeHistoryList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/growthchangehistory/update": {
+      "post": {
+        "operationId": "Ums_GrowthChangeHistoryUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1GrowthChangeHistoryUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationchangehistory/add": {
+      "post": {
+        "operationId": "Ums_IntegrationChangeHistoryAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationchangehistory/delete": {
+      "post": {
+        "operationId": "Ums_IntegrationChangeHistoryDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationchangehistory/list": {
+      "post": {
+        "operationId": "Ums_IntegrationChangeHistoryList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationchangehistory/update": {
+      "post": {
+        "operationId": "Ums_IntegrationChangeHistoryUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationChangeHistoryUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationconsumesetting/add": {
+      "post": {
+        "operationId": "Ums_IntegrationConsumeSettingAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationconsumesetting/delete": {
+      "post": {
+        "operationId": "Ums_IntegrationConsumeSettingDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationconsumesetting/list": {
+      "post": {
+        "operationId": "Ums_IntegrationConsumeSettingList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/integrationconsumesetting/update": {
+      "post": {
+        "operationId": "Ums_IntegrationConsumeSettingUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1IntegrationConsumeSettingUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/level/add": {
+      "post": {
+        "operationId": "Ums_MemberLevelAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/level/delete": {
+      "post": {
+        "operationId": "Ums_MemberLevelDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/level/list": {
+      "post": {
+        "operationId": "Ums_MemberLevelList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/level/update": {
+      "post": {
+        "operationId": "Ums_MemberLevelUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLevelUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/loginlog/add": {
+      "post": {
+        "operationId": "Ums_MemberLoginLogAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/loginlog/delete": {
+      "post": {
+        "operationId": "Ums_MemberLoginLogDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/loginlog/list": {
+      "post": {
+        "operationId": "Ums_MemberLoginLogList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/loginlog/update": {
+      "post": {
+        "operationId": "Ums_MemberLoginLogUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberLoginLogUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/member/add": {
+      "post": {
+        "operationId": "Ums_MemberAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/member/delete": {
+      "post": {
+        "operationId": "Ums_MemberDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/member/list": {
+      "post": {
+        "operationId": "Ums_MemberList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/member/update": {
+      "post": {
+        "operationId": "Ums_MemberUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/rulesetting/add": {
+      "post": {
+        "operationId": "Ums_MemberRuleSettingAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/rulesetting/delete": {
+      "post": {
+        "operationId": "Ums_MemberRuleSettingDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/rulesetting/list": {
+      "post": {
+        "operationId": "Ums_MemberRuleSettingList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/rulesetting/update": {
+      "post": {
+        "operationId": "Ums_MemberRuleSettingUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberRuleSettingUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/statistics/add": {
+      "post": {
+        "operationId": "Ums_MemberStatisticsInfoAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/statistics/delete": {
+      "post": {
+        "operationId": "Ums_MemberStatisticsInfoDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/statistics/list": {
+      "post": {
+        "operationId": "Ums_MemberStatisticsInfoList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/statistics/update": {
+      "post": {
+        "operationId": "Ums_MemberStatisticsInfoUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberStatisticsInfoUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/tag/add": {
+      "post": {
+        "operationId": "Ums_MemberTagAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/tag/delete": {
+      "post": {
+        "operationId": "Ums_MemberTagDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/tag/list": {
+      "post": {
+        "operationId": "Ums_MemberTagList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/tag/update": {
+      "post": {
+        "operationId": "Ums_MemberTagUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTagUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/task/add": {
+      "post": {
+        "operationId": "Ums_MemberTaskAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/task/delete": {
+      "post": {
+        "operationId": "Ums_MemberTaskDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/task/list": {
+      "post": {
+        "operationId": "Ums_MemberTaskList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    },
+    "/api/member/task/update": {
+      "post": {
+        "operationId": "Ums_MemberTaskUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MemberTaskUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Ums"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1GrowthChangeHistoryAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryListData": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "changeCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1GrowthChangeHistoryListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryUpdateReq": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1GrowthChangeHistoryUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryListData": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "changeCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1IntegrationChangeHistoryListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryUpdateReq": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "changeType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "changeCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "operateNote": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationChangeHistoryUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingAddReq": {
+      "type": "object",
+      "properties": {
+        "deductionPerAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "maxPercentPerOrder": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useUnit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponStatus": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deductionPerAmount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxPercentPerOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "useUnit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "couponStatus": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1IntegrationConsumeSettingListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deductionPerAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "maxPercentPerOrder": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useUnit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponStatus": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1IntegrationConsumeSettingUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberAddReq": {
+      "type": "object",
+      "properties": {
+        "memberLevelId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Icon": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "format": "int64"
+        },
+        "birthday": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "job": {
+          "type": "string"
+        },
+        "personalizedSignature": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "luckeyCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "historyIntegration": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "GrowthPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "defaultStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "freeFreightPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentGrowthPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeFreeFreight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeSignIn": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeComment": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgePromotion": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeMemberPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeBirthday": {
+          "type": "string",
+          "format": "int64"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberLevelDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "GrowthPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "defaultStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "freeFreightPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "commentGrowthPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgeFreeFreight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgeSignIn": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgeComment": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgePromotion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgeMemberPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "priviledgeBirthday": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberLevelListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberLevelListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberLevelUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "growthPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "defaultStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "freeFreightPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentGrowthPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeFreeFreight": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeSignIn": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeComment": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgePromotion": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeMemberPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "priviledgeBirthday": {
+          "type": "string",
+          "format": "int64"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLevelUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberLevelId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Icon": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "birthday": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "job": {
+          "type": "string"
+        },
+        "personalizedSignature": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "luckeyCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "historyIntegration": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MemberListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberLoginLogAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Ip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "LoginType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "province": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLoginLogAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLoginLogDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberLoginLogDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLoginLogListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Ip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "LoginType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "province": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLoginLogListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberLoginLogListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberLoginLogListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberLoginLogUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Ip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "loginType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "province": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberLoginLogUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "defaultStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "detailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberReceiveAddressDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "defaultStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "detailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberReceiveAddressListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberReceiveAddressListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberReceiveAddressUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "defaultStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "detailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberReceiveAddressUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberRuleSettingAddReq": {
+      "type": "object",
+      "properties": {
+        "continueSignDay": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continueSignPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "consumePerPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lowOrderAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "maxPointPerOrder": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberRuleSettingAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberRuleSettingDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberRuleSettingDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberRuleSettingListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "continueSignDay": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "continueSignPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "consumePerPoint": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lowOrderAmount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxPointPerOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MemberRuleSettingListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberRuleSettingListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberRuleSettingListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberRuleSettingUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continueSignDay": {
+          "type": "string",
+          "format": "int64"
+        },
+        "continueSignPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "consumePerPoint": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lowOrderAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "maxPointPerOrder": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberRuleSettingUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "consumeAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "returnOrderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "loginCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "attendCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fansCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectProductCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectSubjectCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectTopicCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectCommentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "InviteFriendCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "recentOrderTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "consumeAmount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "couponCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "commentCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "returnOrderCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "loginCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "attendCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fansCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectProductCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectSubjectCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectTopicCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "collectCommentCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "inviteFriendCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "recentOrderTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberStatisticsInfoListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "consumeAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "returnOrderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "loginCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "attendCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "fansCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectProductCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectSubjectCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectTopicCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "collectCommentCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "inviteFriendCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "recentOrderTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberStatisticsInfoUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTagAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "finishOrderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "finishOrderAmount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTagAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTagDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTagDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTagListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "finishOrderCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "finishOrderAmount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MemberTagListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTagListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberTagListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberTagUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "finishOrderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "finishOrderAmount": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTagUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTaskAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "intergration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTaskAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTaskDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTaskDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberTaskListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "Growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Intergration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MemberTaskListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTaskListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MemberTaskListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MemberTaskUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "Growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Intergration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberTaskUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MemberUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberLevelId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "Icon": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "format": "int64"
+        },
+        "birthday": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "job": {
+          "type": "string"
+        },
+        "personalizedSignature": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "luckeyCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "historyIntegration": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1MemberUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

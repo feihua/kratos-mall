@@ -3,8 +3,16 @@ syntax = "proto3";
 package front.admin.v1;
 
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "api/front/admin/v1;v1";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "订单相关";
+    version: "1.0";
+  };
+};
 
 message OrderAddReq {
   int64       memberId = 2;

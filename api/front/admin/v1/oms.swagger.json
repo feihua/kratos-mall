@@ -1,0 +1,2771 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "订单相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Oms"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/order/cart/add": {
+      "post": {
+        "operationId": "Oms_CartItemAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CartItemAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CartItemAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/cart/delete": {
+      "post": {
+        "operationId": "Oms_CartItemDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CartItemDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CartItemDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/cart/list": {
+      "post": {
+        "operationId": "Oms_CartItemList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CartItemListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CartItemListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/cart/update": {
+      "post": {
+        "operationId": "Oms_CartItemUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CartItemUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CartItemUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/compayaddress/add": {
+      "post": {
+        "operationId": "Oms_CompanyAddressAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/compayaddress/delete": {
+      "post": {
+        "operationId": "Oms_CompanyAddressDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/compayaddress/list": {
+      "post": {
+        "operationId": "Oms_CompanyAddressList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/compayaddress/update": {
+      "post": {
+        "operationId": "Oms_CompanyAddressUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CompanyAddressUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/operatehistory/add": {
+      "post": {
+        "operationId": "Oms_OrderOperateHistoryAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/operatehistory/delete": {
+      "post": {
+        "operationId": "Oms_OrderOperateHistoryDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/operatehistory/list": {
+      "post": {
+        "operationId": "Oms_OrderOperateHistoryList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/operatehistory/update": {
+      "post": {
+        "operationId": "Oms_OrderOperateHistoryUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderOperateHistoryUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/order/add": {
+      "post": {
+        "operationId": "Oms_OrderAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/order/delete": {
+      "post": {
+        "operationId": "Oms_OrderDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/order/list": {
+      "post": {
+        "operationId": "Oms_OrderList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/order/update": {
+      "post": {
+        "operationId": "Oms_OrderUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnapply/add": {
+      "post": {
+        "operationId": "Oms_OrderReturnApplyAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnapply/delete": {
+      "post": {
+        "operationId": "Oms_OrderReturnApplyDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnapply/list": {
+      "post": {
+        "operationId": "Oms_OrderReturnApplyList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnapply/update": {
+      "post": {
+        "operationId": "Oms_OrderReturnApplyUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnApplyUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnreason/add": {
+      "post": {
+        "operationId": "Oms_OrderReturnReasonAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnreason/delete": {
+      "post": {
+        "operationId": "Oms_OrderReturnReasonDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnreason/list": {
+      "post": {
+        "operationId": "Oms_OrderReturnReasonList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/returnreason/update": {
+      "post": {
+        "operationId": "Oms_OrderReturnReasonUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderReturnReasonUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/setting/add": {
+      "post": {
+        "operationId": "Oms_OrderSettingAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/setting/delete": {
+      "post": {
+        "operationId": "Oms_OrderSettingDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/setting/list": {
+      "post": {
+        "operationId": "Oms_OrderSettingList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    },
+    "/api/order/setting/update": {
+      "post": {
+        "operationId": "Oms_OrderSettingUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1OrderSettingUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Oms"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1CartItemAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productSkuId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string"
+        },
+        "productSkuCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string"
+        },
+        "DeleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CartItemAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CartItemDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CartItemDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CartItemListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productSkuId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string"
+        },
+        "productSkuCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string"
+        },
+        "DeleteStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productCategoryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CartItemListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CartItemListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CartItemListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1CartItemUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productSkuId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "price": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productSubTitle": {
+          "type": "string"
+        },
+        "productSkuCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string"
+        },
+        "DeleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productCategoryId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productSn": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CartItemUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressAddReq": {
+      "type": "object",
+      "properties": {
+        "addressName": {
+          "type": "string"
+        },
+        "SendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receiveStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "DetailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CompanyAddressDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "addressName": {
+          "type": "string"
+        },
+        "SendStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "receiveStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "DetailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CompanyAddressListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CompanyAddressListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1CompanyAddressUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "addressName": {
+          "type": "string"
+        },
+        "SendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receiveStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "province": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "DetailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CompanyAddressUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUsername": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "freightAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "integrationAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deliveryCompany": {
+          "type": "string"
+        },
+        "deliverySn": {
+          "type": "string"
+        },
+        "autoConfirmDay": {
+          "type": "string",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionInfo": {
+          "type": "string"
+        },
+        "billType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "billHeader": {
+          "type": "string"
+        },
+        "billContent": {
+          "type": "string"
+        },
+        "billReceiverPhone": {
+          "type": "string"
+        },
+        "billReceiverEmail": {
+          "type": "string"
+        },
+        "receiverName": {
+          "type": "string"
+        },
+        "receiverPhone": {
+          "type": "string"
+        },
+        "receiverPostCode": {
+          "type": "string"
+        },
+        "receiverProvince": {
+          "type": "string"
+        },
+        "receiverCity": {
+          "type": "string"
+        },
+        "receiverRegion": {
+          "type": "string"
+        },
+        "receiverDetailAddress": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "confirmStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useIntegration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "paymentTime": {
+          "type": "string"
+        },
+        "deliveryTime": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "commentTime": {
+          "type": "string"
+        },
+        "modifyTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUsername": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "freightAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "integrationAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sourceType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deliveryCompany": {
+          "type": "string"
+        },
+        "deliverySn": {
+          "type": "string"
+        },
+        "autoConfirmDay": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "integration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "growth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "promotionInfo": {
+          "type": "string"
+        },
+        "billType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "billHeader": {
+          "type": "string"
+        },
+        "billContent": {
+          "type": "string"
+        },
+        "billReceiverPhone": {
+          "type": "string"
+        },
+        "billReceiverEmail": {
+          "type": "string"
+        },
+        "receiverName": {
+          "type": "string"
+        },
+        "receiverPhone": {
+          "type": "string"
+        },
+        "receiverPostCode": {
+          "type": "string"
+        },
+        "receiverProvince": {
+          "type": "string"
+        },
+        "receiverCity": {
+          "type": "string"
+        },
+        "receiverRegion": {
+          "type": "string"
+        },
+        "receiverDetailAddress": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "confirmStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deleteStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "useIntegration": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "paymentTime": {
+          "type": "string"
+        },
+        "deliveryTime": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "commentTime": {
+          "type": "string"
+        },
+        "modifyTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderOperateHistoryAddReq": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "orderStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderOperateHistoryAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderOperateHistoryDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderOperateHistoryDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderOperateHistoryListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "orderStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderOperateHistoryListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderOperateHistoryListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderOperateHistoryListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderOperateHistoryUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "operateMan": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "orderStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Note": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderOperateHistoryUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyAddReq": {
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyAddressId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUsername": {
+          "type": "string"
+        },
+        "returnAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "returnName": {
+          "type": "string"
+        },
+        "returnPhone": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "handleTime": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productRealPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "proofPics": {
+          "type": "string"
+        },
+        "handleNote": {
+          "type": "string"
+        },
+        "handleMan": {
+          "type": "string"
+        },
+        "receiveMan": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "receiveNote": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderReturnApplyDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "companyAddressId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUserName": {
+          "type": "string"
+        },
+        "returnAmount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "returnName": {
+          "type": "string"
+        },
+        "returnPhone": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "handleTime": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        },
+        "productCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productRealPrice": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "proofPics": {
+          "type": "string"
+        },
+        "handleNote": {
+          "type": "string"
+        },
+        "handleMan": {
+          "type": "string"
+        },
+        "receiveMan": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "receiveNote": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderReturnApplyListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderReturnApplyListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderReturnApplyUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "companyAddressId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUsername": {
+          "type": "string"
+        },
+        "returnAmount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "returnName": {
+          "type": "string"
+        },
+        "returnPhone": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "handleTime": {
+          "type": "string"
+        },
+        "productPic": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productBrand": {
+          "type": "string"
+        },
+        "productAttr": {
+          "type": "string"
+        },
+        "productCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productRealPrice": {
+          "type": "string",
+          "format": "int64"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "proofPics": {
+          "type": "string"
+        },
+        "handleNote": {
+          "type": "string"
+        },
+        "handleMan": {
+          "type": "string"
+        },
+        "receiveMan": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "receiveNote": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnApplyUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderReturnReasonDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderReturnReasonListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderReturnReasonListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderReturnReasonUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderReturnReasonUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderSettingAddReq": {
+      "type": "object",
+      "properties": {
+        "flashOrderOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "normalOrderOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "confirmOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "finishOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentOvertime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderSettingAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderSettingDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderSettingDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderSettingListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "flashOrderOvertime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "normalOrderOvertime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "confirmOvertime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "finishOvertime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "commentOvertime": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1OrderSettingListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderSettingListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1OrderSettingListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1OrderSettingUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "flashOrderOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "normalOrderOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "confirmOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "FinishOvertime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "commentOvertime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1OrderSettingUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "memberUsername": {
+          "type": "string"
+        },
+        "totalAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "freightAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "promotionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "integrationAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "couponAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "discountAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "payType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sourceType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deliveryCompany": {
+          "type": "string"
+        },
+        "deliverySn": {
+          "type": "string"
+        },
+        "autoConfirmDay": {
+          "type": "string",
+          "format": "int64"
+        },
+        "integration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "growth": {
+          "type": "string",
+          "format": "int64"
+        },
+        "promotionInfo": {
+          "type": "string"
+        },
+        "billType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "billHeader": {
+          "type": "string"
+        },
+        "billContent": {
+          "type": "string"
+        },
+        "billReceiverPhone": {
+          "type": "string"
+        },
+        "billReceiverEmail": {
+          "type": "string"
+        },
+        "receiverName": {
+          "type": "string"
+        },
+        "receiverPhone": {
+          "type": "string"
+        },
+        "receiverPostCode": {
+          "type": "string"
+        },
+        "receiverProvince": {
+          "type": "string"
+        },
+        "receiverCity": {
+          "type": "string"
+        },
+        "receiverRegion": {
+          "type": "string"
+        },
+        "receiverDetailAddress": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "confirmStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deleteStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useIntegration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "paymentTime": {
+          "type": "string"
+        },
+        "deliveryTime": {
+          "type": "string"
+        },
+        "receiveTime": {
+          "type": "string"
+        },
+        "commentTime": {
+          "type": "string"
+        },
+        "modifyTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1OrderUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

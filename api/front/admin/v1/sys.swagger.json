@@ -1,0 +1,2823 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "系统相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Sys"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/sys/dept/add": {
+      "post": {
+        "operationId": "Sys_DeptAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeptAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeptAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dept/delete": {
+      "post": {
+        "operationId": "Sys_DeptDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeptDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeptDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dept/list": {
+      "post": {
+        "operationId": "Sys_DeptList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeptListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeptListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dept/update": {
+      "post": {
+        "operationId": "Sys_DeptUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeptUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DeptUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dict/add": {
+      "post": {
+        "operationId": "Sys_DictAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DictAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DictAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dict/delete": {
+      "post": {
+        "operationId": "Sys_DictDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DictDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DictDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dict/list": {
+      "post": {
+        "operationId": "Sys_DictList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DictListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DictListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/dict/update": {
+      "post": {
+        "operationId": "Sys_DictUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DictUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1DictUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/job/add": {
+      "post": {
+        "operationId": "Sys_JobAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1JobAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1JobAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/job/delete": {
+      "post": {
+        "operationId": "Sys_JobDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1JobDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1JobDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/job/list": {
+      "post": {
+        "operationId": "Sys_JobList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1JobListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1JobListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/job/update": {
+      "post": {
+        "operationId": "Sys_JobUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1JobUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1JobUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/loginLog/delete": {
+      "post": {
+        "operationId": "Sys_LoginLogDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1LoginLogDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1LoginLogDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/loginLog/list": {
+      "post": {
+        "operationId": "Sys_LoginLogList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1LoginLogListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1LoginLogListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/menu/add": {
+      "post": {
+        "operationId": "Sys_MenuAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MenuAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/menu/delete": {
+      "post": {
+        "operationId": "Sys_MenuDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MenuDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/menu/list": {
+      "post": {
+        "operationId": "Sys_MenuList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MenuListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/menu/update": {
+      "post": {
+        "operationId": "Sys_MenuUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1MenuUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1MenuUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/reSetPassword": {
+      "post": {
+        "operationId": "Sys_ReSetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ReSetPasswordResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ReSetPasswordReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/add": {
+      "post": {
+        "operationId": "Sys_RoleAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RoleAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RoleAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/delete": {
+      "post": {
+        "operationId": "Sys_RoleDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RoleDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RoleDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/list": {
+      "post": {
+        "operationId": "Sys_RoleList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RoleListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RoleListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/queryMenuByRoleId": {
+      "post": {
+        "operationId": "Sys_QueryMenuByRoleId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1QueryMenuByRoleIdResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1QueryMenuByRoleIdReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/update": {
+      "post": {
+        "operationId": "Sys_RoleUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1RoleUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1RoleUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/role/updateRoleMenu": {
+      "post": {
+        "operationId": "Sys_UpdateMenuRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuRoleResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateMenuRoleReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/sysLog/delete": {
+      "post": {
+        "operationId": "Sys_SysLogDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SysLogDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SysLogDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/sysLog/list": {
+      "post": {
+        "operationId": "Sys_SysLogList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SysLogListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SysLogListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/updateUserStatus": {
+      "post": {
+        "operationId": "Sys_UpdateUserStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserStatusResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UserStatusReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/add": {
+      "post": {
+        "operationId": "Sys_UserAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UserAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/currentUser": {
+      "get": {
+        "operationId": "Sys_UserInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1InfoResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/delete": {
+      "post": {
+        "operationId": "Sys_UserDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UserDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/list": {
+      "post": {
+        "operationId": "Sys_UserList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UserListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/login": {
+      "post": {
+        "operationId": "Sys_Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1LoginResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1LoginReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/selectAllData": {
+      "post": {
+        "operationId": "Sys_SelectAllData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1SelectDataResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SelectDataReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    },
+    "/api/sys/user/update": {
+      "post": {
+        "operationId": "Sys_UserUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UserUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UserUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sys"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1DeptAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        }
+      },
+      "title": "dept start---------------------"
+    },
+    "v1DeptAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeptAllResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeptDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeptDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeptListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DeptListReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "int64 current  = 1;\n int64 pageSize = 2;"
+        },
+        "createBy": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeptListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1DeptListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1DeptUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DeptUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DictAddReq": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        }
+      },
+      "title": "dict start---------------------"
+    },
+    "v1DictAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DictDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DictDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DictListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DictListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1DictListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1DictListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1DictUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "remarks": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        }
+      }
+    },
+    "v1DictUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1InfoResp": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "menuTree": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuListTree"
+          }
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobAddReq": {
+      "type": "object",
+      "properties": {
+        "jobName": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        }
+      },
+      "title": "job start---------------------"
+    },
+    "v1JobAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobAllResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1JobDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobName": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "remarks": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "jobName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1JobListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1JobUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobName": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "remarks": {
+          "type": "string"
+        }
+      }
+    },
+    "v1JobUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ListMenuData": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "label": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1LoginLogDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1LoginLogDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1LoginLogListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1LoginLogListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1LoginLogListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1LoginLogListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1LoginReq": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "title": "user start---------------------"
+    },
+    "v1LoginResp": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "currentAuthority": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "accessExpire": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "refreshAfter": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "perms": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "vuePath": {
+          "type": "string"
+        },
+        "vueComponent": {
+          "type": "string"
+        },
+        "vueIcon": {
+          "type": "string"
+        },
+        "vueRedirect": {
+          "type": "string"
+        }
+      },
+      "title": "menu start---------------------"
+    },
+    "v1MenuAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1MenuDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "perms": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "vuePath": {
+          "type": "string"
+        },
+        "vueComponent": {
+          "type": "string"
+        },
+        "vueIcon": {
+          "type": "string"
+        },
+        "vueRedirect": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuListReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "int64 current  = 1;\n int64 pageSize = 2;"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1MenuListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1MenuListTree": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "path": {
+          "type": "string"
+        },
+        "vue_path": {
+          "type": "string"
+        },
+        "vue_component": {
+          "type": "string"
+        },
+        "vue_Icon": {
+          "type": "string"
+        },
+        "vue_redirect": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "perms": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "orderNum": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "vuePath": {
+          "type": "string"
+        },
+        "vueComponent": {
+          "type": "string"
+        },
+        "vueIcon": {
+          "type": "string"
+        },
+        "vueRedirect": {
+          "type": "string"
+        }
+      }
+    },
+    "v1MenuUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1QueryMenuByRoleIdReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1QueryMenuByRoleIdResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "userData": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "allData": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ListMenuData"
+          }
+        }
+      }
+    },
+    "v1ReSetPasswordReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ReSetPasswordResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RoleAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "role start---------------------"
+    },
+    "v1RoleAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RoleAllResp": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RoleDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1RoleDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1RoleListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1RoleListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1RoleListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1RoleListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1RoleUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1RoleUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SelectDataReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1SelectDataResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "roleAll": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1RoleAllResp"
+          }
+        },
+        "deptAll": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1DeptAllResp"
+          }
+        },
+        "jobAll": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1JobAllResp"
+          }
+        }
+      }
+    },
+    "v1SysLogDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1SysLogDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SysLogListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "params": {
+          "type": "string"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1SysLogListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1SysLogListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1SysLogListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1UpdateMenuRoleReq": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "menuIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1UpdateMenuRoleResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserAddReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "deptId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1UserAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1UserDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "salt": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deptId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createBy": {
+          "type": "string"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "lastUpdateTime": {
+          "type": "string"
+        },
+        "delFlag": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleName": {
+          "type": "string"
+        },
+        "jobName": {
+          "type": "string"
+        },
+        "deptName": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "deptId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1UserListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1UserListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1UserStatusReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserStatusResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1UserUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nickName": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "deptId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdateBy": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "jobId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1UserUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

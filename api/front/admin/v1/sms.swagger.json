@@ -1,0 +1,3080 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "营销相关",
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "Sms"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/sms/coupon/add": {
+      "post": {
+        "operationId": "Sms_CouponAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/coupon/delete": {
+      "post": {
+        "operationId": "Sms_CouponDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/coupon/list": {
+      "post": {
+        "operationId": "Sms_CouponList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/coupon/update": {
+      "post": {
+        "operationId": "Sms_CouponUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/couponhistory/add": {
+      "post": {
+        "operationId": "Sms_CouponHistoryAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/couponhistory/delete": {
+      "post": {
+        "operationId": "Sms_CouponHistoryDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/couponhistory/list": {
+      "post": {
+        "operationId": "Sms_CouponHistoryList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/couponhistory/update": {
+      "post": {
+        "operationId": "Sms_CouponHistoryUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CouponHistoryUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotion/add": {
+      "post": {
+        "operationId": "Sms_FlashPromotionAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotion/delete": {
+      "post": {
+        "operationId": "Sms_FlashPromotionDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotion/list": {
+      "post": {
+        "operationId": "Sms_FlashPromotionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotion/update": {
+      "post": {
+        "operationId": "Sms_FlashPromotionUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionlog/add": {
+      "post": {
+        "operationId": "Sms_FlashPromotionLogAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionlog/delete": {
+      "post": {
+        "operationId": "Sms_FlashPromotionLogDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionlog/list": {
+      "post": {
+        "operationId": "Sms_FlashPromotionLogList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionlog/update": {
+      "post": {
+        "operationId": "Sms_FlashPromotionLogUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionLogUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionsession/add": {
+      "post": {
+        "operationId": "Sms_FlashPromotionSessionAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionsession/delete": {
+      "post": {
+        "operationId": "Sms_FlashPromotionSessionDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionsession/list": {
+      "post": {
+        "operationId": "Sms_FlashPromotionSessionList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/flashpromotionsession/update": {
+      "post": {
+        "operationId": "Sms_FlashPromotionSessionUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FlashPromotionSessionUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homeadvertise/add": {
+      "post": {
+        "operationId": "Sms_HomeAdvertiseAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homeadvertise/delete": {
+      "post": {
+        "operationId": "Sms_HomeAdvertiseDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homeadvertise/list": {
+      "post": {
+        "operationId": "Sms_HomeAdvertiseList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homeadvertise/update": {
+      "post": {
+        "operationId": "Sms_HomeAdvertiseUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeAdvertiseUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homebrand/add": {
+      "post": {
+        "operationId": "Sms_HomeBrandAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homebrand/delete": {
+      "post": {
+        "operationId": "Sms_HomeBrandDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homebrand/list": {
+      "post": {
+        "operationId": "Sms_HomeBrandList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homebrand/update": {
+      "post": {
+        "operationId": "Sms_HomeBrandUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeBrandUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homenewproduct/add": {
+      "post": {
+        "operationId": "Sms_HomeNewProductAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homenewproduct/delete": {
+      "post": {
+        "operationId": "Sms_HomeNewProductDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homenewproduct/list": {
+      "post": {
+        "operationId": "Sms_HomeNewProductList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homenewproduct/update": {
+      "post": {
+        "operationId": "Sms_HomeNewProductUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeNewProductUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendproduct/add": {
+      "post": {
+        "operationId": "Sms_HomeRecommendProductAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendproduct/delete": {
+      "post": {
+        "operationId": "Sms_HomeRecommendProductDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendproduct/list": {
+      "post": {
+        "operationId": "Sms_HomeRecommendProductList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendproduct/update": {
+      "post": {
+        "operationId": "Sms_HomeRecommendProductUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendProductUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendsubject/add": {
+      "post": {
+        "operationId": "Sms_HomeRecommendSubjectAdd",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectAddResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectAddReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendsubject/delete": {
+      "post": {
+        "operationId": "Sms_HomeRecommendSubjectDelete",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectDeleteResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectDeleteReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendsubject/list": {
+      "post": {
+        "operationId": "Sms_HomeRecommendSubjectList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectListResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectListReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    },
+    "/api/sms/homerecommendsubject/update": {
+      "post": {
+        "operationId": "Sms_HomeRecommendSubjectUpdate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectUpdateResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1HomeRecommendSubjectUpdateReq"
+            }
+          }
+        ],
+        "tags": [
+          "Sms"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1CouponAddReq": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "format": "int64"
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "perLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "minPoint": {
+          "type": "number",
+          "format": "double"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "useType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "note": {
+          "type": "string"
+        },
+        "publishCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receiveCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "enableTime": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "memberLevel": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryAddReq": {
+      "type": "object",
+      "properties": {
+        "couponId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "GetType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "useStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useTime": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponHistoryDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "couponId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "GetType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "useStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "useTime": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderSn": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponHistoryListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CouponHistoryListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1CouponHistoryUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "couponCode": {
+          "type": "string"
+        },
+        "memberNickname": {
+          "type": "string"
+        },
+        "GetType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        },
+        "useStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useTime": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderSn": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponHistoryUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CouponListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "perLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "minPoint": {
+          "type": "number",
+          "format": "double"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "useType": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "note": {
+          "type": "string"
+        },
+        "publishCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "useCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "receiveCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "enableTime": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "memberLevel": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1CouponListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1CouponListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1CouponUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string",
+          "format": "int64"
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "perLimit": {
+          "type": "string",
+          "format": "int64"
+        },
+        "minPoint": {
+          "type": "number",
+          "format": "double"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "useType": {
+          "type": "string",
+          "format": "int64"
+        },
+        "note": {
+          "type": "string"
+        },
+        "publishCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "useCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "receiveCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "enableTime": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "memberLevel": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1CouponUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionAddReq": {
+      "type": "object",
+      "properties": {
+        "Title": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1FlashPromotionListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1FlashPromotionLogAddReq": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberPhone": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "subscribeTime": {
+          "type": "string"
+        },
+        "sendTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionLogAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionLogDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionLogDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionLogListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberPhone": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "subscribeTime": {
+          "type": "string"
+        },
+        "sendTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionLogListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionLogListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1FlashPromotionLogListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1FlashPromotionLogUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "memberPhone": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "subscribeTime": {
+          "type": "string"
+        },
+        "sendTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionLogUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionSessionDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1FlashPromotionSessionListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1FlashPromotionSessionListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1FlashPromotionSessionUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionSessionUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createTime": {
+          "type": "string"
+        }
+      }
+    },
+    "v1FlashPromotionUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeAdvertiseAddReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clickCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeAdvertiseAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeAdvertiseDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeAdvertiseDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeAdvertiseListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clickCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "orderCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "url": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1HomeAdvertiseListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeAdvertiseListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1HomeAdvertiseListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1HomeAdvertiseUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pic": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "int64"
+        },
+        "clickCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "orderCount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "url": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeAdvertiseUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeBrandAddReq": {
+      "type": "object",
+      "properties": {
+        "brandId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeBrandAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeBrandDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeBrandDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeBrandListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "brandId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1HomeBrandListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeBrandListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1HomeBrandListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1HomeBrandUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeBrandUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeNewProductAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeNewProductAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeNewProductDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeNewProductDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeNewProductListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1HomeNewProductListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeNewProductListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1HomeNewProductListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1HomeNewProductUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeNewProductUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendProductAddReq": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendProductAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendProductDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendProductDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendProductListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1HomeRecommendProductListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendProductListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1HomeRecommendProductListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1HomeRecommendProductUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendProductUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectAddReq": {
+      "type": "object",
+      "properties": {
+        "subjectId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "subjectName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectAddResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectDeleteReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectDeleteResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectListData": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subjectId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "subjectName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectListReq": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "format": "int64"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectListResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1HomeRecommendSubjectListData"
+          }
+        },
+        "success": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectUpdateReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "subjectId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "subjectName": {
+          "type": "string"
+        },
+        "recommendStatus": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sort": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1HomeRecommendSubjectUpdateResp": {
+      "type": "object",
+      "properties": {
+        "pong": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

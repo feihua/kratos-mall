@@ -10,6 +10,7 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/selector"
 	"github.com/go-kratos/kratos/v2/transport"
 	"github.com/go-kratos/kratos/v2/transport/http"
+	"github.com/go-kratos/swagger-api/openapiv2"
 	v1 "kratos-mall/api/front/admin/v1"
 	"kratos-mall/app/front/admin/internal/conf"
 	jwt "kratos-mall/app/front/admin/internal/pkg/middleware"
@@ -26,7 +27,7 @@ func getOperation(handler middleware.Handler) middleware.Handler {
 }
 
 func MatchFunc(x string) bool {
-	return x != "/front.admin.v1.Sys/Login"
+	return true
 }
 
 // NewHTTPServer new a HTTP server.
@@ -50,6 +51,8 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, oms *service
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
 	srv := http.NewServer(opts...)
+	openApiHandler := openapiv2.NewHandler()
+	srv.HandlePrefix("/q/", openApiHandler)
 	v1.RegisterGreeterHTTPServer(srv, greeter)
 	v1.RegisterOmsHTTPServer(srv, oms)
 	v1.RegisterPayHTTPServer(srv, pay)
