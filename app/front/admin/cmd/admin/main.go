@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"kratos-mall/app/front/admin/internal/conf"
@@ -53,8 +54,8 @@ func main() {
 		"service.id", id,
 		"service.name", Name,
 		"service.version", Version,
-		//"trace_id", trace.TraceID,
-		//"span_id", trace.SpanID{},
+		"trace_id", tracing.TraceID,
+		"span_id", tracing.SpanID,
 	)
 	c := config.New(
 		config.WithSource(
