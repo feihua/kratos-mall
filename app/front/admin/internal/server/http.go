@@ -26,7 +26,7 @@ func getOperation(handler middleware.Handler) middleware.Handler {
 	}
 }
 
-func MatchFunc(x string) bool {
+func MyMatchFunc(ctx context.Context, operation string) bool {
 	return true
 }
 
@@ -36,7 +36,7 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, oms *service
 		http.Middleware(
 			recovery.Recovery(),
 			logging.Server(logger),
-			selector.Server(jwt.AuthMiddleware()).Match(MatchFunc).
+			selector.Server(jwt.AuthMiddleware()).Match(MyMatchFunc).
 				Build(),
 			getOperation,
 		),
