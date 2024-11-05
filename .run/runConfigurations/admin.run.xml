@@ -3,7 +3,7 @@
     <module name="kratos-mall" />
     <working_directory value="$PROJECT_DIR$" />
     <kind value="PACKAGE" />
-    <package value="kratos-mall/app/front/admin/cmd/admin" />
+    <package value="github.com/feihua/kratos-mall/app/front/admin/cmd/admin" />
     <directory value="$PROJECT_DIR$" />
     <filePath value="$PROJECT_DIR$/app/front/admin/cmd/admin/main.go" />
     <method v="2" />
