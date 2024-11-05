@@ -2,6 +2,13 @@ package data
 
 import (
 	"context"
+	omsV1 "github.com/feihua/kratos-mall/api/oms/v1"
+	payV1 "github.com/feihua/kratos-mall/api/pay/v1"
+	pmsV1 "github.com/feihua/kratos-mall/api/pms/v1"
+	smsV1 "github.com/feihua/kratos-mall/api/sms/v1"
+	sysV1 "github.com/feihua/kratos-mall/api/sys/v1"
+	umsV1 "github.com/feihua/kratos-mall/api/ums/v1"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/conf"
 	consul "github.com/go-kratos/consul/registry"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
@@ -9,13 +16,6 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"github.com/google/wire"
 	consulAPI "github.com/hashicorp/consul/api"
-	omsV1 "kratos-mall/api/oms/v1"
-	payV1 "kratos-mall/api/pay/v1"
-	pmsV1 "kratos-mall/api/pms/v1"
-	smsV1 "kratos-mall/api/sms/v1"
-	sysV1 "kratos-mall/api/sys/v1"
-	umsV1 "kratos-mall/api/ums/v1"
-	"kratos-mall/app/front/admin/internal/conf"
 )
 
 // ProviderSet is data providers.

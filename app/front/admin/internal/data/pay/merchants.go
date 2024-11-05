@@ -2,9 +2,9 @@ package pay
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/pay"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/data"
 	"github.com/go-kratos/kratos/v2/log"
-	"kratos-mall/app/front/admin/internal/biz/pay"
-	"kratos-mall/app/front/admin/internal/data"
 )
 
 type merchantRepo struct {

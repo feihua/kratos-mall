@@ -3,8 +3,8 @@ package data
 import (
 	"context"
 	"fmt"
+	"github.com/feihua/kratos-mall/app/ums/internal/biz"
 	"github.com/go-kratos/kratos/v2/log"
-	"kratos-mall/app/ums/internal/biz"
 	"time"
 )
 

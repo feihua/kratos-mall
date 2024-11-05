@@ -2,9 +2,9 @@ package service
 
 import (
 	"context"
+	v1 "github.com/feihua/kratos-mall/api/front/admin/v1"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz"
 	"github.com/go-kratos/kratos/v2/log"
-	v1 "kratos-mall/api/front/admin/v1"
-	"kratos-mall/app/front/admin/internal/biz"
 )
 
 type GreeterService struct {

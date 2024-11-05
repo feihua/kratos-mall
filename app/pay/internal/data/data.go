@@ -1,12 +1,12 @@
 package data
 
 import (
+	"github.com/feihua/kratos-mall/app/pay/internal/conf"
 	"github.com/go-kratos/kratos/v2/log"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/google/wire"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"kratos-mall/app/pay/internal/conf"
 )
 
 // ProviderSet is data providers.

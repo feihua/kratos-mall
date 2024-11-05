@@ -2,11 +2,11 @@ package sys
 
 import (
 	"context"
+	sysV1 "github.com/feihua/kratos-mall/api/sys/v1"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/sys"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/data"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
-	sysV1 "kratos-mall/api/sys/v1"
-	"kratos-mall/app/front/admin/internal/biz/sys"
-	"kratos-mall/app/front/admin/internal/data"
 )
 
 type roleRepo struct {

@@ -2,11 +2,11 @@ package service
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/sys"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
-	"kratos-mall/app/front/admin/internal/biz/sys"
 
-	pb "kratos-mall/api/front/admin/v1"
+	pb "github.com/feihua/kratos-mall/api/front/admin/v1"
 )
 
 type SysService struct {

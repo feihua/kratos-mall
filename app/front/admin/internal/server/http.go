@@ -3,6 +3,10 @@ package server
 import (
 	"context"
 	"fmt"
+	v1 "github.com/feihua/kratos-mall/api/front/admin/v1"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/conf"
+	jwt "github.com/feihua/kratos-mall/app/front/admin/internal/pkg/middleware"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/service"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
@@ -11,10 +15,6 @@ import (
 	"github.com/go-kratos/kratos/v2/transport"
 	"github.com/go-kratos/kratos/v2/transport/http"
 	"github.com/go-kratos/swagger-api/openapiv2"
-	v1 "kratos-mall/api/front/admin/v1"
-	"kratos-mall/app/front/admin/internal/conf"
-	jwt "kratos-mall/app/front/admin/internal/pkg/middleware"
-	"kratos-mall/app/front/admin/internal/service"
 )
 
 func getOperation(handler middleware.Handler) middleware.Handler {
@@ -27,7 +27,7 @@ func getOperation(handler middleware.Handler) middleware.Handler {
 }
 
 func MyMatchFunc(ctx context.Context, operation string) bool {
-	return true
+	return false
 }
 
 // NewHTTPServer new a HTTP server.

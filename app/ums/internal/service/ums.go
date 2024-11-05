@@ -2,11 +2,11 @@ package service
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/ums/internal/biz"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
-	"kratos-mall/app/ums/internal/biz"
 
-	pb "kratos-mall/api/ums/v1"
+	pb "github.com/feihua/kratos-mall/api/ums/v1"
 )
 
 type UmsService struct {

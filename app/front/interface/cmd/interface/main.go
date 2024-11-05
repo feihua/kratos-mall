@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
+	"github.com/feihua/kratos-mall/app/front/interface/internal/conf"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/http"
-	"kratos-mall/app/front/interface/internal/conf"
 	"os"
 
 	"github.com/go-kratos/kratos/v2"

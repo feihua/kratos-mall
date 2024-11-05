@@ -2,10 +2,10 @@ package data
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/sys/internal/biz"
+	"github.com/feihua/kratos-mall/app/sys/internal/data/model"
+	"github.com/feihua/kratos-mall/pkg/util/pagination"
 	"github.com/go-kratos/kratos/v2/log"
-	"kratos-mall/app/sys/internal/biz"
-	"kratos-mall/app/sys/internal/data/model"
-	"kratos-mall/pkg/util/pagination"
 )
 
 type logRepo struct {

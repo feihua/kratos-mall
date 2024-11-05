@@ -1,13 +1,13 @@
 package biz
 
 import (
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/oms"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/pay"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/pms"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/sms"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/sys"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/ums"
 	"github.com/google/wire"
-	"kratos-mall/app/front/admin/internal/biz/oms"
-	"kratos-mall/app/front/admin/internal/biz/pay"
-	"kratos-mall/app/front/admin/internal/biz/pms"
-	"kratos-mall/app/front/admin/internal/biz/sms"
-	"kratos-mall/app/front/admin/internal/biz/sys"
-	"kratos-mall/app/front/admin/internal/biz/ums"
 )
 
 // ProviderSet is biz providers.

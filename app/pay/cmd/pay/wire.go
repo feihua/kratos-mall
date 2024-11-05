@@ -1,3 +1,4 @@
+//go:build wireinject
 // +build wireinject
 
 // The build tag makes sure the stub is not built in the final build.
@@ -5,14 +6,14 @@
 package main
 
 import (
+	"github.com/feihua/kratos-mall/app/pay/internal/biz"
+	"github.com/feihua/kratos-mall/app/pay/internal/conf"
+	"github.com/feihua/kratos-mall/app/pay/internal/data"
+	"github.com/feihua/kratos-mall/app/pay/internal/server"
+	"github.com/feihua/kratos-mall/app/pay/internal/service"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/google/wire"
-	"kratos-mall/app/pay/internal/biz"
-	"kratos-mall/app/pay/internal/conf"
-	"kratos-mall/app/pay/internal/data"
-	"kratos-mall/app/pay/internal/server"
-	"kratos-mall/app/pay/internal/service"
 )
 
 // initApp init kratos application.

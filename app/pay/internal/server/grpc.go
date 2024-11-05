@@ -1,13 +1,13 @@
 package server
 
 import (
+	v1 "github.com/feihua/kratos-mall/api/pay/v1"
+	"github.com/feihua/kratos-mall/app/pay/internal/conf"
+	"github.com/feihua/kratos-mall/app/pay/internal/service"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
-	v1 "kratos-mall/api/pay/v1"
-	"kratos-mall/app/pay/internal/conf"
-	"kratos-mall/app/pay/internal/service"
 )
 
 // NewGRPCServer new a gRPC server.

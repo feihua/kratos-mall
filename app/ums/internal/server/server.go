@@ -1,11 +1,11 @@
 package server
 
 import (
+	"github.com/feihua/kratos-mall/app/ums/internal/conf"
 	consul "github.com/go-kratos/consul/registry"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/google/wire"
 	consulAPI "github.com/hashicorp/consul/api"
-	"kratos-mall/app/ums/internal/conf"
 )
 
 // ProviderSet is server providers.

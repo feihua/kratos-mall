@@ -2,11 +2,11 @@ package service
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/pay"
 	"github.com/go-kratos/kratos/v2/log"
-	"kratos-mall/app/front/admin/internal/biz"
-	"kratos-mall/app/front/admin/internal/biz/pay"
 
-	pb "kratos-mall/api/front/admin/v1"
+	pb "github.com/feihua/kratos-mall/api/front/admin/v1"
 )
 
 type PayService struct {

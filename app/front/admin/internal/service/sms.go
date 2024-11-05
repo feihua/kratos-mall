@@ -2,12 +2,12 @@ package service
 
 import (
 	"context"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz"
+	"github.com/feihua/kratos-mall/app/front/admin/internal/biz/sms"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/jinzhu/copier"
-	"kratos-mall/app/front/admin/internal/biz"
-	"kratos-mall/app/front/admin/internal/biz/sms"
 
-	pb "kratos-mall/api/front/admin/v1"
+	pb "github.com/feihua/kratos-mall/api/front/admin/v1"
 )
 
 type SmsService struct {

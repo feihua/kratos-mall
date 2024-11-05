@@ -1,4 +1,4 @@
-module kratos-mall
+module github.com/feihua/kratos-mall
 
 go 1.23
 

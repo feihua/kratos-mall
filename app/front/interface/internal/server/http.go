@@ -1,12 +1,12 @@
 package server
 
 import (
+	v1 "github.com/feihua/kratos-mall/api/front/interface/v1"
+	"github.com/feihua/kratos-mall/app/front/interface/internal/conf"
+	"github.com/feihua/kratos-mall/app/front/interface/internal/service"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/http"
-	v1 "kratos-mall/api/front/interface/v1"
-	"kratos-mall/app/front/interface/internal/conf"
-	"kratos-mall/app/front/interface/internal/service"
 )
 
 // NewHTTPServer new a HTTP server.

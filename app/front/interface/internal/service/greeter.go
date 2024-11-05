@@ -2,10 +2,10 @@ package service
 
 import (
 	"context"
-	"kratos-mall/app/front/interface/internal/biz"
+	"github.com/feihua/kratos-mall/app/front/interface/internal/biz"
 
+	v1 "github.com/feihua/kratos-mall/api/front/interface/v1"
 	"github.com/go-kratos/kratos/v2/log"
-	v1 "kratos-mall/api/front/interface/v1"
 )
 
 // GreeterService is a greeter service.
