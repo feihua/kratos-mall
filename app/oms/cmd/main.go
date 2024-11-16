@@ -5,7 +5,11 @@ import (
 	"github.com/feihua/kratos-mall/app/oms/internal/conf"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
 	"github.com/go-kratos/kratos/v2/registry"
+	"gopkg.in/natefinch/lumberjack.v2"
+	"io"
 	"os"
+	"path"
+	"time"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
@@ -46,7 +50,7 @@ func newApp(logger log.Logger, gs *grpc.Server, rr registry.Registrar) *kratos.A
 
 func main() {
 	flag.Parse()
-	logger := log.With(log.NewStdLogger(os.Stdout),
+	logger := log.With(log.NewStdLogger(initLog()),
 		"ts", log.DefaultTimestamp,
 		"caller", log.DefaultCaller,
 		"service.id", id,
@@ -81,7 +85,32 @@ func main() {
 	defer cleanup()
 
 	// start and wait for stop signal
-	if err := app.Run(); err != nil {
+	if err = app.Run(); err != nil {
 		panic(err)
 	}
+}
+
+func initLog() io.Writer {
+	logFilePath := "./logs/oms"
+	if err := os.MkdirAll(logFilePath, 0o777); err != nil {
+		panic(err)
+	}
+
+	logFileName := time.Now().Format("2006-01-02") + ".log"
+	fileName := path.Join(logFilePath, logFileName)
+	if _, err := os.Stat(fileName); err != nil {
+		if _, err = os.Create(fileName); err != nil {
+			panic(err)
+		}
+	}
+
+	fileWriter := &lumberjack.Logger{
+		Filename:   fileName,
+		MaxSize:    10,
+		MaxBackups: 30,
+		MaxAge:     30,
+		Compress:   true,
+	}
+
+	return io.MultiWriter(fileWriter, os.Stdout)
 }

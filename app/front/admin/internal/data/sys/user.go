@@ -29,6 +29,7 @@ func (r *userRepo) Login(ctx context.Context, g *sys.LoginDTO) (*sys.LoginRespDT
 		Password: g.Password,
 	})
 
+	r.log.WithContext(ctx).Info("Login")
 	token, _ := jwt.GenerateToken(login.Id, login.UserName)
 
 	return &sys.LoginRespDTO{
