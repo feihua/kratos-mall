@@ -3,7 +3,7 @@
     <module name="kratos-mall" />
     <working_directory value="$PROJECT_DIR$" />
     <kind value="PACKAGE" />
-    <package value="github.com/feihua/kratos-mall/app/sys/cmd/sys" />
+    <package value="github.com/feihua/kratos-mall/app/sys/cmd" />
     <directory value="$PROJECT_DIR$" />
     <filePath value="$PROJECT_DIR$/app/sys/cmd/sys/main.go" />
     <method v="2" />
